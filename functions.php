@@ -7,14 +7,16 @@
 
 namespace jcore;
 
+use Jcore\Ydin\Bootstrap;
+use Jcore\Ydin\Settings\Customizer;
+use Jcore\Ydin\WordPress\Assets;
+use Timber;
+
 const AUTOLOADER_PATH = ABSPATH . '/vendor/autoload.php';
 if ( file_exists( AUTOLOADER_PATH ) ) {
 	require_once AUTOLOADER_PATH;
 }
 
-if ( class_exists( '\Timber\Timber' ) ) {
-	new \Timber\Timber();
-}
 if ( function_exists( '\Sentry\init' ) && defined( 'SENTRY_DSN' ) && ! defined( 'JCORE_IS_LOCAL' ) ) {
 	\Sentry\init( array( 'dsn' => SENTRY_DSN ) );
 }
@@ -71,42 +73,6 @@ add_filter( 'theme_page_templates', 'jcore\exclude_template_learndash_content' )
 
 /*-----  End of Hook Library  ------*/
 
-// Class autoloader.
-spl_autoload_register(
-	function ( $class_name ) {
-		if ( str_starts_with( $class_name, 'jcoreBlocks\\' ) ) {
-			/**
-			 * Filters the list of block folders to be scanned for the blocks.
-			 *
-			 * @param array $dirs An array of directories to scan.
-			 */
-			$dirs = apply_filters(
-				'jcore_blocks_folders',
-				array(
-					get_stylesheet_directory() . '/blocks/',
-					get_template_directory() . '/blocks/',
-				)
-			);
-			$path = 'class-' . str_replace( '_', '-', strtolower( substr( $class_name, strrpos( $class_name, '\\' ) + 1 ) ) ) . '.php';
-			foreach ( $dirs as $dir ) {
-				$filename = $dir . $path;
-				if ( file_exists( $filename ) ) {
-					include_once $filename;
-					break;
-				}
-			}
-		}
-		if ( str_starts_with( $class_name, 'jcore\\' ) ) {
-			$path = '/classes/class-' . str_replace( '_', '-', strtolower( substr( $class_name, strrpos( $class_name, '\\' ) + 1 ) ) ) . '.php';
-			if ( file_exists( get_stylesheet_directory() . $path ) ) {
-				include get_stylesheet_directory() . $path;
-			} elseif ( file_exists( get_template_directory() . $path ) ) {
-				include get_template_directory() . $path;
-			}
-		}
-	}
-);
-
 // Timber functions.
 require_once 'includes/timber.php';
 
@@ -143,9 +109,7 @@ require_once 'includes/vue-functions.php';
 // WooCommerce Functions.
 require_once 'includes/woo-functions.php';
 
-Customizer::init();
-Settings::init();
-Security::init();
+Bootstrap::init();
 
 /**
  * Disable Comments functionality if not enabled in customizer.
@@ -348,10 +312,6 @@ function setup() {
 	}
 
 	load_jcore_textdomain();
-
-	if ( VUE_SETTINGS['enabled'] ) {
-		get_vue_apps();
-	}
 }
 /**
  * Translation Support.
@@ -364,27 +324,6 @@ function load_jcore_textdomain(): void {
 	}
 	load_theme_textdomain( 'jcore', get_template_directory() . '/languages' );
 }
-
-/**
- * Initialize jcore_settings.
- *
- * @return void
- */
-function initialize_jcore_settings() {
-
-	/*
-	foreach ( $GLOBALS['jcore_settings']->imageSizes as $size ) {
-		if ( $size['new'] ) {
-			add_image_size( $size['name'], absint( $size['width'] ), absint( $size['height'] ), $size['crop'] );
-		} else {
-			update_option( $size['name'] . '_size_w', absint( $size['width'] ) );
-			update_option( $size['name'] . '_size_h', absint( $size['height'] ) );
-			update_option( $size['name'] . '_crop', $size['crop'] ? 1 : 0 );
-		}
-	}
-	*/
-}
-
 
 /**
  * Add ACF fields.
@@ -435,17 +374,17 @@ function init() {
 function custom_body_open() {
 	// TODO Fix.
 	if ( Settings::get( 'keys', 'google_tag_manager' ) ) {
-		\Timber::render( 'partials/google-tag-manager-noscript.twig', array( 'tag_manager' => trim( Settings::get( 'keys', 'google_tag_manager' ) ) ) );
+		Timber::render( 'partials/google-tag-manager-noscript.twig', array( 'tag_manager' => trim( Settings::get( 'keys', 'google_tag_manager' ) ) ) );
 	}
 }
 
 function custom_head() {
 	// TODO custom head.
 	if ( Settings::get( 'keys', 'google_tag_manager' ) ) {
-		\Timber::render( 'partials/google-tag-manager.twig', array( 'tag_manager' => trim( Settings::get( 'keys', 'google_tag_manager' ) ) ) );
+		Timber::render( 'partials/google-tag-manager.twig', array( 'tag_manager' => trim( Settings::get( 'keys', 'google_tag_manager' ) ) ) );
 	}
 	if ( Settings::get( 'keys', 'google_analytics' ) ) {
-		\Timber::render( 'partials/google-analytics.twig', array( 'analytics' => trim( Settings::get( 'keys', 'google_analytics' ) ) ) );
+		Timber::render( 'partials/google-analytics.twig', array( 'analytics' => trim( Settings::get( 'keys', 'google_analytics' ) ) ) );
 	}
 }
 
@@ -516,12 +455,12 @@ function get_logo( string $html ) {
 }
 
 function scripts() {
-	style_register( 'font-awesome', '/vendor/fontawesome-pro-6.4.2-web/css/all.min.css', array(), '6.4.2' );
-	style_register( 'swiper', '/vendor/swiper-8.6.4/swiper-bundle.css', array(), '8.6.4' );
-	script_register( 'swiper', '/vendor/swiper-8.6.4/swiper-bundle.js', array(), '8.6.4' );
-	script_register( 'wp-gallery-lightbox', '/dist/js/wp-gallery.lightbox.js', array(), '1.0.0' );
-	script_register( 'popper', '/dist/js/popper.js', array(), '1.0.0' );
-	script_register(
+	Assets::style_register( 'font-awesome', '/vendor/fontawesome-pro-6.4.2-web/css/all.min.css', array(), '6.4.2' );
+	Assets::style_register( 'swiper', '/vendor/swiper-8.6.4/swiper-bundle.css', array(), '8.6.4' );
+	Assets::script_register( 'swiper', '/vendor/swiper-8.6.4/swiper-bundle.js', array(), '8.6.4' );
+	Assets::script_register( 'wp-gallery-lightbox', '/dist/js/wp-gallery.lightbox.js', array(), '1.0.0' );
+	Assets::script_register( 'popper', '/dist/js/popper.js', array(), '1.0.0' );
+	Assets::script_register(
 		'bootstrap',
 		'/dist/js/bootstrap.js',
 		array(
@@ -530,10 +469,10 @@ function scripts() {
 		'5.2.2',
 	);
 
-	script_register( 'jUtils', '/dist/js/jUtils.js' );
-	script_register( 'fontSize', '/dist/js/fontSize.js' );
-	script_register( 'share', '/js/share.js' );
-	script_register(
+	Assets::script_register( 'jUtils', '/dist/js/jUtils.js' );
+	Assets::script_register( 'fontSize', '/dist/js/fontSize.js' );
+	Assets::script_register( 'share', '/js/share.js' );
+	Assets::script_register(
 		'jcore',
 		'/dist/js/jcore.js',
 		array(
@@ -543,7 +482,7 @@ function scripts() {
 			'share',
 		)
 	);
-	script_register(
+	Assets::script_register(
 		'alpine',
 		'/vendor/alpine/alpine.min.js',
 		array(),
@@ -553,7 +492,7 @@ function scripts() {
 		)
 	);
 
-	style_register(
+	Assets::style_register(
 		'theme',
 		'/dist/css/theme.css',
 		array(
@@ -562,7 +501,6 @@ function scripts() {
 		)
 	);
 
-	get_vue_scripts( '/' );
 	wp_enqueue_style( 'theme' );
 
 	wp_enqueue_script( 'jcore' );
@@ -577,18 +515,18 @@ function scripts() {
 }
 
 function block_editor_scripts() {
-	script_register( 'lightbox-gallery-filters', '/dist/js/lightbox-filters.js', array( 'wp-edit-post' ) );
+	Assets::script_register( 'lightbox-gallery-filters', '/dist/js/lightbox-filters.js', array( 'wp-edit-post' ) );
 	wp_enqueue_script( 'lightbox-gallery-filters' );
 }
 
 function admin_scripts( $hook ) {
-	style_register( 'jcore-admin-style', '/dist/css/admin.css', array(), '' );
+	Assets::style_register( 'jcore-admin-style', '/dist/css/admin.css', array(), '' );
 	wp_enqueue_style( 'jcore-admin-style' );
 	wp_add_inline_style( 'jcore-admin-style', Customizer::get_admin_styles() );
 }
 
 function login_scripts( $hook ) {
-	style_register( 'jcore-login-style', '/dist/css/wplogin.css', array(), '' );
+	Assets::style_register( 'jcore-login-style', '/dist/css/wplogin.css', array(), '' );
 	wp_enqueue_style( 'jcore-login-style' );
 	wp_add_inline_style( 'jcore-login-style', Customizer::get_styles() );
 }
@@ -617,7 +555,7 @@ function get_children() {
 			'order'       => 'ASC',
 		);
 
-		return \Timber::get_posts( $args );
+		return Timber::get_posts( $args );
 	}
 }
 
