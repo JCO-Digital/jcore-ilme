@@ -1,0 +1,9 @@
+{
+  "phpcs.standard": "WordPress",
+  "[php]": {
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": false
+  },
+  "intelephense.format.enable": false
+}

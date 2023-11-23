@@ -1,0 +1,90 @@
+{% set instagram_new = false %}
+{% set linkedin_new = false %}
+{% set youtube_new = false %}
+<div class="social-media-links">
+    {% if yoast.facebook_site is not empty %}
+        <a href="{{ yoast.facebook_site }}" target="_blank">
+            <span class="fa-stack fa-lg" alt="facebook">
+                <i class="has-{{ customizer('footer','social_media_color') }}-color fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="sr-only">Facebook</span>
+        </a>
+    {% endif %}
+
+    {% if yoast.twitter_site is not empty %}
+        <a href="https://twitter.com/{{ yoast.twitter_site }}" target="_blank">
+            <span class="fa-stack fa-lg" alt="twitter">
+                <i class="has-{{ customizer('footer','social_media_color') }}-color fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="sr-only">Twitter</span>
+        </a>
+    {% endif %}
+
+    {% if yoast.other_social_urls %}
+        {% for url in yoast.other_social_urls %}
+            {% if 'instagram.com' in url %}
+                {% set instagram_new = true %}
+                <a href="{{ url }}" target="_blank">
+                <span class="fa-stack fa-lg" alt="instagram">
+                    <i class="has-{{ customizer('footer','social_media_color') }}-color fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+                    <span class="sr-only">Instagram</span>
+                </a>
+            {% endif %}
+            {% if 'linkedin.com' in url %}
+                {% set linkedin_new = true %}
+                <a href="{{ url }}" target="_blank">
+                <span class="fa-stack fa-lg" alt="linkedin">
+                    <i class="has-{{ customizer('footer','social_media_color') }}-color fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+                    <span class="sr-only">Linkedin</span>
+                </a>
+            {% endif %}
+            {% if 'youtube.com' in url %}
+                {% set youtube_new = true %}
+                <a href="{{ url }}" target="_blank">
+                <span class="fa-stack fa-lg" alt="youtube">
+                    <i class="has-{{ customizer('footer','social_media_color') }}-color fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                </span>
+                    <span class="sr-only">YouTube</span>
+                </a>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% if yoast.instagram_url is not empty and not instagram_new %}
+        <a href="{{ yoast.instagram_url }}" target="_blank">
+            <span class="fa-stack fa-lg" alt="instagram">
+                <i class="has-{{ customizer('footer','social_media_color') }}-color fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="sr-only">Instagram</span>
+        </a>
+    {% endif %}
+
+    {% if yoast.linkedin_url is not empty and not linkedin_new %}
+        <a href="{{ yoast.linkedin_url }}" target="_blank">
+            <span class="fa-stack fa-lg" alt="linkedin">
+                <i class="has-{{ customizer('footer','social_media_color') }}-color fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="sr-only">Linkedin</span>
+        </a>
+    {% endif %}
+
+    {% if yoast.youtube_url is not empty and not youtube_new %}
+        <a href="{{ yoast.youtube_url }}" target="_blank">
+            <span class="fa-stack fa-lg" alt="youtube">
+                <i class="has-{{ customizer('footer','social_media_color') }}-color fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="sr-only">YouTube</span>
+        </a>
+    {% endif %}
+</div>
+

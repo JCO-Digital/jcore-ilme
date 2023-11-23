@@ -1,0 +1,42 @@
+{% if pagination.pages is not empty %}
+    <nav class="pagination-block">
+        <section class="start">
+            {# first #}
+            <div class="btn page-numbers first{% if not pagination.prev %} disabled{% endif %}">
+                <a{% if pagination.prev %} href="{{ pagination.pages|first.link }}"{% endif %}>
+                    <i class="fas fa-angle-double-left"></i>
+                </a>
+            </div>
+            {# prev #}
+            <div class="btn page-numbers prev{% if not pagination.prev %} disabled{% endif %} ">
+                <a{% if pagination.prev %} href="{{ pagination.prev.link }}"{% endif %}>
+                    <i class="fas fa-angle-left"></i>
+                </a>
+            </div>
+        </section>
+        <section class="numbers">
+            {# page nr #}
+            {% for page in pagination.pages %}
+                <div class="{{ page.class }}">
+                    <a{% if page.link %} href="{{ page.link }}"{% endif %}>
+                        &nbsp;{{ page.title }}&nbsp;
+                    </a>
+                </div>
+            {% endfor %}
+        </section>
+        <section class="end">
+            {# next #}
+            <div class="btn page-numbers next {% if not pagination.next %} disabled{% endif %}">
+                <a{% if pagination.next %} href="{{ pagination.next.link }}"{% endif %}>
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            </div>
+            {# last #}
+            <div class="btn page-numbers last{% if not pagination.next %} disabled{% endif %}">
+                <a{% if pagination.next %} href="{{ pagination.pages|last.link }}"{% endif %}>
+                    <i class="fas fa-angle-double-right"></i>
+                </a>
+            </div>
+        </section>
+    </nav>
+{% endif %}

@@ -1,0 +1,3 @@
+<article class="{{ post | tease_class(nr) }}" id="tease-{{ post.ID }}">
+    {% include ['partials/tease-'~post.post_type~'.twig', 'partials/tease-content.twig'] %}
+</article>

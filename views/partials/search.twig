@@ -1,0 +1,10 @@
+<div id="menu-searchbar" class="searchbar-container container-fluid hidden {% if customizer('navigation_desktop','scroll') or customizer('navigation_desktop','sticky') %}sticky-search{% endif %}">
+    <div class="container">
+        <form role="search" method="get" id="searchform" class="searchform" action="{{ home }}">
+            <label class="screen-reader-text sr-only" for="s">{{ __('Search for','jcore') }}:</label>
+            <input value="{{ function('get_search_query') }}" name="s" id="s" type="search"
+                   placeholder="{{ __('Search for','jcore') }}" aria-label="Search">
+            <button class="btn" type="submit" value="Search">{{ __('Search','jcore') }}</button>
+        </form>
+    </div>
+</div>

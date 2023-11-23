@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ language }}">
+<head>
+    {# There are very few reasons to override this file. There's probably a better way to do whatever you are planning. #}
+    {% block head %}
+        <meta charset="{{ site.charset }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="pingback" href="{{ site.pingback_url }}">
+        {% if schema %}<script type="application/ld+json" class="jcore-schema-graph">{{ schema|json_encode() }}</script>{% endif %}
+        {{ function('wp_head') }}
+        {% block head_custom %}
+            {# If you need to add custom code to the head, create this file in the child theme. #}
+            {{ include('partials/head_custom.twig', ignore_missing = true) }}
+        {% endblock %}
+    {% endblock %}
+</head>
+<body id="jcore-body"
+      class="{{ body_class }}" {% if customizer('site','background_image') %} style="background-image: url({{ TimberImage(customizer('site','background_image')).src }})"{% endif %} >
+{{ function('wp_body_open') }}

@@ -1,0 +1,37 @@
+<div class="social-media-share">
+    <a href="https://www.facebook.com/sharer.php?u={{ post.link }}" target="_blank">
+        <span class="fa-stack fa" alt="facebook share">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="sr-only">{{ __('Share on Facebook','jcore') }}</span>
+    </a>
+    <a href="https://www.linkedin.com/shareArticle?url={{ post.link }}" target="_blank">
+        <span class="fa-stack fa" alt="LinkedIn share">
+             <i class="fas fa-circle fa-stack-2x"></i>
+             <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="sr-only">{{ __('Share on LinkedIn','jcore') }}</span>
+     </a>
+    <a href="https://twitter.com/share?url={{ post.link }}" target="_blank">
+        <span class="fa-stack fa" alt="twitter share">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="sr-only">{{ __('Share on Twitter','jcore') }}</span>
+    </a>
+    <a href="https://api.whatsapp.com/send?text={{ post.link }}" target="_blank">
+        <span class="fa-stack fa" alt="whatsapp share">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-whatsapp fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="sr-only">{{ __('Share on WhatsApp','jcore') }}</span>
+    </a>
+    <a href="mailto:?subject={{ post.title }}&amp;body={{ post.link }}" target="_blank">
+        <span class="fa-stack fa" alt="email share">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="sr-only">{{ __('Share on Email','jcore') }}</span>
+    </a>
+</div>

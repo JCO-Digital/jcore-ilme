@@ -1,0 +1,12 @@
+<div class="top-bar">
+    <div class="top-bar-content">
+        <ul id="top-menu" class="menu top-menu">
+            {% for item in menu.secondary.get_items %}
+                <li class="{{ item.class }}" data-title="{{ item.title }}">
+                    <a class="menu-link {% if item.current %}current-{{ customizer('navigation_desktop','font_hover_selected_color') }}-color {% else %}has-{{ customizer('navigation_desktop','font_color') }}-color {% endif %}hover-{{ customizer('navigation_desktop','font_hover_selected_color') }}-color"
+                       href="{{ item.link }}" target="{{ item.target }}">{{ item.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
