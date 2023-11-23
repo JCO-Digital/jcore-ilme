@@ -1,0 +1,76 @@
+// Bootstrap grayscale colors from bs/scss/_variables.css
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+
+// Bootstrap Named color defaults  from bs/scss/_variables.css + additional grays.
+// Should just be left as they are, unless for ex. you use  lots of colors in your project, that matches these names.
+$blue: #007bff;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #f55061;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #28a745;
+$teal: #20c997;
+$cyan: #17a2b8;
+$gray: $gray-600;
+$gray-light: $gray-300;
+$gray-dark: $gray-800;
+
+//These can be used in scss as color: var(--bs-blue);
+$colors: (
+        "blue": $blue,
+        "indigo": $indigo,
+        "purple": $purple,
+        "pink": $pink,
+        "red": $red,
+        "orange": $orange,
+        "yellow": $yellow,
+        "green": $green,
+        "teal": $teal,
+        "cyan": $cyan,
+        "white": $white,
+        "black": $black,
+        "gray": $gray,
+        "gray-light": $gray-light,
+        "gray-dark": $gray-dark,
+);
+
+// Bootstrap / jcore theme colors
+$primary: $gray-600;
+$secondary: $gray-light;
+$highlight: $gray-500;
+$success: #9fdce4;
+$info: #a5c37c;
+$warning: #faba7e;
+$danger: #b34848;
+$light: #f0f0f0;
+$dark: $gray-dark;
+
+// These are the colors that show up in WP backend, Gutenberg colors.
+// More colors can be added as needed here
+$theme-colors: (
+        "primary": $primary,
+        "secondary": $secondary,
+        "highlight": $highlight,
+        "light": $light,
+        "dark": $dark,
+        "success": $success,
+        "info": $info,
+        "warning": $warning,
+        "danger": $danger,
+);
+
+// $colors = blue,indigo,purple etc bootstrap colors and
+// $theme-colors below should be called in other .scss-files like this:
+// color: var(--bs-light);

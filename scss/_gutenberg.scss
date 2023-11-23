@@ -1,0 +1,180 @@
+// Gutenberg styles
+
+// Add missing styles here for default gutenberg blocks.
+//Gutenberg Button-styles are included  in child theme _buttons.scss for clarity as they depend on theme mixin settings
+
+//SPACERS  .widepacer is 48px on mobile and 5.5rem on desktop.
+// .narrowspacer is 32px on mobile and 3rem on desktop.
+.wp-block-spacer {
+  &.widespacer,
+  &.herospacer {
+    @include media-breakpoint-up(lg) {
+      padding-bottom: $spacer * 5.5;
+    }
+  }
+  &.narrowspacer,
+  &.internal {
+    @include media-breakpoint-up(lg) {
+      padding-bottom: $spacer * 3;
+    }
+  }
+}
+
+//Gutenberg pullquote and blockquote
+.wp-block-pullquote {
+  padding: 0;
+  border-top: solid var(--bs-primary) 2px;
+  border-bottom: solid var(--bs-primary) 2px;
+
+  blockquote {
+    border-left: none;
+
+    p {
+      font-size: $font-size-lg;
+      line-height: $font-height-base;
+    }
+  }
+}
+
+// Blockquote
+blockquote {
+  border: none;
+  margin-left: $spacer * 5;
+  p {
+    font-size: $font-size-base * 1.3;
+    font-style: oblique;
+    margin-bottom: 0.5rem !important;
+    &:first-of-type:before {
+      font-size: 2rem;
+      color: var(--bs-primary);
+      content: '\f10e';
+      font-family: 'Font Awesome 6 Pro';
+      font-weight: 900;
+      position: absolute;
+      left: -3.5rem;
+      @include media-breakpoint-up(md) {
+        left: -4rem;
+      }
+    }
+    &:last-of-type:after {
+      content: '';
+    }
+  }
+  cite {
+    font-style: normal !important;
+    font-weight: bold !important;
+  }
+  >* {
+    margin-left: $spacer * 4;
+    @include media-breakpoint-up(md) {
+      margin-left: $spacer * 6;
+    }
+    position: relative;
+  }
+}
+
+// Ingress
+
+.ingress {
+  font-size: 1.125rem;
+  font-weight: bold;
+  font-style: oblique;
+}
+
+// Media and images
+
+.wp-block-image {
+  min-height: 1px; // IE fix for flex-column
+}
+
+.wp-block-media-text {
+  .wp-block-media-text__content {
+    // remove the default 7% horizontal padding
+    padding: 0;
+  }
+}
+
+// Gallery
+
+.blocks-gallery-grid, .wp-block-gallery {
+  .blocks-gallery-image, .blocks-gallery-item {
+    figcaption {
+      padding: 1em 0.7em .77em;
+      font-weight: 400;
+    }
+  }
+}
+
+// Wrapper to show videos embedded with Gutenberg responsively
+// Works out of the box for YouTube videos. Add videowrapper class to work with any embedded iframe
+.wp-block-embed-youtube,
+.videowrapper {
+  .wp-block-embed__wrapper {
+    aspect-ratio: 16/9;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+/**
+ * Columns breakpoints, comments are preserved from gutenberg styles
+ */
+
+.wp-block-columns {
+  @include media-breakpoint-up(md) {
+    flex-wrap: nowrap;
+  }
+}
+
+.wp-block-column {
+  @media (max-width: #{ (map-get($grid-breakpoints, "sm") - 1) }) {
+    // Responsiveness: Show at most one columns on mobile. This must be
+    // important since the Column assigns its own width as an inline style.
+    flex-basis: 100% !important;
+  }
+
+  // Between mobile and large viewports, allow 2 columns.
+  @media (min-width: #{ map-get($grid-breakpoints, "sm") }) and (max-width: #{ (map-get($grid-breakpoints, "md") - 1) }) {
+    // Only add two column styling if there are two or more columns
+    &:not(:only-child) {
+      // As with mobile styles, this must be important since the Column
+      // assigns its own width as an inline style, which should take effect
+      // starting at `break-medium`.
+      flex-basis: calc(50% - 1em) !important;
+      flex-grow: 0;
+    }
+
+    // Add space between the multiple columns. Themes can customize this if they wish to work differently.
+    // Only apply this beyond the mobile breakpoint, as there's only a single column on mobile.
+    &:nth-child(even) {
+      margin-left: 2em;
+    }
+  }
+
+  // At large viewports, show all columns horizontally.
+  @include media-breakpoint-up(md) {
+    // Available space should be divided equally amongst columns without an
+    // assigned width. This is achieved by assigning a flex basis that is
+    // consistent (equal), would not cause the sum total of column widths to
+    // exceed 100%, and which would cede to a column with an assigned width.
+    // The `flex-grow` allows columns to maximally and equally occupy space
+    // remaining after subtracting the space occupied by columns with
+    // explicit widths (if any exist).
+    flex-basis: 0;
+    flex-grow: 1;
+
+    // Columns with an explicitly-assigned width should maintain their
+    // `flex-basis` width and not grow.
+    &[style*="flex-basis"] {
+      flex-grow: 0;
+    }
+
+    // When columns are in a single row, add space before all except the first.
+    &:not(:first-child) {
+      margin-left: 2em;
+    }
+  }
+}

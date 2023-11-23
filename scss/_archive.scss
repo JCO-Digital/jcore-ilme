@@ -1,0 +1,108 @@
+// Pagination
+.pagination-block {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: baseline;
+
+  > * {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: row;
+  }
+
+  .page-numbers {
+    margin: 0 $spacer;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .btn {
+    padding: 0;
+
+    &.disabled {
+      i {
+        opacity: 0.5;
+      }
+    }
+
+    a {
+      padding: 0.75rem 1.5rem;
+      display: block;
+    }
+  }
+
+  .page-number {
+    font-size: 1.5em;
+    padding: $spacer * .5;
+
+    &.current {
+      background: var(--bs-dark);
+      color: var(--bs-light);
+      font-weight: 700;
+    }
+  }
+}
+
+.dynamic-archive-pagination {
+  text-align: center;
+}
+
+
+.dynamic-archive-filters {
+
+  padding-bottom: 1.5rem;
+
+  .filter-elements {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    > * {
+      flex: 0 0 auto;
+      margin: $spacer;
+    }
+  }
+
+}
+
+// Archive posts use CSS grid.
+.archive-posts {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr;
+
+  &.columns-2, &.columns-3, &.columns-4 {
+    @include media-breakpoint-up(md) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &.columns-3 {
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  &.columns-4 {
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+
+}
+
+// Masonry grid styles.
+.masonry-grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 20px;
+
+  > * {
+    width: auto !important;
+    grid-row-end: span 20; // Somewhat sane default.
+  }
+}

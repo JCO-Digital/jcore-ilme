@@ -1,0 +1,86 @@
+/*
+ * Main column width
+ * This changes it from the default 580px to BOOTSTRAP
+ */
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/maps";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+@import "../../../../node_modules/bootstrap/scss/utilities";
+@import "../../../../node_modules/bootstrap/scss/grid";
+
+.is-root-container {
+  > .wp-block {
+    // Root elements defaults to wide, like on front-end.
+    max-width: 1140px;
+  }
+
+  .wp-block {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    &[data-align="wide"] {
+      // Wide elements.
+      max-width: 1140px;
+    }
+
+    &[data-align="full"] {
+      // Full width elements.
+      max-width: 100% !important;
+    }
+
+    .wp-block-cover, .wp-block-group {
+      // Set the inner elements to 100% width to match outer parent.
+      max-width: 100%;
+    }
+  }
+}
+
+.block-editor-block-list__layout {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Group Block
+.wp-block-group {
+  border: #808080 dashed 2px;
+}
+
+// Spacer Block
+.wp-block-spacer {
+  border: #D0D0D0 dashed 4px;
+}
+
+// Custom ACF field.
+.acf-field-color, .customize-control-jcore-color {
+  input[type=radio] {
+    display: none;
+
+    &:checked + label {
+      svg {
+        visibility: visible;
+      }
+    }
+  }
+
+  .color-dot {
+    display: inline-block;
+    height: $spacer * 1.8;
+    width: $spacer * 1.8;
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.2);
+    margin: $spacer * 0.2;
+    svg {
+      visibility: hidden;
+      width: 80%;
+      height: 80%;
+      padding: 2px;
+    }
+  }
+}
+
+.has-none-background-color {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAD6AAAA+gBtXtSawAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADJSURBVHic7doxCsMwEAXROWzAkPu38bpJ6ljSgtj1fFCvN2oFDRfwCvgExL+z+67pG8G3CzCKbxVgBt8mwCy+RYAVfPkAq/jSATLwZQNk4UsGCDgCzgx8wLnbM7TMl/9GfO823Z548eLFixcvXrx48eLFixcvXrz4KhMvXrx48eLFixcvXrx48eLFixdfZeLFixcvXnxzPEAkfjwOOHZ7hvfYl//t0XhYDlAbD0sB6uNhOkAPPEwF6IOH4QC98DAUoB8ebgfoiQcupVVaIbeZsWcAAAAASUVORK5CYII=);
+  background-position: center;
+  background-size: cover;
+}

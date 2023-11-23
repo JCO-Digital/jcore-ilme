@@ -1,0 +1,200 @@
+/*
+ * Content section for Gutenberg and other content blocks.
+ * This class causes all direct children to use , as well as some padding and margin settings.
+ *
+ * This is mostly used for the main.content-container element, but is meant to be able to be used anywhere.
+ *
+ * This also applies to the Gutenberg group inner container block.
+ */
+ .content-container, .wp-block-group__inner-container, .wp-block-cover__inner-container {
+  > * {
+    // Bootstrap container(-fluid) mixin
+    @include make-container();
+    // Default narrower content
+    @include make-container-narrow-widths();
+
+    // Set width to normal BS widths in "wide".
+    &.alignwide {
+      @include make-container-max-widths();
+    }
+
+    // This class (also used by gutenberg) makes a full with container similar to "container-fluid".
+    &.alignfull {
+      // Removes max-widths from containers.
+      max-width: 100% !important;
+
+      // Also remove margin from first and last.
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &.wp-bootstrap-blocks-row {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+  }
+
+  /*
+   * Overrides for Gutenberg blocks, as well as generic override classes.
+   */
+  .wp-block-group {
+    // Remove gutter from outside of group and columns.
+    padding-left: 0;
+    padding-right: 0;
+
+    // Set y-margins
+    margin-top: $group-margin-top;
+    margin-bottom: $group-margin-bottom;
+  }
+
+  > figure.alignfull, > figure.alignwide {
+    // Allows Gutenberg images to be full width without padding or margin.
+    padding: 0;
+  }
+
+  > table.alignfull, > table.alignwide {
+    // Forces top and bottom margins on tables.
+    margin: $spacer * 2 auto;
+  }
+
+  > figure.is-resized {
+    // Resized images stay inside container
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  > .block-google_map.alignfull, > .block-google_map.alignwide {
+    padding: 0;
+  }
+
+  > .alignfull > * {
+    padding-left: 0-$grid-gutter-width*0.5;
+    padding-right: 0-$grid-gutter-width*0.5;
+  }
+
+  .blocks-gallery-grid {
+    padding-inline-start: 0;
+  }
+
+  .wp-block-separator {
+    box-sizing: border-box;
+  }
+
+  /*
+   * End overrides
+   */
+}
+
+.content-container {
+  // This is for only the main container. The above styles are also for gutenberg group blocks.
+
+  > * {
+    // These styles add extra margin to the top and bottom elements. The reason margin is used is so that blocks can
+    // control their own margins for purposes of background alignment.
+    &:first-child {
+      margin-top: $content-margin-top;
+      // Remove margin for cover blocks.
+      &.wp-block-cover, &.is-cover {
+        margin-top: 0;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: $content-margin-bottom;
+    }
+  }
+}
+
+// Set group paddings
+.wp-block-group__inner-container {
+  @include make-group-padding();
+}
+
+.no-padding {
+  .wp-block-group__inner-container {
+    padding: 0;
+  }
+}
+
+// Very basic styles for Social Media Share Menu
+.media-share-menu {
+  position: absolute;
+  background-color: var(--bs-light);
+  border-radius: 1rem;
+  box-shadow: 4px 4px 8px var(--bs-gray);
+  padding: 0 $spacer;
+
+  li {
+    list-style: none;
+    padding: $spacer;
+    border-bottom: 1px solid var(--bs-gray);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+
+
+/*
+ * Overrides for different page types.
+ */
+body {
+  &.page .content-container > * {
+    // Page defaults to wide content in root.
+    @include make-container-max-widths();
+  }
+
+  &.single .content-container:not(.group-padding) > * {
+    // Single defaults to wide content in root if "group-padding" class is not applied.
+    @include make-container-max-widths();
+  }
+
+  &.blog .content-container:not(.group-padding) > * {
+    // Blog defaults to wide content in root if "group-padding" class is not applied.
+    @include make-container-max-widths();
+  }
+
+  &.archive .content-container:not(.group-padding) > * {
+    // Archives defaults to wide content in root if "group-padding" class is not applied.
+    @include make-container-max-widths();
+  }
+
+  &.search .content-container:not(.group-padding) > * {
+    // Search defaults to wide content in root if "group-padding" class is not applied.
+    @include make-container-max-widths();
+  }
+}
+
+//To be used when break-out from G-berg narrow(default) is needed.
+.content-wide {
+  @include make-container-narrow-widths($container-wide-cols);
+}
+
+// Full screen mobile class.
+.full-screen {
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100) !important;
+}
+
+// List styles.
+.content-container,
+.wp-block-group__inner-container,
+.wp-block-cover__inner-container {
+  // Gutenberg lists have no class, so we only style in the container root.
+  > ul:not(.no-padding):not(.wp-block-social-links),
+  > ol:not(.no-padding) {
+    padding-inline-start: $spacer * 3;
+  }
+}

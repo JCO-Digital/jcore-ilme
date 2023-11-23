@@ -1,0 +1,37 @@
+// Import variables from parent and current themes
+@import "colors";
+@import "variables";
+
+// Import bootstrap.
+@import "bootstrap";
+// Utility mixins.
+@import "mixins";
+
+// Reset styles
+@import "base";
+@import "content";
+@import "blocks";
+@import "buttons";
+@import "gutenberg";
+
+// Header and footer styles
+@import "footer";
+@import "header";
+
+// Navbar styles
+@import "navigation";
+//@import "navigation-megamenu";
+
+@import "search";
+@import "single";
+@import "archive";
+@import "tease";
+@import "forms";
+@import "comments";
+@import "typography";
+
+// Icons
+@import "icons";
+
+// Lightbox
+@import "lightbox";

@@ -1,0 +1,84 @@
+.comment-box {
+    margin-bottom: $spacer*2;
+    .comments {
+        li.comment {
+            list-style: none;
+            &::marker {
+                display: none;
+            }
+            article.comment-body {
+                background: var(--bs-secondary);
+                padding: $spacer;
+                margin-bottom: $spacer;
+                footer {
+                    padding-top: $spacer*.5;
+                    background: var(--bs-secondary);
+                    .comment-author.vcard {
+                        font-size: $font-size-base;
+                        img {
+                            border-radius: 50%;
+                        }
+                    }
+                    .comment-metadata {
+                        padding-bottom: $spacer*.5;
+                        padding-top: $spacer*.5;
+                        a {
+                            font-size: $font-size-base;
+                        }
+                    }
+                }
+                .comment-content {
+                    padding: $spacer;
+                    background-color: var(--bs-light);
+                    border-radius: 4px;
+                    margin-bottom: $spacer;
+                    p {
+                        margin-bottom: $spacer*.5;
+                        font-size: $font-size-base;
+                    }
+                    a {
+                        font-size: $font-size-base;
+                    }
+                }
+                .reply {
+                    color: var(--bs-light);
+                    a {
+                        font-size: $font-size-base;
+                    }
+                }
+            }
+        }    
+    }
+    .comment-respond {
+        background-color: var(--bs-secondary);
+        padding: $spacer $spacer 0 $spacer;
+        margin-bottom: $spacer;
+        h3.comment-reply-title {
+            font-size: $font-size-base;
+            small {
+                padding-left: $spacer*.5;
+            }
+        }
+        form.comment-form {
+            p {
+                margin-bottom: $spacer*.5;
+                font-size: $font-size-base;
+            }
+            textarea, input {
+                display: block;
+                border-radius: 4px;
+                border: white 1px solid;
+                width: 100%;
+               padding: $spacer*.5 $spacer;
+            }
+            p.form-submit {
+                margin-bottom: 0;
+                padding-top: $spacer;
+                input {
+                    width: unset;
+                    @include button();
+                }
+            }
+        }
+    }
+}

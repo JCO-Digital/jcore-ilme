@@ -1,0 +1,50 @@
+.tease {
+    text-align: left;
+    margin-bottom: $spacer * 3;
+    display: block;
+    .image-container {
+        position: relative;
+        width: 100%;
+        margin-bottom: 1rem;
+        &::after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+    &.postcard {
+        &::after {
+            padding-bottom: 66%;
+        }
+    }
+
+    &.placeholder {
+        background-color: var(--bs-gray);
+    }
+    img {
+        position: absolute;
+        -o-object-fit: cover;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        font-family: "object-fit: cover;";
+        }
+    }
+    .data {
+        margin-bottom: 1rem;
+    }
+    .tease-content {
+        h3, .preview {
+            padding-top: 0;
+            line-height: 1.3;
+            margin-bottom: $spacer*.5;
+            margin-bottom: 1rem;
+        }
+        .tease-link {
+        &:after {
+            content: " \00a0 \00a0 \f178";
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 400;
+            }
+        }
+    }
+}

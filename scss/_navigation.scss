@@ -1,0 +1,256 @@
+.navbar {
+
+  // jscroll is active on the element.
+  &.scrollActive {
+    transition: margin-top 300ms;
+
+    &.scrollDown {
+      margin-top: -100px;
+    }
+  }
+
+  // Main Bar basics are the same for both menus.
+  .main-bar {
+    // Constrain to the basic container width.
+    @include make-container();
+    @include make-container-max-widths();
+    padding: 0;
+    // Make 3 grid areas to place items in.
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: "start main end";
+    align-items: center;
+
+    // Place and align start and end.
+    .start {
+      grid-area: start;
+      text-align: start;
+    }
+
+    .end {
+      grid-area: end;
+      text-align: end;
+    }
+  }
+
+  // Generic logo style.
+  .navbar-brand {
+    display: block;
+
+    .custom-logo {
+      max-height: 32px;
+      width: auto;
+
+      svg {
+        height: 44px;
+        width: auto;
+      }
+    }
+  }
+
+  // Generic styles for all menus.
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    li {
+      position: relative;
+    }
+
+    a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  // Generic submenu toggle button styles.
+  .submenu-button {
+    font-family: 'Font Awesome 6 Pro';
+    font-weight: 900;
+    font-size: $small-font-size;
+    height: $spacer * 2;
+    width: $spacer * 2;
+    color: inherit;
+
+    &::before {
+      content: "\f078";
+    }
+
+    &.toggle::before {
+      content: "\f077";
+    }
+  }
+
+  // Mobile styles
+  &.navbar-mobile {
+    color: var(--jcore-navigation-mobile-menubar-font-color);
+    background-color: var(--jcore-navigation-mobile-menubar-background-color);
+    width: 100%;
+    height: 64px;
+    z-index: 9;
+    transition: background-color 200ms, color 200ms, height 200ms;
+
+    @include media-breakpoint-up($mobile-menu-bp) {
+      // Hide for desktop.
+      display: none;
+    }
+
+    &.toggle, &.deactivate {
+      position: fixed;
+    }
+
+    &.toggle {
+      color: var(--jcore-navigation-mobile-font-color);
+      background-color: var(--jcore-navigation-mobile-background-color);
+      height: 100vh;
+    }
+
+    // Hamburger menu
+    #mobile-menu-toggle {
+      color: inherit;
+      width: $spacer * 2;
+
+      svg {
+        width: 100%;
+      }
+
+      &:not(.toggle) {
+        .close-icon {
+          display: none;
+        }
+      }
+
+      &.toggle {
+        .open-icon {
+          display: none;
+        }
+      }
+    }
+
+    .menu {
+      display: none;
+
+      &.toggle {
+        display: block;
+      }
+
+      .submenu-button {
+        position: absolute;
+        right: $spacer*.5;
+        top: $spacer*.2;
+      }
+    }
+
+    .menu-mobile > li {
+      @include make-container();
+      @include make-container-max-widths();
+    }
+
+  }
+
+  // Desktop styles
+  &.navbar-desktop {
+    display: none;
+    background-color: var(--jcore-navigation-desktop-background-color);
+    color: var(--jcore-navigation-desktop-font-color);
+    @include media-breakpoint-up($mobile-menu-bp) {
+      // Show for desktop.
+      display: unset;
+    }
+
+    .main-bar {
+      min-height: 48px;
+    }
+
+    .custom-logo {
+      color: var(--jcore-navigation-desktop-logo-color);
+      svg {
+        fill: var(--jcore-navigation-desktop-logo-color);
+      }
+    }
+
+    .menu {
+      // Desktop menu styling.
+      a {
+        padding: $spacer $spacer*3 $spacer $spacer;
+
+        &:hover {
+          color: var(--jcore-navigation-desktop-font-hover-selected-color);
+          background-color: var(--jcore-navigation-desktop-background-hover-selected-color);
+        }
+      }
+
+      .submenu-button {
+        position: absolute;
+        right: $spacer*.5;
+        top: $spacer*.9;
+
+        &:hover {
+          color: var(--jcore-navigation-desktop-font-hover-selected-color);
+          background-color: var(--jcore-navigation-desktop-background-hover-selected-color);
+        }
+      }
+    }
+
+    .submenu {
+      // Submenu is transparent and bigger than the visual menu because of the hover effect.
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 56px;
+      width: 180px;
+      margin: 0;
+      padding: $spacer 0 0;
+      z-index: 10;
+
+      &.submenu-1 {
+        // Second level menu goes to the side.
+        top: 0;
+        left: 180px;
+        padding: 0 0 0 $spacer;
+      }
+
+      &.toggle {
+        // Make the menu visible.
+        display: unset;
+      }
+
+      li {
+        // Set background color on the elements themselves, and keep them together.
+        background-color: var(--jcore-navigation-desktop-submenu-background-color);
+
+        a:hover {
+          color: var(--jcore-navigation-desktop-submenu-font-hover-selected-color);
+          background-color: var(--jcore-navigation-desktop-submenu-background-hover-selected-color);
+        }
+
+        .submenu-button:hover {
+          color: var(--jcore-navigation-desktop-submenu-font-hover-selected-color);
+          background-color: var(--jcore-navigation-desktop-submenu-background-hover-selected-color);
+        }
+      }
+    }
+  }
+}
+
+
+// Fix for when WP admin bar is visible.
+body.admin-bar {
+  // Fix for WP admin-bar
+  .navbar.scrollActive,
+  .navbar.sticky,
+  .skip-to-content a {
+    top: 46px;
+  }
+
+  @media screen and (min-width: 781px) {
+    .navbar.scrollActive,
+    .navbar.sticky,
+    .skip-to-content a {
+      top: 32px;
+    }
+  }
+}

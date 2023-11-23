@@ -1,0 +1,41 @@
+.icon {
+  text-indent: 30px;
+  &:before {
+    display: block;
+    content: ' ';
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin-top: 1px;
+    transition: background-image 0.15s ease-in-out;
+  }
+}
+h2.icon {
+  text-indent: 35px;
+  &:before {
+    background-size: 25px 25px;
+    width: 25px;
+    height: 25px;
+    margin-top: 7px;
+  }
+}
+
+// Add additional icons like this
+.icon-book {
+  &.btn {
+    &:hover {
+      &:before {
+        background-image: url('../../assets/icons/book-white.svg');
+      }
+    }
+  }
+  &:before {
+    background-image: url('../../assets/icons/book.svg');
+  }
+  &-white {
+    &:before {
+      background-image: url('../../assets/icons/book-white.svg');
+    }
+  }
+}

@@ -1,0 +1,291 @@
+// Gravity forms styles
+body {
+  .gform_wrapper {
+    margin:0 auto;
+    width: 100%;
+
+    .gform_heading {
+      margin: 3rem 0;
+      .gform_title {
+
+      }
+    }
+    .gform_body {
+      font-size: $font-size-base;
+      .gform_fields {
+        padding-left: 0;
+        list-style: none;
+        &.description_above {
+          .gfield_description {
+            padding: 0 0 5px 0;
+          }
+        }
+
+        &.top_label {
+          li.gfield.gf_left_half,
+          li.gfield.gf_right_half {
+            @media only screen and (min-width: 641px) { //gf breakpoint
+              margin-top: 4px;
+            }
+          }
+        }
+
+        .gfield {
+          ul {
+            list-style: none;
+            padding-left: 0;
+          }
+          .gfield_label {
+            margin-top: $spacer * 1.8;
+          }
+          // Hiding label but not for screen readers
+          &.hidden_label {
+            .gfield_label {
+              border: 0;
+              clip: rect(0 0 0 0);
+              height: 1px;
+              margin: -1px;
+              overflow: hidden;
+              padding: 0;
+              position: absolute;
+              width: 1px;
+            }
+          }
+          .ginput_complex.ginput_container{
+            margin-bottom: 0;
+          }
+
+          .ginput_container {
+            input[type=text], input[type=tel], input[type=email], select, textarea {
+              display: block;
+              padding: .5rem .75rem !important;
+              line-height: 1.5;
+              color: var(--bs-dark);
+              background-clip: padding-box;
+              border-radius: 0;
+              transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+              &.large {
+                width:100%;
+              }
+              &.medium {
+                width:100%;
+              }
+              &.small {
+                width:100%;
+              }
+              &::placeholder {
+                color: var(--bs-dark);
+                opacity: .65;
+              }
+            }
+            // input field border
+            input[type=text], input[type=tel], input[type=email], input[type=number], select, textarea {
+              border: 1px solid var(--bs-primary);
+            }
+            textarea {
+              padding:1rem;
+              &.large {
+                width:100%;
+              }
+              &.medium {
+                width:100%;
+              }
+              &.small {
+                width:100%;
+              }
+            }
+          }
+          .ginput_container_select {
+            // dropdown styling
+            select {
+              color: rgba($dark, .65);
+              option {
+                color: rgba($dark, .65);
+              }
+            }
+            // custom dropdown arrow
+            select {
+            //   appearance: none;
+            //   background-image: url('file.svg');
+            //   background-repeat: no-repeat;
+            //   background-size: 12px;
+            //   background-position: 97%;
+            }
+          }
+        }
+
+        .gfield_radio, .gfield_checkbox {
+          li {
+            input[type=radio], input[type=checkbox] {
+              margin-top: 0;
+            }
+            label {
+              margin: 0 0 0 4px;
+              font-size: $font-size-base;
+            }
+          }
+        }
+
+      }
+    }
+
+    .gform_footer {
+      text-align: center;
+      margin: 1rem 0;
+
+      input[type=submit] {
+        margin: 0;
+      }
+      
+    }
+    ul.top_label {
+      div {
+        &.ginput_container {
+          margin-top: $spacer * 0.3;
+        }
+      }
+    }
+
+    //consent checkbox
+    ul.top_label {
+      div.ginput_container.ginput_container_consent {
+        display: flex;
+        //mobile checkbox size fix for mobile, if you're using custom checkboxes
+        input[type=checkbox]:not(old) {
+          // padding: 15px;
+        }
+      }
+    }
+
+    //form validation error
+    div.validation_error {
+      color: var(--bs-danger);
+      border-top: 2px solid var(--bs-danger);
+      border-bottom: 2px solid var(--bs-danger);
+    }
+    .validation_message {
+      color: var(--bs-danger);
+      text-align: center;
+    }
+    li.gfield.gfield_error {
+      background-color: rgba($light, .25);
+      border-top: 2px solid var(--bs-danger);
+      border-bottom: 2px solid var(--bs-danger);
+      input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
+      textarea {
+        border: 2px solid var(--bs-danger);
+      }
+    }
+
+    /*
+    * Custom Gravityforms checkboxes and radio buttons
+    */
+
+    //radio button radius
+    input[type=radio]:not(old) {
+      border-radius: 50%;
+      &::after {
+        border-radius: 50%;
+      }
+    }
+    //checkbox and radio button, not checked
+    .gform_wrapper .gform_body .gform_fields .gfield .ginput_container input[type=radio]:not(old),
+    .gform_wrapper .gform_body .gform_fields .gfield .ginput_container input[type=checkbox]:not(old),
+    input[type=radio]:not(old),
+    input[type=checkbox]:not(old) {
+      margin-right: $spacer;
+      appearance: none;
+      position: relative;
+      border: 2px solid var(--bs-primary);
+      background: var(--bs-light);
+      width: 20px;
+      height: 20px;
+      &:focus {
+        outline-offset: 0;
+      }
+    }
+    //checkbox and radio button, checked
+    input[type=radio]:not(old):checked,
+    input[type=checkbox]:not(old):checked {
+      &::after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background: var(--bs-primary);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.2s ease;
+      }
+    }
+    // This spacing might be needed when using custom checkbox/radio buttons combined with gf ready classes like gf_list_2col
+    ul.gfield_checkbox, ul.gfield_radio {
+      li:not(:last-child) {
+        // margin-bottom: $spacer !important;
+      }
+    } 
+
+  }
+
+  .gform_confirmation_wrapper {
+    
+  }
+
+}
+
+/*
+* Non gravity-forms custom checkboxes and radio buttons
+*/
+.btn-checkbox, .btn-radio {
+  user-select: none;
+  input {
+    position: absolute;
+    opacity: 0;
+    & + label {
+      position: relative;
+      padding-left: 28px;
+      cursor: pointer;
+      display: inline-block;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 4px;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--bs-primary);
+      }
+      &::after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background: var(--bs-primary);
+        position: absolute;
+        top: 5px;
+        left: 9px;
+        transition: all 0.2s ease;
+      }
+    }
+    &:not(:checked) + label::after {
+      opacity: 0;
+      transform: scale(0);
+    }
+    &:checked + label::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+.btn-radio {
+  input {
+    position: absolute;
+    opacity: 0;
+    & + label {
+      &::before, &::after {
+        border-radius: 50%;
+      }
+    }
+  }
+}

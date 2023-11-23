@@ -1,0 +1,36 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    {% block post_title %}
+    {% endblock %}
+    {% block post_content %}
+        {{ post.content }}
+    {% endblock %}
+    {% block filters %}
+        {% if filtering and terms %}
+            {% if customizer('filtering','text_in_front_of_buttons') %}
+                <h2>{{ __('Filter by category','jcore') }}</h2>
+            {% endif %}
+            <section class="archive-filters">
+                <div class="filter-container">
+                    <div class="filter-elements">
+                        {# Primary filter #}
+                        {% for term in terms %}
+                            <a class="btn btn-primary mx-3" href="{{ term.link }}">{{ term.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+    {% endblock %}
+    {% block items %}
+        <section class="{{ archive_class }}">
+            {% for post in posts %}
+                {% include ['partials/tease-'~post.post_type~'.twig', 'partials/tease.twig'] with {nr: loop.index} %}
+            {% endfor %}
+        </section>
+    {% endblock %}
+    {% block pagination %}
+        {% include 'partials/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+    {% endblock %}
+{% endblock %}

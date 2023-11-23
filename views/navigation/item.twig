@@ -1,0 +1,29 @@
+<li id="menu-item-{{ type }}-{{ index }}" class="{{ item.class }}" data-group="menu-level-{{ level }}"
+    data-title="{{ item.title }}" {% if hover and item.children %} data-jhover data-jtoggle="submenu-{{ type }}-{{ index }} submenu-button-{{ type }}-{{ index }}" {% endif %}>
+    <a class="menu-link menu-link-{{ level }}" href="{{ item.link }}" target="{{ item.target }}">
+        {% block item %}
+            <span class="title-text">{{ item.title }}</span>
+            {% if item.description %}
+                <span class="description-text">{{ item.description }}</span>
+            {% endif %}
+        {% endblock %}
+    </a>
+    {% if item.children and level == 0 or (level == 1 and customizer('navigation_desktop','third_level_submenu') and item.children) %}
+        {% block itemsubmenubutton %}
+            <button type="button"
+                    class="submenu-button submenu-button-{{ type }} submenu-button-{{ level }}"
+                    id="submenu-button-{{ type }}-{{ index }}"
+                    data-jtoggle="submenu-{{ type }}-{{ index }} menu-item-{{ type }}-{{ index }}"
+                    data-group="menu-level-{{ level }}"
+                    aria-haspopup="true">
+                <span class="sr-only">{{ __('Toggle Dropdown','jcore') }}</span>
+            </button>
+        {% endblock %}
+        <ul class="submenu-dropdown menu submenu submenu-{{ type }} submenu-{{ level }}"
+            id="submenu-{{ type }}-{{ index }}" aria-labelledby="submenu-button-{{ type }}-{{ index }}">
+            {% for child in item.children %}
+                {% include ['navigation/item-'~ type ~'.twig', 'navigation/item.twig'] with {item: child, type, index: (index ~ '-' ~ loop.index), level: level + 1, hover: customizer('navigation_desktop','hover')} only %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</li>

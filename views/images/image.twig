@@ -1,0 +1,18 @@
+{% if image %}
+    {% if image is not timber_image %}
+        {% set image = Image(image) %}
+    {% endif %}
+
+    <img {% if id %}id="{{ id }}"{% endif %}
+            {% if class %}class="{{ class }}"{% endif %}
+            {% if index %}data-index-number="{{ index }}"{% endif %}
+         srcset="{{ image.srcset }}"
+         sizes="{{ image.img_sizes }}"
+         src="{{ image.src('large') }}"
+         alt="{{ image.alt }}"
+         loading="{{ loading ?? 'eager' }}"
+         {% if style %}
+            style="{{ style }}"
+         {% endif %}
+    />
+{% endif %}
