@@ -1,0 +1,23 @@
+{
+  "name": "jcore-ilme",
+  "version": "3.0.0",
+  "type": "module",
+  "scripts": {
+    "esbuild": "esbuild --bundle js/*.js --outdir=dist/js --minify --sourcemap",
+    "postcss": "postcss css/*.css --map --dir dist/css",
+    "watch-esbuild": "npm run esbuild -- --watch",
+    "watch-postcss": "npm run postcss -- --watch",
+    "watch": "concurrently --kill-others \"npm run watch-esbuild\" \"npm run watch-postcss\"",
+    "build": "npm run esbuild && npm run postcss"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "concurrently": "^8.2.2",
+    "esbuild": "^0.19.7",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "postcss-preset-env": "^9.3.0",
+    "typescript": "^5.2.2"
+  }
+}
