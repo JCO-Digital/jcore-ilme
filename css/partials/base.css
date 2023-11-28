@@ -13,7 +13,7 @@ body {
     background-color: var(--jcore-site-background-color);
     color: var(--jcore-site-text-color);
     >* {
-        flex: 0 0 auto; // Default for page parts. Footer fix.
+        flex: 0 0 auto;
     }
     >main {
         flex: 1 0 auto;
@@ -37,7 +37,7 @@ a, button {
     transition: all .3s;
 }
 a {
-    color: black;
+    color: var(--jcore-site-text-color);
     text-decoration: none;
 
     &:hover {

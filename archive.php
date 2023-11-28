@@ -3,8 +3,9 @@
  * Handler for Archive and Home PHP templates.
  */
 
-namespace jcore;
+namespace Jcore\Ilme;
 
+use Jcore\Ydin\WordPress\Assets;
 use Timber;
 
 $context = Timber::context();
@@ -27,7 +28,7 @@ if ( $context['masonry'] ) {
 
 if ( $context['dynamic-archive'] ) {
 	// Dynamic Archive.
-	script_register( 'dynamic-archive', '/vendor/dynamic-archive/dynamic-archive.js' );
+	Assets::script_register( 'dynamic-archive', '/vendor/dynamic-archive/dynamic-archive.js' );
 	wp_enqueue_script( 'dynamic-archive' );
 
 	$context['archive_class'] .= ' dynamic-archive';
@@ -60,9 +61,21 @@ if ( $context['dynamic-archive'] ) {
 
 $content_post = get_page_by_path( get_current_slug() );
 if ( $content_post ) {
-	$context['post'] = new \Timber\Post( $content_post );
+	$context['post'] = Timber::get_post( $content_post );
 }
 
 get_header();
 Timber::render( $templates, $context );
 get_footer();
+
+/**
+ * Returns the current slug.
+ *
+ * @return string
+ */
+function get_current_slug(): string {
+	$url   = $_SERVER['REQUEST_URI'];
+	$parts = explode( '?', $url );
+
+	return trim( $parts[0], '/' );
+}

@@ -1,10 +1,13 @@
-import autoprefixer from "autoprefixer";
 import postcssPresetEnv from "postcss-preset-env";
 import postcssImport from "postcss-import"
+import postcssMinify from "postcss-minify"
 export default {
+    map: {
+        inline: false
+    },
     plugins: [
         postcssImport,
-        autoprefixer,
-        postcssPresetEnv({stage: 0})
+        postcssPresetEnv({stage: 2}),
+        postcssMinify
     ]
 }

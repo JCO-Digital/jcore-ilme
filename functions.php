@@ -5,7 +5,7 @@
  * @package jcore
  */
 
-namespace jcore;
+namespace Jcore\Ilme;
 
 use Jcore\Ydin\Bootstrap;
 use Jcore\Ydin\Settings\Customizer;
@@ -21,38 +21,40 @@ if ( function_exists( '\Sentry\init' ) && defined( 'SENTRY_DSN' ) && ! defined( 
 	\Sentry\init( array( 'dsn' => SENTRY_DSN ) );
 }
 
-add_action( 'after_setup_theme', 'jcore\setup' );
-add_action( 'after_setup_theme', 'jcore\register_menu' );
-add_action( 'acf/init', 'jcore\initialize_jcore_settings' );
-add_action( 'wp_enqueue_scripts', 'jcore\scripts' );
-add_action( 'admin_enqueue_scripts', 'jcore\admin_scripts' );
-add_action( 'enqueue_block_editor_assets', 'jcore\block_editor_scripts' );
-add_action( 'login_enqueue_scripts', 'jcore\login_scripts' );
-add_action( 'widgets_init', 'jcore\widgets_init' );
-add_action( 'init', 'jcore\init' );
-add_action( 'wp_body_open', 'jcore\custom_body_open' );
-add_action( 'wp_head', 'jcore\custom_head' );
+add_action( 'after_setup_theme', 'Jcore\Ilme\setup' );
+/*
+add_action( 'after_setup_theme', 'Jcore\Ilme\register_menu' );
+add_action( 'acf/init', 'Jcore\Ilme\initialize_jcore_settings' );
+add_action( 'wp_enqueue_scripts', 'Jcore\Ilme\scripts' );
+add_action( 'admin_enqueue_scripts', 'Jcore\Ilme\admin_scripts' );
+add_action( 'enqueue_block_editor_assets', 'Jcore\Ilme\block_editor_scripts' );
+add_action( 'login_enqueue_scripts', 'Jcore\Ilme\login_scripts' );
+add_action( 'widgets_init', 'Jcore\Ilme\widgets_init' );
+add_action( 'init', 'Jcore\Ilme\init' );
+add_action( 'wp_body_open', 'Jcore\Ilme\custom_body_open' );
+add_action( 'wp_head', 'Jcore\Ilme\custom_head' );
 
 // Custom ACF fields.
-add_action( 'acf/include_field_types', 'jcore\add_acf_fields' );
+add_action( 'acf/include_field_types', 'Jcore\Ilme\add_acf_fields' );
 
-add_filter( 'theme_templates', 'jcore\jcore_templates' );
+add_filter( 'theme_templates', 'Jcore\Ilme\jcore_templates' );
 
 // Enable shortcodes in text widgets.
 add_filter( 'widget_text', 'do_shortcode' );
 
-add_filter( 'jpeg_quality', 'jcore\jpeg_quality', 10, 2 );
-add_filter( 'wp_editor_set_quality', 'jcore\jpeg_quality', 10, 2 );
+add_filter( 'jpeg_quality', 'Jcore\Ilme\jpeg_quality', 10, 2 );
+add_filter( 'wp_editor_set_quality', 'Jcore\Ilme\jpeg_quality', 10, 2 );
 
 // Custom gutenberg category for jcore blocks.
-add_filter( 'block_categories_all', 'jcore\custom_block_categories', 10, 2 );
+add_filter( 'block_categories_all', 'Jcore\Ilme\custom_block_categories', 10, 2 );
 
 // Turn off translations for reusable blocks.
-add_filter( 'pll_get_post_types', 'jcore\remove_reusable_block_from_pll', 10, 2 );
+add_filter( 'pll_get_post_types', 'Jcore\Ilme\remove_reusable_block_from_pll', 10, 2 );
 
-add_filter( 'get_custom_logo', 'jcore\get_logo' );
+add_filter( 'get_custom_logo', 'Jcore\Ilme\get_logo' );
 
-add_filter( 'pre_get_document_title', 'jcore\custom_page_title', 20 );
+add_filter( 'pre_get_document_title', 'Jcore\Ilme\custom_page_title', 20 );
+*/
 
 add_filter(
 	'login_headerurl',
@@ -66,50 +68,55 @@ add_filter(
 );
 
 // Add mime types.
-add_filter( 'upload_mimes', 'jcore\cc_mime_types' );
+add_filter( 'upload_mimes', 'Jcore\Ilme\cc_mime_types' );
 
 // Hide LearnDash support template if LearnDash is not installed.
-add_filter( 'theme_page_templates', 'jcore\exclude_template_learndash_content' );
+add_filter( 'theme_page_templates', 'Jcore\Ilme\exclude_template_learndash_content' );
 
 /*-----  End of Hook Library  ------*/
 
 // Timber functions.
 require_once 'includes/timber.php';
 
+// Archive.
+require_once 'includes/archive.php';
+
+
 // Utility Functions.
-require_once 'includes/utility-functions.php';
+//require_once 'includes/utility-functions.php';
 
 // Extended Core Blocks
-require_once 'includes/extended-blocks.php';
+//require_once 'includes/extended-blocks.php';
 
 // Gutenberg Block Patterns.
-require_once 'includes/block-patterns.php';
+//require_once 'includes/block-patterns.php';
 
 // jcore blocks loader.
-require_once 'includes/blocks.php';
+//require_once 'includes/blocks.php';
 
 // Breakpoints.
-require_once 'includes/breakpoints.php';
+//require_once 'includes/breakpoints.php';
 
-// Dynamic archive.
-require_once 'includes/dynamic-archive.php';
 
 // Endpoints.
-require_once 'includes/endpoints.php';
+//require_once 'includes/endpoints.php';
 
 // Image modification functions.
-require_once 'includes/images.php';
+//require_once 'includes/images.php';
 
 // ACF JSON Settings.
-require_once 'includes/acf-settings.php';
+//require_once 'includes/acf-settings.php';
 
 // Vue Functions.
-require_once 'includes/vue-functions.php';
+//require_once 'includes/vue-functions.php';
 
 // WooCommerce Functions.
-require_once 'includes/woo-functions.php';
+//require_once 'includes/woo-functions.php';
+
+require_once 'classes/Settings.php';
 
 Bootstrap::init();
+Settings::init();
 
 /**
  * Disable Comments functionality if not enabled in customizer.
@@ -235,11 +242,6 @@ function setup() {
 	);
 	add_theme_support( 'custom-logo', $defaults );
 
-	// Default to classic archive for all types.
-	if ( ! defined( 'DYNAMIC_ARCHIVE_TYPES' ) ) {
-		define( 'DYNAMIC_ARCHIVE_TYPES', array() );
-	}
-
 	add_theme_support(
 		'html5',
 		array(
@@ -255,28 +257,6 @@ function setup() {
 	add_post_type_support( 'page', 'excerpt' );
 
 	add_filter( 'gform_confirmation_anchor', '__return_true' );
-
-	/*
-	 * Woocommerce
-	 */
-	if ( ! defined( 'WOOCOMMERCE_SETTINGS' ) ) {
-		define(
-			'WOOCOMMERCE_SETTINGS',
-			array(
-				'zoom'     => true,
-				'lightbox' => true,
-				'slider'   => true,
-			)
-		);
-	}
-	if ( ! defined( 'VUE_SETTINGS' ) ) {
-		define(
-			'VUE_SETTINGS',
-			array(
-				'enabled' => false,
-			)
-		);
-	}
 
 	add_theme_support(
 		'woocommerce',
@@ -300,15 +280,9 @@ function setup() {
 		)
 	);
 	if ( class_exists( 'woocommerce' ) ) {
-		if ( WOOCOMMERCE_SETTINGS['zoom'] ) {
-			add_theme_support( 'wc-product-gallery-zoom' );
-		}
-		if ( WOOCOMMERCE_SETTINGS['lightbox'] ) {
-			add_theme_support( 'wc-product-gallery-lightbox' );
-		}
-		if ( WOOCOMMERCE_SETTINGS['slider'] ) {
-			add_theme_support( 'wc-product-gallery-slider' );
-		}
+		//	add_theme_support( 'wc-product-gallery-zoom' );
+		//	add_theme_support( 'wc-product-gallery-lightbox' );
+		//	add_theme_support( 'wc-product-gallery-slider' );
 	}
 
 	load_jcore_textdomain();
@@ -571,7 +545,7 @@ function remove_reusable_block_from_pll( $post_types, $is_settings ) {
 /**
  *  Adds the reusable blocks page to admin menu
  */
-add_action( 'admin_menu', 'jcore\linked_url' );
+add_action( 'admin_menu', 'Jcore\Ilme\linked_url' );
 function linked_url() {
 	add_menu_page( 'linked_url', 'Reusable Blocks', 'read', 'edit.php?post_type=wp_block', '', 'dashicons-layout', 22 );
 }
@@ -618,7 +592,7 @@ function add_custom_css_classes( $button, $form ) {
 	return $dom->saveHtml( $input );
 }
 
-add_filter( 'gform_submit_button', 'jcore\add_custom_css_classes', 10, 2 );
+add_filter( 'gform_submit_button', 'Jcore\Ilme\add_custom_css_classes', 10, 2 );
 
 /**
  * Add page slug to body class
@@ -632,7 +606,7 @@ function add_page_slug_body_class( $classes ) {
 	return $classes;
 }
 
-add_filter( 'body_class', 'jcore\add_page_slug_body_class' );
+add_filter( 'body_class', 'Jcore\Ilme\add_page_slug_body_class' );
 
 /**
  * Hide LearnDash support template if LearnDash is not installed

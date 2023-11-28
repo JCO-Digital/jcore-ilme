@@ -27,7 +27,7 @@ $bbpress_post_types      = array(
 
 $context = Timber::context();
 
-$timber_post = $context['posts'][0];
+$timber_post = Timber::get_post();
 
 $templates = array();
 
