@@ -10,7 +10,7 @@ const jcoreScrollPos = {
 }
 
 // Initialize Menu Elements
-const menuInit = () => {
+export const menuInit = () => {
   jcoreScrollPos.current = document.documentElement.scrollTop
   getSticky()
   getScroll()
@@ -176,7 +176,7 @@ const setFocus = () => {
 }
 
 // Check for stickyness in menus
-const onScroll = () => {
+export const onScroll = () => {
   scrollHandler()
   checkStickyPos()
   checkScrollPos()
@@ -200,7 +200,7 @@ const scrollHandler = () => {
   }
 }
 // Update info about menu placement on resize
-const onResize = () => {
+export const onResize = () => {
   jcoreSticky.forEach(sticky => {
     const pos = getPos(sticky.spacer)
     sticky.posY = pos.y
@@ -358,6 +358,3 @@ const getScrollPosition = () => {
   return elementTop
 }
 
-window.addEventListener('resize', onResize)
-window.addEventListener('scroll', onScroll)
-window.addEventListener('load', menuInit)
