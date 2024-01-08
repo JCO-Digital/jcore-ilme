@@ -3,12 +3,13 @@
   "version": "3.0.0",
   "type": "module",
   "scripts": {
-    "esbuild": "esbuild --bundle js/*.?s --outdir=dist/js --minify --sourcemap",
-    "postcss": "postcss css/*.css --dir dist/css",
+    "esbuild": "esbuild --bundle src/js/*.?s --outdir=dist/js --minify --sourcemap",
+    "postcss": "postcss src/css/*.css --dir dist/css",
     "watch-esbuild": "npm run esbuild -- --watch",
     "watch-postcss": "npm run postcss -- --watch",
     "watch": "concurrently --kill-others 'npm run watch-esbuild' 'npm run watch-postcss'",
-    "build": "npm run esbuild && npm run postcss"
+    "build": "npm run esbuild && npm run postcss",
+    "prettier": "prettier --write src"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
@@ -16,15 +17,14 @@
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",
-    "postcss-preset-env": "^9.3.0",
     "postcss-minify": "^1.1.0",
+    "postcss-preset-env": "^9.3.0",
+    "prettier": "^3.1.1",
     "typescript": "^5.2.2"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
-  ],
-  "dependencies": {
-  }
+  ]
 }

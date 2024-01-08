@@ -1,0 +1,14 @@
+:root {
+  --jcore-color-brand: #41c4ff;
+  --jcore-color-white: #ffffff;
+  --jcore-color-light: #c2c2c2;
+  --jcore-color-dark: #3b3b3b;
+  --jcore-color-black: #000000;
+
+  --jcore-color-success: #4bf60a;
+  --jcore-color-warning: #f6ea0a;
+  --jcore-color-failure: #f60a0a;
+
+  --jcore-site-background-color: var(--jcore-color-white);
+  --jcore-site-text-color: var(--jcore-color-black);
+}

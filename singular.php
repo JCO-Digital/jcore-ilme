@@ -1,7 +1,11 @@
 <?php
-/*
+/**
  * Handler for singular pages.
+ *
+ * @package jcore
  */
+
+namespace Jcore\Ilme;
 
 // These are the special post types.
 $ld_course_types         = array(

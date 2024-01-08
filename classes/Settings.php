@@ -1,4 +1,9 @@
 <?php
+/**
+ * Create some options for the theme.
+ *
+ * @package jcore
+ */
 
 namespace Jcore\Ilme;
 

@@ -1,0 +1,104 @@
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  background-color: var(--jcore-site-background-color);
+  color: var(--jcore-site-text-color);
+  > * {
+    flex: 0 0 auto;
+  }
+  > main {
+    flex: 1 0 auto;
+  }
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section {
+  display: block;
+}
+
+button {
+  border: 0;
+  background: transparent;
+}
+a,
+button {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  transition: all 0.3s;
+}
+a {
+  color: var(--jcore-site-text-color);
+  text-decoration: none;
+
+  &:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  border: 0;
+}
+
+.text-404 {
+  padding-top: 8rem;
+  padding-bottom: 20rem;
+}
+
+/*
+ * Page
+ */
+.no-padding {
+  padding: 0;
+}
+.hidden {
+  display: none !important;
+}
+/* Image utils */
+.image-fillarea {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+/* WP fixes */
+#wpadminbar {
+  @media screen and (max-width: 600px) {
+    position: fixed;
+    overflow: hidden;
+  }
+}
