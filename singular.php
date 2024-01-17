@@ -7,6 +7,8 @@
 
 namespace Jcore\Ilme;
 
+use WP_Query;
+
 // These are the special post types.
 $ld_course_types         = array(
 	'sfwd-courses',
@@ -29,9 +31,9 @@ $bbpress_post_types      = array(
 	'reply',
 );
 
-$context = Timber::context();
+$context = \Timber::context();
 
-$timber_post = Timber::get_post();
+$timber_post = \Timber::get_post();
 
 $templates = array();
 
@@ -52,11 +54,11 @@ if ( class_exists( 'SFWD_LMS' ) && in_array( $timber_post->post_type, $ld_course
 	$templates[] = 'single-' . $timber_post->post_type . '.twig';
 	$templates[] = 'single.twig';
 
-	if ( \jcore\Customizer::get( 'article', 'group_padding' ) ) {
+	if ( \Jcore\Ydin\Settings\Customizer::get( 'article', 'group_padding' ) ) {
 		$context['main_class'] .= ' group-padding';
 	}
 
-	if ( comments_open() && \jcore\Customizer::get( 'article', 'enable_comments' ) ) {
+	if ( comments_open() && \Jcore\Ydin\Settings\Customizer::get( 'article', 'enable_comments' ) ) {
 		$comments_list           = apply_filters( 'jcore_comments_list', get_comments( array( 'post_id' => $timber_post->ID ) ) );
 		$context['comment_list'] = wp_list_comments( array( 'echo' => false ), $comments_list );
 		wp_enqueue_script( 'comment-reply' );
@@ -64,12 +66,12 @@ if ( class_exists( 'SFWD_LMS' ) && in_array( $timber_post->post_type, $ld_course
 
 	$related_types = apply_filters( 'jcore_single_related_post_types', array( 'post' ) );
 
-	if ( in_array( $timber_post->post_type, $related_types ) ) {
+	if ( in_array( $timber_post->post_type, $related_types, true ) && \Jcore\Ydin\Settings\Customizer::get( 'article_highlight', 'highlight_on_single' ) ) {
 		$args               = apply_filters(
 			'jcore_single_related_args',
 			array(
 				'post_type'      => $timber_post->post_type,
-				'posts_per_page' => \jcore\Customizer::get( 'article_highlight', 'columns' ),
+				'posts_per_page' => \Jcore\Ydin\Settings\Customizer::get( 'article_highlight', 'columns' ),
 				'post__not_in'   => array( $timber_post->ID ),
 				'orderby'        => array(
 					'date' => 'DESC',
@@ -77,7 +79,8 @@ if ( class_exists( 'SFWD_LMS' ) && in_array( $timber_post->post_type, $ld_course
 			),
 			$timber_post,
 		);
-		$context['related'] = new Timber\PostQuery( $args );
+		$query              = new WP_Query( $args );
+		$context['related'] = new \Timber\PostQuery( $query );
 	}
 }
 
@@ -98,5 +101,5 @@ if ( post_password_required() ) {
 }
 
 get_header();
-Timber::render( $templates, $context );
+\Timber::render( $templates, $context );
 get_footer();

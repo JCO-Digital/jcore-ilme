@@ -1,2 +1,59 @@
-{# If you want to make site spanning changes, overwrite this template #}
-{% extends "layout_base.twig" %}
+{# This is extended by layout.twig and should not exists in child.
+This should be overwritten in childs layout. Preferably by overwriting just the blocks you need to change. #}
+{% block skip_to_content %}
+    <div class="skip-to-content sr-only sr-only-focusable">
+        <a href="#content-start">{{ __('Skip to content','jcore') }}</a>
+    </div>
+{% endblock %}
+{% block navigation %}
+    {# Navigation goes here. #}
+    {% include "navigation/mobile.twig" %}
+    {% include 'navigation/desktop.twig' %}
+{% endblock %}
+{% block header %}
+    {# Page header stuff goes here. By default we don't have much. #}
+{% endblock %}
+{% block content_anchor %}
+    <a id="content-start" tabindex="-1"></a>
+{% endblock %}
+{% block content_area %}
+    {# This block can be used if you want to do your own <main> structure. #}
+    {% block content_above %}
+        {# Stuff above content goes here #}
+    {% endblock %}
+    <main id="main" class="{{ main_class }}">
+        {% block content %}
+            {# Use this block to inject "normal" content. #}
+            {% block post_title %}
+                <h1>{{ post.title }}</h1>
+            {% endblock %}
+
+            {% block post_info %}
+            {% endblock %}
+
+            {% block post_image %}
+            {% endblock %}
+
+            {% block post_content %}
+                {{ post.content }}
+            {% endblock %}
+
+            {% block post_author %}
+            {% endblock %}
+        {% endblock %}
+    </main>
+    {% block content_below %}
+        {# Stuff below content goes here #}
+    {% endblock %}
+    {% block comments %}
+        {# Comments for single goes here #}
+    {% endblock %}
+{% endblock %}
+{% block above_footer %}
+{% endblock %}
+{% block footer %}
+    {% include 'partials/footer.twig' %}
+{% endblock %}
+{% block below_footer %}
+    {# Stuff below footer goes here #}
+{% endblock %}

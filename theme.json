@@ -1,0 +1,84 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": false,
+    "border": {},
+    "color": {
+      "defaultPalette": false,
+      "custom": false,
+      "defaultGradients": false,
+      "customGradient": false,
+      "defaultDuotone": false,
+      "palette": [
+        {
+          "color": "#41c4ff",
+          "name": "Brand",
+          "slug": "brand"
+        },
+        {
+          "color": "#ffffff",
+          "name": "White",
+          "slug": "white"
+        },
+        {
+          "color": "#d2d2d2",
+          "name": "Light",
+          "slug": "light"
+        },
+        {
+          "color": "#3b3b3b",
+          "name": "Dark",
+          "slug": "dark"
+        },
+        {
+          "color": "#000000",
+          "name": "Black",
+          "slug": "black"
+        },
+        {
+          "color": "#4bf60a",
+          "name": "Success",
+          "slug": "success"
+        },
+        {
+          "color": "#f6ea0a",
+          "name": "Warning",
+          "slug": "warning"
+        },
+        {
+          "color": "#f60a0a",
+          "name": "Failure",
+          "slug": "failure"
+        }
+      ]
+    },
+    "custom": {},
+    "dimensions": {},
+    "layout": {},
+    "position": {},
+    "shadow": {},
+    "spacing": {},
+    "typography": {
+      "fontFamilies": []
+    },
+    "useRootPaddingAwareAlignments": false,
+    "blocks": {}
+  },
+  "styles": {
+    "color": {
+      "text": "var:preset|color|dark",
+      "background": "var:preset|color|light"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "var:preset|color|brand"
+        }
+      }
+    }
+  },
+  "customTemplates": [],
+  "templateParts": [],
+  "patterns": []
+}
