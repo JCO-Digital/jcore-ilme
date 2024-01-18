@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * Stub that includes archive.php
  */
 
