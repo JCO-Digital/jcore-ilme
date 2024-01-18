@@ -5,7 +5,6 @@
   "scripts": {
     "esbuild": "esbuild --bundle src/js/*.?s --outdir=dist/js --minify --sourcemap",
     "postcss": "postcss src/css/*.css --dir dist/css",
-    "tailwind": "tailwindcss -i src/tailwind.css -o dist/css/tailwind.css",
     "watch-esbuild": "npm run esbuild -- --watch",
     "watch-postcss": "npm run postcss -- --watch",
     "watch": "concurrently --kill-others 'npm run watch-esbuild' 'npm run watch-postcss'",
