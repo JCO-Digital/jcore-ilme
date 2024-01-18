@@ -1,14 +1,14 @@
 {% extends "layout.twig" %}
 
-{% block post_info %}
+{% block content %}
 	<div class="post-info">
 		{% if customizer('article','date') %}
 			<span class="post-date">{{ post.date }}</span>
 		{% endif %}
 		{% if customizer('article','cat') %}
 			<span class="post-cat">
-				|
-				{{ post.category }}</span>
+				{{ post.category }}
+			</span>
 		{% endif %}
 		{% if customizer('article','share_button') %}
 			<button class="share-button" data-share="{{ post.title }}">
@@ -18,23 +18,21 @@
 			</button>
 		{% endif %}
 	</div>
-{% endblock %}
 
-{% block post_image %}
 	{% if customizer('article','image') %}
 		<div class="featured-image">
 			{% include 'images/image.twig' with {image: post.thumbnail, class: 'featured'} %}
 		</div>
 	{% endif %}
-{% endblock %}
 
-{% block post_author %}
 	<div>
 		{% if customizer('article','author') %}
 			<span class="post-author">{{ __('Author','jcore') }}:
 				{{ post.author }}</span>
 		{% endif %}
 	</div>
+
+	{{ post.content }}
 {% endblock %}
 
 {% block content_below %}
