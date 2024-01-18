@@ -22,10 +22,10 @@ if ( function_exists( '\Sentry\init' ) && defined( 'SENTRY_DSN' ) && ! defined( 
 }
 
 add_action( 'after_setup_theme', 'Jcore\Ilme\setup' );
+add_action( 'wp_enqueue_scripts', 'Jcore\Ilme\scripts' );
 /*
 add_action( 'after_setup_theme', 'Jcore\Ilme\register_menu' );
 add_action( 'acf/init', 'Jcore\Ilme\initialize_jcore_settings' );
-add_action( 'wp_enqueue_scripts', 'Jcore\Ilme\scripts' );
 add_action( 'admin_enqueue_scripts', 'Jcore\Ilme\admin_scripts' );
 add_action( 'enqueue_block_editor_assets', 'Jcore\Ilme\block_editor_scripts' );
 add_action( 'login_enqueue_scripts', 'Jcore\Ilme\login_scripts' );
@@ -83,35 +83,35 @@ require_once 'includes/archive.php';
 
 
 // Utility Functions.
-//require_once 'includes/utility-functions.php';
+// require_once 'includes/utility-functions.php';
 
 // Extended Core Blocks
-//require_once 'includes/extended-blocks.php';
+// require_once 'includes/extended-blocks.php';
 
 // Gutenberg Block Patterns.
-//require_once 'includes/block-patterns.php';
+// require_once 'includes/block-patterns.php';
 
 // jcore blocks loader.
-//require_once 'includes/blocks.php';
+// require_once 'includes/blocks.php';
 
 // Breakpoints.
-//require_once 'includes/breakpoints.php';
+// require_once 'includes/breakpoints.php';
 
 
 // Endpoints.
-//require_once 'includes/endpoints.php';
+// require_once 'includes/endpoints.php';
 
 // Image modification functions.
-//require_once 'includes/images.php';
+// require_once 'includes/images.php';
 
 // ACF JSON Settings.
-//require_once 'includes/acf-settings.php';
+// require_once 'includes/acf-settings.php';
 
 // Vue Functions.
-//require_once 'includes/vue-functions.php';
+// require_once 'includes/vue-functions.php';
 
 // WooCommerce Functions.
-//require_once 'includes/woo-functions.php';
+// require_once 'includes/woo-functions.php';
 
 require_once 'classes/Settings.php';
 
@@ -280,9 +280,9 @@ function setup() {
 		)
 	);
 	if ( class_exists( 'woocommerce' ) ) {
-		//	add_theme_support( 'wc-product-gallery-zoom' );
-		//	add_theme_support( 'wc-product-gallery-lightbox' );
-		//	add_theme_support( 'wc-product-gallery-slider' );
+		// add_theme_support( 'wc-product-gallery-zoom' );
+		// add_theme_support( 'wc-product-gallery-lightbox' );
+		// add_theme_support( 'wc-product-gallery-slider' );
 	}
 
 	load_jcore_textdomain();
@@ -469,13 +469,16 @@ function scripts() {
 	Assets::style_register(
 		'theme',
 		'/dist/css/theme.css',
-		array(
-			'font-awesome',
-			'swiper',
-		)
+		array()
+	);
+
+	Assets::style_register(
+		'tailwind',
+		'/dist/css/tailwind.css',
 	);
 
 	wp_enqueue_style( 'theme' );
+	wp_enqueue_style( 'tailwind' );
 
 	wp_enqueue_script( 'jcore' );
 	wp_enqueue_script( 'jUtils' );

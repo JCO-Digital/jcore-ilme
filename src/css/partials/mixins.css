@@ -1,0 +1,10 @@
+@define-mixin test $test, $color: blue {
+  .test.is-$(test) {
+    color: $color;
+    @mixin-content;
+  }
+  .test.is-$(test):hover {
+    color: white;
+    background: $color;
+  }
+}
