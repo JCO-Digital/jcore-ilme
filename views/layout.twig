@@ -22,7 +22,7 @@ This should be overwritten in childs layout. Preferably by overwriting just the 
         {# Stuff above content goes here #}
     {% endblock %}
     {# Tailwind container class with 1rem padding #}
-    <main id="main" class="{{ main_class }} container mx-auto p-4">
+    <main id="main" class="{{ main_class }} container mx-auto p-4 is-layout-constrained">
         {% block content %}
             {# Post content #}
         {% endblock %}
