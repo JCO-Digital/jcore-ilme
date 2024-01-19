@@ -1,14 +1,13 @@
 /* Heading */
-.wp-block-heading{
+.wp-block-heading {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 /* Cover */
-.wp-block-cover{
+.wp-block-cover {
   margin-bottom: 1rem;
 }
-
 
 /* Gutenberg spacer */
 .wp-block-spacer {
@@ -46,21 +45,21 @@ blockquote {
     &:first-of-type:before {
       font-size: 2rem;
       color: black;
-      content: '\f10e';
-      font-family: 'Font Awesome 6 Pro';
+      content: "\f10e";
+      font-family: "Font Awesome 6 Pro";
       font-weight: 900;
       position: absolute;
       left: -3.5rem;
     }
     &:last-of-type:after {
-      content: '';
+      content: "";
     }
   }
   cite {
     font-style: normal !important;
     font-weight: bold !important;
   }
-  >* {
+  > * {
     margin-left: 5rem;
     position: relative;
   }
@@ -77,7 +76,17 @@ blockquote {
 /* Media and images */
 
 .wp-block-image {
-  min-height: 1px; /* IE fix for flex-column */
+  margin: 1rem;
+  &.alignleft {
+    float: left;
+  }
+  &.alignright {
+    float: right;
+  }
+  &.aligncenter {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .wp-block-media-text {
@@ -89,10 +98,12 @@ blockquote {
 
 /* Gallery */
 
-.blocks-gallery-grid, .wp-block-gallery {
-  .blocks-gallery-image, .blocks-gallery-item {
+.blocks-gallery-grid,
+.wp-block-gallery {
+  .blocks-gallery-image,
+  .blocks-gallery-item {
     figcaption {
-      padding: 1em 0.7em .77em;
+      padding: 1em 0.7em 0.77em;
       font-weight: 400;
     }
   }

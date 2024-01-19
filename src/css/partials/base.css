@@ -10,8 +10,6 @@ body {
   flex-direction: column;
   padding: 0;
   margin: 0;
-  background-color: var(--jcore-site-background-color);
-  color: var(--jcore-site-text-color);
   > * {
     flex: 0 0 auto;
   }
@@ -34,7 +32,7 @@ section {
   display: block;
 }
 
-p{
+p {
   margin-bottom: 1rem;
 }
 
