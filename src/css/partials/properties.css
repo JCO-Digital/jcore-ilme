@@ -1,4 +1,4 @@
 :root {
-  --jcore-site-background-color: var(--jcore-color-white);
-  --jcore-site-text-color: var(--jcore-color-black);
+  --jcore-content-width: 70ch;
+  --jcore-content-padding: 2rem;
 }

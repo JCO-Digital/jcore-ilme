@@ -56,8 +56,8 @@
     "custom": {},
     "dimensions": {},
     "layout": {
-      "contentSize": "680px",
-      "wideSize": "1200px"
+      "contentSize": "70ch",
+      "wideSize": "85ch"
     },
     "position": {},
     "shadow": {},

@@ -17,7 +17,7 @@ add_filter( 'timber/twig', 'Jcore\Ilme\twig' );
  * @return array
  */
 function context( $context ) {
-	$context['main_class'] = 'content-container';
+	$context['main_class'] = 'is-layout-constrained';
 
 	/* Now, you add a Timber menu and send it along to the context. */
 	if ( empty( $context['menu'] ) ) {

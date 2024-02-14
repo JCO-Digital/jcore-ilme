@@ -1,0 +1,34 @@
+.is-layout-constrained {
+  --wide-padding: calc(
+    (
+        var(--wp--style--global--wide-size) -
+          var(--wp--style--global--content-size)
+      ) / 2
+  );
+  display: grid;
+  grid-template-columns:
+    [full-start]
+    minmax(var(--jcore-content-padding), 1fr)
+    [wide-start]
+    minmax(0, var(--wide-padding))
+    [content-start]
+    min(
+      100% - (var(--jcore-content-padding) * 2),
+      var(--wp--style--global--content-size)
+    )
+    [content-end]
+    minmax(0, var(--wide-padding))
+    [wide-end]
+    minmax(var(--jcore-content-padding), 1fr)
+    [full-end];
+
+  & > * {
+    grid-column: content;
+    &.alignwide {
+      grid-column: wide;
+    }
+    &.alignfull {
+      grid-column: full;
+    }
+  }
+}
