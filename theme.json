@@ -53,11 +53,13 @@
         }
       ]
     },
-    "custom": {},
+    "custom": {
+      "foobar": "90ch"
+    },
     "dimensions": {},
     "layout": {
       "contentSize": "70ch",
-      "wideSize": "85ch"
+      "wideSize": "95ch"
     },
     "position": {},
     "shadow": {},

@@ -1,4 +1,5 @@
-.is-layout-constrained {
+.is-layout-constrained,
+.is-layout-flow {
   --wide-padding: calc(
     (
         var(--wp--style--global--wide-size) -

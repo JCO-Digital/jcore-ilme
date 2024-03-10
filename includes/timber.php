@@ -25,7 +25,6 @@ function context( $context ) {
 	}
 	$context['menu']['primary']   = \Timber::get_menu( 'primary' );
 	$context['menu']['secondary'] = \Timber::get_menu( 'secondary' );
-	$context['menu']['tertiary']  = \Timber::get_menu( 'tertiary' );
 
 	if ( empty( $context['footer'] ) ) {
 		$context['footer'] = array();
@@ -67,6 +66,7 @@ function context( $context ) {
 		$context['referrer']          = '';
 		$context['referrer_internal'] = 0;
 	} else {
+		$referer                      = wp_unslash( esc_url( $_SERVER['HTTP_REFERER'] ) );
 		$context['referrer']          = $_SERVER['HTTP_REFERER'];
 		$context['referrer_internal'] = strpos( $_SERVER['HTTP_REFERER'], $_SERVER['HTTP_HOST'] ) ? 1 : 0;
 	}

@@ -23,8 +23,8 @@ if ( function_exists( '\Sentry\init' ) && defined( 'SENTRY_DSN' ) && ! defined( 
 
 add_action( 'after_setup_theme', 'Jcore\Ilme\setup' );
 add_action( 'wp_enqueue_scripts', 'Jcore\Ilme\scripts' );
-/*
 add_action( 'after_setup_theme', 'Jcore\Ilme\register_menu' );
+/*
 add_action( 'acf/init', 'Jcore\Ilme\initialize_jcore_settings' );
 add_action( 'admin_enqueue_scripts', 'Jcore\Ilme\admin_scripts' );
 add_action( 'enqueue_block_editor_assets', 'Jcore\Ilme\block_editor_scripts' );
@@ -169,7 +169,7 @@ if ( ! Customizer::get( 'article', 'enable_comments' ) ) {
 			// Redirect any user trying to access comments page.
 			global $pagenow;
 
-			if ( $pagenow === 'edit-comments.php' ) {
+			if ( 'edit-comments.php' === $pagenow ) {
 				wp_safe_redirect( admin_url() );
 				exit;
 			}
@@ -222,16 +222,16 @@ function cc_mime_types( $mimes ) {
  * Do most of the things needed for the theme.
  */
 function setup() {
-	// Theme Supports
-	// Gutenberg demands opt-in for editor styles, remove only if you want to hurt yourself.
+	// Theme Supports.
 	add_theme_support( 'editor-styles' );
+	add_editor_style( 'dist/css/editor.css' );
+
 	add_theme_support( 'align-wide' );
 	add_theme_support( 'custom-units' );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'menus' );
 	add_theme_support( 'title-tag' );
-	add_theme_support( 'disable-layout-styles' );
 
 	$defaults = array(
 		'height'               => 64,
@@ -280,12 +280,6 @@ function setup() {
 			),
 		)
 	);
-	if ( class_exists( 'woocommerce' ) ) {
-		// add_theme_support( 'wc-product-gallery-zoom' );
-		// add_theme_support( 'wc-product-gallery-lightbox' );
-		// add_theme_support( 'wc-product-gallery-slider' );
-	}
-
 	load_jcore_textdomain();
 }
 /**
@@ -294,9 +288,6 @@ function setup() {
  * @return void
  */
 function load_jcore_textdomain(): void {
-	if ( apply_filters( 'load_jcore_child_textdomain', true ) ) {
-		load_theme_textdomain( 'jcore', get_stylesheet_directory() . '/languages' );
-	}
 	load_theme_textdomain( 'jcore', get_template_directory() . '/languages' );
 }
 
@@ -346,6 +337,11 @@ function init() {
 	}
 }
 
+/**
+ *
+ *
+ * @return void
+ */
 function custom_body_open() {
 	// TODO Fix.
 	if ( Settings::get( 'keys', 'google_tag_manager' ) ) {
@@ -513,7 +509,6 @@ function login_scripts( $hook ) {
 function register_menu() {
 	register_nav_menu( 'primary', __( 'Primary Menu', 'jcore' ) );
 	register_nav_menu( 'secondary', __( 'Secondary Menu', 'jcore' ) );
-	register_nav_menu( 'tertiary', __( 'Tertiary Menu', 'jcore' ) );
 }
 
 function get_children() {
