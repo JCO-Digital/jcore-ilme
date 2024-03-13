@@ -86,7 +86,21 @@
           ],
           "fontFamily": "\"Inter Tight\", sans-serif",
           "name": "Inter Tight",
-          "slug": "body"
+          "slug": "inter-tight"
+        },
+        {
+          "fontFace": [
+            {
+              "fontFamily": "Inter",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "300 900",
+              "src": ["file:./assets/fonts/Inter.woff2"]
+            }
+          ],
+          "fontFamily": "\"Inter\", sans-serif",
+          "name": "Inter",
+          "slug": "inter"
         }
       ]
     },
