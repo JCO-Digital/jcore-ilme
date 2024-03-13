@@ -1,6 +1,12 @@
-<li id="menu-item-{{ type }}-{{ index }}" class="{{ item.class }}" data-group="menu-level-{{ level }}"
-    data-title="{{ item.title }}" {% if hover and item.children %} data-jhover data-jtoggle="submenu-{{ type }}-{{ index }} submenu-button-{{ type }}-{{ index }}" {% endif %}>
-    <a class="menu-link menu-link-{{ level }}" href="{{ item.link }}" target="{{ item.target }}">
+<li id="menu-item-{{ index }}" class="{{ item.class }}" data-group="menu-level-{{ level }}"
+    data-title="{{ item.title }}" {% if item.children %}data-jtoggle="submenu-{{ index }} submenu-button-{{ index }}" {% endif %}>
+    <a class="hover:underline menu-link cursor-pointer menu-link-{{ level }}" {% if customizer('navigation','first_level_submenu_link') %}href="{{ item.link }}" target="{{ item.target }}"{% else %} data-jtrigger="submenu-button-{{ index }}"{% endif %}>
+        {% block chevron %}
+            {#
+                WE DONT HAVE THIS YET
+               <i class="fa-solid fa-chevron-up"></i>
+            #}
+        {% endblock %}
         {% block item %}
             <span class="title-text">{{ item.title }}</span>
             {% if item.description %}
@@ -8,21 +14,21 @@
             {% endif %}
         {% endblock %}
     </a>
-    {% if item.children and level == 0 or (level == 1 and customizer('navigation_desktop','third_level_submenu') and item.children) %}
+    {% if item.children and level == 0 or (level == 1 and customizer('navigation','third_level_submenu') and item.children) %}
         {% block itemsubmenubutton %}
             <button type="button"
-                    class="submenu-button submenu-button-{{ type }} submenu-button-{{ level }}"
-                    id="submenu-button-{{ type }}-{{ index }}"
-                    data-jtoggle="submenu-{{ type }}-{{ index }} menu-item-{{ type }}-{{ index }}"
+                    class="submenu-button submenu-button submenu-button-{{ level }}"
+                    id="submenu-button-{{ index }}"
+                    data-jtoggle="submenu-{{ index }} menu-item-{{ index }}"
                     data-group="menu-level-{{ level }}"
                     aria-haspopup="true">
                 <span class="sr-only">{{ __('Toggle Dropdown','jcore') }}</span>
             </button>
         {% endblock %}
-        <ul class="submenu-dropdown menu submenu submenu-{{ type }} submenu-{{ level }}"
-            id="submenu-{{ type }}-{{ index }}" aria-labelledby="submenu-button-{{ type }}-{{ index }}">
+        <ul class="hidden submenu-dropdown menu submenu submenu-{{ level }}"
+            id="submenu-{{ index }}" aria-labelledby="submenu-button-{{ index }}">
             {% for child in item.children %}
-                {% include ['navigation/item-'~ type ~'.twig', 'navigation/item.twig'] with {item: child, type, index: (index ~ '-' ~ loop.index), level: level + 1, hover: customizer('navigation_desktop','hover')} only %}
+                {% include ['navigation/item.twig'] with {item: child, index: (index ~ '-' ~ loop.index), level: level + 1} only %}
             {% endfor %}
         </ul>
     {% endif %}
