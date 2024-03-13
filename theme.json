@@ -94,6 +94,9 @@
     "blocks": {}
   },
   "styles": {
+    "typography": {
+      "fontFamily": "Inter Tight"
+    },
     "color": {
       "text": "var:preset|color|dark",
       "background": "var:preset|color|white"
