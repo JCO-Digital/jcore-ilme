@@ -10,9 +10,8 @@
         {% block navbar %}
             <div class="flex justify-between items-center h-full">
                 {% block logo %}
-                    <div>
-                        LOGO
-                        {# {% include 'images/navbar-brand.twig' %} #}
+                    <div class="[&_img]:h-11 [&_img]:w-auto">
+                        {% include 'images/navbar-brand.twig' %}
                     </div>
                 {% endblock %}
                 <div class="h-full flex items-center">

@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  ul {
+    list-style: disc;
+  }
+}
+
+@layer base {
+  ul {
+    list-style: disc;
+  }
+}
+
 @layer components {
   /* Cruip gray theme utility patterns */
 

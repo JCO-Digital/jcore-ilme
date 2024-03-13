@@ -1,11 +1,10 @@
 {# Page footer stuff goes here. #}
-<footer class="">
+<footer>
 	<section id="footer-main" class="is-layout-constrained">
 		<div class="logo alignwide">
-			<a class="footer-brand" href="{{ home }}" aria-label="{{ __('Home page','jcore') }}">
-				{% include 'images/footer-brand.twig' %}
-			</a>
+			{% include 'images/footer-brand.twig' %}
 			<div>{{ footer.footer_below_logo.content }}</div>
+			{% include 'partials/footer-social.twig' %}
 		</div>
 		<div class="left alignwide">{{ footer.footer_left.content }}</div>
 		<div class="center alignwide">{{ footer.footer_center.content }}</div>
