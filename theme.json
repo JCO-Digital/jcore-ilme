@@ -58,24 +58,69 @@
     },
     "dimensions": {},
     "layout": {
-      "contentSize": "70ch",
-      "wideSize": "95ch"
+      "contentSize": "min(800px, 80vw)",
+      "wideSize": "min(1400px, 95vw)"
     },
     "position": {},
     "shadow": {},
     "spacing": {},
     "typography": {
-      "fontFamilies": []
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "fontFace": [
+            {
+              "fontFamily": "Inter Tight",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "300 900",
+              "src": ["file:./assets/fonts/InterTight.woff"]
+            },
+            {
+              "fontFamily": "Inter Tight",
+              "fontStretch": "normal",
+              "fontStyle": "italic",
+              "fontWeight": "300 900",
+              "src": ["file:./assets/fonts/InterTight-Italic.woff"]
+            }
+          ],
+          "fontFamily": "\"Inter Tight\", sans-serif",
+          "name": "Inter Tight",
+          "slug": "inter-tight"
+        },
+        {
+          "fontFace": [
+            {
+              "fontFamily": "Inter",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "300 900",
+              "src": ["file:./assets/fonts/Inter.woff2"]
+            }
+          ],
+          "fontFamily": "\"Inter\", sans-serif",
+          "name": "Inter",
+          "slug": "inter"
+        }
+      ]
     },
     "useRootPaddingAwareAlignments": false,
     "blocks": {}
   },
   "styles": {
+    "typography": {
+      "fontFamily": "Inter"
+    },
     "color": {
       "text": "var:preset|color|dark",
       "background": "var:preset|color|white"
     },
     "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "Inter Tight"
+        }
+      },
       "link": {
         "color": {
           "text": "var:preset|color|brand"

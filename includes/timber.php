@@ -1,4 +1,9 @@
 <?php
+/**
+ * Timber context.
+ *
+ * @package Jcore\Ilme
+ */
 
 namespace Jcore\Ilme;
 
@@ -25,12 +30,6 @@ function context( $context ) {
 	}
 	$context['menu']['primary']   = \Timber::get_menu( 'primary' );
 	$context['menu']['secondary'] = \Timber::get_menu( 'secondary' );
-
-	if ( empty( $context['footer'] ) ) {
-		$context['footer'] = array();
-	}
-	$context['footer']['main'] = \Timber::get_widgets( 'footer-main' );
-	$context['footer']['info'] = \Timber::get_widgets( 'footer-info' );
 
 	// $context['imagesizes'] = create_sizes( $GLOBALS['jcore_settings'] );
 
@@ -82,6 +81,13 @@ function context( $context ) {
 	return $context;
 }
 
+/**
+ * Add filters for Timber Twig.
+ *
+ * @param \Twig\Environment $twig The Twig environment.
+ *
+ * @return \Twig\Environment
+ */
 function twig( $twig ) {
 	$twig->addFilter( new TwigFilter( 'slug', 'Jcore\Ilme\slugify' ) );
 	$twig->addFilter( new TwigFilter( 'slugify', 'Jcore\Ilme\slugify' ) );
@@ -108,6 +114,14 @@ function twig( $twig ) {
 	return $twig;
 }
 
+/**
+ * Converts a string into a slug.
+ *
+ * This function takes a string as input and converts it into a slug. It first replaces any occurrences of the characters 'å', 'ä', and 'ö' with 'a' and 'o' respectively. It then converts the string to lowercase and trims any leading or trailing whitespace. Finally, it replaces any character that is not a lowercase letter or a digit with a dash.
+ *
+ * @param string $text The input string to be converted into a slug.
+ * @return string The resulting slug.
+ */
 function slugify( $text ) {
 	$text = str_replace( array( 'å', 'ä', 'ö' ), array( 'a', 'a', 'o' ), strtolower( trim( $text ) ) );
 	$text = preg_replace( '/[^a-z0-9]/', '-', $text );
@@ -115,18 +129,37 @@ function slugify( $text ) {
 	return $text;
 }
 
+/**
+ * Formats a number as a euro value.
+ *
+ * This function takes a number as input and formats it as a euro value. It uses the number_format function to format the number with two decimal places and a comma as the decimal separator.
+ *
+ * @param float $value The number to be formatted as a euro value.
+ * @return string The formatted euro value.
+ */
 function euro_format( $value ) {
 	return number_format( $value, 2, ',', '' );
 }
 
 /**
- * @param $post
- * @param $nr
- * @param $threshold
- * @param $ellipsis
- * @param $force
+ * Generates a preview of a post's content or excerpt.
  *
- * @return string
+ * This function generates a preview of a post's content or excerpt. It takes a post (either as a string or a WP_Post object) and a number of words to include in the preview. It also accepts an optional threshold for the distance from the requested length at which to cut the preview, an optional string to append to the preview if it is cut, and an optional flag to force the use of the post's excerpt.
+ *
+ * If the post is a string, it is used as the text to generate the preview from. If the post is a WP_Post object and it has an excerpt, the excerpt is used as the text to generate the preview from. If the post is a WP_Post object and it does not have an excerpt, the post's content is used as the text to generate the preview from. If the post is neither a string nor a WP_Post object, an empty string is returned.
+ *
+ * The function then splits the text into an array of words and iterates over the array. For each word that ends in punctuation, it calculates the distance from the requested length. If the distance is closer than the previous closest distance, it sets the current distance and length as the closest.
+ *
+ * If the closest distance is equal to or smaller than the threshold, the length of the preview is set to the closest length. Otherwise, the length of the preview is set to the requested length. If the length of the preview is longer than the whole text, the length is set to the length of the whole text.
+ *
+ * The function then constructs the preview by concatenating the words up to the determined length. If the length of the preview is shorter than the whole text, it appends the ellipsis to the preview. Finally, it trims any leading or trailing whitespace from the preview and returns it.
+ *
+ * @param mixed    $post The post to generate a preview for. Can be a string or a WP_Post object.
+ * @param int      $nr The number of words to include in the preview. Default is 50.
+ * @param int|null $threshold The distance from the requested length at which to cut the preview. Default is 20% of the requested length.
+ * @param string   $ellipsis The string to append to the preview if it is cut. Default is an empty string.
+ * @param bool     $force Whether to force the use of the post's excerpt if it exists. Default is false.
+ * @return string The generated post preview.
  */
 function post_preview( $post, $nr = 50, $threshold = null, $ellipsis = '', $force = false ): string {
 	if ( null === $threshold ) {
@@ -205,6 +238,15 @@ function post_preview( $post, $nr = 50, $threshold = null, $ellipsis = '', $forc
 	return trim( $output );
 }
 
+/**
+ * Returns a class string for a tease.
+ *
+ * This function takes a post and an optional number as input and returns a class string for a tease. The class string is built from the post type and the categories of the post, and optionally the number.
+ *
+ * @param \Timber\Post $post The post to build the class string for.
+ * @param int|null     $nr   The number to build the class string for.
+ * @return string The resulting class string.
+ */
 function tease_class( $post, $nr = null ) {
 	$class = 'tease';
 	if ( ! empty( $post ) ) {
@@ -220,6 +262,13 @@ function tease_class( $post, $nr = null ) {
 	return $class;
 }
 
+/**
+ * Retrieves categories that are not uncategorized and have at least one post.
+ *
+ * @param string $taxo The taxonomy to retrieve terms from. Default is 'category'.
+ *
+ * @return array An array of terms that are not uncategorized and have at least one post.
+ */
 function get_cats( $taxo = 'category' ) {
 	$cats = array();
 	foreach ( \Timber::get_terms( $taxo ) as $term ) {
