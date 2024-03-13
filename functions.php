@@ -7,7 +7,6 @@
 
 namespace Jcore\Ilme;
 
-use Jcore\Ydin\Bootstrap;
 use Jcore\Ydin\Settings\Customizer;
 use Jcore\Ydin\WordPress\Assets;
 use Timber;
@@ -16,6 +15,9 @@ const AUTOLOADER_PATH = ABSPATH . '/vendor/autoload.php';
 if ( file_exists( AUTOLOADER_PATH ) ) {
 	require_once AUTOLOADER_PATH;
 }
+
+require_once __DIR__ . '/includes/modules.php';
+require_once __DIR__ . '/includes/footer.php';
 
 if ( function_exists( '\Sentry\init' ) && defined( 'SENTRY_DSN' ) && ! defined( 'JCORE_IS_LOCAL' ) ) {
 	\Sentry\init( array( 'dsn' => SENTRY_DSN ) );
@@ -115,7 +117,6 @@ require_once 'includes/archive.php';
 
 require_once 'classes/Settings.php';
 
-Bootstrap::init();
 Settings::init();
 
 /**
