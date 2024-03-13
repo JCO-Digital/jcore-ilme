@@ -2,3 +2,6 @@
 @import "partials/properties.css";
 @import "partials/base.css";
 @import "partials/gutenberg.css";
+
+/* Cruip Tailwind templates */
+@import "cruip/gray-template.css";

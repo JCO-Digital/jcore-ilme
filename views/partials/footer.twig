@@ -5,14 +5,14 @@
 			<a class="footer-brand" href="{{ home }}" aria-label="{{ __('Home page','jcore') }}">
 				{% include 'images/footer-brand.twig' %}
 			</a>
-			<div>Footer content below logo</div>
+			<div>{{ footer.footer_below_logo.content }}</div>
 		</div>
-		<div class="left alignwide">Footer post left</div>
-		<div class="center alignwide">Footer post center</div>
-		<div class="right alignwide">Footer post right</div>
+		<div class="left alignwide">{{ footer.footer_left.content }}</div>
+		<div class="center alignwide">{{ footer.footer_center.content }}</div>
+		<div class="right alignwide">{{ footer.footer_right.content }}</div>
 	</section>
 	<section id="copyright" class="is-layout-constrained ">
-		<div class="info alignwide">Copyright info</div>
+		<div class="info alignwide">{{ footer.footer_copyright.content }}</div>
 	</section>
 	{% if customizer('site','scroll_to_top') %}
 		{% include 'navigation/scroll-to-top.twig' %}
