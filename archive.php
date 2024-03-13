@@ -10,7 +10,7 @@ use Timber;
 
 $context = Timber::context();
 
-$this_post_type = get_post_type() ?: get_queried_object()->name ?? 'post'; // phpcs:ignore WordPress.PHP.DisallowShortTernary.Found
+$this_post_type = get_post_type() ? get_post_type() : get_queried_object()->name ?? 'post'; // phpcs:ignore WordPress.PHP.DisallowShortTernary.Found
 
 $context['post_type'] = $this_post_type;
 
@@ -26,7 +26,8 @@ if ( $context['masonry'] ) {
 	$context['archive_class'] .= ' masonry-grid';
 }
 
-if ( $context['dynamic-archive'] ) {
+// TODO Fix this part.
+if ( false && $context['dynamic-archive'] ) {
 	// Dynamic Archive.
 	Assets::script_register( 'dynamic-archive', '/vendor/dynamic-archive/dynamic-archive.js' );
 	wp_enqueue_script( 'dynamic-archive' );
