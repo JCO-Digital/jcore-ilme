@@ -58,8 +58,8 @@
     },
     "dimensions": {},
     "layout": {
-      "contentSize": "70ch",
-      "wideSize": "95ch"
+      "contentSize": "min(800px, 80vw)",
+      "wideSize": "min(1400px, 95vw)"
     },
     "position": {},
     "shadow": {},
