@@ -65,7 +65,30 @@
     "shadow": {},
     "spacing": {},
     "typography": {
-      "fontFamilies": []
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "fontFace": [
+            {
+              "fontFamily": "Inter Tight",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "300 900",
+              "src": ["file:./assets/fonts/InterTight.woff"]
+            },
+            {
+              "fontFamily": "Inter Tight",
+              "fontStretch": "normal",
+              "fontStyle": "italic",
+              "fontWeight": "300 900",
+              "src": ["file:./assets/fonts/InterTight-Italic.woff"]
+            }
+          ],
+          "fontFamily": "\"Inter Tight\", sans-serif",
+          "name": "Inter Tight",
+          "slug": "body"
+        }
+      ]
     },
     "useRootPaddingAwareAlignments": false,
     "blocks": {}
