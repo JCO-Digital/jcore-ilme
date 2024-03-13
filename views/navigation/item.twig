@@ -1,11 +1,10 @@
 <li id="menu-item-{{ index }}" class="{{ item.class }}" data-group="menu-level-{{ level }}"
     data-title="{{ item.title }}" {% if item.children %}data-jtoggle="submenu-{{ index }} submenu-button-{{ index }}" {% endif %}>
-    <a class="hover:underline menu-link cursor-pointer menu-link-{{ level }}" {% if customizer('navigation','first_level_submenu_link') %}href="{{ item.link }}" target="{{ item.target }}"{% else %} data-jtrigger="submenu-button-{{ index }}"{% endif %}>
+    <a class="hover:underline menu-link cursor-pointer menu-link-{{ level }}" {% if (item.children and level == 0 and not customizer('navigation','first_level_submenu_link')) or item.children or level > 0 %} data-jtrigger="submenu-button-{{ index }}"{% else %} href="{{ item.link }}" target="{{ item.target }}"{% endif %}>
         {% block chevron %}
-            {#
-                WE DONT HAVE THIS YET
-               <i class="fa-solid fa-chevron-up"></i>
-            #}
+            {% if level == 0 and item.children %}
+                <i class="fa-solid fa-chevron-up"></i>
+            {% endif %}
         {% endblock %}
         {% block item %}
             <span class="title-text">{{ item.title }}</span>
