@@ -1,23 +1,20 @@
 {# Page footer stuff goes here. #}
-<footer class="has-{{ customizer('footer','background_color') }}-background-color has-{{ customizer('footer','font_color') }}-color">
-	{% block footer %}
-		{% block main_section %}
-			<section id="footer-main">
-				{% block main %}
-					{{ footer.main }}
-				{% endblock %}
-			</section>
-		{% endblock %}
-		{% block info_section %}{% endblock %}
-		{% block copyright_section %}
-			<section id="copyright" class="has-{{ customizer('footer','copyright_bg_color') }}-background-color has-{{ customizer('footer','copyright_font_color') }}-color">
-				{% block copyright %}
-					{{ footer.info }}
-				{% endblock %}
-			</section>
-		{% endblock %}
-		{% if customizer('site','scroll_to_top') %}
-			{% include 'navigation/scroll-to-top.twig' %}
-		{% endif %}
-	{% endblock %}
+<footer class="">
+	<section id="footer-main" class="is-layout-constrained">
+		<div class="logo alignwide">
+			<a class="footer-brand" href="{{ home }}" aria-label="{{ __('Home page','jcore') }}">
+				{% include 'images/footer-brand.twig' %}
+			</a>
+			<div>Footer content below logo</div>
+		</div>
+		<div class="left alignwide">Footer post left</div>
+		<div class="center alignwide">Footer post center</div>
+		<div class="right alignwide">Footer post right</div>
+	</section>
+	<section id="copyright" class="is-layout-constrained ">
+		<div class="info alignwide">Copyright info</div>
+	</section>
+	{% if customizer('site','scroll_to_top') %}
+		{% include 'navigation/scroll-to-top.twig' %}
+	{% endif %}
 </footer>
