@@ -90,6 +90,7 @@ function context( $context ) {
  */
 function twig( $twig ) {
 	$twig->addFilter( new TwigFilter( 'slug', 'Jcore\Ilme\slugify' ) );
+	$twig->addFilter( new TwigFilter( 'slugify', 'Jcore\Ilme\slugify' ) );
 	$twig->addFilter( new TwigFilter( 'euro', 'Jcore\Ilme\euro_format' ) );
 	$twig->addFilter( new TwigFilter( 'preview', 'Jcore\Ilme\post_preview' ) );
 	$twig->addFilter( new TwigFilter( 'tease_class', 'Jcore\Ilme\tease_class' ) );
