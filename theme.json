@@ -109,13 +109,18 @@
   },
   "styles": {
     "typography": {
-      "fontFamily": "Inter Tight"
+      "fontFamily": "Inter"
     },
     "color": {
       "text": "var:preset|color|dark",
       "background": "var:preset|color|white"
     },
     "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "Inter Tight"
+        }
+      },
       "link": {
         "color": {
           "text": "var:preset|color|brand"

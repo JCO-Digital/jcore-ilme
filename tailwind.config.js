@@ -61,5 +61,5 @@ export default {
             variants: ["sm", "md", "lg", "xl"],
         }
     ],
-    plugins: [],
+    plugins: [require('@tailwindcss/forms')],
 };
