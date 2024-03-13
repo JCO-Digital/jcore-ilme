@@ -43,9 +43,13 @@ export default {
                   from: { transform: 'translateX(-100%)' },
                   to: { transform: 'translateX(0)' },
                 }
+              },
+              colors: {
+                  ...colors,
+                  transparent: "rgba(0,0,0,0)"
               }
-        },
-        colors,
+            },
+        
     },
     safelist: [
         {
