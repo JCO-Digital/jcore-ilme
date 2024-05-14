@@ -9,7 +9,7 @@
 
 namespace Jcore\Ilme;
 
-use Jcore\Blocks\Bootstrap;
+use Jcore\Blocks;
 use Jcore\Ydin;
 use Jcore\Ydin\BootstrapInterface;
 
@@ -19,7 +19,7 @@ use Jcore\Ydin\BootstrapInterface;
  * @var BootstrapInterface[] $modules
  */
 $modules = array(
-	Bootstrap::class,
+	Blocks\Bootstrap::class,
 );
 
 /**

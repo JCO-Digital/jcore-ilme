@@ -11,52 +11,26 @@ use Jcore\Ydin\Settings\Customizer;
 use Jcore\Ydin\WordPress\Assets;
 use Timber;
 
-const AUTOLOADER_PATH = ABSPATH . '/vendor/autoload.php';
+const AUTOLOADER_PATH = ABSPATH . 'vendor/autoload.php';
 if ( file_exists( AUTOLOADER_PATH ) ) {
 	require_once AUTOLOADER_PATH;
 }
-
-require_once __DIR__ . '/includes/modules.php';
-require_once __DIR__ . '/includes/footer.php';
 
 if ( function_exists( '\Sentry\init' ) && defined( 'SENTRY_DSN' ) && ! defined( 'JCORE_IS_LOCAL' ) ) {
 	\Sentry\init( array( 'dsn' => SENTRY_DSN ) );
 }
 
+require_once __DIR__ . '/includes/modules.php';
+require_once __DIR__ . '/includes/footer.php';
+require_once __DIR__ . '/includes/timber.php';
+require_once __DIR__ . '/includes/archive.php';
+require_once __DIR__ . '/classes/Settings.php';
+require_once __DIR__ . '/includes/polylang.php';
+require_once __DIR__ . '/includes/customizer.php';
+
 add_action( 'after_setup_theme', 'Jcore\Ilme\setup' );
 add_action( 'wp_enqueue_scripts', 'Jcore\Ilme\scripts' );
 add_action( 'after_setup_theme', 'Jcore\Ilme\register_menu' );
-/*
-add_action( 'acf/init', 'Jcore\Ilme\initialize_jcore_settings' );
-add_action( 'admin_enqueue_scripts', 'Jcore\Ilme\admin_scripts' );
-add_action( 'enqueue_block_editor_assets', 'Jcore\Ilme\block_editor_scripts' );
-add_action( 'login_enqueue_scripts', 'Jcore\Ilme\login_scripts' );
-add_action( 'widgets_init', 'Jcore\Ilme\widgets_init' );
-add_action( 'init', 'Jcore\Ilme\init' );
-add_action( 'wp_body_open', 'Jcore\Ilme\custom_body_open' );
-add_action( 'wp_head', 'Jcore\Ilme\custom_head' );
-
-// Custom ACF fields.
-add_action( 'acf/include_field_types', 'Jcore\Ilme\add_acf_fields' );
-
-add_filter( 'theme_templates', 'Jcore\Ilme\jcore_templates' );
-
-// Enable shortcodes in text widgets.
-add_filter( 'widget_text', 'do_shortcode' );
-
-add_filter( 'jpeg_quality', 'Jcore\Ilme\jpeg_quality', 10, 2 );
-add_filter( 'wp_editor_set_quality', 'Jcore\Ilme\jpeg_quality', 10, 2 );
-
-// Custom gutenberg category for jcore blocks.
-add_filter( 'block_categories_all', 'Jcore\Ilme\custom_block_categories', 10, 2 );
-
-// Turn off translations for reusable blocks.
-add_filter( 'pll_get_post_types', 'Jcore\Ilme\remove_reusable_block_from_pll', 10, 2 );
-
-add_filter( 'get_custom_logo', 'Jcore\Ilme\get_logo' );
-
-add_filter( 'pre_get_document_title', 'Jcore\Ilme\custom_page_title', 20 );
-*/
 
 add_filter(
 	'login_headerurl',
@@ -77,45 +51,6 @@ add_filter( 'theme_page_templates', 'Jcore\Ilme\exclude_template_learndash_conte
 
 /*-----  End of Hook Library  ------*/
 
-// Timber functions.
-require_once 'includes/timber.php';
-
-// Archive.
-require_once 'includes/archive.php';
-
-
-// Utility Functions.
-// require_once 'includes/utility-functions.php';
-
-// Extended Core Blocks
-// require_once 'includes/extended-blocks.php';
-
-// Gutenberg Block Patterns.
-// require_once 'includes/block-patterns.php';
-
-// jcore blocks loader.
-// require_once 'includes/blocks.php';
-
-// Breakpoints.
-// require_once 'includes/breakpoints.php';
-
-
-// Endpoints.
-// require_once 'includes/endpoints.php';
-
-// Image modification functions.
-// require_once 'includes/images.php';
-
-// ACF JSON Settings.
-// require_once 'includes/acf-settings.php';
-
-// Vue Functions.
-// require_once 'includes/vue-functions.php';
-
-// WooCommerce Functions.
-// require_once 'includes/woo-functions.php';
-
-require_once 'classes/Settings.php';
 
 Settings::init();
 
@@ -399,7 +334,7 @@ function get_logo( string $html ) {
 			return str_replace( $matches[0], '<div class="custom-logo">' . $svg . '</div>', $html );
 		}
 		// Enables SVG logos to work correctly on local sites.
-		if ( WP_DEBUG ) {
+		if ( wp_get_environment_type() === 'local' ) {
 			// Checks the transient first.
 			$transient_name = '_custom_svg_logo';
 			if ( false !== ( $value = get_transient( $transient_name ) ) ) { // phpcs:ignore
@@ -489,6 +424,11 @@ function scripts() {
 	wp_add_inline_style( 'theme', Customizer::get_styles() );
 }
 
+/**
+ *
+ *
+ * @return void
+ */
 function block_editor_scripts() {
 	Assets::script_register( 'lightbox-gallery-filters', '/dist/js/lightbox-filters.js', array( 'wp-edit-post' ) );
 	wp_enqueue_script( 'lightbox-gallery-filters' );
@@ -533,14 +473,6 @@ function get_children() {
 	}
 }
 
-/**
- * Turn off translations for reusable blocks
- */
-function remove_reusable_block_from_pll( $post_types, $is_settings ) {
-	unset( $post_types['wp_block'] );
-
-	return $post_types;
-}
 
 /**
  *  Adds the reusable blocks page to admin menu
