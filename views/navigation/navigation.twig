@@ -8,12 +8,15 @@
             {% endif %}
         {% endblock %}
         {% block navbar %}
-            <div class="flex justify-between items-center h-full">
-                {% block logo %}
-                    <div class="[&_img]:h-11 [&_img]:w-auto">
-                        {% include 'images/navbar-brand.twig' %}
-                    </div>
-                {% endblock %}
+            <div id="navigation-container" class="flex justify-between items-center h-full">
+                <div id="navigation-first-container">
+                    {% block logo %}
+                        <div class="[&_img]:h-11 [&_img]:w-auto">
+                            {% include 'images/navbar-brand.twig' %}
+                        </div>
+                    {% endblock %}
+                    <i id="navigation-toggler" class="fa-solid fa-bars"></i>
+                </div>
                 <div class="h-full flex items-center">
                     {% block menu %}
                         <ul class="flex justify-end items-center gap-x-8 list-none">

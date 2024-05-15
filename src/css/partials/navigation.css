@@ -14,8 +14,10 @@ button.submenu-button.toggle i.fa-chevron-up{
     display: block;
 }
 
-.submenu-dropdown button.submenu-button i.fa-chevron-up{
+.submenu-dropdown {
+    button.submenu-button i.fa-chevron-up{
         transform: rotate(90deg);
+    }
 }
 
 .submenu-dropdown button.submenu-button.toggle i.fa-chevron-up{
@@ -29,4 +31,18 @@ button.submenu-button.toggle i.fa-chevron-up{
 .submenu-dropdown li.menu-item-has-children .submenu-dropdown{
     left: 100%;
     top: 0;
+}
+
+#navigation-first-container{
+    #navigation-toggler{
+        display:none;
+    }
+}
+
+@mixin breakpoint-down sm {
+    #navigation-first-container{
+        #navigation-toggler{
+            display: block;
+        }
+    }
 }
