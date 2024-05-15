@@ -102,6 +102,47 @@
           "name": "Inter",
           "slug": "inter"
         }
+      ],
+      "fontSizes": [
+        {
+          "fluid": false,
+          "name": "Small",
+          "size": "0.9rem",
+          "slug": "small"
+        },
+        {
+          "fluid": false,
+          "name": "Medium",
+          "size": "1.05rem",
+          "slug": "medium"
+        },
+        {
+          "fluid": {
+            "min": "1.39rem",
+            "max": "1.85rem"
+          },
+          "name": "Large",
+          "size": "1.85rem",
+          "slug": "large"
+        },
+        {
+          "fluid": {
+            "min": "1.85rem",
+            "max": "2.5rem"
+          },
+          "name": "Extra Large",
+          "size": "2.5rem",
+          "slug": "x-large"
+        },
+        {
+          "fluid": {
+            "min": "2.5rem",
+            "max": "3.27rem"
+          },
+          "name": "Extra Extra Large",
+          "size": "3.27rem",
+          "slug": "xx-large"
+        }
       ]
     },
     "useRootPaddingAwareAlignments": false,
