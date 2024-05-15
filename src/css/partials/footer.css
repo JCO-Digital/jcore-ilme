@@ -1,0 +1,22 @@
+footer {
+  background-color: yellow;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  .footer-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: start;
+    grid-gap: 0 2rem;
+    .logo {
+      img {
+        margin-bottom: 2rem;
+      }
+    }
+    .left,
+    .center,
+    .right {
+      margin-bottom: 2rem;
+    }
+  }
+}
