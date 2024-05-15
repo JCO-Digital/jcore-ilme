@@ -1,3 +1,4 @@
+@import "mixins/mixins.css";
 @import "partials/tailwind.css";
 @import "partials/properties.css";
 @import "partials/base.css";

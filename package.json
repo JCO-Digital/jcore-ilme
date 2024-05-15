@@ -20,7 +20,9 @@
     "postcss-import": "^15.1.0",
     "postcss-minify": "^1.1.0",
     "postcss-mixins": "^9.0.4",
+    "postcss-media-minmax": "^5",
     "postcss-preset-env": "^9.3.0",
+    "postcss-simple-vars": "^7.0.1",
     "prettier": "^3.1.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2"
