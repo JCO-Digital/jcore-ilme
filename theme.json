@@ -62,10 +62,10 @@
     },
     "custom": {
       "lineHeight": {
-        "xs": "1",
-        "sm": "1.25",
-        "md": "1.5",
-        "lg": "1.75"
+        "xs": "1.1",
+        "sm": "1.2",
+        "md": "1.4",
+        "lg": "1.5"
       },
       "breakpoints": {
         "sm": "640px",
@@ -73,18 +73,48 @@
         "lg": "1024px",
         "xl": "1280px",
         "2xl": "1536px"
+      },
+      "spacingSizes": {
+        "small": "clamp(1rem, 3.7vw + -0.05rem,  2rem)",
+        "medium": "clamp(1.5rem, 3.7vw + -0.05rem,  3rem )",
+        "large": "clamp(2rem, 3.7vw + -0.05rem,  4rem )"
       }
     },
-    "dimensions": {},
+    "dimensions": {
+      "minHeight": true
+    },
     "layout": {
       "contentSize": "min(800px, 80vw)",
-      "wideSize": "min(1400px, 95vw)"
+      "wideSize": "min(1200px, 95vw)"
     },
     "position": {},
     "shadow": {},
-    "spacing": {},
+    "spacing": {
+      "blockGap": null,
+      "margin": true,
+      "padding": true,
+      "spacingSizes": [
+        {
+          "name": "Fluid small",
+          "size": "var:custom|spacing-sizes|small",
+          "slug": "fluid-small"
+        },
+        {
+          "name": "Fluid medium",
+          "size": "var:custom|spacing-sizes|medium",
+          "slug": "fluid-medium"
+        },
+        {
+          "name": "Fluid large",
+          "size": "var:custom|spacing-sizes|large",
+          "slug": "fluid-large"
+        }
+      ]
+    },
     "typography": {
       "fluid": true,
+      "lineHeight": false,
+      "letterSpacing": false,
       "fontFamilies": [
         {
           "fontFace": [
@@ -150,6 +180,15 @@
           "size": "20px"
         },
         {
+          "name": "Ingress",
+          "slug": "ingress",
+          "size": "26px",
+          "fluid": {
+            "min": "20px",
+            "max": "26px"
+          }
+        },
+        {
           "fluid": false,
           "name": "Mini",
           "slug": "mini",
@@ -171,6 +210,12 @@
           "style": true,
           "width": true
         }
+      },
+      "core/image": {
+        "lightbox": {
+          "enabled": true,
+          "allowEditing": true
+        }
       }
     }
   },
@@ -191,8 +236,15 @@
       },
       "core/heading": {
         "typography": {
-          "lineHeight": "var:custom|line-height|xs",
           "fontSize": "var:preset|font-size|heading-2"
+        }
+      },
+      "core/group": {
+        "spacing": {
+          "padding": {
+            "top": "var:custom|spacing-sizes|medium",
+            "bottom": "var:custom|spacing-sizes|medium"
+          }
         }
       }
     },

@@ -32,10 +32,6 @@ section {
   display: block;
 }
 
-p {
-  margin-bottom: 1rem;
-}
-
 button {
   border: 0;
   background: transparent;
@@ -48,15 +44,6 @@ button {
   vertical-align: baseline;
   background: transparent;
   transition: all 0.3s;
-}
-a {
-  color: var(--jcore-site-text-color);
-  text-decoration: none;
-
-  &:hover {
-    color: black;
-    text-decoration: none;
-  }
 }
 
 img {

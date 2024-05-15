@@ -64,14 +64,6 @@ blockquote {
   }
 }
 
-/* Ingress */
-
-.ingress {
-  font-size: 1.125rem;
-  font-weight: bold;
-  font-style: oblique;
-}
-
 /* Media and images */
 
 .wp-block-image {

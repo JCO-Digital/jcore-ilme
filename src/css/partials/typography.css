@@ -1,0 +1,38 @@
+p {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: var(--wp--custom--font--size--heading-1);
+  line-height: var(--wp--custom--line-height--xs);
+}
+
+h2,
+h3 {
+  line-height: var(--wp--custom--line-height--sm);
+}
+
+h4,
+h4,
+h5,
+h6 {
+  line-height: var(--wp--custom--line-height--md);
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--wp--custom--font--size--heading-2);
+}
+
+a {
+  color: var(--wp--preset--color--brand);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--wp--preset--color--dark);
+    text-decoration: none;
+  }
+}
