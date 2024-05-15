@@ -125,3 +125,40 @@ Customizer::add_section(
 		),
 	),
 );
+Customizer::add_section(
+	'navigation',
+	'Navigation',
+	'Settings for navigation',
+	array(
+		'submenu_button_is_link'   => array(
+			'type'    => 'checkbox',
+			'label'   => 'Submenu buttons are links',
+			'default' => false,
+		),
+		'topbar'   => array(
+			'type'    => 'checkbox',
+			'label'   => 'Show topbar',
+			'default' => false,
+		),
+		'scroll' => array(
+			'type'    => 'checkbox',
+			'label'   => 'Scroll',
+			'default' => false,
+		),
+		'sticky' => array(
+			'type'    => 'checkbox',
+			'label'   => 'sticky',
+			'default' => false,
+		),
+		'spacer' => array(
+			'type'    => 'checkbox',
+			'label'   => 'spacer',
+			'default' => false,
+		),
+		'search' => array(
+			'type'    => 'checkbox',
+			'label'   => 'search',
+			'default' => false,
+		),
+	),
+);
