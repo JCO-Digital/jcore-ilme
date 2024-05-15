@@ -13,3 +13,20 @@ button.submenu-button.toggle i.fa-chevron-up{
 .submenu-dropdown.toggle {
     display: block;
 }
+
+.submenu-dropdown button.submenu-button i.fa-chevron-up{
+        transform: rotate(90deg);
+}
+
+.submenu-dropdown button.submenu-button.toggle i.fa-chevron-up{
+    transform: rotate(-90deg);
+}
+
+.submenu-dropdown li.menu-item-has-children{
+    position: relative;
+}
+
+.submenu-dropdown li.menu-item-has-children .submenu-dropdown{
+    left: 100%;
+    top: 0;
+}

@@ -35,9 +35,9 @@ Customizer::add_section(
 	'Navigation',
 	'Settings for navigation',
 	array(
-		'first_level_submenu_link'   => array(
+		'submenu_button_is_link'   => array(
 			'type'    => 'checkbox',
-			'label'   => 'First level submenu is link',
+			'label'   => 'Submenu buttons are links',
 			'default' => false,
 		),
 		'topbar'   => array(
