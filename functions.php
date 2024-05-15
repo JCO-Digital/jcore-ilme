@@ -410,14 +410,14 @@ function scripts() {
 	);
 
 	Assets::style_register(
-		'fa6-solid',
+		'fa6-free',
 		'/assets/vendor/FA6/css/all.min.css',
 	);
 
 
 	wp_enqueue_style( 'theme' );
 	wp_enqueue_style( 'tailwind' );
-	wp_enqueue_style( 'fa6-solid' );
+	wp_enqueue_style( 'fa6-free' );
 
 
 	wp_enqueue_script( 'jcore' );
