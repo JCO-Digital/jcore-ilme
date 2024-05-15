@@ -51,10 +51,30 @@
           "name": "Failure",
           "slug": "failure"
         }
+      ],
+      "gradients": [
+        {
+          "gradient": "linear-gradient(to right, var(--wp--preset--color--white), var(--wp--preset--color--brand))",
+          "name": "White to Brand",
+          "slug": "white-to-brand"
+        }
       ]
     },
     "custom": {
-      "foobar": "90ch"
+      "foobar": "90ch",
+      "lineHeight": {
+        "xs": "1",
+        "sm": "1.25",
+        "md": "1.5",
+        "lg": "1.75"
+      },
+      "breakpoints": {
+        "sm": "640px",
+        "md": "768px",
+        "lg": "1024px",
+        "xl": "1280px",
+        "2xl": "1536px"
+      }
     },
     "dimensions": {},
     "layout": {
@@ -102,10 +122,60 @@
           "name": "Inter",
           "slug": "inter"
         }
+      ],
+      "fontSizes": [
+        {
+          "fluid": false,
+          "name": "Small",
+          "size": "0.9rem",
+          "slug": "small"
+        },
+        {
+          "fluid": false,
+          "name": "Medium",
+          "size": "1.05rem",
+          "slug": "medium"
+        },
+        {
+          "fluid": {
+            "min": "1.39rem",
+            "max": "1.85rem"
+          },
+          "name": "Large",
+          "size": "1.85rem",
+          "slug": "large"
+        },
+        {
+          "fluid": {
+            "min": "1.85rem",
+            "max": "2.5rem"
+          },
+          "name": "Extra Large",
+          "size": "2.5rem",
+          "slug": "x-large"
+        },
+        {
+          "fluid": {
+            "min": "2.5rem",
+            "max": "3.27rem"
+          },
+          "name": "Extra Extra Large",
+          "size": "3.27rem",
+          "slug": "xx-large"
+        }
       ]
     },
     "useRootPaddingAwareAlignments": false,
-    "blocks": {}
+    "blocks": {
+      "core/pullquote": {
+        "border": {
+          "color": true,
+          "radius": true,
+          "style": true,
+          "width": true
+        }
+      }
+    }
   },
   "styles": {
     "typography": {
@@ -124,6 +194,18 @@
       "link": {
         "color": {
           "text": "var:preset|color|brand"
+        }
+      },
+      "blocks": {
+        "core/paragraph": {
+          "typography": {
+            "lineHeight": "var:custom|line-height|md"
+          }
+        },
+        "core/heading": {
+          "typography": {
+            "lineHeight": "var:custom|line-height|xs"
+          }
         }
       }
     }
