@@ -1,0 +1,15 @@
+button.submenu-button i.fa-chevron-up{
+    transition: transform 0.2s ease-out;
+}
+
+button.submenu-button.toggle i.fa-chevron-up{
+    transform: rotate(180deg);
+}
+
+.submenu-dropdown{
+    display: none;
+}
+
+.submenu-dropdown.toggle {
+    display: block;
+}

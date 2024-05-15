@@ -1,4 +1,4 @@
-<li id="menu-item-{{ index }}" class="{{ item.class }} {% if level > 0 %}p-2{% endif %}" data-group="menu-level-{{ level }}"
+<li id="menu-item-{{ index }}" class="{{ item.class }} {% if level > 0 %}py-2 px-4{% endif %}" data-group="menu-level-{{ level }}"
     data-title="{{ item.title }}">
     <a class="hover:underline menu-link cursor-pointer menu-link-{{ level }}" {% if item.children and level == 0 and not customizer('navigation','first_level_submenu_link') %} data-jtrigger="submenu-button-{{ index }}"{% else %} href="{{ item.link }}" target="{{ item.target }}"{% endif %}>
         {% block item %}
@@ -24,7 +24,7 @@
                 {% endblock %}
             </button>
         {% endblock %}
-        <ul class="submenu-dropdown menu submenu submenu-{{ level }} z-50 absolute list-none {% if level == 0 %}top-20{% endif %}"
+        <ul class="submenu-dropdown menu submenu submenu-{{ level }} bg-brand z-50 absolute list-none {% if level == 0 %}top-20{% endif %}"
             data-group="menu-level-{{ level }}"
             id="submenu-{{ index }}" aria-labelledby="submenu-button-{{ index }}">
             {% for child in item.children %}
@@ -33,3 +33,4 @@
         </ul>
     {% endif %}
 </li>
+
