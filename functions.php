@@ -362,7 +362,6 @@ function get_logo( string $html ) {
 }
 
 function scripts() {
-	Assets::style_register( 'font-awesome', '/vendor/fontawesome-pro-6.4.2-web/css/all.min.css', array(), '6.4.2' );
 	Assets::style_register( 'swiper', '/vendor/swiper-8.6.4/swiper-bundle.css', array(), '8.6.4' );
 	Assets::script_register( 'swiper', '/vendor/swiper-8.6.4/swiper-bundle.js', array(), '8.6.4' );
 	Assets::script_register( 'wp-gallery-lightbox', '/dist/js/wp-gallery.lightbox.js', array(), '1.0.0' );
@@ -410,8 +409,16 @@ function scripts() {
 		'/dist/css/tailwind.css',
 	);
 
+	Assets::style_register(
+		'fa6-free',
+		'/assets/vendor/FA6/css/all.min.css',
+	);
+
+
 	wp_enqueue_style( 'theme' );
 	wp_enqueue_style( 'tailwind' );
+	wp_enqueue_style( 'fa6-free' );
+
 
 	wp_enqueue_script( 'jcore' );
 	wp_enqueue_script( 'jUtils' );
