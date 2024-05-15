@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "esbuild": "esbuild --bundle src/js/*.?s --outdir=dist/js --minify --sourcemap",
-    "postcss": "postcss src/css/*.css --dir dist/css",
+    "postcss": "postcss --verbose src/css/*.css --dir dist/css",
     "watch-esbuild": "pnpm run esbuild --watch",
     "watch-postcss": "pnpm run postcss --watch",
     "watch": "concurrently --kill-others 'pnpm run watch-esbuild' 'pnpm run watch-postcss'",
