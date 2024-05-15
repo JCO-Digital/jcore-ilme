@@ -16,7 +16,7 @@
                 {% endblock %}
                 <div class="h-full flex items-center">
                     {% block menu %}
-                        <ul class="flex justify-end items-center gap-x-8">
+                        <ul class="flex justify-end items-center gap-x-8 list-none">
                             {% for item in menu.primary.get_items %}
                                 {% include ['navigation/item.twig'] with {item, index: loop.index, level: 0} only %}
                             {% endfor %}
