@@ -1,6 +1,11 @@
+@import "mixins/mixins.css";
 @import "partials/tailwind.css";
 @import "partials/properties.css";
 @import "partials/base.css";
 @import "partials/typography.css";
 @import "partials/gutenberg.css";
 @import "partials/footer.css";
+@import "partials/navigation.css";
+@import "partials/archive.css";
+@import "partials/single.css";
+@import "partials/tease.css";
