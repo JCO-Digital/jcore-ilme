@@ -1,37 +1,50 @@
 {% extends "layout.twig" %}
 
-{% block content %}
+{% block post_info %}
 	<div class="post-info flex">
-		<span class="post-date mr-2">{{ post.date }}</span>
-		<span class="post-cat">
-			{{ post.category }}
-		</span>
-		<button class="share-button ml-auto" data-share="{{ post.title }}">
-			<svg aria-hidden="true" fill="#131415" stroke="none" height="24" role="img" viewbox="0 0 24 24" width="24">
-				<path d="M9.70941393,0.295203929 L13.7071,4.29289 C14.0976,4.68342 14.0976,5.31658 13.7071,5.70711 C13.3166,6.09763 12.6834,6.09763 12.2929,5.70711 L10,3.41421 L10,14 C10,14.5523 9.5523,15 9,15 C8.4477,15 8,14.5523 8,14 L8,3.41421304 L5.70711,5.70711 C5.31658,6.09763 4.68342,6.09763 4.29289,5.70711 C3.90237,5.31658 3.90237,4.68342 4.29289,4.29289 L8.29058696,0.295203035 C8.47172823,0.112882186 8.72267789,0 9,0 C9.27732257,0 9.52827259,0.112882555 9.70941393,0.295203929 Z M1,10 C1.55228,10 2,10.4477 2,11 L2,19 C2,19.2652 2.10536,19.5196 2.29289,19.7071 C2.48043,19.8946 2.73478,20 3,20 L15,20 C15.2652,20 15.5196,19.8946 15.7071,19.7071 C15.8946,19.5196 16,19.2652 16,19 L16,11 C16,10.4477 16.4477,10 17,10 C17.5523,10 18,10.4477 18,11 L18,19 C18,19.7957 17.6839,20.5587 17.1213,21.1213 C16.5587,21.6839 15.7957,22 15,22 L3,22 C2.20435,22 1.44129,21.6839 0.87868,21.1213 C0.31607,20.5587 0,19.7956 0,19 L0,11 C0,10.4477 0.44772,10 1,10 Z"></path>
-			</svg>
-		</button>
+		{% if customizer('article','date') %}
+            <span class="post-date mr-2">{{ post.date }}</span>
+        {% endif %}
+		{% if customizer('article','cat') %}
+            <span class="post-cat"> | {{ post.category }}</span>
+        {% endif %}
+        {% if customizer('article','share_button') %}
+            <button class="share-button ml-auto" data-share="{{ post.title }}">
+                <svg aria-hidden="true" fill="#131415" stroke="none" height="24" role="img"
+                     viewBox="0 0 24 24" width="24">
+                    <path d="M9.70941393,0.295203929 L13.7071,4.29289 C14.0976,4.68342 14.0976,5.31658 13.7071,5.70711 C13.3166,6.09763 12.6834,6.09763 12.2929,5.70711 L10,3.41421 L10,14 C10,14.5523 9.5523,15 9,15 C8.4477,15 8,14.5523 8,14 L8,3.41421304 L5.70711,5.70711 C5.31658,6.09763 4.68342,6.09763 4.29289,5.70711 C3.90237,5.31658 3.90237,4.68342 4.29289,4.29289 L8.29058696,0.295203035 C8.47172823,0.112882186 8.72267789,0 9,0 C9.27732257,0 9.52827259,0.112882555 9.70941393,0.295203929 Z M1,10 C1.55228,10 2,10.4477 2,11 L2,19 C2,19.2652 2.10536,19.5196 2.29289,19.7071 C2.48043,19.8946 2.73478,20 3,20 L15,20 C15.2652,20 15.5196,19.8946 15.7071,19.7071 C15.8946,19.5196 16,19.2652 16,19 L16,11 C16,10.4477 16.4477,10 17,10 C17.5523,10 18,10.4477 18,11 L18,19 C18,19.7957 17.6839,20.5587 17.1213,21.1213 C16.5587,21.6839 15.7957,22 15,22 L3,22 C2.20435,22 1.44129,21.6839 0.87868,21.1213 C0.31607,20.5587 0,19.7956 0,19 L0,11 C0,10.4477 0.44772,10 1,10 Z"></path>
+                </svg>
+            </button>
+        {% endif %}
 	</div>
-
-	<div class="featured-image mb-10">
-		{% include 'images/image.twig' with {image: post.thumbnail, class: 'featured'} %}
-	</div>
-	{{ post.content }}
+{% endblock %}
+{% block post_image %}
+	{% if customizer('article','image') %}
+		<div class="featured-image mb-10">
+			{% include 'images/image.twig' with {image: post.thumbnail, class: 'featured'} %}
+		</div>
+	{% endif %}
+{% endblock %}
+{% block post_author %}
 	<div>
-		<span class="post-author">{{ __('Author','jcore') }}:
-			{{ post.author }}</span>
+		{% if customizer('article','author') %}
+            <span class="post-author">{{ __('Author','jcore') }}: {{ post.author }}</span>
+        {% endif %}
 	</div>
 {% endblock %}
 
 {% block content_below %}
-	<section class="social-media-share alignfull' }}">
+	{% if customizer('article','social_media_buttons') %}
+	<section
+			class="social-media-share is-layout-constrained">
 		<div class="share-content {{ customizer('article','group_padding') ? 'group-padding' }}">
 			<h2>{{ __('Share','jcore') }}</h2>
 			{% include 'partials/social-media-share.twig' %}
 		</div>
 	</section>
+	{% endif %}
 
-	{% if related is not empty %}
+	{% if customizer('article_highlight','highlight_on_single') and related is not empty %}
 		<section class="alignfull">
 			<div class="recent">
 				<div class="recent-posts-heading">

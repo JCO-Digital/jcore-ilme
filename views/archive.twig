@@ -6,7 +6,7 @@
 		{{ post.content }}
 	{% endblock %}
 	{% block filters %}
-		{% if filtering and terms %}
+		{#{% if filtering and terms %}#}
 			{% if customizer('filtering','text_in_front_of_buttons') %}
 				<h2>{{ __('Filter by category','jcore') }}</h2>
 			{% endif %}
@@ -16,12 +16,12 @@
 						class="filter-elements">
 						{# Primary filter #}
 						{% for term in terms %}
-							<a class="btn btn-primary mx-3" href="{{ term.link }}">{{ term.name }}</a>
+							<a class="btn btn-primary" href="{{ term.link }}">{{ term.name }}</a>
 						{% endfor %}
 					</div>
 				</div>
 			</section>
-		{% endif %}
+		{#{% endif %}#}
 	{% endblock %}
 	{% block items %}
 		<section class="{{ archive_class }}">

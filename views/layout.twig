@@ -22,7 +22,22 @@ This should be overwritten in childs layout. Preferably by overwriting just the 
 	{% endblock %}
 	<main id="main" class="{{ main_class }}">
 		{% block content %}
-			{# Post content #}
+			{% block post_title %}
+				<h1>{{ post.title }}</h1>
+			{% endblock %}
+
+			{% block post_info %}
+			{% endblock %}
+
+			{% block post_image %}
+			{% endblock %}
+
+			{% block post_content %}
+				{{ post.content }}
+			{% endblock %}
+
+			{% block post_author %}
+			{% endblock %}
 		{% endblock %}
 	</main>
 	{% block content_below %}
