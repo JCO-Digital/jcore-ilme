@@ -3,3 +3,6 @@
 @import "partials/base.css";
 @import "partials/gutenberg.css";
 @import "partials/footer.css";
+@import "partials/archive.css";
+@import "partials/single.css";
+@import "partials/tease.css";

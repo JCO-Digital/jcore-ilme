@@ -1,0 +1,30 @@
+.tease {
+    text-align: left;
+    margin-bottom: 3rem;
+    display: block;
+}
+
+.tease .image-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.tease .image-container::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.tease .image-container img {
+    position: absolute;
+    -o-object-fit: cover;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    font-family: "object-fit: cover;";
+
+}
+
+.tease .image-container.postcard::after {
+    padding-bottom: 66%;
+}
