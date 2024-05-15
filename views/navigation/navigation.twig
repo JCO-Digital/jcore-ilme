@@ -1,6 +1,6 @@
 {% block navbar_above %}{% endblock %}
 
-<nav id="jcore-nav" class="h-20 bg-brand is-layout-constrained{% if customizer('navigation','scroll') %} scrollTop scrollActive{% endif %}{% if customizer('navigation','sticky') and not customizer('navigation','spacer') %} sticky{% endif %}" data-jscroll="{% if customizer('navigation','scroll') %}true{% else %}false{% endif %}" data-jsticky="{% if not customizer('navigation','sticky') %}false{% elseif customizer('navigation','spacer') %}spacer{% else %}no-spacer{% endif %}">
+<nav id="jcore-nav" class="bg-brand is-layout-constrained{% if customizer('navigation','scroll') %} scrollTop scrollActive{% endif %}{% if customizer('navigation','sticky') and not customizer('navigation','spacer') %} sticky{% endif %}" data-jscroll="{% if customizer('navigation','scroll') %}true{% else %}false{% endif %}" data-jsticky="{% if not customizer('navigation','sticky') %}false{% elseif customizer('navigation','spacer') %}spacer{% else %}no-spacer{% endif %}">
     <div class="h-full is-layout-constrained">
         {% block topbar %}
             {% if customizer('navigation','topbar') %}
@@ -9,15 +9,15 @@
         {% endblock %}
         {% block navbar %}
             <div id="navigation-container" class="flex justify-between items-center h-full">
-                <div id="navigation-first-container">
+                <div id="navigation-first-container" class="h-20">
                     {% block logo %}
                         <div class="[&_img]:h-11 [&_img]:w-auto">
                             {% include 'images/navbar-brand.twig' %}
                         </div>
                     {% endblock %}
-                    <i id="navigation-toggler" class="fa-solid fa-bars"></i>
+                    <i id="navigation-toggler" data-jtoggle="navigation-items navigation-container" class="fa-solid fa-bars fa-lg"></i>
                 </div>
-                <div class="h-full flex items-center">
+                <div id="navigation-items" class="h-full flex items-center">
                     {% block menu %}
                         <ul class="flex justify-end items-center gap-x-8 list-none">
                             {% for item in menu.primary.get_items %}

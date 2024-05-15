@@ -34,15 +34,37 @@ button.submenu-button.toggle i.fa-chevron-up{
 }
 
 #navigation-first-container{
+    display: flex;
+    align-items: center;
     #navigation-toggler{
         display:none;
     }
 }
 
 @mixin breakpoint-down sm {
-    #navigation-first-container{
-        #navigation-toggler{
+    #navigation-container{
+        flex-direction: column;
+        justify-content: flex-start;
+        #navigation-first-container{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            #navigation-toggler{
+                display: block;
+            }
+        }
+        #navigation-items{
+            display: none;
+        }
+    }
+    #navigation-container.toggle{
+        min-height: 100vh;
+        #navigation-items{
             display: block;
+            > ul {
+                flex-direction: column;
+            }
         }
     }
 }
