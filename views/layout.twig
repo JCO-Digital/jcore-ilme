@@ -15,7 +15,6 @@ This should be overwritten in childs layout. Preferably by overwriting just the 
 {% block content_anchor %}
 	<a id="content-start" tabindex="-1"></a>
 {% endblock %}
-{% block  %}
 {% block before_main %}
 	{# Stuff before main goes here #}
 {% endblock %}
@@ -30,18 +29,15 @@ This should be overwritten in childs layout. Preferably by overwriting just the 
 				<h1>{{ post.title }}</h1>
 			{% endblock %}
 
-			{% block post_info %}
-			{% endblock %}
+			{% block post_info %}{% endblock %}
 
-			{% block post_image %}
-			{% endblock %}
+			{% block post_image %}{% endblock %}
 
 			{% block post_content %}
 				{{ post.content }}
 			{% endblock %}
 
-			{% block post_author %}
-			{% endblock %}
+			{% block post_author %}{% endblock %}
 		{% endblock %}
 		{% block content_below %}
 			{# Stuff below content goes here #}

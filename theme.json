@@ -1,6 +1,6 @@
 {
   "$schema": "https://schemas.wp.org/trunk/theme.json",
-  "version": 2,
+  "version": 3,
   "settings": {
     "appearanceTools": true,
     "border": {},
@@ -93,6 +93,7 @@
       "blockGap": null,
       "margin": true,
       "padding": true,
+      "defaultSpacingSizes": false,
       "spacingSizes": [
         {
           "name": "Fluid small",
@@ -152,6 +153,7 @@
           "slug": "inter"
         }
       ],
+      "defaultFontSizes": false,
       "fontSizes": [
         {
           "fluid": false,

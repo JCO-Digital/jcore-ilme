@@ -1,16 +1,16 @@
 {# Page footer stuff goes here. #}
-<footer>
-	<section id="footer-main" class="is-layout-constrained grid sm:grid-cols-1 gap-8  md:grid-cols-4">
-		<div class="logo alignwide">
+<footer class="is-layout-constrained">
+	<section id="footer-main" class="footer-main alignwide">
+		<div class="logo">
 			{% include 'images/footer-brand.twig' %}
 			<div>{{ footer.footer_below_logo.content }}</div>
 			{% include 'partials/footer-social.twig' %}
 		</div>
-		<div class="left alignwide">{{ footer.footer_left.content }}</div>
-		<div class="center alignwide">{{ footer.footer_center.content }}</div>
-		<div class="right alignwide">{{ footer.footer_right.content }}</div>
+		<div class="left">{{ footer.footer_left.content }}</div>
+		<div class="center">{{ footer.footer_center.content }}</div>
+		<div class="right">{{ footer.footer_right.content }}</div>
 	</section>
-	<section id="copyright" class="is-layout-constrained ">
+	<section id="copyright" class="copyright is-layout-constrained alignfull">
 		<div class="info alignwide">{{ footer.footer_copyright.content }}</div>
 	</section>
 	{% if customizer('site','scroll_to_top') %}
