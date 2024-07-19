@@ -8,6 +8,23 @@
   margin-bottom: 1rem;
 }
 
+/* Cover on hover effects, requires button inside the cover block */
+.wp-block-cover:has(.wp-block-button) {
+  .wp-block-cover__image-background {
+    transition: transform 0.2s ease-in-out;
+  }
+}
+.wp-block-cover:has(.wp-block-button:hover) {
+  /* hide dimming */
+  .has-background-dim {
+    opacity: 0;
+  }
+  /* zoom image */
+  .wp-block-cover__image-background {
+    transform: scale(1.25);
+  }
+}
+
 /* Gutenberg spacer */
 .wp-block-spacer {
   &.widespacer,
