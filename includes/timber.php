@@ -9,6 +9,7 @@ namespace Jcore\Ilme;
 
 use Twig\TwigFunction;
 use Twig\TwigFilter;
+use Timber\Timber;
 
 // Timber context hook.
 add_filter( 'timber/context', 'Jcore\Ilme\context', 10 );
@@ -28,8 +29,10 @@ function context( $context ) {
 	if ( empty( $context['menu'] ) ) {
 		$context['menu'] = array();
 	}
-	$context['menu']['primary']   = \Timber::get_menu( 'primary' );
-	$context['menu']['secondary'] = \Timber::get_menu( 'secondary' );
+
+	foreach ( apply_filters( 'jcore_menus', array() ) as $menu => $name ) {
+		$context['menu'][ $menu ] = Timber::get_menu( $menu );
+	}
 
 	// $context['imagesizes'] = create_sizes( $GLOBALS['jcore_settings'] );
 
@@ -37,9 +40,9 @@ function context( $context ) {
 
 	// LearnDash support.
 	if ( class_exists( 'SFWD_LMS' ) ) {
-		$context['learndash_sidebar']       = \Timber::get_widgets( 'ld-sidebar' );
-		$context['learndash_under_content'] = \Timber::get_widgets( 'ld-under-content' );
-		$context['menu']['learndash']       = \Timber::get_menu( 'learndash' );
+		$context['learndash_sidebar']       = Timber::get_widgets( 'ld-sidebar' );
+		$context['learndash_under_content'] = Timber::get_widgets( 'ld-under-content' );
+		$context['menu']['learndash']       = Timber::get_menu( 'learndash' );
 	}
 
 	// If polylang is on.
@@ -65,8 +68,7 @@ function context( $context ) {
 		$context['referrer']          = '';
 		$context['referrer_internal'] = 0;
 	} else {
-		$referer                      = wp_unslash( esc_url( $_SERVER['HTTP_REFERER'] ) );
-		$context['referrer']          = $_SERVER['HTTP_REFERER'];
+		$context['referrer']          = wp_unslash( esc_url( $_SERVER['HTTP_REFERER'] ) );
 		$context['referrer_internal'] = strpos( $_SERVER['HTTP_REFERER'], $_SERVER['HTTP_HOST'] ) ? 1 : 0;
 	}
 
@@ -278,4 +280,26 @@ function get_cats( $taxo = 'category' ) {
 	}
 
 	return $cats;
+}
+
+
+function get_children() {
+	global $post;
+	if ( is_page() ) {
+		if ( $post->post_parent ) {
+			$ancestors = get_post_ancestors( $post->ID );
+			$parent    = $ancestors[ count( $ancestors ) - 1 ];
+		} else {
+			$parent = $post->ID;
+		}
+		$args = array(
+			'numberposts' => - 1,
+			'post_type'   => 'page',
+			'post_parent' => $parent,
+			'orderby'     => 'menu_order',
+			'order'       => 'ASC',
+		);
+
+		return Timber::get_posts( $args );
+	}
 }

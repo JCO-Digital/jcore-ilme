@@ -6,7 +6,7 @@
 namespace Jcore\Ilme;
 
 use Jcore\Ydin\WordPress\Assets;
-use Timber;
+use Timber\Timber;
 
 $context = Timber::context();
 

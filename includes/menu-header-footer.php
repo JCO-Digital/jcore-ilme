@@ -11,8 +11,33 @@ use Jcore\Ydin\WordPress\PostType;
 
 add_action( 'after_setup_theme', 'Jcore\Ilme\register_footer_post_type' );
 add_action( 'after_switch_theme', 'Jcore\Ilme\create_footer_posts' );
+add_action( 'after_setup_theme', 'Jcore\Ilme\register_menu' );
 
 add_filter( 'timber/context', 'Jcore\Ilme\footer_context' );
+add_filter( 'body_class', 'Jcore\Ilme\add_page_slug_body_class' );
+
+add_filter(
+	'login_headerurl',
+	function () {
+		return home_url();
+	}
+);
+add_filter(
+	'login_headertext',
+	'get_custom_logo'
+);
+
+/**
+ * Register Menus added by "jcore_menus" filter.
+ *
+ *  @return void
+ */
+function register_menu() {
+	foreach ( apply_filters( 'jcore_menus', array() ) as $menu => $name ) {
+		register_nav_menu( $menu, $name );
+	}
+}
+
 
 /**
  * Registers the footer post type.
@@ -126,4 +151,16 @@ function get_footer_post( $slug ) {
 	$post_id = get_page_by_path( $slug, OBJECT, 'footer' )->ID;
 
 	return \Timber::get_post( $post_id );
+}
+
+/**
+ * Add page slug to body class
+ */
+function add_page_slug_body_class( $classes ) {
+	global $post;
+	if ( isset( $post ) ) {
+		$classes[] = $post->post_type . '-' . $post->post_name;
+	}
+
+	return $classes;
 }

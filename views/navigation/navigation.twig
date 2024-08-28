@@ -1,43 +1,28 @@
-{% block navbar_above %}{% endblock %}
+{% block navbar_above %}
+	{% if customizer('navigation','topbar') %}
+		{% include 'navigation/topbar.twig' %}
+	{% endif %}
+{% endblock %}
 
-<nav id="jcore-nav" class="bg-brand is-layout-constrained{% if customizer('navigation','scroll') %} scrollTop scrollActive{% endif %}{% if customizer('navigation','sticky') and not customizer('navigation','spacer') %} sticky{% endif %}" data-jscroll="{% if customizer('navigation','scroll') %}true{% else %}false{% endif %}" data-jsticky="{% if not customizer('navigation','sticky') %}false{% elseif customizer('navigation','spacer') %}spacer{% else %}no-spacer{% endif %}">
-    <div class="h-full is-layout-constrained">
-        {% block topbar %}
-            {% if customizer('navigation','topbar') %}
-                {% include 'navigation/topbar.twig' %}
-            {% endif %}
-        {% endblock %}
-        {% block navbar %}
-            <div id="navigation-container" class="flex justify-between items-center h-full">
-                <div id="navigation-first-container" class="h-20">
-                    {% block logo %}
-                        <div class="[&_img]:h-11 [&_img]:w-auto">
-                            {% include 'images/navbar-brand.twig' %}
-                        </div>
-                    {% endblock %}
-                    <i id="navigation-toggler" data-jtoggle="navigation-items navigation-container" class="fa-solid fa-bars fa-lg"></i>
-                </div>
-                <div id="navigation-items" class="h-full flex items-center">
-                    {% block menu %}
-                        <ul class="flex justify-end items-center gap-x-8 list-none">
-                            {% for item in menu.primary.get_items %}
-                                {% include ['navigation/item.twig'] with {item, index: loop.index, level: 0} only %}
-                            {% endfor %}
-                        </ul>
-                    {% endblock %}
-                    {% block search %}
-                        {% if customizer('navigation','search') %}
-                            <button id="searchbar-toggle" class="toggle-search mr-4 mr-lg-0">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        {% endif %}
-                    {% endblock %}
-                </div>
-            </div>
-        {% endblock %}
-    </div>
+<nav id="jcore-nav" class="has-primary-background-color">
+	{% block navbar %}
+		{% block logo %}
+			<div class="brand">
+				{% include 'images/navbar-brand.twig' %}
+			</div>
+		{% endblock %}
+		{% block menu %}
+			{% include "navigation/menu.twig" with {items: menu.primary.get_items, level: 0} only %}
+		{% endblock %}
+		{% block search %}
+			{% if customizer('navigation','search') %}
+				<button id="searchbar-toggle" class="toggle-search mr-4 mr-lg-0">
+					<i class="fas fa-search"></i>
+				</button>
+			{% endif %}
+		{% endblock %}
+	{% endblock %}
 </nav>
-
 {% block navbar_below %}
-    {% include "partials/search.twig" %}
+	{% include "partials/search.twig" %}
 {% endblock %}

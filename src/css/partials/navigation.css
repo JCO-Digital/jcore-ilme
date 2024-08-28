@@ -1,70 +1,35 @@
-button.submenu-button i.fa-chevron-up{
-    transition: transform 0.2s ease-out;
-}
-
-button.submenu-button.toggle i.fa-chevron-up{
-    transform: rotate(180deg);
-}
-
-.submenu-dropdown{
-    display: none;
-}
-
-.submenu-dropdown.toggle {
-    display: block;
-}
-
-.submenu-dropdown {
-    button.submenu-button i.fa-chevron-up{
-        transform: rotate(90deg);
-    }
-}
-
-.submenu-dropdown button.submenu-button.toggle i.fa-chevron-up{
-    transform: rotate(-90deg);
-}
-
-.submenu-dropdown li.menu-item-has-children{
-    position: relative;
-}
-
-.submenu-dropdown li.menu-item-has-children .submenu-dropdown{
-    left: 100%;
-    top: 0;
-}
-
-#navigation-first-container{
+#jcore-nav {
+    margin: 0 calc((100vw - var(--wp--style--global--content-size)) / 2);
     display: flex;
-    align-items: center;
-    #navigation-toggler{
-        display:none;
-    }
-}
+    --jcore-menu-height: 80px;
+    --jcore-menu-padding: 1rem;
 
-@mixin breakpoint-down sm {
-    #navigation-container{
-        flex-direction: column;
-        justify-content: flex-start;
-        #navigation-first-container{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            #navigation-toggler{
-                display: block;
-            }
+    & .brand {
+        height: var(--jcore-menu-height);
+
+        & img {
+            height: calc( var(--jcore-menu-height) - (var(--jcore-menu-padding) * 2));
+            margin: var(--jcore-menu-padding);
+            width: auto;
         }
-        #navigation-items{
+    }
+
+
+    & .menu {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+
+        &:not(.menu-0):not(.open) {
             display: none;
         }
     }
-    #navigation-container.toggle{
-        min-height: 100vh;
-        #navigation-items{
-            display: block;
-            > ul {
-                flex-direction: column;
-            }
-        }
+
+    & .menu-0 {
+        flex-direction: row;
+        height: var(--jcore-menu-height);
     }
 }

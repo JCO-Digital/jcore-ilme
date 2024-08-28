@@ -11,48 +11,37 @@ use Jcore\Ydin\Settings\Customizer;
 use Jcore\Ydin\WordPress\Assets;
 use Timber;
 
-const AUTOLOADER_PATH = ABSPATH . 'vendor/autoload.php';
-if ( file_exists( AUTOLOADER_PATH ) ) {
-	require_once AUTOLOADER_PATH;
-}
-
-if ( function_exists( '\Sentry\init' ) && defined( 'SENTRY_DSN' ) && ! defined( 'JCORE_IS_LOCAL' ) ) {
-	\Sentry\init( array( 'dsn' => SENTRY_DSN ) );
-}
-
+require_once __DIR__ . '/includes/init.php';
 require_once __DIR__ . '/includes/modules.php';
-require_once __DIR__ . '/includes/footer.php';
+require_once __DIR__ . '/includes/menu-header-footer.php';
+require_once __DIR__ . '/includes/images.php';
 require_once __DIR__ . '/includes/timber.php';
 require_once __DIR__ . '/includes/archive.php';
 require_once __DIR__ . '/classes/Settings.php';
+require_once __DIR__ . '/includes/templates.php';
 require_once __DIR__ . '/includes/polylang.php';
 require_once __DIR__ . '/includes/customizer.php';
 
 add_action( 'after_setup_theme', 'Jcore\Ilme\setup' );
 add_action( 'wp_enqueue_scripts', 'Jcore\Ilme\scripts' );
-add_action( 'after_setup_theme', 'Jcore\Ilme\register_menu' );
-
-add_filter(
-	'login_headerurl',
-	function () {
-		return home_url();
-	}
-);
-add_filter(
-	'login_headertext',
-	'get_custom_logo'
-);
-
-// Add mime types.
-add_filter( 'upload_mimes', 'Jcore\Ilme\cc_mime_types' );
 
 // Hide LearnDash support template if LearnDash is not installed.
 add_filter( 'theme_page_templates', 'Jcore\Ilme\exclude_template_learndash_content' );
 
 /*-----  End of Hook Library  ------*/
 
-
 Settings::init();
+
+add_filter(
+	'jcore_menus',
+	function ( $menus ) {
+		$menus['primary'] = __( 'Primary Menu', 'jcore' );
+		$menus['top']     = __( 'Top Menu', 'jcore' );
+
+		return $menus;
+	}
+);
+
 
 /**
  * Disable Comments functionality if not enabled in customizer.
@@ -125,36 +114,6 @@ if ( ! Customizer::get( 'article', 'enable_comments' ) ) {
 }
 
 /**
- * Set JPEG quality on resize.
- *
- * @param int    $quality The quality setting passed to the function.
- * @param string $context The type of image.
- *
- * @return int
- */
-function jpeg_quality( $quality, $context ) {
-	if ( 'image/jpeg' === $context && $quality > 85 ) {
-		return $quality;
-	}
-
-	return 92;
-}
-
-/**
- * Add SVG to allowed MIME types.
- *
- * @param array $mimes Allowed mime types.
- *
- * @return mixed
- */
-function cc_mime_types( $mimes ) {
-	// Add SVG as allowed upload.
-	$mimes['svg'] = 'image/svg+xml';
-
-	return $mimes;
-}
-
-/**
  * Do most of the things needed for the theme.
  */
 function setup() {
@@ -216,62 +175,9 @@ function setup() {
 			),
 		)
 	);
-	load_jcore_textdomain();
-}
-/**
- * Translation Support.
- *
- * @return void
- */
-function load_jcore_textdomain(): void {
-	load_theme_textdomain( 'jcore', get_template_directory() . '/languages' );
-}
-
-/**
- * Add ACF fields.
- *
- * @param array $version List of templates.
- *
- * @return mixed
- */
-function add_acf_fields( $version = false ) {
-	new acf_field_color();
 }
 
 
-/**
- * Add jcore virtual templates to template stack.
- *
- * @param array $post_templates List of templates.
- *
- * @return mixed
- */
-function jcore_templates( $post_templates ) {
-	// TODO Temporary fix for missing ACF.
-	if ( isset( $GLOBALS['jcore_settings'] ) ) {
-		foreach ( $GLOBALS['jcore_settings']->templates as $template => $name ) {
-			$post_templates[ 'jcore-' . $template ] = $name;
-		}
-		if ( $GLOBALS['jcore_settings']->vue['enabled'] ) {
-			$post_templates['jcore-vue'] = 'Vue App';
-		}
-	}
-
-	return $post_templates;
-}
-
-/**
- * Run on init hook.
- *
- * @return void
- */
-function init() {
-	Customizer::gutenberg_add_colors();
-
-	if ( ! empty( Settings::get( 'keys', 'google_maps_key' ) ) ) {
-		acf_update_setting( 'google_api_key', Settings::get( 'keys', 'google_maps_key' ) );
-	}
-}
 
 /**
  *
@@ -307,59 +213,6 @@ function custom_block_categories( $categories ) {
 	);
 }
 
-function custom_page_title( $title ) {
-	global $context;
-	if ( ! empty( $context ) && ! empty( $context['page_title'] ) ) {
-		return $context['page_title'] . ' - ' . get_bloginfo( 'name' );
-	}
-
-	return $title;
-}
-
-/**
- * Replaces <img> SVG with inline SVG.
- *
- * @param string $html The HTML returned by get_custom_logo.
- *
- * @return string
- */
-function get_logo( string $html ) {
-	$html = preg_replace( '_<a [^>]*>(.*)</a>_sm', '\1', $html );
-	if ( preg_match( '_<img[^>]+src="([^"]+(/wp-content/[^"]+.svg))"[^>]+/>_', $html, $matches ) ) {
-		$filename = rtrim( ABSPATH, '/' ) . $matches[2];
-		if ( file_exists( $filename ) ) {
-			$svg = file_get_contents( $filename );
-			$svg = preg_replace( '_<\?xml[^>]+>_', '', $svg );
-
-			return str_replace( $matches[0], '<div class="custom-logo">' . $svg . '</div>', $html );
-		}
-		// Enables SVG logos to work correctly on local sites.
-		if ( wp_get_environment_type() === 'local' ) {
-			// Checks the transient first.
-			$transient_name = '_custom_svg_logo';
-			if ( false !== ( $value = get_transient( $transient_name ) ) ) { // phpcs:ignore
-				return $value;
-			}
-			// Since we are requesting a local site and we are on a local site, we need to ignore SSL errors.
-			add_filter( 'https_ssl_verify', '__return_false' );
-			$request = wp_safe_remote_get( $matches[1] );
-			// Undo the damage we just did.
-			remove_filter( 'https_ssl_verify', '__return_false' );
-			if ( is_wp_error( $request ) ) {
-				return $html;
-			}
-			$svg = wp_remote_retrieve_body( $request );
-			// Fixup the SVG and store it in a transient.
-			$svg          = preg_replace( '_<\?xml[^>]+>_', '', $svg );
-			$return_value = str_replace( $matches[0], '<div class="custom-logo">' . $svg . '</div>', $html );
-			set_transient( $transient_name, $return_value, DAY_IN_SECONDS );
-
-			return $return_value;
-		}
-	}
-
-	return $html;
-}
 
 function scripts() {
 	Assets::style_register( 'swiper', '/vendor/swiper-8.6.4/swiper-bundle.css', array(), '8.6.4' );
@@ -454,33 +307,6 @@ function login_scripts( $hook ) {
 }
 
 
-function register_menu() {
-	register_nav_menu( 'primary', __( 'Primary Menu', 'jcore' ) );
-	register_nav_menu( 'secondary', __( 'Secondary Menu', 'jcore' ) );
-}
-
-function get_children() {
-	global $post;
-	if ( is_page() ) {
-		if ( $post->post_parent ) {
-			$ancestors = get_post_ancestors( $post->ID );
-			$parent    = $ancestors[ count( $ancestors ) - 1 ];
-		} else {
-			$parent = $post->ID;
-		}
-		$args = array(
-			'numberposts' => - 1,
-			'post_type'   => 'page',
-			'post_parent' => $parent,
-			'orderby'     => 'menu_order',
-			'order'       => 'ASC',
-		);
-
-		return Timber::get_posts( $args );
-	}
-}
-
-
 /**
  *  Adds the reusable blocks page to admin menu
  */
@@ -534,20 +360,6 @@ function add_custom_css_classes( $button, $form ) {
 add_filter( 'gform_submit_button', 'Jcore\Ilme\add_custom_css_classes', 10, 2 );
 
 /**
- * Add page slug to body class
- */
-function add_page_slug_body_class( $classes ) {
-	global $post;
-	if ( isset( $post ) ) {
-		$classes[] = $post->post_type . '-' . $post->post_name;
-	}
-
-	return $classes;
-}
-
-add_filter( 'body_class', 'Jcore\Ilme\add_page_slug_body_class' );
-
-/**
  * Hide LearnDash support template if LearnDash is not installed
  *
  * @param array $post_templates Array of page templates. Keys are filenames, values are translated names.
@@ -561,40 +373,3 @@ function exclude_template_learndash_content( $post_templates ) {
 
 	return $post_templates;
 }
-
-/**
- * Handles setting the mailer to mailhog if we are in a dev environment.
- *
- * @param PHPMailer $phpmailer The PHPMailer instance.
- *
- * @return void
- */
-add_action(
-	'phpmailer_init',
-	function ( $phpmailer ) {
-		// phpcs:disable
-        if ( defined( "JCORE_IS_LOCAL" ) && JCORE_IS_LOCAL ) {
-			$phpmailer->Host = 'mailhog';
-			$phpmailer->Port = 1025;
-			$phpmailer->IsSMTP();
-		}
-        // phpcs:enable
-	}
-);
-
-
-/**
- * Handles deactivation of the mailgun plugin when running locally.
- *
- * @return void
- */
-add_action(
-	'admin_init',
-	function () {
-		// phpcs:disable
-        if ( defined("JCORE_IS_LOCAL") && JCORE_IS_LOCAL ) {
-			deactivate_plugins( array( 'mailgun/mailgun.php' ) );
-		}
-        // phpcs:enable
-	}
-);

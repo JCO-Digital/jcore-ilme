@@ -1,0 +1,12 @@
+<ul class="menu menu-{{ level }}">
+	{% for item in items %}
+		<li id="menu-item-{{level}}-{{ loop.index }}" class="{{ item.class }}" data-group="menu-level-{{ level }}" data-title="{{ item.title }}">
+			<a class="menu-link menu-link-{{ level }}" href="{{ item.link }}" target="{{ item.target }}">
+				{{ item.title }}
+			</a>
+			{% if item.children %}
+				{% include "navigation/menu.twig" with { items: item.children, level: level + 1 } only %}
+			{% endif %}
+		</li>
+	{% endfor %}
+</ul>

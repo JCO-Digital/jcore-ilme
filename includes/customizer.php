@@ -1,4 +1,11 @@
 <?php
+/**
+ * JCORE Customizer settings
+ *
+ * @package Jcore\Ilme
+ */
+
+namespace Jcore\Ilme;
 
 use Jcore\Ydin\Settings\Customizer;
 
