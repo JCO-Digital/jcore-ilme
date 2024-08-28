@@ -4,25 +4,27 @@
 	{% endif %}
 {% endblock %}
 
-<nav id="jcore-nav" class="has-primary-background-color">
-	{% block navbar %}
-		{% block logo %}
-			<div class="brand">
-				{% include 'images/navbar-brand.twig' %}
-			</div>
+<header class="has-dark-background-color">
+	<nav id="jcore-nav">
+		{% block navbar %}
+			{% block logo %}
+				<div class="brand">
+					{% include 'images/navbar-brand.twig' %}
+				</div>
+			{% endblock %}
+			{% block menu %}
+				{% include "navigation/menu.twig" with {items: menu.primary.get_items, level: 0} only %}
+			{% endblock %}
+			{% block search %}
+				{% if customizer('navigation','search') %}
+					<button id="searchbar-toggle" class="toggle-search mr-4 mr-lg-0">
+						<i class="fas fa-search"></i>
+					</button>
+				{% endif %}
+			{% endblock %}
 		{% endblock %}
-		{% block menu %}
-			{% include "navigation/menu.twig" with {items: menu.primary.get_items, level: 0} only %}
-		{% endblock %}
-		{% block search %}
-			{% if customizer('navigation','search') %}
-				<button id="searchbar-toggle" class="toggle-search mr-4 mr-lg-0">
-					<i class="fas fa-search"></i>
-				</button>
-			{% endif %}
-		{% endblock %}
-	{% endblock %}
-</nav>
+	</nav>
+</header>
 {% block navbar_below %}
 	{% include "partials/search.twig" %}
 {% endblock %}

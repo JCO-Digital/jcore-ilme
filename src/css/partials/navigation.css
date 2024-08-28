@@ -1,8 +1,8 @@
 #jcore-nav {
-    margin: 0 calc((100vw - var(--wp--style--global--content-size)) / 2);
-    display: flex;
     --jcore-menu-height: 80px;
     --jcore-menu-padding: 1rem;
+    display: flex;
+    margin: 0 calc((100vw - var(--wp--style--global--content-size))/2);
 
     & .brand {
         height: var(--jcore-menu-height);
