@@ -76,14 +76,6 @@ iframe {
   object-fit: cover;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-}
-
 /* WP fixes */
 #wpadminbar {
   @media screen and (max-width: 600px) {

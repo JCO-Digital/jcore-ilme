@@ -1,11 +1,22 @@
-<ul class="menu menu-{{ level }}">
+<ul id="{{ id }}" class="menu menu-{{ level }} {% if level > 1 or id == "jcore-menu-3704" %}open{% endif %}">
 	{% for item in items %}
-		<li id="menu-item-{{level}}-{{ loop.index }}" class="{{ item.class }}" data-group="menu-level-{{ level }}" data-title="{{ item.title }}">
-			<a class="menu-link menu-link-{{ level }}" href="{{ item.link }}" target="{{ item.target }}">
+		{% set itemId = id ~ "-" ~ item.id %}
+		<li id="menu-item-{{ level }}-{{ loop.index }}" class="{{ item.class }}">
+			{% if level > 0 and item.link == "#" %}
 				{{ item.title }}
-			</a>
+			{% else %}
+				<a class="menu-link menu-link-{{ level }}" href="{{ item.link }}" target="{{ item.target }}" {% if level == 0 %} data-jtoggle="#{{ itemId }}" data-class="open" data-group="{{ id }}" data-jfocus {% endif %}>
+					{{ item.title }}
+				</a>
+			{% endif %}
 			{% if item.children %}
-				{% include "navigation/menu.twig" with { items: item.children, level: level + 1 } only %}
+				{% include "navigation/menu.twig" with { items: item.children, id: itemId, level: level + 1 } only %}
+				{% if level == 0 %}
+					<button tabindex="-1" class="toggle" data-jtoggle="#{{ itemId }}" data-class="open" data-group="{{ id }}">
+					   <i class="fa-solid fa-angle-up"></i>
+					   <i class="fa-solid fa-angle-down"></i>
+					</button>
+				{% endif %}
 			{% endif %}
 		</li>
 	{% endfor %}

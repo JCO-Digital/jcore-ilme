@@ -12,24 +12,27 @@
     "prettier": "prettier --write src"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/forms": "^0.5.9",
     "concurrently": "^8.2.2",
-    "esbuild": "^0.19.7",
-    "postcss": "^8.4.31",
+    "esbuild": "^0.19.12",
+    "postcss": "^8.4.45",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",
+    "postcss-media-minmax": "^5.0.0",
     "postcss-minify": "^1.1.0",
     "postcss-mixins": "^9.0.4",
-    "postcss-media-minmax": "^5",
-    "postcss-preset-env": "^9.3.0",
+    "postcss-preset-env": "^9.6.0",
     "postcss-simple-vars": "^7.0.1",
-    "prettier": "^3.1.1",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.2.2"
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.11",
+    "typescript": "^5.6.2"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "dependencies": {
+    "@jcodigital/jutils": "0.4.1-dev.3"
+  }
 }

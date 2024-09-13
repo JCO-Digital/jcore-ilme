@@ -1,35 +1,102 @@
 #jcore-nav {
-    --jcore-menu-height: 80px;
-    --jcore-menu-padding: 1rem;
+  --jcore-menu-height: 80px;
+  --jcore-menu-width: 200px;
+  --jcore-menu-padding: 1rem;
+  display: flex;
+  margin: 0 calc((100vw - var(--wp--style--global--content-size)) / 2);
+  justify-content: space-between;
+
+  .brand {
+    height: var(--jcore-menu-height);
+
+    img {
+      height: calc(var(--jcore-menu-height) - (var(--jcore-menu-padding) * 2));
+      margin: var(--jcore-menu-padding);
+      width: auto;
+    }
+  }
+
+  .menu {
     display: flex;
-    margin: 0 calc((100vw - var(--wp--style--global--content-size))/2);
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    min-width: var(--jcore-menu-width);
 
-    & .brand {
-        height: var(--jcore-menu-height);
-
-        & img {
-            height: calc( var(--jcore-menu-height) - (var(--jcore-menu-padding) * 2));
-            margin: var(--jcore-menu-padding);
-            width: auto;
-        }
+    &:not(.menu-0):not(.open) {
+      display: none;
     }
+  }
 
+  .menu-item {
+    position: relative;
+  }
 
-    & .menu {
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        align-items: center;
-
-        &:not(.menu-0):not(.open) {
-            display: none;
-        }
+  button.toggle {
+    .fa-angle-up {
+      display: none;
     }
-
-    & .menu-0 {
-        flex-direction: row;
-        height: var(--jcore-menu-height);
+    &.open {
+      .fa-angle-up {
+        display: unset;
+      }
+      .fa-angle-down {
+        display: none;
+      }
     }
+  }
+
+  .menu-0 {
+    flex-direction: row;
+    height: var(--jcore-menu-height);
+  }
+
+  .menu-1 {
+    position: absolute;
+    top: var(--jcore-menu-height);
+    left: 0;
+    z-index: 1;
+    background-color: var(--wp--preset--color--dark);
+  }
+}
+
+/* jscroll is active on the element. */
+.scrollActive {
+  transition: margin-top 300ms;
+
+  &.scrollTop,
+  &.scrollUp {
+    margin-top: 0;
+  }
+  &.scrollDown {
+    margin-top: calc(var(--jutils-height) * -1);
+  }
+}
+
+.sticky {
+  position: fixed;
+  top: var(--wp-admin--admin-bar--height);
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+/* WP Fix */
+body.admin-bar {
+  /* Fix for WP admin-bar */
+  .navbar.scrollActive,
+  .navbar.sticky,
+  .skip-to-content a {
+    top: 46px;
+  }
+
+  @media screen and (min-width: 781px) {
+    .navbar.scrollActive,
+    .navbar.sticky,
+    .skip-to-content a {
+      top: 32px;
+    }
+  }
 }

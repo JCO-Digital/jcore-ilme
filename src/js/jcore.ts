@@ -1,3 +1,6 @@
+//import "../../../../../../../tools/jcore-utils/src/jUtils";
+import "@jcodigital/jutils";
+
 /*
  * Mobile vh fix.
  */
@@ -12,7 +15,7 @@ window.addEventListener("resize", () => {
 });
 
 /*
- * Footer functionality
+ * Scroll to top functionality
  */
 let scrollButton;
 
@@ -37,7 +40,11 @@ const scrollFunction = () => {
     scrollButton.style.opacity = 0;
   }
 };
+/* End Scroll to top */
 
+/**
+ * Masonry Grid
+ */
 window.addEventListener("DOMContentLoaded", () => {
   footerInit();
   resizeMasonryGrid();
@@ -71,3 +78,4 @@ function resizeMasonryGrid() {
     }
   });
 }
+/* End Masonry Grid */

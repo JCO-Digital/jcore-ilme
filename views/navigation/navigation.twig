@@ -4,7 +4,7 @@
 	{% endif %}
 {% endblock %}
 
-<header class="has-dark-background-color">
+<header class="has-dark-background-color has-light-color" data-jscroll data-jsticky>
 	<nav id="jcore-nav">
 		{% block navbar %}
 			{% block logo %}
@@ -13,7 +13,7 @@
 				</div>
 			{% endblock %}
 			{% block menu %}
-				{% include "navigation/menu.twig" with {items: menu.primary.get_items, level: 0} only %}
+				{% include "navigation/menu.twig" with {items: menu.primary.get_items, id: "jcore-menu", level: 0} only %}
 			{% endblock %}
 			{% block search %}
 				{% if customizer('navigation','search') %}
