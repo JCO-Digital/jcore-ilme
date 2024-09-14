@@ -1,4 +1,4 @@
-<ul id="{{ id }}" class="menu menu-{{ level }} {% if level > 1 or id == "jcore-menu-3704" %}open{% endif %}">
+<ul id="{{ id }}" class="menu menu-{{ level }}">
 	{% for item in items %}
 		{% set itemId = id ~ "-" ~ item.id %}
 		<li id="menu-item-{{ level }}-{{ loop.index }}" class="{{ item.class }}">

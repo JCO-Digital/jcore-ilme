@@ -2,6 +2,8 @@
   --jcore-menu-height: 80px;
   --jcore-menu-width: 200px;
   --jcore-menu-padding: 1rem;
+  --jcore-mobile-width: 980px;
+
   display: flex;
   margin: 0 calc((100vw - var(--wp--style--global--content-size)) / 2);
   justify-content: space-between;
@@ -24,14 +26,11 @@
     padding: 0;
     align-items: center;
     min-width: var(--jcore-menu-width);
-
-    &:not(.menu-0):not(.open) {
-      display: none;
-    }
   }
 
   .menu-item {
     position: relative;
+    width: 100%;
   }
 
   button.toggle {
@@ -59,6 +58,60 @@
     left: 0;
     z-index: 1;
     background-color: var(--wp--preset--color--dark);
+
+    &:not(.open) {
+      display: none;
+    }
+  }
+
+  .hamburger {
+    display: none;
+    svg {
+      width: 36px;
+    }
+  }
+}
+
+/* Mobile navigation styles. */
+@media (width < 980px) {
+  #jcore-nav {
+    .hamburger {
+      display: unset;
+    }
+
+    .menu-0 {
+      position: absolute;
+      overflow: hidden;
+      height: 0;
+      transition: height 100ms;
+      left: 0;
+      right: 0;
+      top: var(--jutils-height);
+      flex-direction: column;
+      background-color: var(--wp--preset--color--dark);
+
+      &.mobile-open {
+        height: calc(100vh - var(--jutils-height));
+      }
+    }
+
+    .menu-1 {
+      position: unset;
+      top: unset;
+      left: unset;
+      &:not(.open) {
+        display: unset;
+      }
+    }
+
+    button.toggle {
+      display: none;
+    }
+  }
+
+  /* Stop header from hiding with open menu. */
+  .scrollActive.navigation-header:has(.mobile-open) {
+    margin-top: 0;
   }
 }
 

@@ -17,9 +17,9 @@ window.addEventListener("resize", () => {
 /*
  * Scroll to top functionality
  */
-let scrollButton;
+let scrollButton: HTMLElement | null;
 
-const footerInit = () => {
+function footerInit() {
   scrollButton = document.getElementById("scroll-to-top");
   if (scrollButton) {
     window.addEventListener("scroll", scrollFunction);
@@ -28,9 +28,9 @@ const footerInit = () => {
       document.documentElement.scrollTop = 0;
     });
   }
-};
+}
 
-const scrollFunction = () => {
+function scrollFunction() {
   if (
     document.body.scrollTop > 600 ||
     document.documentElement.scrollTop > 600
@@ -39,7 +39,7 @@ const scrollFunction = () => {
   } else {
     scrollButton.style.opacity = 0;
   }
-};
+}
 /* End Scroll to top */
 
 /**
@@ -57,6 +57,7 @@ window.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("resize", () => {
   resizeMasonryGrid();
 });
+
 function resizeMasonryGrid() {
   document.querySelectorAll(".masonry-grid").forEach((grid) => {
     const rowHeight = parseInt(

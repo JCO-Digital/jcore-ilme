@@ -4,7 +4,7 @@
 	{% endif %}
 {% endblock %}
 
-<header class="has-dark-background-color has-light-color" data-jscroll data-jsticky>
+<header class="navigation-header has-dark-background-color has-light-color" data-jscroll data-jsticky>
 	<nav id="jcore-nav">
 		{% block navbar %}
 			{% block logo %}
@@ -22,6 +22,9 @@
 					</button>
 				{% endif %}
 			{% endblock %}
+			<button class="hamburger" data-jtoggle="#jcore-menu" data-class="mobile-open">
+			    {% include "images/hamburger.twig" %}
+			</button>
 		{% endblock %}
 	</nav>
 </header>
