@@ -18,11 +18,10 @@
     "postcss": "^8.4.45",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",
-    "postcss-media-minmax": "^5.0.0",
     "postcss-minify": "^1.1.0",
     "postcss-mixins": "^9.0.4",
     "postcss-preset-env": "^9.6.0",
-    "postcss-simple-vars": "^7.0.1",
+    "postcss-replace": "^2.0.1",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.11",
     "typescript": "^5.6.2"
