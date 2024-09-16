@@ -38,6 +38,7 @@
     margin: 0 0.5rem;
     position: relative;
     display: flex;
+    flex-direction: column;
     width: 100%;
   }
 
@@ -75,18 +76,26 @@
       display: none;
     }
 
+    .menu-0 {
+        >   .menu-item {
+            flex-direction: row;
+        }
+    }
+
     .menu-1 {
       position: absolute;
       top: var(--jcore-menu-height);
-      left: 0;
-      overflow-x: hidden;
-      width: var(--jcore-menu-width);
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 1;
       background-color: var(--wp--preset--color--dark);
+      border-radius: 1rem;
+      padding: 1rem;
 
       &:not(.open) {
         display: none;
       }
+
     }
   }
 }

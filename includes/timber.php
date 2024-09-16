@@ -95,6 +95,7 @@ function twig( $twig ) {
 	$twig->addFilter( new TwigFilter( 'slugify', 'Jcore\Ilme\slugify' ) );
 	$twig->addFilter( new TwigFilter( 'euro', 'Jcore\Ilme\euro_format' ) );
 	$twig->addFilter( new TwigFilter( 'preview', 'Jcore\Ilme\post_preview' ) );
+	$twig->addFilter( new TwigFilter( 'shorten', 'Jcore\Ilme\title_trim' ) );
 	$twig->addFilter( new TwigFilter( 'tease_class', 'Jcore\Ilme\tease_class' ) );
 
 	// Adding a function.
@@ -239,6 +240,30 @@ function post_preview( $post, $nr = 50, $threshold = null, $ellipsis = '', $forc
 	// Return the output, with whitespace trim.
 	return trim( $output );
 }
+
+function title_trim( string $title, int $length = 60, int $threshold = 10 ) {
+	if ( strlen( $title ) <= $length ) {
+		return $title;
+	}
+	$return = '';
+	foreach ( explode( ' ', $title ) as $word ) {
+		$current     = strlen( $return );
+		$word_length = strlen( $word );
+		if ( $current + $word_length < $length || $length - $current > ( $current + $word_length + 1 ) - $length ) {
+			$return .= ' ' . $word;
+		} else {
+			break;
+		}
+	}
+	if ( abs( strlen( $return ) - $length ) > $threshold ) {
+		$return = substr( $title, 0, $length );
+	}
+	if ( strlen( $return ) < strlen( $title ) ) {
+		return $return . '...';
+	}
+	return $return;
+}
+
 
 /**
  * Returns a class string for a tease.

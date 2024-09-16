@@ -6,7 +6,7 @@
 				{{ item.title }}
 			{% else %}
 				<a class="menu-link menu-link-{{ level }}" href="{{ item.link }}" target="{{ item.target }}" {% if level == 0 %} data-jtoggle="#{{ itemId }}" data-class="open" data-group="{{ id }}" data-jfocus {% endif %}>
-				    {{ item.title }}
+				    {{ item.title | shorten }}
 				</a>
 			{% endif %}
 			{% if item.children %}
