@@ -42,9 +42,6 @@ importers:
       postcss-replace:
         specifier: ^2.0.1
         version: 2.0.1(postcss@8.4.45)
-      postcss-simple-vars:
-        specifier: ^7.0.1
-        version: 7.0.1(postcss@8.4.45)
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
