@@ -1,35 +1,180 @@
 #jcore-nav {
-    margin: 0 calc((100vw - var(--wp--style--global--content-size)) / 2);
+  --jcore-menu-height: 80px;
+  --jcore-menu-width: 200px;
+  --jcore-menu-padding: 1rem;
+  --jcore-mobile-width: 980px;
+
+  display: flex;
+  margin: 0 calc((100vw - var(--wp--style--global--content-size)) / 2);
+  justify-content: space-between;
+
+  .brand {
+    height: var(--jcore-menu-height);
+
+    img {
+      height: calc(var(--jcore-menu-height) - (var(--jcore-menu-padding) * 2));
+      margin: var(--jcore-menu-padding);
+      width: auto;
+    }
+  }
+
+  /* Set styles for all menu levels. */
+  .menu {
     display: flex;
-    --jcore-menu-height: 80px;
-    --jcore-menu-padding: 1rem;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
 
-    & .brand {
-        height: var(--jcore-menu-height);
+  /* Level specific styles */
+  .menu-0 {
+    flex-direction: row;
+    height: var(--jcore-menu-height);
+  }
 
-        & img {
-            height: calc( var(--jcore-menu-height) - (var(--jcore-menu-padding) * 2));
-            margin: var(--jcore-menu-padding);
-            width: auto;
+  .menu-item {
+    margin: 0 0.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .menu-link {
+    text-wrap: nowrap;
+  }
+
+  /* Open / Close submenu button. */
+  button.toggle {
+    margin: 0 0.5rem;
+    .fa-angle-up {
+      display: none;
+    }
+    &.open {
+      .fa-angle-up {
+        display: unset;
+      }
+      .fa-angle-down {
+        display: none;
+      }
+    }
+  }
+
+  .hamburger {
+    svg {
+      width: 36px;
+    }
+  }
+}
+
+/* Desktop navigation styles. */
+@media (width >= {{ jcore-breakpoint-lg }}) {
+  #jcore-nav {
+    .hamburger {
+      display: none;
+    }
+
+    .menu-0 {
+        >   .menu-item {
+            flex-direction: row;
         }
     }
 
+    .menu-1 {
+      position: absolute;
+      top: var(--jcore-menu-height);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      background-color: var(--wp--preset--color--dark);
+      border-radius: 1rem;
+      padding: 1rem;
 
-    & .menu {
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        align-items: center;
+      &:not(.open) {
+        display: none;
+      }
 
-        &:not(.menu-0):not(.open) {
-            display: none;
-        }
+    }
+  }
+}
+
+/* Mobile navigation styles. */
+@media (width < {{ jcore-breakpoint-lg }}) {
+  #jcore-nav {
+    .menu-0 {
+      position: absolute;
+      overflow: hidden;
+      height: 0;
+      transition: height 100ms;
+      left: 0;
+      right: 0;
+      top: var(--jutils-height);
+      flex-direction: column;
+      background-color: var(--wp--preset--color--dark);
+
+      &.mobile-open {
+        height: calc(100vh - var(--jutils-height));
+      }
     }
 
-    & .menu-0 {
-        flex-direction: row;
-        height: var(--jcore-menu-height);
+    .menu-1 {
+      position: unset;
+      top: unset;
+      left: unset;
+      &:not(.open) {
+        display: unset;
+      }
     }
+
+    /* Hide submenu button for mobile menu. */
+    button.toggle {
+      display: none;
+    }
+  }
+
+  /* Stop header from hiding with open menu. */
+  .scrollActive.navigation-header:has(.mobile-open) {
+    margin-top: 0;
+  }
+}
+
+/* jscroll is active on the element. */
+.scrollActive {
+  transition: margin-top 300ms;
+
+  &.scrollTop,
+  &.scrollUp {
+    margin-top: 0;
+  }
+  &.scrollDown {
+    margin-top: calc(var(--jutils-height) * -1);
+  }
+}
+
+.sticky {
+  position: fixed;
+  top: var(--wp-admin--admin-bar--height);
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+/* WP Fix */
+body.admin-bar {
+  /* Fix for WP admin-bar */
+  .navbar.scrollActive,
+  .navbar.sticky,
+  .skip-to-content a {
+    top: 46px;
+  }
+
+  @media screen and (min-width: 781px) {
+    .navbar.scrollActive,
+    .navbar.sticky,
+    .skip-to-content a {
+      top: 32px;
+    }
+  }
 }

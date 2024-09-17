@@ -1,6 +1,8 @@
 <?php
 /**
  * Handler for Archive and Home PHP templates.
+ *
+ * @package jcore
  */
 
 namespace Jcore\Ilme;

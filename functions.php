@@ -10,6 +10,7 @@ namespace Jcore\Ilme;
 use Jcore\Ydin\Settings\Customizer;
 use Jcore\Ydin\WordPress\Assets;
 use Timber;
+use Timber\Timber as TimberTimber;
 
 require_once __DIR__ . '/includes/init.php';
 require_once __DIR__ . '/includes/modules.php';
@@ -177,20 +178,22 @@ function setup() {
 	);
 }
 
-
-
 /**
- *
+ * Custom body open.
  *
  * @return void
  */
 function custom_body_open() {
 	// TODO Fix.
 	if ( Settings::get( 'keys', 'google_tag_manager' ) ) {
-		Timber::render( 'partials/google-tag-manager-noscript.twig', array( 'tag_manager' => trim( Settings::get( 'keys', 'google_tag_manager' ) ) ) );
+		TimberTimber::render( 'partials/google-tag-manager-noscript.twig', array( 'tag_manager' => trim( Settings::get( 'keys', 'google_tag_manager' ) ) ) );
 	}
 }
-
+/**
+ * Custom head.
+ *
+ * @return void
+ */
 function custom_head() {
 	// TODO custom head.
 	if ( Settings::get( 'keys', 'google_tag_manager' ) ) {
@@ -201,6 +204,13 @@ function custom_head() {
 	}
 }
 
+/**
+ * Custom block categories.
+ *
+ * @param array $categories Categories.
+ *
+ * @return array
+ */
 function custom_block_categories( $categories ) {
 	return array_merge(
 		$categories,
@@ -213,7 +223,11 @@ function custom_block_categories( $categories ) {
 	);
 }
 
-
+/**
+ * Load scripts and styles.
+ *
+ * @return void
+ */
 function scripts() {
 	Assets::style_register( 'swiper', '/vendor/swiper-8.6.4/swiper-bundle.css', array(), '8.6.4' );
 	Assets::script_register( 'swiper', '/vendor/swiper-8.6.4/swiper-bundle.js', array(), '8.6.4' );
@@ -228,18 +242,10 @@ function scripts() {
 		'5.2.2',
 	);
 
-	Assets::script_register( 'jUtils', '/dist/js/jUtils.js' );
-	Assets::script_register( 'fontSize', '/dist/js/fontSize.js' );
 	Assets::script_register( 'share', '/js/share.js' );
 	Assets::script_register(
 		'jcore',
 		'/dist/js/jcore.js',
-		array(
-			'jquery',
-			'bootstrap',
-			'swiper',
-			'share',
-		)
 	);
 	Assets::script_register(
 		'alpine',
@@ -267,11 +273,9 @@ function scripts() {
 		'/assets/vendor/FA6/css/all.min.css',
 	);
 
-
 	wp_enqueue_style( 'theme' );
 	wp_enqueue_style( 'tailwind' );
 	wp_enqueue_style( 'fa6-free' );
-
 
 	wp_enqueue_script( 'jcore' );
 	wp_enqueue_script( 'jUtils' );
@@ -285,7 +289,7 @@ function scripts() {
 }
 
 /**
- *
+ * Load block editor scripts.
  *
  * @return void
  */
@@ -294,12 +298,26 @@ function block_editor_scripts() {
 	wp_enqueue_script( 'lightbox-gallery-filters' );
 }
 
+/**
+ * Load scripts for admin pages.
+ *
+ * @param string $hook Hook.
+ *
+ * @return void
+ */
 function admin_scripts( $hook ) {
 	Assets::style_register( 'jcore-admin-style', '/dist/css/admin.css', array(), '' );
 	wp_enqueue_style( 'jcore-admin-style' );
 	wp_add_inline_style( 'jcore-admin-style', Customizer::get_admin_styles() );
 }
 
+/**
+ * Load scripts for login page.
+ *
+ * @param string $hook Hook.
+ *
+ * @return void
+ */
 function login_scripts( $hook ) {
 	Assets::style_register( 'jcore-login-style', '/dist/css/wplogin.css', array(), '' );
 	wp_enqueue_style( 'jcore-login-style' );
@@ -308,7 +326,7 @@ function login_scripts( $hook ) {
 
 
 /**
- *  Adds the reusable blocks page to admin menu
+ * Adds the reusable blocks page to admin menu
  */
 add_action( 'admin_menu', 'Jcore\Ilme\linked_url' );
 function linked_url() {

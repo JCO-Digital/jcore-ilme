@@ -1,0 +1,28 @@
+name: Deploy Ilme
+
+on:
+  push:
+    branch:
+      - main
+
+jobs:
+
+  build:
+    uses: jco-digital/deploy-wp-action/.github/workflows/build-project.yml@main
+    with:
+      platform: ubuntu-latest
+      fetch_submodules: true
+      php_version: 8.2
+      slack_channel: CU8LPT03W
+    secrets: inherit
+  deploy:
+    needs: [ build ]
+    uses: jco-digital/deploy-wp-action/.github/workflows/server-deploy.yml@main
+    with:
+      platform: ubuntu-latest
+      server_url: icecreamvc@vc.bojaco.com
+      base_path: files
+      paths: >-
+        .:wp-content/themes/ilme/,
+      slack_channel: CU8LPT03W
+    secrets: inherit
