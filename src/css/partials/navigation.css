@@ -77,9 +77,9 @@
     }
 
     .menu-0 {
-        >   .menu-item {
-            flex-direction: row;
-        }
+      > .menu-item {
+        flex-direction: row;
+      }
     }
 
     .menu-1 {
@@ -95,7 +95,6 @@
       &:not(.open) {
         display: none;
       }
-
     }
   }
 }
