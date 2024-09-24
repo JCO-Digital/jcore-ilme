@@ -7,6 +7,7 @@
 
 namespace Jcore\Ilme;
 
+use Jcore\Ydin\Blocks\Blocks;
 use Jcore\Ydin\Settings\Customizer;
 use Jcore\Ydin\WordPress\Assets;
 use Timber;
@@ -390,4 +391,18 @@ function exclude_template_learndash_content( $post_templates ) {
 	}
 
 	return $post_templates;
+}
+
+add_filter( 'jcore_blocks_get_blocks', 'Jcore\Ilme\register_block_folder', 10, 1 );
+/**
+ * Register default block folder.
+ *
+ * @param array $blocks Array of blocks.
+ *
+ * @return array
+ */
+function register_block_folder( $blocks ): array {
+	$blocks_folder = __DIR__ . '/classes/Blocks';
+
+	return array_merge( $blocks, Blocks::list_blocks( $blocks_folder ) );
 }

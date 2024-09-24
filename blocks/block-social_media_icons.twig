@@ -1,0 +1,7 @@
+{# fields is the acf fields variable #}
+{# and block is the block metadata like name and id #}
+<section id="block-{{ block.id }}" class="block {{ block.className }} align{{ block.align}}">
+  {% if yoast is not empty %}
+    {% include 'partials/footer-social.twig' %}
+  {% endif %}
+</section>
