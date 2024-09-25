@@ -26,7 +26,7 @@
 	{% block items %}
 		<section class="{{ archive_class }}">
 			{% for post in posts %}
-				{% include ['partials/tease-'~post.post_type~'.twig', 'partials/tease.twig'] with {nr: loop.index} %}
+				{% include 'partials/tease.twig' with {nr: loop.index} %}
 			{% endfor %}
 		</section>
 	{% endblock %}

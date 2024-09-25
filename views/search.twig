@@ -7,7 +7,7 @@
     <h1>{{ page_title }}</h1>
     <div class="search row">
         {% for post in posts %}
-            {% include ['partials/tease-'~post.post_type~'.twig', 'partials/tease.twig'] %}
+            {% include 'partials/tease.twig' with {nr: loop.index} %}
         {% endfor %}
     </div>
     {% include 'partials/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
