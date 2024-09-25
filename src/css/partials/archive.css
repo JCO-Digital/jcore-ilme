@@ -1,19 +1,18 @@
 
-.archive-posts {
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: 1fr;
+.archive-posts, .wp-block-jcore-dynamic-archive-posts__inner {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr;
 }
 
-.archive-posts.columns-2 {
+.archive-posts.columns-2, .wp-block-jcore-dynamic-archive-posts__inner.columns-2 {
     grid-template-columns: 1fr 1fr;
 }
 
-.archive-posts.columns-3 {
+.archive-posts.columns-3, .wp-block-jcore-dynamic-archive-posts__inner.columns-3 {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.archive-posts.columns-4 {
+.archive-posts.columns-4, .wp-block-jcore-dynamic-archive-posts__inner.columns-4 {
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-  
