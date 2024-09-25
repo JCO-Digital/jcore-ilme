@@ -1,6 +1,6 @@
 {% if image %}
     {% if image is not timber_image %}
-        {% set image = Image(image) %}
+        {% set image = get_image(image) %}
     {% endif %}
 
     <img {% if id %}id="{{ id }}"{% endif %}
