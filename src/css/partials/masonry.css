@@ -1,0 +1,28 @@
+.masonry-grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 20px;
+
+  > * {
+    width: auto !important;
+    grid-row-end: span 20; /* Somewhat sane default. */
+  }
+
+  @media (width >= {{ jcore-breakpoint-md }}) {
+    &.columns-2,
+    &.columns-3,
+    &.columns-4 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (width >= {{ jcore-breakpoint-lg }}) {
+    &.columns-3 {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    &.columns-4 {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+}
