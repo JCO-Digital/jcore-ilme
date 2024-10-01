@@ -8,6 +8,7 @@
 namespace Jcore\Ilme;
 
 use Jcore\Ydin\WordPress\PostType;
+use Timber\Timber;
 
 add_action( 'after_setup_theme', 'Jcore\Ilme\register_footer_post_type' );
 add_action( 'after_switch_theme', 'Jcore\Ilme\create_footer_posts' );
@@ -150,11 +151,19 @@ function footer_context( $context ) {
 function get_footer_post( $slug ) {
 	$post_id = get_page_by_path( $slug, OBJECT, 'footer' )->ID;
 
-	return \Timber::get_post( $post_id );
+	if ( function_exists( 'PLL' ) ) {
+		$post_id = pll_get_post( $post_id );
+	}
+
+	return Timber::get_post( $post_id );
 }
 
 /**
  * Add page slug to body class
+ *
+ * @param array $classes The body classes.
+ *
+ * @return mixed
  */
 function add_page_slug_body_class( $classes ) {
 	global $post;
