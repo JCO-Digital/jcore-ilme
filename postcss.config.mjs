@@ -11,7 +11,7 @@ if (existsSync("theme.json")) {
   const theme = JSON.parse(readFileSync("theme.json", "utf8"));
   if ("breakpoints" in theme.settings.custom) {
     for (const breakpoint of Object.keys(theme.settings.custom.breakpoints)) {
-      breakpoints[`jcore-breakpoint-${breakpoint}`] =
+      breakpoints[breakpoint] =
         theme.settings.custom.breakpoints[breakpoint];
     }
   }
@@ -24,7 +24,10 @@ export default {
   plugins: [
     postcssImport,
     postcssMixins,
-    postcssReplace({ data: breakpoints }),
+    postcssReplace({
+      data: breakpoints,
+      pattern: "var\\(\\s?--breakpoint-([^\\s]+?)\\s?\\)",
+    }),
     nesting,
     tailwindcss,
     postcssPresetEnv({ stage: 2, features: { "nesting-rules": false } }),

@@ -9,7 +9,7 @@
     grid-row-end: span 20; /* Somewhat sane default. */
   }
 
-  @media (width >= {{ jcore-breakpoint-md }}) {
+  @media (width >= var(--breakpoint-md)) {
     &.columns-2,
     &.columns-3,
     &.columns-4 {
@@ -17,7 +17,7 @@
     }
   }
 
-  @media (width >= {{ jcore-breakpoint-lg }}) {
+  @media (width >= var(--breakpoint-lg)) {
     &.columns-3 {
       grid-template-columns: 1fr 1fr 1fr;
     }

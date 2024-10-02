@@ -5,22 +5,22 @@
 }
 
 .archive-posts.columns-2, .wp-block-jcore-dynamic-archive-posts__inner.columns-2 {
-    @media (width >= {{ jcore-breakpoint-sm }}) {
+    @media (width >= var(--breakpoint-sm)) {
         grid-template-columns: 1fr 1fr;
     }
 }
 
 .archive-posts.columns-3, .wp-block-jcore-dynamic-archive-posts__inner.columns-3 {
-    @media (width >= {{ jcore-breakpoint-md }}) {
+    @media (width >= var(--breakpoint-md)) {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
 .archive-posts.columns-4, .wp-block-jcore-dynamic-archive-posts__inner.columns-4 {
-    @media (width >= {{ jcore-breakpoint-sm }}) {
+    @media (width >= var(--breakpoint-sm)) {
         grid-template-columns: 1fr 1fr;
     }
-    @media (width >= {{ jcore-breakpoint-lg }}) {
+    @media (width >= var(--breakpoint-lg)) {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }

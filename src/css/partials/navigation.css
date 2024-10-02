@@ -70,7 +70,7 @@
 }
 
 /* Desktop navigation styles. */
-@media (width >= {{ jcore-breakpoint-lg }}) {
+@media (width >= var(--breakpoint-lg)) {
   #jcore-nav {
     .hamburger {
       display: none;
@@ -100,7 +100,7 @@
 }
 
 /* Mobile navigation styles. */
-@media (width < {{ jcore-breakpoint-lg }}) {
+@media (width < var(--breakpoint-lg)) {
   #jcore-nav {
     .menu-0 {
       position: absolute;
