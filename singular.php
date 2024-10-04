@@ -85,7 +85,7 @@ if ( class_exists( 'SFWD_LMS' ) && in_array( $timber_post->post_type, $ld_course
 }
 
 if ( strpos( $timber_post->_wp_page_template, 'jcore-' ) === 0 ) {
-	$t           = substr( $timber_post->_wp_page_template, 6 );
+	$t           = substr( $timber_post->_wp_page_template, 6, 4 );
 	$templates[] = 'template-' . $t . '.twig';
 }
 $templates[] = 'page-' . $timber_post->post_name . '.twig';
