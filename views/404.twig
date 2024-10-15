@@ -1,4 +1,10 @@
 {% extends "layout.twig" %}
 {% block post_title %}
-    <h1>{{ page_title }}</h1>
+	<h1>{{ page_title }}</h1>
+{% endblock %}
+{% block post_content %}
+	<div class="home-link">
+		<a href="/">{{ __('Back to front page', 'jcore') }}</a>
+	</div>
+	{{ post.content }}
 {% endblock %}

@@ -75,7 +75,7 @@
         "2xl": "1536px"
       },
       "spacingSizes": {
-        "small": "clamp(1rem, 3.7vw + -0.05rem,  2rem)",
+        "small": "clamp(.5rem, 3.7vw + -0.05rem,  1rem)",
         "medium": "clamp(1.5rem, 3.7vw + -0.05rem,  3rem )",
         "large": "clamp(2rem, 3.7vw + -0.05rem,  4rem )"
       }
@@ -84,7 +84,7 @@
       "minHeight": true
     },
     "layout": {
-      "contentSize": "min(800px, 80vw)",
+      "contentSize": "min(800px, 95vw)",
       "wideSize": "min(1200px, 95vw)"
     },
     "position": {},
@@ -199,7 +199,11 @@
         {
           "name": "Maxi",
           "slug": "maxi",
-          "size": "64px"
+          "size": "64px",
+          "fluid": {
+            "min": "40px",
+            "max": "64px"
+          }
         }
       ]
     },
@@ -248,6 +252,63 @@
             "bottom": "var:custom|spacing-sizes|medium"
           }
         }
+      },
+
+      "core/button": {
+        "color": {
+          "background": "var:preset|color|brand",
+          "text": "var:preset|color|dark"
+        },
+        "border": {
+          "radius": "10px",
+          "color": "var:preset|color|brand",
+          "style": "solid",
+          "width": "1px"
+        },
+        "typography": {
+          "fontSize": "var:preset|font-size|paragraph",
+          "fontFamily": "InterTight",
+          "textTransform": "uppercase",
+          "fontWeight": "300"
+        },
+        "spacing": {
+          "padding": {
+            "top": ".5rem",
+            "bottom": ".5rem",
+            "left": "1.5rem",
+            "right": "1.5rem"
+          }
+        },
+        "shadow": "0px 0px 0px 0px var(--wp--preset--color--dark)",
+        "variations": {
+          "outline": {
+            "color": {
+              "background": "transparent",
+              "text": "var:preset|color|dark"
+            },
+            "border": {
+              "radius": "10px",
+              "color": "var:preset|color|dark",
+              "style": "solid",
+              "width": "1px"
+            },
+            "typography": {
+              "fontSize": "var:preset|font-size|paragraph",
+              "fontFamily": "InterTight",
+              "textTransform": "uppercase",
+              "fontWeight": "300"
+            },
+            "spacing": {
+              "padding": {
+                "top": ".5rem",
+                "bottom": ".5rem",
+                "left": "1.5rem",
+                "right": "1.5rem"
+              }
+            },
+            "shadow": "0px 0px 0px 0px var(--wp--preset--color--dark)"
+          }
+        }
       }
     },
     "elements": {
@@ -259,6 +320,11 @@
       "link": {
         "color": {
           "text": "var:preset|color|brand"
+        },
+        ":hover": {
+          "color": {
+            "text": "var:preset|color|success"
+          }
         }
       }
     }

@@ -1,0 +1,58 @@
+/* Yoast FAQ styling */
+.schema-faq {
+  border-top: 1px solid rgba(167, 130, 255, 0.25);
+}
+
+.schema-faq-section {
+  border-bottom: 1px solid rgba(167, 130, 255, 0.25);
+}
+
+.schema-faq-section .schema-faq-question {
+  font-family: var(--jcore-heading-font-family);
+  font-size: var(--wp--preset--font-size--heading-4);
+  font-weight: 400;
+  margin: 10px 0;
+  padding: 1.5rem 20% 1.5rem 0;
+  cursor: pointer;
+  position: relative;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: block;
+}
+
+.schema-faq-section .schema-faq-question:after {
+  content: "+";
+  position: absolute;
+  font-family: var(--jcore-heading-font-family);
+  top: 50%;
+  right: 0;
+  width: 64px;
+  height: 64px;
+  background: var(--wp--preset--color--brand);
+  border-radius: 999px;
+  text-align: center;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.schema-faq-section .schema-faq-question.faq-q-open:after {
+  content: "−";
+}
+
+.schema-faq-section p.schema-faq-answer {
+  margin: 0;
+  display: none;
+  font-weight: 400;
+  font-size: var(--wp--preset--font-size--paragraph);
+  padding-bottom: 1rem;
+
+  @media (width >= var(--breakpoint-md)) {
+    max-width: 80%;
+  }
+}

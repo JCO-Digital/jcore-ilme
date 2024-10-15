@@ -1,1 +1,33 @@
 /* Add styles for editor here */
+.editor-styles-wrapper {
+  .hidden {
+    display: block;
+    opacity: 0.2;
+    background: lightgrey;
+  }
+  /*Gridible Block Offset backend styling */
+  .wp-block-gridible-responsive-spacer {
+    background: lightgrey;
+    opacity: 0.8;
+    position: relative;
+    &.mobile-small {
+      border: 3px solid white;
+      border-style: dotted;
+    }
+    &.tablet-medium {
+      border: 2px solid #faf8f2;
+      border-style: double;
+    }
+    &.desktop-big {
+      border: 2px solid white;
+      border-style: dashed;
+    }
+    &::after {
+      color: grey;
+      content: "Gridible Spacer: Set visibility Desktop/Tablet/Mobile";
+      bottom: 0.25rem;
+      left: 1rem;
+      position: absolute;
+    }
+  }
+}

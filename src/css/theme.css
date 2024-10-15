@@ -9,4 +9,8 @@
 @import "partials/archive.css";
 @import "partials/single.css";
 @import "partials/tease.css";
+@import "partials/postgrid.css";
 @import "partials/masonry.css";
+@import "partials/404.css";
+@import "partials/socialshare.css";
+@import "partials/accordion.css";

@@ -1,3 +1,7 @@
+:root {
+  --jcore-font-family: var(--wp--preset--font-family--Inter);
+  --jcore-heading-font-family: var(--wp--preset--font-family--InterTight);
+}
 p {
   margin-bottom: 1rem;
 }
@@ -13,26 +17,38 @@ h3 {
 }
 
 h4,
-h4,
 h5,
 h6 {
   line-height: var(--wp--custom--line-height--md);
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: var(--wp--custom--font--size--heading-2);
-}
-
-a {
-  color: var(--wp--preset--color--brand);
-  text-decoration: none;
-
-  &:hover {
-    color: var(--wp--preset--color--dark);
-    text-decoration: none;
+main {
+  /* List styles */
+  ul {
+    list-style-type: none;
+    font-size: var(--wp--preset--font-size--paragraph);
+    li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.2px;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 9px;
+        width: 10px;
+        height: 10px;
+        background-color: var(--wp--preset--color--brand);
+        border-radius: 4px;
+      }
+    }
+  }
+  ol {
+    padding-left: 1.5rem;
+    li {
+      margin-bottom: 0.75rem;
+      padding-left: 0.75rem;
+    }
   }
 }

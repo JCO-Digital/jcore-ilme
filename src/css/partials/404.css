@@ -1,0 +1,13 @@
+.error404 {
+  h1 {
+    font-size: var(--wp--preset--font-size--heading-1);
+    margin-top: 3rem;
+  }
+  .home-link {
+    max-width: var(--wp--style--global--content-size);
+    margin-top: 2rem;
+    text-transform: uppercase;
+    padding-bottom: 2rem;
+    margin-bottom: 5rem;
+  }
+}

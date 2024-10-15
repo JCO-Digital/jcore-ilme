@@ -1,0 +1,6 @@
+{% if fields.show_all == 1 %}
+<section id="block-{{ block.id }}" class="block {{ block.className }} align{{ block.align}}">
+   <p  class="share-heading">{{ __('Share','jcore') }}:</p>
+    {% include 'partials/social-media-share.twig' %}
+</section>
+{% endif %}

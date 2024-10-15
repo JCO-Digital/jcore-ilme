@@ -1,0 +1,9 @@
+{# Block Post lifts in Grid #}
+
+<section id="block-{{ block.id }}" class="block align{{ block.align }} {{ block.className }} {% if fields.custom_columns  %} columns-{{fields.columns }}{% else %} columns-{{ customizer('article_highlight','columns') }} {% endif %}">
+	<div class="posts-highlight{{ fields.masonry ? ' masonry-grid' : '' }}">
+		{% for post in query %}
+			{% include 'partials/tease.twig' with { nr: loop.index } %}
+		{% endfor %}
+	</div>
+</section>
