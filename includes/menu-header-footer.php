@@ -17,6 +17,9 @@ add_action( 'after_setup_theme', 'Jcore\Ilme\register_menu' );
 add_filter( 'timber/context', 'Jcore\Ilme\footer_context' );
 add_filter( 'body_class', 'Jcore\Ilme\add_page_slug_body_class' );
 
+add_action( 'wp_body_open', 'Jcore\Ilme\custom_body_open' );
+add_action( 'wp_head', 'Jcore\Ilme\custom_head' );
+
 add_filter(
 	'login_headerurl',
 	function () {
@@ -172,4 +175,31 @@ function add_page_slug_body_class( $classes ) {
 	}
 
 	return $classes;
+}
+
+/**
+ * Custom body open.
+ *
+ * @return void
+ */
+function custom_body_open() {
+	// TODO Fix.
+	if ( Settings::get( 'keys', 'google_tag_manager' ) ) {
+		Timber::render( 'partials/google-tag-manager-noscript.twig', array( 'tag_manager' => trim( Settings::get( 'keys', 'google_tag_manager' ) ) ) );
+	}
+}
+
+/**
+ * Custom head.
+ *
+ * @return void
+ */
+function custom_head() {
+	// TODO custom head.
+	if ( Settings::get( 'keys', 'google_tag_manager' ) ) {
+		Timber::render( 'partials/google-tag-manager.twig', array( 'tag_manager' => trim( Settings::get( 'keys', 'google_tag_manager' ) ) ) );
+	}
+	if ( Settings::get( 'keys', 'google_analytics' ) ) {
+		Timber::render( 'partials/google-analytics.twig', array( 'analytics' => trim( Settings::get( 'keys', 'google_analytics' ) ) ) );
+	}
 }
