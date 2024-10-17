@@ -223,7 +223,7 @@ function scripts() {
 	);
 	Assets::script_register(
 		'alpine',
-		'/dist/js/alpine.js',
+		'/dist/js/alpine-jcore.js',
 	);
 
 	Assets::script_register(
@@ -255,6 +255,11 @@ function scripts() {
 	wp_enqueue_script( 'jUtils' );
 	wp_enqueue_script( 'fontSize' );
 	wp_enqueue_script( 'wp-gallery-lightbox' );
+
+	if ( is_singular() && has_block( 'yoast/faq-block' ) ) {
+		wp_enqueue_script( 'yoast-faq-accordion' );
+	}
+
 	if ( apply_filters( 'jcore_load_alpine_script', false ) ) {
 		wp_enqueue_script( 'alpine' );
 	}
