@@ -1,29 +1,25 @@
-<section id="block-{{ block.id }}" class="block {{ block.className }} min-h-[20rem] flex items-center justify-center">
-    <div {% if fields.first_item_open is not same as false %}xjcore-data="{active: '{{ block.id }}-1'}"{% endif %} class="w-full min-h-[16rem] border-t border-lilly/25">
+<section id="block-{{ block.id }}" class="block {{ block.className }}">
+    <div {% if fields.first_item_open is not same as false %}xjcore-data="{active: '{{ block.id }}-1'}"{% endif %}>
         {% for item in fields.accordion %}
-        <div xjcore-data="{
+            <div xjcore-data="{
             id: '{{ block.id }}-{{ loop.index }}',
             get isActive() {
                 return this.active === this.id
             },
             set isActive(value) {
                 this.active = value ? this.id : null
-            }}"
-            role="region" class="border-b border-lilly/25">
-            <h2>
-                <button xjcore-on:click="isActive = !isActive"
-                        class="flex w-full items-center justify-between py-6 text-3xl">
-                    <span class="max-w-[75%] md:max-w[80%] text-left">{{ item.item_title }}</span>
-                    <span xjcore-show="isActive" aria-hidden="true" class="flex items-center justify-center ml-4 bg-brand w-16 h-16 rounded-full">−</span>
-                    <span xjcore-show="!isActive" aria-hidden="true" class="flex items-center justify-center ml-4 bg-brand w-16 h-16 rounded-full" style="display: none;">+</span>
-                </button>
-            </h2>
+            }}" role="region" class="accordion-section">
 
-            <div xjcore-show="isActive" xjcore-collapse style="height: auto;">
-                <div class="pb-4 md:max-w-[80%]">{{ item.item_text|wp_kses_post }}
+                <button xjcore-on:click="isActive = !isActive" xjcore-bind:class="isActive ? 'accordion-open' : ''"
+                        class="accordion-title">
+                    <span>{{ item.item_title }}</span>
+                </button>
+
+                <div class="accordion-content" xjcore-show="isActive" xjcore-collapse style="height: auto;">
+                    <div>{{ item.item_text|wp_kses_post }}
+                    </div>
                 </div>
             </div>
-        </div>
         {% endfor %}
     </div>
 </section>

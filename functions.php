@@ -223,12 +223,12 @@ function scripts() {
 	);
 	Assets::script_register(
 		'alpine',
-		'/vendor/alpine/alpine.min.js',
-		array(),
-		'3.13.0',
-		array(
-			'strategy' => 'defer',
-		)
+		'/dist/js/alpine.js',
+	);
+
+	Assets::script_register(
+		'yoast-faq-accordion',
+		'/dist/js/yoast-faq.js',
 	);
 
 	Assets::style_register(
@@ -255,7 +255,7 @@ function scripts() {
 	wp_enqueue_script( 'jUtils' );
 	wp_enqueue_script( 'fontSize' );
 	wp_enqueue_script( 'wp-gallery-lightbox' );
-	if ( apply_filters( 'jcore_load_alpine_script', true ) ) {
+	if ( apply_filters( 'jcore_load_alpine_script', false ) ) {
 		wp_enqueue_script( 'alpine' );
 	}
 

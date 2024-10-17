@@ -37,7 +37,19 @@ class Accordion extends Block {
 	 *
 	 * @var array
 	 */
-	protected static array $keywords = array( 'Accordion' );
+	/**
+	 * Script to load when block is loaded on page.
+	 *
+	 * @var string
+	 */
+	protected string $script_name = 'alpine';
+
+	/**
+	 * Path to the script to load on page.
+	 *
+	 * @var string
+	 */
+	protected string $script_path = '/dist/js/alpine.js';
 
 	/**
 	 * Registers the fields
