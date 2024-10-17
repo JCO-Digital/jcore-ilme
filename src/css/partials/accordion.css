@@ -1,18 +1,18 @@
 /* Yoast FAQ & Accordion Block Styling */
 .schema-faq,
 .block-accordion {
-  border-top: 1px solid rgba(167, 130, 255, 0.25);
+  border-top: 1px solid var(--wp--preset--color--light);
 }
 
 .schema-faq-section,
 .block-accordion .accordion-section {
-  border-bottom: 1px solid rgba(167, 130, 255, 0.25);
+  border-bottom: 1px solid var(--wp--preset--color--light);
 }
 
 .schema-faq-section .schema-faq-question,
 .block-accordion .accordion-title {
   font-family: var(--jcore-heading-font-family);
-  font-size: var(--wp--preset--font-size--heading-4);
+  font-size: var(--wp--preset--font-size--heading-2);
   font-weight: 400;
   margin: 10px 0;
   padding: 1.5rem 20% 1.5rem 0;
@@ -43,6 +43,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: var(--wp--preset--font-size--heading-2);
   }
 
   &.faq-q-open,
@@ -58,7 +59,6 @@
   margin: 0;
   font-weight: 400;
   font-size: var(--wp--preset--font-size--paragraph);
-  padding-bottom: 1rem;
 
   @media (width >= var(--breakpoint-md)) {
   max-width: 80%;
