@@ -16,7 +16,12 @@ if (existsSync("theme.json")) {
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./views/**/*.twig", "./src/js/**/*.js", "./theme.json"],
+  content: [
+    "./views/**/*.twig",
+    "./blocks/**/*.twig",
+    "./src/js/**/*.js",
+    "./theme.json",
+  ],
   theme: {
     extend: {
       fontFamily: {
