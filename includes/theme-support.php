@@ -205,7 +205,7 @@ add_filter( 'jcore_blocks_get_blocks', 'Jcore\Ilme\register_block_folder', 10, 1
  * @return array
  */
 function register_block_folder( $blocks ): array {
-	$blocks_folder = __DIR__ . '/classes/Blocks';
+	$blocks_folder = get_template_directory() . '/classes/Blocks';
 
 	return array_merge( $blocks, Blocks::list_blocks( $blocks_folder, 'Jcore\Ilme\Blocks\\' ) );
 }

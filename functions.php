@@ -1,6 +1,6 @@
 <?php
 /**
- * JCORE main functions added in /includes/ and /clases/ folders, Theme specific functions added here.
+ * JCORE main functions added in /includes/ folders, theme specific functions added here.
  *
  * @package jcore
  */
