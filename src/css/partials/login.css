@@ -1,0 +1,39 @@
+.login {
+  background-color: var(--wp--preset--color--light);
+  color: var(--wp--preset--color--black);
+
+  h1 {
+    a {
+      background-image: none;
+      text-indent: unset;
+      width: unset;
+      height: unset;
+      svg,
+      img {
+        max-width: 100%;
+        fill: var(--bs-light);
+      }
+    }
+  }
+  .button {
+    @include button();
+  }
+  form {
+    background-color:  var(--wp--preset--color--white);
+    border-radius: $spacer * 0.25;
+    border: 0;
+    box-shadow: unset;
+  }
+}
+#login {
+  padding: 0;
+}
+#nav,
+  #backtoblog {
+    a {
+      color: var(--wp--preset--color--black);
+      &:hover {
+        color: var(--wp--preset--color--black);
+      }
+    }
+  }

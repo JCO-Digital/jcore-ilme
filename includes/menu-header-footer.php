@@ -20,16 +20,7 @@ add_filter( 'body_class', 'Jcore\Ilme\add_page_slug_body_class' );
 add_action( 'wp_body_open', 'Jcore\Ilme\custom_body_open' );
 add_action( 'wp_head', 'Jcore\Ilme\custom_head' );
 
-add_filter(
-	'login_headerurl',
-	function () {
-		return home_url();
-	}
-);
-add_filter(
-	'login_headertext',
-	'get_custom_logo'
-);
+
 
 /**
  * Register Menus added by "jcore_menus" filter.

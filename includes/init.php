@@ -11,6 +11,9 @@ if ( function_exists( '\Sentry\init' ) && defined( 'SENTRY_DSN' ) && ! defined( 
 	\Sentry\init( array( 'dsn' => SENTRY_DSN ) );
 }
 
+require_once get_template_directory() . '/classes/Settings.php';
+Settings::init();
+
 add_action(
 	'after_setup_theme',
 	function () {
