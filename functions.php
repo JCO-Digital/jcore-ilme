@@ -12,15 +12,13 @@ require_once __DIR__ . '/includes/modules.php';
 require_once __DIR__ . '/includes/menu-header-footer.php';
 require_once __DIR__ . '/includes/images.php';
 require_once __DIR__ . '/includes/timber.php';
+require_once __DIR__ . '/includes/wplogin.php';
+require_once __DIR__ . '/includes/admin.php';
 require_once __DIR__ . '/includes/theme-support.php';
 require_once __DIR__ . '/includes/archive.php';
-
 require_once __DIR__ . '/includes/templates.php';
 require_once __DIR__ . '/includes/polylang.php';
 require_once __DIR__ . '/includes/customizer.php';
-require_once __DIR__ . '/includes/wplogin.php';
-require_once __DIR__ . '/includes/admin.php';
-
 require_once __DIR__ . '/includes/wp-comments.php';
 require_once __DIR__ . '/includes/learnDash.php';
 

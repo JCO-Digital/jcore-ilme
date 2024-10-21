@@ -5,6 +5,10 @@
  * @package Jcore\Ilme
  */
 
+namespace Jcore\Ilme;
+
+use Jcore\Ydin\WordPress\Assets;
+
 add_action( 'login_enqueue_scripts', 'Jcore\Ilme\login_scripts' );
 
 /**
