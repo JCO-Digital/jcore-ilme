@@ -1,7 +1,9 @@
 .login {
-  background-color: var(--wp--preset--color--light);
-  color: var(--wp--preset--color--black);
-
+  background-color: #d2d2d2;
+  color: #000000;
+  #login {
+    padding: 0;
+  }
   h1 {
     a {
       background-image: none;
@@ -11,29 +13,32 @@
       svg,
       img {
         max-width: 100%;
-        fill: var(--bs-light);
+        fill: #ffffff;
       }
     }
   }
   .button {
-    @include button();
+    border-radius: 0;
+    text-transform: uppercase;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
   }
   form {
-    background-color:  var(--wp--preset--color--white);
-    border-radius: $spacer * 0.25;
+    background-color:  #ffffff;
+    border-radius: 10px;
     border: 0;
     box-shadow: unset;
   }
-}
-#login {
-  padding: 0;
-}
+
+
 #nav,
   #backtoblog {
     a {
-      color: var(--wp--preset--color--black);
+      color: #000000;
       &:hover {
-        color: var(--wp--preset--color--black);
+        color: #41c4ff;
       }
     }
   }
+}
