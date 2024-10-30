@@ -82,4 +82,7 @@ export default {
     },
   ],
   plugins: [require("@tailwindcss/forms")],
+  corePlugins: {
+    preflight: false,
+  },
 };
