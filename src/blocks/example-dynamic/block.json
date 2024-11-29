@@ -6,7 +6,7 @@
 	"title": "Example Dynamic",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "Example block to use as base.",
 	"example": {},
 	"supports": {
 		"html": false
