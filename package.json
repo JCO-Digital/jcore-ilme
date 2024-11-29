@@ -1,17 +1,19 @@
 {
   "name": "jcore-ilme",
   "version": "3.0.0",
-  "type": "module",
   "scripts": {
     "esbuild": "esbuild --bundle src/js/*.?s --outdir=dist/js --minify --sourcemap",
     "postcss": "postcss --verbose src/css/*.css --dir dist/css",
+    "blocks": "wp-scripts build --webpack-src-dir=src/blocks --output-path=dist/blocks",
     "watch-esbuild": "pnpm run esbuild --watch",
     "watch-postcss": "pnpm run postcss --watch",
+    "watch-blocks": "wp-scripts start --webpack-src-dir=src/blocks --output-path=dist/blocks",
     "watch": "concurrently --kill-others 'pnpm run watch-esbuild' 'pnpm run watch-postcss'",
-    "build": "pnpm run esbuild && pnpm run postcss",
+    "build": "pnpm run esbuild && pnpm run postcss && pnpm run blocks",
     "prettier": "prettier --write src"
   },
   "devDependencies": {
+    "@wordpress/scripts": "^30.6.0",
     "@tailwindcss/forms": "^0.5.9",
     "concurrently": "^8.2.2",
     "esbuild": "^0.19.12",

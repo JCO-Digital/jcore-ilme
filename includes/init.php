@@ -63,13 +63,22 @@ add_action(
  *
  * @return void
  */
-function init() {
-	Customizer::gutenberg_add_colors();
+add_action(
+	'init',
+	function () {
+		$dir_name = get_stylesheet_directory() . '/dist/blocks';
+		$dir      = new \DirectoryIterator( $dir_name );
+		foreach ( $dir as $fileinfo ) {
+			if ( ! $fileinfo->isDot() && $fileinfo->isDir() ) {
+				register_block_type( $fileinfo->getRealPath() );
+			}
+		}
 
-	if ( ! empty( Settings::get( 'keys', 'google_maps_key' ) ) ) {
-		acf_update_setting( 'google_api_key', Settings::get( 'keys', 'google_maps_key' ) );
+		if ( ! empty( Settings::get( 'keys', 'google_maps_key' ) ) ) {
+			acf_update_setting( 'google_api_key', Settings::get( 'keys', 'google_maps_key' ) );
+		}
 	}
-}
+);
 
 /**
  * Translation Support.
