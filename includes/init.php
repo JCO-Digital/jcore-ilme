@@ -66,11 +66,14 @@ add_action(
 add_action(
 	'init',
 	function () {
+		// Load theme gutenberg blocks.
 		$dir_name = get_stylesheet_directory() . '/dist/blocks';
-		$dir      = new \DirectoryIterator( $dir_name );
-		foreach ( $dir as $fileinfo ) {
-			if ( ! $fileinfo->isDot() && $fileinfo->isDir() ) {
-				register_block_type( $fileinfo->getRealPath() );
+		if ( is_dir( $dir_name ) ) {
+			$dir = new \DirectoryIterator( $dir_name );
+			foreach ( $dir as $fileinfo ) {
+				if ( ! $fileinfo->isDot() && $fileinfo->isDir() ) {
+					register_block_type( $fileinfo->getRealPath() );
+				}
 			}
 		}
 
