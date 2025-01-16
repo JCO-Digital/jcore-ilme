@@ -11,6 +11,7 @@ namespace Jcore\Ilme;
 
 use Jcore\Ydin;
 use Jcore\Ydin\BootstrapInterface;
+use Jcore\Security;
 
 /**
  * The modules to load.
@@ -18,6 +19,7 @@ use Jcore\Ydin\BootstrapInterface;
  * @var BootstrapInterface[] $modules
  */
 $modules = array(
+	Security\Bootstrap::class,
 );
 
 /**
