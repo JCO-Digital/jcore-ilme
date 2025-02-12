@@ -1,0 +1,888 @@
+.jgrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.jgrid.cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+.jgrid.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.jgrid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.jgrid.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.jgrid.cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.jgrid.cols-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+.jgrid.cols-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+.jgrid.cols-8 {
+  grid-template-columns: repeat(8, 1fr);
+}
+.jgrid.cols-9 {
+  grid-template-columns: repeat(9, 1fr);
+}
+.jgrid.cols-10 {
+  grid-template-columns: repeat(10, 1fr);
+}
+.jgrid.cols-11 {
+  grid-template-columns: repeat(11, 1fr);
+}
+.jgrid.cols-12 {
+  grid-template-columns: repeat(12, 1fr);
+}
+.jgrid.cols-13 {
+  grid-template-columns: repeat(13, 1fr);
+}
+.jgrid.cols-14 {
+  grid-template-columns: repeat(14, 1fr);
+}
+.jgrid.cols-15 {
+  grid-template-columns: repeat(15, 1fr);
+}
+.jgrid.cols-16 {
+  grid-template-columns: repeat(16, 1fr);
+}
+.jgrid.cols-17 {
+  grid-template-columns: repeat(17, 1fr);
+}
+.jgrid.cols-18 {
+  grid-template-columns: repeat(18, 1fr);
+}
+.jgrid.cols-19 {
+  grid-template-columns: repeat(19, 1fr);
+}
+.jgrid.cols-20 {
+  grid-template-columns: repeat(20, 1fr);
+}
+.jgrid.cols-21 {
+  grid-template-columns: repeat(21, 1fr);
+}
+.jgrid.cols-22 {
+  grid-template-columns: repeat(22, 1fr);
+}
+.jgrid.cols-23 {
+  grid-template-columns: repeat(23, 1fr);
+}
+.jgrid.cols-24 {
+  grid-template-columns: repeat(24, 1fr);
+}
+.jgrid .col-1 {
+  grid-column-start: span 1;
+}
+.jgrid .col-2 {
+  grid-column-start: span 2;
+}
+.jgrid .col-3 {
+  grid-column-start: span 3;
+}
+.jgrid .col-4 {
+  grid-column-start: span 4;
+}
+.jgrid .col-5 {
+  grid-column-start: span 5;
+}
+.jgrid .col-6 {
+  grid-column-start: span 6;
+}
+.jgrid .col-7 {
+  grid-column-start: span 7;
+}
+.jgrid .col-8 {
+  grid-column-start: span 8;
+}
+.jgrid .col-9 {
+  grid-column-start: span 9;
+}
+.jgrid .col-10 {
+  grid-column-start: span 10;
+}
+.jgrid .col-11 {
+  grid-column-start: span 11;
+}
+.jgrid .col-12 {
+  grid-column-start: span 12;
+}
+.jgrid .col-13 {
+  grid-column-start: span 13;
+}
+.jgrid .col-14 {
+  grid-column-start: span 14;
+}
+.jgrid .col-15 {
+  grid-column-start: span 15;
+}
+.jgrid .col-16 {
+  grid-column-start: span 16;
+}
+.jgrid .col-17 {
+  grid-column-start: span 17;
+}
+.jgrid .col-18 {
+  grid-column-start: span 18;
+}
+.jgrid .col-19 {
+  grid-column-start: span 19;
+}
+.jgrid .col-20 {
+  grid-column-start: span 20;
+}
+.jgrid .col-21 {
+  grid-column-start: span 21;
+}
+.jgrid .col-22 {
+  grid-column-start: span 22;
+}
+.jgrid .col-23 {
+  grid-column-start: span 23;
+}
+.jgrid .col-24 {
+  grid-column-start: span 24;
+}
+@media (width >= var(--breakpoint-sm)) {
+  .jgrid .col-sm-1, .jgrid .col-sm-up-1 {
+    grid-column-start: span 1;
+  }
+  .jgrid .col-sm-2, .jgrid .col-sm-up-2 {
+    grid-column-start: span 2;
+  }
+  .jgrid .col-sm-3, .jgrid .col-sm-up-3 {
+    grid-column-start: span 3;
+  }
+  .jgrid .col-sm-4, .jgrid .col-sm-up-4 {
+    grid-column-start: span 4;
+  }
+  .jgrid .col-sm-5, .jgrid .col-sm-up-5 {
+    grid-column-start: span 5;
+  }
+  .jgrid .col-sm-6, .jgrid .col-sm-up-6 {
+    grid-column-start: span 6;
+  }
+  .jgrid .col-sm-7, .jgrid .col-sm-up-7 {
+    grid-column-start: span 7;
+  }
+  .jgrid .col-sm-8, .jgrid .col-sm-up-8 {
+    grid-column-start: span 8;
+  }
+  .jgrid .col-sm-9, .jgrid .col-sm-up-9 {
+    grid-column-start: span 9;
+  }
+  .jgrid .col-sm-10, .jgrid .col-sm-up-10 {
+    grid-column-start: span 10;
+  }
+  .jgrid .col-sm-11, .jgrid .col-sm-up-11 {
+    grid-column-start: span 11;
+  }
+  .jgrid .col-sm-12, .jgrid .col-sm-up-12 {
+    grid-column-start: span 12;
+  }
+  .jgrid .col-sm-13, .jgrid .col-sm-up-13 {
+    grid-column-start: span 13;
+  }
+  .jgrid .col-sm-14, .jgrid .col-sm-up-14 {
+    grid-column-start: span 14;
+  }
+  .jgrid .col-sm-15, .jgrid .col-sm-up-15 {
+    grid-column-start: span 15;
+  }
+  .jgrid .col-sm-16, .jgrid .col-sm-up-16 {
+    grid-column-start: span 16;
+  }
+  .jgrid .col-sm-17, .jgrid .col-sm-up-17 {
+    grid-column-start: span 17;
+  }
+  .jgrid .col-sm-18, .jgrid .col-sm-up-18 {
+    grid-column-start: span 18;
+  }
+  .jgrid .col-sm-19, .jgrid .col-sm-up-19 {
+    grid-column-start: span 19;
+  }
+  .jgrid .col-sm-20, .jgrid .col-sm-up-20 {
+    grid-column-start: span 20;
+  }
+  .jgrid .col-sm-21, .jgrid .col-sm-up-21 {
+    grid-column-start: span 21;
+  }
+  .jgrid .col-sm-22, .jgrid .col-sm-up-22 {
+    grid-column-start: span 22;
+  }
+  .jgrid .col-sm-23, .jgrid .col-sm-up-23 {
+    grid-column-start: span 23;
+  }
+  .jgrid .col-sm-24, .jgrid .col-sm-up-24 {
+    grid-column-start: span 24;
+  }
+}
+@media (width <= var(--breakpoint-sm)) {
+  .jgrid .col-sm-down-1 {
+    grid-column-start: span 1;
+  }
+  .jgrid .col-sm-down-2 {
+    grid-column-start: span 2;
+  }
+  .jgrid .col-sm-down-3 {
+    grid-column-start: span 3;
+  }
+  .jgrid .col-sm-down-4 {
+    grid-column-start: span 4;
+  }
+  .jgrid .col-sm-down-5 {
+    grid-column-start: span 5;
+  }
+  .jgrid .col-sm-down-6 {
+    grid-column-start: span 6;
+  }
+  .jgrid .col-sm-down-7 {
+    grid-column-start: span 7;
+  }
+  .jgrid .col-sm-down-8 {
+    grid-column-start: span 8;
+  }
+  .jgrid .col-sm-down-9 {
+    grid-column-start: span 9;
+  }
+  .jgrid .col-sm-down-10 {
+    grid-column-start: span 10;
+  }
+  .jgrid .col-sm-down-11 {
+    grid-column-start: span 11;
+  }
+  .jgrid .col-sm-down-12 {
+    grid-column-start: span 12;
+  }
+  .jgrid .col-sm-down-13 {
+    grid-column-start: span 13;
+  }
+  .jgrid .col-sm-down-14 {
+    grid-column-start: span 14;
+  }
+  .jgrid .col-sm-down-15 {
+    grid-column-start: span 15;
+  }
+  .jgrid .col-sm-down-16 {
+    grid-column-start: span 16;
+  }
+  .jgrid .col-sm-down-17 {
+    grid-column-start: span 17;
+  }
+  .jgrid .col-sm-down-18 {
+    grid-column-start: span 18;
+  }
+  .jgrid .col-sm-down-19 {
+    grid-column-start: span 19;
+  }
+  .jgrid .col-sm-down-20 {
+    grid-column-start: span 20;
+  }
+  .jgrid .col-sm-down-21 {
+    grid-column-start: span 21;
+  }
+  .jgrid .col-sm-down-22 {
+    grid-column-start: span 22;
+  }
+  .jgrid .col-sm-down-23 {
+    grid-column-start: span 23;
+  }
+  .jgrid .col-sm-down-24 {
+    grid-column-start: span 24;
+  }
+}
+@media (width >= var(--breakpoint-md)) {
+  .jgrid .col-md-1, .jgrid .col-md-up-1 {
+    grid-column-start: span 1;
+  }
+  .jgrid .col-md-2, .jgrid .col-md-up-2 {
+    grid-column-start: span 2;
+  }
+  .jgrid .col-md-3, .jgrid .col-md-up-3 {
+    grid-column-start: span 3;
+  }
+  .jgrid .col-md-4, .jgrid .col-md-up-4 {
+    grid-column-start: span 4;
+  }
+  .jgrid .col-md-5, .jgrid .col-md-up-5 {
+    grid-column-start: span 5;
+  }
+  .jgrid .col-md-6, .jgrid .col-md-up-6 {
+    grid-column-start: span 6;
+  }
+  .jgrid .col-md-7, .jgrid .col-md-up-7 {
+    grid-column-start: span 7;
+  }
+  .jgrid .col-md-8, .jgrid .col-md-up-8 {
+    grid-column-start: span 8;
+  }
+  .jgrid .col-md-9, .jgrid .col-md-up-9 {
+    grid-column-start: span 9;
+  }
+  .jgrid .col-md-10, .jgrid .col-md-up-10 {
+    grid-column-start: span 10;
+  }
+  .jgrid .col-md-11, .jgrid .col-md-up-11 {
+    grid-column-start: span 11;
+  }
+  .jgrid .col-md-12, .jgrid .col-md-up-12 {
+    grid-column-start: span 12;
+  }
+  .jgrid .col-md-13, .jgrid .col-md-up-13 {
+    grid-column-start: span 13;
+  }
+  .jgrid .col-md-14, .jgrid .col-md-up-14 {
+    grid-column-start: span 14;
+  }
+  .jgrid .col-md-15, .jgrid .col-md-up-15 {
+    grid-column-start: span 15;
+  }
+  .jgrid .col-md-16, .jgrid .col-md-up-16 {
+    grid-column-start: span 16;
+  }
+  .jgrid .col-md-17, .jgrid .col-md-up-17 {
+    grid-column-start: span 17;
+  }
+  .jgrid .col-md-18, .jgrid .col-md-up-18 {
+    grid-column-start: span 18;
+  }
+  .jgrid .col-md-19, .jgrid .col-md-up-19 {
+    grid-column-start: span 19;
+  }
+  .jgrid .col-md-20, .jgrid .col-md-up-20 {
+    grid-column-start: span 20;
+  }
+  .jgrid .col-md-21, .jgrid .col-md-up-21 {
+    grid-column-start: span 21;
+  }
+  .jgrid .col-md-22, .jgrid .col-md-up-22 {
+    grid-column-start: span 22;
+  }
+  .jgrid .col-md-23, .jgrid .col-md-up-23 {
+    grid-column-start: span 23;
+  }
+  .jgrid .col-md-24, .jgrid .col-md-up-24 {
+    grid-column-start: span 24;
+  }
+}
+@media (width <= var(--breakpoint-md)) {
+  .jgrid .col-md-down-1 {
+    grid-column-start: span 1;
+  }
+  .jgrid .col-md-down-2 {
+    grid-column-start: span 2;
+  }
+  .jgrid .col-md-down-3 {
+    grid-column-start: span 3;
+  }
+  .jgrid .col-md-down-4 {
+    grid-column-start: span 4;
+  }
+  .jgrid .col-md-down-5 {
+    grid-column-start: span 5;
+  }
+  .jgrid .col-md-down-6 {
+    grid-column-start: span 6;
+  }
+  .jgrid .col-md-down-7 {
+    grid-column-start: span 7;
+  }
+  .jgrid .col-md-down-8 {
+    grid-column-start: span 8;
+  }
+  .jgrid .col-md-down-9 {
+    grid-column-start: span 9;
+  }
+  .jgrid .col-md-down-10 {
+    grid-column-start: span 10;
+  }
+  .jgrid .col-md-down-11 {
+    grid-column-start: span 11;
+  }
+  .jgrid .col-md-down-12 {
+    grid-column-start: span 12;
+  }
+  .jgrid .col-md-down-13 {
+    grid-column-start: span 13;
+  }
+  .jgrid .col-md-down-14 {
+    grid-column-start: span 14;
+  }
+  .jgrid .col-md-down-15 {
+    grid-column-start: span 15;
+  }
+  .jgrid .col-md-down-16 {
+    grid-column-start: span 16;
+  }
+  .jgrid .col-md-down-17 {
+    grid-column-start: span 17;
+  }
+  .jgrid .col-md-down-18 {
+    grid-column-start: span 18;
+  }
+  .jgrid .col-md-down-19 {
+    grid-column-start: span 19;
+  }
+  .jgrid .col-md-down-20 {
+    grid-column-start: span 20;
+  }
+  .jgrid .col-md-down-21 {
+    grid-column-start: span 21;
+  }
+  .jgrid .col-md-down-22 {
+    grid-column-start: span 22;
+  }
+  .jgrid .col-md-down-23 {
+    grid-column-start: span 23;
+  }
+  .jgrid .col-md-down-24 {
+    grid-column-start: span 24;
+  }
+}
+@media (width >= var(--breakpoint-lg)) {
+  .jgrid .col-lg-1, .jgrid .col-lg-up-1 {
+    grid-column-start: span 1;
+  }
+  .jgrid .col-lg-2, .jgrid .col-lg-up-2 {
+    grid-column-start: span 2;
+  }
+  .jgrid .col-lg-3, .jgrid .col-lg-up-3 {
+    grid-column-start: span 3;
+  }
+  .jgrid .col-lg-4, .jgrid .col-lg-up-4 {
+    grid-column-start: span 4;
+  }
+  .jgrid .col-lg-5, .jgrid .col-lg-up-5 {
+    grid-column-start: span 5;
+  }
+  .jgrid .col-lg-6, .jgrid .col-lg-up-6 {
+    grid-column-start: span 6;
+  }
+  .jgrid .col-lg-7, .jgrid .col-lg-up-7 {
+    grid-column-start: span 7;
+  }
+  .jgrid .col-lg-8, .jgrid .col-lg-up-8 {
+    grid-column-start: span 8;
+  }
+  .jgrid .col-lg-9, .jgrid .col-lg-up-9 {
+    grid-column-start: span 9;
+  }
+  .jgrid .col-lg-10, .jgrid .col-lg-up-10 {
+    grid-column-start: span 10;
+  }
+  .jgrid .col-lg-11, .jgrid .col-lg-up-11 {
+    grid-column-start: span 11;
+  }
+  .jgrid .col-lg-12, .jgrid .col-lg-up-12 {
+    grid-column-start: span 12;
+  }
+  .jgrid .col-lg-13, .jgrid .col-lg-up-13 {
+    grid-column-start: span 13;
+  }
+  .jgrid .col-lg-14, .jgrid .col-lg-up-14 {
+    grid-column-start: span 14;
+  }
+  .jgrid .col-lg-15, .jgrid .col-lg-up-15 {
+    grid-column-start: span 15;
+  }
+  .jgrid .col-lg-16, .jgrid .col-lg-up-16 {
+    grid-column-start: span 16;
+  }
+  .jgrid .col-lg-17, .jgrid .col-lg-up-17 {
+    grid-column-start: span 17;
+  }
+  .jgrid .col-lg-18, .jgrid .col-lg-up-18 {
+    grid-column-start: span 18;
+  }
+  .jgrid .col-lg-19, .jgrid .col-lg-up-19 {
+    grid-column-start: span 19;
+  }
+  .jgrid .col-lg-20, .jgrid .col-lg-up-20 {
+    grid-column-start: span 20;
+  }
+  .jgrid .col-lg-21, .jgrid .col-lg-up-21 {
+    grid-column-start: span 21;
+  }
+  .jgrid .col-lg-22, .jgrid .col-lg-up-22 {
+    grid-column-start: span 22;
+  }
+  .jgrid .col-lg-23, .jgrid .col-lg-up-23 {
+    grid-column-start: span 23;
+  }
+  .jgrid .col-lg-24, .jgrid .col-lg-up-24 {
+    grid-column-start: span 24;
+  }
+}
+@media (width <= var(--breakpoint-lg)) {
+  .jgrid .col-lg-down-1 {
+    grid-column-start: span 1;
+  }
+  .jgrid .col-lg-down-2 {
+    grid-column-start: span 2;
+  }
+  .jgrid .col-lg-down-3 {
+    grid-column-start: span 3;
+  }
+  .jgrid .col-lg-down-4 {
+    grid-column-start: span 4;
+  }
+  .jgrid .col-lg-down-5 {
+    grid-column-start: span 5;
+  }
+  .jgrid .col-lg-down-6 {
+    grid-column-start: span 6;
+  }
+  .jgrid .col-lg-down-7 {
+    grid-column-start: span 7;
+  }
+  .jgrid .col-lg-down-8 {
+    grid-column-start: span 8;
+  }
+  .jgrid .col-lg-down-9 {
+    grid-column-start: span 9;
+  }
+  .jgrid .col-lg-down-10 {
+    grid-column-start: span 10;
+  }
+  .jgrid .col-lg-down-11 {
+    grid-column-start: span 11;
+  }
+  .jgrid .col-lg-down-12 {
+    grid-column-start: span 12;
+  }
+  .jgrid .col-lg-down-13 {
+    grid-column-start: span 13;
+  }
+  .jgrid .col-lg-down-14 {
+    grid-column-start: span 14;
+  }
+  .jgrid .col-lg-down-15 {
+    grid-column-start: span 15;
+  }
+  .jgrid .col-lg-down-16 {
+    grid-column-start: span 16;
+  }
+  .jgrid .col-lg-down-17 {
+    grid-column-start: span 17;
+  }
+  .jgrid .col-lg-down-18 {
+    grid-column-start: span 18;
+  }
+  .jgrid .col-lg-down-19 {
+    grid-column-start: span 19;
+  }
+  .jgrid .col-lg-down-20 {
+    grid-column-start: span 20;
+  }
+  .jgrid .col-lg-down-21 {
+    grid-column-start: span 21;
+  }
+  .jgrid .col-lg-down-22 {
+    grid-column-start: span 22;
+  }
+  .jgrid .col-lg-down-23 {
+    grid-column-start: span 23;
+  }
+  .jgrid .col-lg-down-24 {
+    grid-column-start: span 24;
+  }
+}
+@media (width >= var(--breakpoint-xl)) {
+  .jgrid .col-xl-1, .jgrid .col-xl-up-1 {
+    grid-column-start: span 1;
+  }
+  .jgrid .col-xl-2, .jgrid .col-xl-up-2 {
+    grid-column-start: span 2;
+  }
+  .jgrid .col-xl-3, .jgrid .col-xl-up-3 {
+    grid-column-start: span 3;
+  }
+  .jgrid .col-xl-4, .jgrid .col-xl-up-4 {
+    grid-column-start: span 4;
+  }
+  .jgrid .col-xl-5, .jgrid .col-xl-up-5 {
+    grid-column-start: span 5;
+  }
+  .jgrid .col-xl-6, .jgrid .col-xl-up-6 {
+    grid-column-start: span 6;
+  }
+  .jgrid .col-xl-7, .jgrid .col-xl-up-7 {
+    grid-column-start: span 7;
+  }
+  .jgrid .col-xl-8, .jgrid .col-xl-up-8 {
+    grid-column-start: span 8;
+  }
+  .jgrid .col-xl-9, .jgrid .col-xl-up-9 {
+    grid-column-start: span 9;
+  }
+  .jgrid .col-xl-10, .jgrid .col-xl-up-10 {
+    grid-column-start: span 10;
+  }
+  .jgrid .col-xl-11, .jgrid .col-xl-up-11 {
+    grid-column-start: span 11;
+  }
+  .jgrid .col-xl-12, .jgrid .col-xl-up-12 {
+    grid-column-start: span 12;
+  }
+  .jgrid .col-xl-13, .jgrid .col-xl-up-13 {
+    grid-column-start: span 13;
+  }
+  .jgrid .col-xl-14, .jgrid .col-xl-up-14 {
+    grid-column-start: span 14;
+  }
+  .jgrid .col-xl-15, .jgrid .col-xl-up-15 {
+    grid-column-start: span 15;
+  }
+  .jgrid .col-xl-16, .jgrid .col-xl-up-16 {
+    grid-column-start: span 16;
+  }
+  .jgrid .col-xl-17, .jgrid .col-xl-up-17 {
+    grid-column-start: span 17;
+  }
+  .jgrid .col-xl-18, .jgrid .col-xl-up-18 {
+    grid-column-start: span 18;
+  }
+  .jgrid .col-xl-19, .jgrid .col-xl-up-19 {
+    grid-column-start: span 19;
+  }
+  .jgrid .col-xl-20, .jgrid .col-xl-up-20 {
+    grid-column-start: span 20;
+  }
+  .jgrid .col-xl-21, .jgrid .col-xl-up-21 {
+    grid-column-start: span 21;
+  }
+  .jgrid .col-xl-22, .jgrid .col-xl-up-22 {
+    grid-column-start: span 22;
+  }
+  .jgrid .col-xl-23, .jgrid .col-xl-up-23 {
+    grid-column-start: span 23;
+  }
+  .jgrid .col-xl-24, .jgrid .col-xl-up-24 {
+    grid-column-start: span 24;
+  }
+}
+@media (width <= var(--breakpoint-xl)) {
+  .jgrid .col-xl-down-1 {
+    grid-column-start: span 1;
+  }
+  .jgrid .col-xl-down-2 {
+    grid-column-start: span 2;
+  }
+  .jgrid .col-xl-down-3 {
+    grid-column-start: span 3;
+  }
+  .jgrid .col-xl-down-4 {
+    grid-column-start: span 4;
+  }
+  .jgrid .col-xl-down-5 {
+    grid-column-start: span 5;
+  }
+  .jgrid .col-xl-down-6 {
+    grid-column-start: span 6;
+  }
+  .jgrid .col-xl-down-7 {
+    grid-column-start: span 7;
+  }
+  .jgrid .col-xl-down-8 {
+    grid-column-start: span 8;
+  }
+  .jgrid .col-xl-down-9 {
+    grid-column-start: span 9;
+  }
+  .jgrid .col-xl-down-10 {
+    grid-column-start: span 10;
+  }
+  .jgrid .col-xl-down-11 {
+    grid-column-start: span 11;
+  }
+  .jgrid .col-xl-down-12 {
+    grid-column-start: span 12;
+  }
+  .jgrid .col-xl-down-13 {
+    grid-column-start: span 13;
+  }
+  .jgrid .col-xl-down-14 {
+    grid-column-start: span 14;
+  }
+  .jgrid .col-xl-down-15 {
+    grid-column-start: span 15;
+  }
+  .jgrid .col-xl-down-16 {
+    grid-column-start: span 16;
+  }
+  .jgrid .col-xl-down-17 {
+    grid-column-start: span 17;
+  }
+  .jgrid .col-xl-down-18 {
+    grid-column-start: span 18;
+  }
+  .jgrid .col-xl-down-19 {
+    grid-column-start: span 19;
+  }
+  .jgrid .col-xl-down-20 {
+    grid-column-start: span 20;
+  }
+  .jgrid .col-xl-down-21 {
+    grid-column-start: span 21;
+  }
+  .jgrid .col-xl-down-22 {
+    grid-column-start: span 22;
+  }
+  .jgrid .col-xl-down-23 {
+    grid-column-start: span 23;
+  }
+  .jgrid .col-xl-down-24 {
+    grid-column-start: span 24;
+  }
+}
+@media (width >= var(--breakpoint-2xl)) {
+  .jgrid .col-2xl-1, .jgrid .col-2xl-up-1 {
+    grid-column-start: span 1;
+  }
+  .jgrid .col-2xl-2, .jgrid .col-2xl-up-2 {
+    grid-column-start: span 2;
+  }
+  .jgrid .col-2xl-3, .jgrid .col-2xl-up-3 {
+    grid-column-start: span 3;
+  }
+  .jgrid .col-2xl-4, .jgrid .col-2xl-up-4 {
+    grid-column-start: span 4;
+  }
+  .jgrid .col-2xl-5, .jgrid .col-2xl-up-5 {
+    grid-column-start: span 5;
+  }
+  .jgrid .col-2xl-6, .jgrid .col-2xl-up-6 {
+    grid-column-start: span 6;
+  }
+  .jgrid .col-2xl-7, .jgrid .col-2xl-up-7 {
+    grid-column-start: span 7;
+  }
+  .jgrid .col-2xl-8, .jgrid .col-2xl-up-8 {
+    grid-column-start: span 8;
+  }
+  .jgrid .col-2xl-9, .jgrid .col-2xl-up-9 {
+    grid-column-start: span 9;
+  }
+  .jgrid .col-2xl-10, .jgrid .col-2xl-up-10 {
+    grid-column-start: span 10;
+  }
+  .jgrid .col-2xl-11, .jgrid .col-2xl-up-11 {
+    grid-column-start: span 11;
+  }
+  .jgrid .col-2xl-12, .jgrid .col-2xl-up-12 {
+    grid-column-start: span 12;
+  }
+  .jgrid .col-2xl-13, .jgrid .col-2xl-up-13 {
+    grid-column-start: span 13;
+  }
+  .jgrid .col-2xl-14, .jgrid .col-2xl-up-14 {
+    grid-column-start: span 14;
+  }
+  .jgrid .col-2xl-15, .jgrid .col-2xl-up-15 {
+    grid-column-start: span 15;
+  }
+  .jgrid .col-2xl-16, .jgrid .col-2xl-up-16 {
+    grid-column-start: span 16;
+  }
+  .jgrid .col-2xl-17, .jgrid .col-2xl-up-17 {
+    grid-column-start: span 17;
+  }
+  .jgrid .col-2xl-18, .jgrid .col-2xl-up-18 {
+    grid-column-start: span 18;
+  }
+  .jgrid .col-2xl-19, .jgrid .col-2xl-up-19 {
+    grid-column-start: span 19;
+  }
+  .jgrid .col-2xl-20, .jgrid .col-2xl-up-20 {
+    grid-column-start: span 20;
+  }
+  .jgrid .col-2xl-21, .jgrid .col-2xl-up-21 {
+    grid-column-start: span 21;
+  }
+  .jgrid .col-2xl-22, .jgrid .col-2xl-up-22 {
+    grid-column-start: span 22;
+  }
+  .jgrid .col-2xl-23, .jgrid .col-2xl-up-23 {
+    grid-column-start: span 23;
+  }
+  .jgrid .col-2xl-24, .jgrid .col-2xl-up-24 {
+    grid-column-start: span 24;
+  }
+}
+@media (width <= var(--breakpoint-2xl)) {
+  .jgrid .col-2xl-down-1 {
+    grid-column-start: span 1;
+  }
+  .jgrid .col-2xl-down-2 {
+    grid-column-start: span 2;
+  }
+  .jgrid .col-2xl-down-3 {
+    grid-column-start: span 3;
+  }
+  .jgrid .col-2xl-down-4 {
+    grid-column-start: span 4;
+  }
+  .jgrid .col-2xl-down-5 {
+    grid-column-start: span 5;
+  }
+  .jgrid .col-2xl-down-6 {
+    grid-column-start: span 6;
+  }
+  .jgrid .col-2xl-down-7 {
+    grid-column-start: span 7;
+  }
+  .jgrid .col-2xl-down-8 {
+    grid-column-start: span 8;
+  }
+  .jgrid .col-2xl-down-9 {
+    grid-column-start: span 9;
+  }
+  .jgrid .col-2xl-down-10 {
+    grid-column-start: span 10;
+  }
+  .jgrid .col-2xl-down-11 {
+    grid-column-start: span 11;
+  }
+  .jgrid .col-2xl-down-12 {
+    grid-column-start: span 12;
+  }
+  .jgrid .col-2xl-down-13 {
+    grid-column-start: span 13;
+  }
+  .jgrid .col-2xl-down-14 {
+    grid-column-start: span 14;
+  }
+  .jgrid .col-2xl-down-15 {
+    grid-column-start: span 15;
+  }
+  .jgrid .col-2xl-down-16 {
+    grid-column-start: span 16;
+  }
+  .jgrid .col-2xl-down-17 {
+    grid-column-start: span 17;
+  }
+  .jgrid .col-2xl-down-18 {
+    grid-column-start: span 18;
+  }
+  .jgrid .col-2xl-down-19 {
+    grid-column-start: span 19;
+  }
+  .jgrid .col-2xl-down-20 {
+    grid-column-start: span 20;
+  }
+  .jgrid .col-2xl-down-21 {
+    grid-column-start: span 21;
+  }
+  .jgrid .col-2xl-down-22 {
+    grid-column-start: span 22;
+  }
+  .jgrid .col-2xl-down-23 {
+    grid-column-start: span 23;
+  }
+  .jgrid .col-2xl-down-24 {
+    grid-column-start: span 24;
+  }
+}

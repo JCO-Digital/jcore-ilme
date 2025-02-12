@@ -1,11 +1,11 @@
 {% extends "layout.twig" %}
 
 {% block content_above %}
-    {% include "partials/search.twig" %}
+    {% include "partials/search-field.twig" %}
 {% endblock %}
 {% block content %}
     <h1>{{ page_title }}</h1>
-    <div class="search row">
+    <div class="search-items">
         {% for post in posts %}
             {% include 'partials/tease.twig' with {nr: loop.index} %}
         {% endfor %}

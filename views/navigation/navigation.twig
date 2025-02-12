@@ -29,5 +29,9 @@
 	</nav>
 </header>
 {% block navbar_below %}
-	{% include "partials/search.twig" %}
+	<div id="menu-searchbar" class="searchbar-container container-fluid hidden {% if customizer('navigation_desktop','scroll') or customizer('navigation_desktop','sticky') %}sticky-search{% endif %}">
+		<div class="container">
+			{% include "partials/search-field.twig" %}
+		</div>
+	</div>
 {% endblock %}

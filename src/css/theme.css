@@ -1,9 +1,9 @@
 @import "mixins/mixins.css";
 @import "partials/tailwind.css";
-@import "partials/properties.css";
 @import "partials/base.css";
 @import "partials/typography.css";
 @import "partials/gutenberg.css";
+@import "partials/jgrid.css";
 @import "partials/footer.css";
 @import "partials/navigation.css";
 @import "partials/archive.css";
@@ -14,8 +14,6 @@
 @import "partials/404.css";
 @import "partials/socialshare.css";
 @import "partials/accordion.css";
-
-
 @import "blocks/buttons.css";
 @import "blocks/details.css";
 @import "blocks/embeds.css";
@@ -26,3 +24,4 @@
 @import "blocks/rss-feed.css";
 @import "blocks/table.css";
 @import "blocks/yoast-breadcrumbs.css";
+@import "partials/search.css";
