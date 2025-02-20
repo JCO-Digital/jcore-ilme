@@ -15,6 +15,8 @@ use Jcore\Ydin\WordPress\Assets;
 
 add_action( 'after_setup_theme', 'Jcore\Ilme\setup' );
 add_action( 'wp_enqueue_scripts', 'Jcore\Ilme\scripts' );
+add_action( 'enqueue_block_editor_assets', 'Jcore\Ilme\enqueue_block_restrictions' );
+
 
 /**
  * Do most of the things needed for the theme.
@@ -128,6 +130,10 @@ function scripts() {
 		'/dist/js/alpine-jcore.js',
 	);
 
+	Assets::script_register( 'jcore-block-hooks',
+	 'dist/js/hooks.js',
+	  array( 'wp-blocks', 'wp-dom-ready', 'wp-hooks' ) );
+
 	Assets::script_register(
 		'yoast-faq-accordion',
 		'/dist/js/yoast-faq.js',
@@ -157,6 +163,7 @@ function scripts() {
 	wp_enqueue_script( 'jUtils' );
 	wp_enqueue_script( 'fontSize' );
 	wp_enqueue_script( 'wp-gallery-lightbox' );
+	wp_enqueue_script( 'jcore-block-hooks' );
 
 	if ( is_singular() && has_block( 'yoast/faq-block' ) ) {
 		wp_enqueue_script( 'yoast-faq-accordion' );
@@ -208,4 +215,40 @@ function register_block_folder( $blocks ): array {
 	$blocks_folder = get_template_directory() . '/classes/Blocks';
 
 	return array_merge( $blocks, Blocks::list_blocks( $blocks_folder, 'Jcore\Ilme\Blocks\\' ) );
+}
+
+/**
+ * Needed for translating .jason files like post-types and taxonomies
+ *
+ */
+
+add_filter(
+	'acf/settings/l10n_textdomain',
+	static function () {
+		return 'jcore';
+	},
+	10,
+	0
+);
+
+/**
+ * Remove GB core block patterns
+ *
+ */
+remove_theme_support( 'core-block-patterns' );
+
+
+/**
+ * Remove Core block variations and unvanted core blocks
+ *
+ */
+
+function enqueue_block_restrictions() {
+	wp_enqueue_script(
+		'enqueue-block-variations',
+		get_template_directory_uri() . '/src/js/restrict-blocks.js',
+		array( 'wp-blocks', 'wp-dom-ready' ),
+		wp_get_theme()->get( 'Version' ),
+		false
+	);
 }
