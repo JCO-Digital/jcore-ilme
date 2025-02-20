@@ -22,7 +22,6 @@ wp.domReady( () => {
         'core/search',
         'core/widget-group',
         'core/nextpage',
-        'core/details',
 
     ]
 	

@@ -1,0 +1,41 @@
+/*Blockquote */
+.wp-block-pullquote {
+  margin-bottom: 2rem;
+  padding: 0;
+  blockquote {
+    border: none;
+    margin-top: 5rem;
+    p {
+      font-family: var(--jcore-heading-font-family);
+      font-size: var(--wp--preset--font-size--ingress);
+      font-style: normal;
+      text-align: center;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      line-height: 1.17;
+      &:first-of-type:before {
+        font-size: 2rem;
+        color: var(--wp--preset--color--dark);
+        content: "\22";
+        font-family: "Font Awesome 6 Sharp";
+        font-weight: 900;
+        position: absolute;
+        top: -3.5rem;
+        left: calc(50% - 1.25rem);
+      }
+      &:last-of-type:after {
+        content: "";
+      }
+    }
+    cite {
+      font-family: var(--jcore-heading-font-family);
+      font-style: normal !important;
+      font-size: var(--wp--preset--font-size--paragraph);
+      text-transform: uppercase;
+      text-align: center;
+    }
+    > * {
+      position: relative;
+    }
+  }
+}

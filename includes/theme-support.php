@@ -232,14 +232,15 @@ add_filter(
 );
 
 /**
- * Remove GB core block patterns
+ * Remove Gutenberg core block patterns
  *
  */
+
 remove_theme_support( 'core-block-patterns' );
 
 
 /**
- * Remove Core block variations and unvanted core blocks
+ * Remove Gutenberg Core Block variations and unvanted Gutenberg Core Blocks
  *
  */
 

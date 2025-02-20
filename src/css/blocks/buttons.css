@@ -1,0 +1,19 @@
+/* Buttons, all non-hover styling comes from theme.json */
+.wp-block-buttons {
+  .wp-block-button {
+    &:hover {
+      .wp-block-button__link {
+        color: var(--wp--preset--color--black);
+        background: var(--wp--preset--color--light);
+        border-color: var(--wp--preset--color--light);
+      }
+    }
+    &.is-style-outline:hover {
+      .wp-element-button {
+        color: var(--wp--preset--color--black);
+        background: var(--wp--preset--color--light);
+        border-color: var(--wp--preset--color--light);
+      }
+    }
+  }
+}

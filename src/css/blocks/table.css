@@ -1,0 +1,11 @@
+/*WP Block Table, style-variation: stripes */
+.wp-block-table.is-style-stripes tbody tr:nth-child(2n + 1) {
+    background-color: var(--wp--preset--color--white);
+  }
+  .wp-block-table.is-style-stripes tbody tr {
+    background-color: var(--wp--preset--color--green-light);
+  }
+  .wp-block-table thead {
+    border-bottom: none;
+  }
+  

@@ -1,0 +1,27 @@
+/* 
+* YOAST Breadcrumbs block styling on differnet backgrounds
+*
+*/
+.wave .yoast-breadcrumbs {
+    color: var(--wp--preset--color--white);
+    span {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    a {
+      color: var(--wp--preset--color--white);
+    }
+  }
+.yoast-breadcrumbs {
+    span {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    .breadcrumb_last {
+      color: var(--wp--preset--color--green-medium);
+    }
+    a {
+      color: var(--wp--preset--color--black);
+    }
+}
+  

@@ -14,3 +14,14 @@
 @import "partials/404.css";
 @import "partials/socialshare.css";
 @import "partials/accordion.css";
+
+
+@import "blocks/buttons.css";
+@import "blocks/details.css";
+@import "blocks/embeds.css";
+@import "blocks/file.css";
+@import "blocks/images-and-gallery.css";
+@import "blocks/pullquote.css";
+@import "blocks/rss-feed.css";
+@import "blocks/table.css";
+@import "blocks/yoast-breadcrumbs.css";

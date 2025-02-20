@@ -198,6 +198,12 @@
             "fluid": false
           },
           {
+            "name": "H5",
+            "slug": "heading-5",
+            "size": "22px",
+            "fluid": false
+          },
+          {
             "name": "Ingress",
             "slug": "ingress",
             "size": "28px",
@@ -313,6 +319,38 @@
               "top": "var:custom|spacing-sizes|medium",
               "bottom": "var:custom|spacing-sizes|small"
             }
+          }
+        },
+        "h5": {
+          "typography": {
+            "lineHeight": "var:custom|line-height|sm",
+            "fontSize": "var:preset|font-size|heading-5",
+            "fontWeight": "400"
+          },
+          "spacing": {
+            "margin": {
+              "top": "var:custom|spacing-sizes|medium",
+              "bottom": "var:custom|spacing-sizes|small"
+            }
+          },
+          "color": {
+            "text": "var:preset|color|dark"
+          }
+        },
+        "h6": {
+          "typography": {
+            "lineHeight": "var:custom|line-height|sm",
+            "fontSize": "var:preset|font-size|ingress",
+            "fontWeight": "500"
+          },
+          "spacing": {
+            "margin": {
+              "top": "var:custom|spacing-sizes|medium",
+              "bottom": "var:custom|spacing-sizes|small"
+            }
+          },
+          "color": {
+            "text": "var:preset|color|dark"
           }
         },
         "caption": {
