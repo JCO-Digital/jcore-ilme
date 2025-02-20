@@ -18,7 +18,7 @@
       text-transform: uppercase;
     }
     .breadcrumb_last {
-      color: var(--wp--preset--color--green-medium);
+      color: var(--wp--preset--color--light);
     }
     a {
       color: var(--wp--preset--color--black);

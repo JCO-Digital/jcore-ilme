@@ -3,7 +3,7 @@ ul.wp-block-rss {
     list-style: none;
   }
   .wp-block-rss .wp-block-rss__item {
-    background-color: var(--wp--preset--color--white);
+    background-color: var(--wp--preset--color--light);
     margin-bottom: 0;
     min-height: 150px;
     padding: 1rem;
@@ -30,5 +30,5 @@ ul.wp-block-rss {
     font-size: var(--wp--preset--font-size--mini);
   }
   .wp-block-rss .wp-block-rss__item:nth-of-type(2n + 1) {
-    background-color: var(--wp--preset--color--green-light);
+    background-color: var(--wp--preset--color--light);
   }

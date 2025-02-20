@@ -3,7 +3,6 @@
   --jcore-heading-font-family: var(--wp--preset--font-family--InterTight);
 }
 
-
 main {
   /* List styles , not available as elements in theme.json */
   ul,
@@ -12,10 +11,51 @@ main {
     margin-bottom: 2rem;
     li {
       padding-left: 0.25rem;
+      margin-bottom: .75rem;
     }
     li > ul,
     li > ol {
       margin-bottom: 0 !important;
     }
+    li::marker {
+      color: var(--wp--preset--color--brand);
+    }
   }
+
+  ul:not(.wp-block-rss){
+    li {
+      padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+      list-style-type: none;
+      position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      left: -20px;
+      top: 8px;
+      background-color: var(--wp--preset--color--brand);
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+    }
+    &::marker {
+      display: none;
+    }
+  }}
+}
+
+
+/* Any heading with pre-text in mini-font-size (use css: "mini" on the H-element for right margins)*/
+h1,h2, h3, h4 {
+  &.wp-block-heading.mini{
+  margin-top: .5rem;
+  }
+}
+/* Any paragraph with pre-text in mini-font-size (use css: "mini" on the p-element for right margins)*/
+  p.mini{
+  margin-top: .5rem;
+  }
+
+a {
+  text-underline-offset: 3px;
+  text-decoration-thickness: from-font;
 }

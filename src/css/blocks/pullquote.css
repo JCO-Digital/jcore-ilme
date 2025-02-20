@@ -1,4 +1,10 @@
-/*Blockquote */
+/* Gutenberg pullquote and blockquote -nothing set int theme.json*/
+blockquote.wp-block-quote {
+  margin-bottom: 2rem;
+}
+
+
+/* Pullquote */
 .wp-block-pullquote {
   margin-bottom: 2rem;
   padding: 0;

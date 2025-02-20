@@ -3,7 +3,7 @@
     background-color: var(--wp--preset--color--white);
   }
   .wp-block-table.is-style-stripes tbody tr {
-    background-color: var(--wp--preset--color--green-light);
+    background-color: var(--wp--preset--color--light);
   }
   .wp-block-table thead {
     border-bottom: none;
