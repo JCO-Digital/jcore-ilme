@@ -1,10 +1,13 @@
 <?php
-/*
+/**
  * Template to handle search call.
+ *
+ * @package jcore
  */
 
+namespace Jcore\Ilme;
+
 // Search page.
-use Timber\PostQuery;
 use Timber\Timber;
 
 $templates = array(

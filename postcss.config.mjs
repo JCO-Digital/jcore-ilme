@@ -2,8 +2,7 @@ import postcssPresetEnv from "postcss-preset-env";
 import postcssImport from "postcss-import";
 import postcssMixins from "postcss-mixins";
 import postcssReplace from "postcss-replace";
-import tailwindcss from "tailwindcss";
-import nesting from "tailwindcss/nesting/index.js";
+import nesting from "postcss-nesting";
 import { existsSync, readFileSync } from "node:fs";
 
 const breakpoints = {};
@@ -29,7 +28,6 @@ export default {
       pattern: "var\\(\\s?--breakpoint-([^\\s]+?)\\s?\\)",
     }),
     nesting,
-    tailwindcss,
     postcssPresetEnv({ stage: 2, features: { "nesting-rules": false } }),
   ],
 };

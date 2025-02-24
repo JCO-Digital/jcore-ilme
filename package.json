@@ -14,7 +14,6 @@
   },
   "devDependencies": {
     "@wordpress/scripts": "^30.6.0",
-    "@tailwindcss/forms": "^0.5.9",
     "concurrently": "^8.2.2",
     "esbuild": "^0.19.12",
     "postcss": "^8.4.45",
@@ -22,10 +21,10 @@
     "postcss-import": "^15.1.0",
     "postcss-minify": "^1.1.0",
     "postcss-mixins": "^9.0.4",
+    "postcss-nesting": "^13.0.1",
     "postcss-preset-env": "^9.6.0",
     "postcss-replace": "^2.0.1",
     "prettier": "^3.3.3",
-    "tailwindcss": "^3.4.11",
     "typescript": "^5.6.2"
   },
   "browserslist": [
@@ -34,9 +33,9 @@
     "not dead"
   ],
   "dependencies": {
+    "@alpinejs/collapse": "^3.14.1",
     "@jcodigital/jutils": "0.5.0",
-    "alpinejs": "^3.14.1",
-    "@alpinejs/collapse": "^3.14.1"
+    "alpinejs": "^3.14.1"
   },
   "packageManager": "pnpm@9.1.1+sha512.14e915759c11f77eac07faba4d019c193ec8637229e62ec99eefb7cf3c3b75c64447882b7c485142451ee3a6b408059cdfb7b7fa0341b975f12d0f7629c71195"
 }
