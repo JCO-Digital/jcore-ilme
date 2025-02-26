@@ -160,3 +160,18 @@
     background: var(--wp--preset--color--brand);
   }
 }
+
+/* JCORE Dynamic Archive load more button */
+.wp-block-jcore-dynamic-archive-posts__pagination {
+  display: flex;
+  justify-content: center;
+  a.wp-block-jcore-dynamic-archive-posts__load_more {
+    background-color: var(--wp--preset--color--brand);
+    color: var(--wp--preset--color--white);
+    width: max-content;
+    padding: 0.45rem 2rem;
+    margin-top: 3rem;
+    font-size: var(--wp--preset--font-size--mini);
+    line-height: var(--wp--custom--line-height--sm);
+  }
+}

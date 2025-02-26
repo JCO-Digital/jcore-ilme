@@ -130,9 +130,11 @@ function scripts() {
 		'/dist/js/alpine-jcore.js',
 	);
 
-	Assets::script_register( 'jcore-block-hooks',
-	 'dist/js/hooks.js',
-	  array( 'wp-blocks', 'wp-dom-ready', 'wp-hooks' ) );
+	Assets::script_register(
+		'jcore-block-hooks',
+		'dist/js/hooks.js',
+		array( 'wp-blocks', 'wp-dom-ready', 'wp-hooks' )
+	);
 
 	Assets::script_register(
 		'yoast-faq-accordion',
@@ -202,7 +204,6 @@ function add_custom_css_classes( $button, $form ) {
 
 add_filter( 'gform_submit_button', 'Jcore\Ilme\add_custom_css_classes', 10, 2 );
 
-
 add_filter( 'jcore_blocks_get_blocks', 'Jcore\Ilme\register_block_folder', 10, 1 );
 /**
  * Register default block folder.
@@ -219,7 +220,6 @@ function register_block_folder( $blocks ): array {
 
 /**
  * Needed for translating .jason files like post-types and taxonomies
- *
  */
 
 add_filter(
@@ -233,7 +233,6 @@ add_filter(
 
 /**
  * Remove Gutenberg core block patterns
- *
  */
 
 remove_theme_support( 'core-block-patterns' );
@@ -241,9 +240,7 @@ remove_theme_support( 'core-block-patterns' );
 
 /**
  * Remove Gutenberg Core Block variations and unvanted Gutenberg Core Blocks
- *
  */
-
 function enqueue_block_restrictions() {
 	wp_enqueue_script(
 		'enqueue-block-variations',

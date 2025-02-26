@@ -11,9 +11,9 @@
 
 }
 .pagination-block {
-  --jcore-button-bg-color: var(--wp--preset--color--light);
-  --jcore-active-bg-color: var(--wp--preset--color--brand);
-  --jcore-active-txt-color: var(--wp--preset--color--dark);
+  --jcore-button-bg-color: transparent; /* because a-tag is styles here as btn, and .btn is one level up */
+  --jcore-button-hover-bg-color: transparent;
+  padding: 2rem;
   display: flex;
   justify-content: space-evenly;
   > section {
@@ -23,19 +23,46 @@
   div {
     padding: 0;
     a {
-      background-color: var(--jcore-button-bg-color);
-      border-radius: 1rem;
-      padding: 0.75rem 1rem;
+      color: var(--wp--preset--color--black);
+      background-color:var(--wp--preset--color--brand);
+      border-radius: .5rem;
+      padding: 0.75rem;
       margin: 1rem;
       &:hover {
         text-decoration: none;
+        background-color: var(--wp--preset--color--light);
       }
     }
     &.current {
       a{
-        background-color: var(--jcore-active-bg-color);
-        color: var(--jcore-active-txt-color);
+        background-color: var(--wp--preset--color--light);
+        color: var(--jcore-button-active-txt-color);
       }
     }
   }
 }
+
+
+/**
+*
+*Search in nav 
+*
+*/
+.toggle-search .fa-search {
+  color: var(--wp--preset--color--white);
+  }
+  .searchbar-container {
+    display: none;
+  }
+  .searchbar-container.toggle {
+    display: block;
+    background-color: var(--wp--preset--color--dark);
+  } 
+  .searchform {
+    margin-bottom: 6px;
+    input {
+      padding:.4rem 2rem;
+      border: 1px solid var(--jcore-button-bg-color);
+      font-size: var(--jcore-button-font-size);
+    }
+  }

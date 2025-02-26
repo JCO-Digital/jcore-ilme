@@ -1,0 +1,29 @@
+/* GF minimalistics if using Orbital base theme */
+body {
+    .gform_wrapper {
+      .gform_fields {
+        gap: 1rem;
+      }
+    }
+    
+  }
+  .gform-theme.gform-theme--framework.gform_wrapper
+  input:is([type="submit"], [type="button"], [type="reset"]):where(
+    :not(.gform-theme-no-framework):not(.gform-theme__disable):not(
+        .gform-theme__disable *
+      ):not(.gform-theme__disable-framework):not(
+        .gform-theme__disable-framework *
+      )
+  ) {
+    background-color: var(--jcore-button-bg-color);
+    color: var( --jcore-button-text-color);
+    border-color: var(--jcore-button-border-color);
+    padding: var(--jcore-button-padding);
+    font-size: var(--jcore-button-font-size);
+  border-radius: 0;
+  &:hover {
+    background-color: var(--jcore-button-hover-bg-color);
+    color: var( --jcore-button-hover-text-color);
+    border-color: var(--jcore-button-hover-border-color);
+  }
+}

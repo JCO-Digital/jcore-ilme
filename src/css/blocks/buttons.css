@@ -17,3 +17,34 @@
     }
   }
 }
+
+
+/**
+* Set buttons colors and font variables for use elsewhere in theme where not G-berg,for example btn-class for form submit or tease-link or pagination?
+*/
+:root {
+  --jcore-button-bg-color: var(--wp--preset--color--brand); 
+  --jcore-button-border-color:  var(--wp--preset--color--brand);
+  --jcore-button-text-color: var(--wp--preset--color--black);
+  --jcore-button-active-bg-color: var(--wp--preset--color--brand);
+  --jcore-button-active-txt-color: var(--wp--preset--color--dark);
+  --jcore-button-hover-bg-color: var(--wp--preset--color--light);
+  --jcore-button-hover-text-color: var(--wp--preset--color--black);
+  --jcore-button-hover-border-color:  var(--wp--preset--color--light);
+  --jcore-button-font-size: var(--wp--preset--font-size--paragraph);
+  --jcore-button-padding: .45rem 2rem;
+}
+
+.btn {
+    background-color: var(--jcore-button-bg-color);
+    color: var( --jcore-button-text-color);
+    border-color: var(--jcore-button-border-color);
+    padding: var(--jcore-button-padding);
+    font-size: var(--jcore-button-font-size);
+
+  &:hover {
+      background-color: var(--jcore-button-hover-bg-color);
+      color: var( --jcore-button-hover-text-color);
+      border-color: var(--jcore-button-hover-border-color);
+  }
+}

@@ -17,7 +17,7 @@
 			{% endblock %}
 			{% block search %}
 				{% if customizer('navigation','search') %}
-					<button id="searchbar-toggle" class="toggle-search mr-4 mr-lg-0">
+					<button id="searchbar-toggle" class="toggle-search mr-4 mr-lg-0" data-jtoggle="#menu-searchbar">
 						<i class="fas fa-search"></i>
 					</button>
 				{% endif %}
@@ -30,7 +30,7 @@
 </header>
 {% block navbar_below %}
 	{% if customizer('navigation','search') %}
-		<div id="menu-searchbar" class="searchbar-container container-fluid hidden">
+		<div id="menu-searchbar" class="searchbar-container is-layout-constrained alignwide">
 			<div class="container">
 				{% include "partials/search-field.twig" %}
 			</div>
