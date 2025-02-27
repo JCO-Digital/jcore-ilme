@@ -1,29 +1,38 @@
-/* GF minimalistics if using Orbital base theme */
+/**
+* Gravity Forms minimalistics if using default base theme in GF settings.
+* The theme framework uses root settings, if nothing else defined. 
+* Add more gernral settings to root by inspecting the element styling you want to change.
+* The button styling is set from Ilme root button styles found in blocks/buttons.css
+*/
+
+:root {
+  .gform-theme--framework {
+    --gf-ctrl-bg-color: var(--wp--preset--color--white); 
+    --gf-ctrl-radius: 0;
+    --gf-ctrl-color: var(--wp--preset--color--black); 
+    --gf-ctrl-outline-color: var(--wp--preset--color--brand);
+    --gf-ctrl-outline-color-focus:var(--wp--preset--color--brand);
+    --gf-ctrl-border-color-focus:  var(--wp--preset--color--brand);
+    --gf-ctrl-accent-color: var(--wp--preset--color--brand);
+    --gf-ctrl-btn-color-primary: var(--jcore-button-text-color);
+    --gf-ctrl-btn-color-hover-primary: var(--jcore-button-hover-text-color);
+    --gf-ctrl-btn-bg-color-primary: var(--jcore-button-bg-color);
+    --gf-ctrl-btn-bg-color-hover-primary: var(--jcore-button-hover-bg-color);
+    --gf-ctrl-btn-radius: 0;
+    --gf-ctrl-btn-font-weight: 400;
+    --gf-ctrl-btn-font-size: var(--jcore-button-font-size);
+    --gf-ctrl-btn-font-style: normal;
+    --gf-ctrl-btn-font-family:  var(--jcore-heading-font-family);
+    --gf-ctrl-choice-check-color: var(--wp--preset--color--brand);
+    --gf-field-pg-prog-bar-bg-color-blue: var(--wp--preset--color--brand);
+  }
+}
+
 body {
-    .gform_wrapper {
-      .gform_fields {
-        gap: 1rem;
-      }
+  .gform_wrapper {
+    .gform_fields {
+      gap: 1rem;
     }
-    
   }
-  .gform-theme.gform-theme--framework.gform_wrapper
-  input:is([type="submit"], [type="button"], [type="reset"]):where(
-    :not(.gform-theme-no-framework):not(.gform-theme__disable):not(
-        .gform-theme__disable *
-      ):not(.gform-theme__disable-framework):not(
-        .gform-theme__disable-framework *
-      )
-  ) {
-    background-color: var(--jcore-button-bg-color);
-    color: var( --jcore-button-text-color);
-    border-color: var(--jcore-button-border-color);
-    padding: var(--jcore-button-padding);
-    font-size: var(--jcore-button-font-size);
-  border-radius: 0;
-  &:hover {
-    background-color: var(--jcore-button-hover-bg-color);
-    color: var( --jcore-button-hover-text-color);
-    border-color: var(--jcore-button-hover-border-color);
-  }
+  
 }
