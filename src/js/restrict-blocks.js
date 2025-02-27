@@ -1,6 +1,6 @@
 wp.domReady( () => {
 
-	// Unregister core blocks.
+	// Unregister core blocks. Reference: https://developer.wordpress.org/block-editor/reference-guides/core-blocks
     const doNotUseBlocks = [
         'core/quote',
         'core/column',
@@ -10,6 +10,8 @@ wp.domReady( () => {
         'core/verse',
         'core/query',
         'core/navigation',
+        'core/site-title',
+        'core/site-tagline',
         'core/latest-posts',
         'core/social-link',
         'core/social-links',
@@ -19,9 +21,13 @@ wp.domReady( () => {
         'core/archives',
         'core/calendar',
         'core/categories',
-        'core/search',
         'core/widget-group',
         'core/nextpage',
+        'core/query',
+        'core/query-pagination',
+        'core/query-no-results',
+        'core/query-pagination',
+        'core/term-description',
 
     ]
 	

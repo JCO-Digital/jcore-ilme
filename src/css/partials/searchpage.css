@@ -42,27 +42,3 @@
   }
 }
 
-
-/**
-*
-*Search in nav 
-*
-*/
-.toggle-search .fa-search {
-  color: var(--wp--preset--color--white);
-  }
-  .searchbar-container {
-    display: none;
-  }
-  .searchbar-container.toggle {
-    display: block;
-    background-color: var(--wp--preset--color--dark);
-  } 
-  .searchform {
-    margin-bottom: 6px;
-    input {
-      padding:.4rem 2rem;
-      border: 1px solid var(--jcore-button-bg-color);
-      font-size: var(--jcore-button-font-size);
-    }
-  }
