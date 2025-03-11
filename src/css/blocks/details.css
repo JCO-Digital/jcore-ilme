@@ -31,29 +31,28 @@ details.wp-block-details.cad {
 */
 
 details.wp-block-details {
-  background-color: var(--wp--preset--color--light);
-  summary {
-    transition: all 0.3s ease-in-out;
+  margin-bottom: 1rem;
+  border-radius: 0;
+   summary {
     box-sizing: border-box;
     padding: 1rem 2rem 1rem 1rem;
     font-family: var(--jcore-heading-font-family);
     font-size: var(--wp--preset--font-size--heading-5);
-    background-color: var(--wp--preset--color--brand);
+    background-color: var(--wp--preset--color--light);
     font-weight: 400;
     + * {
       margin-top: 1rem;
     }
+    position: relative;
   }
   summary::marker {
     content: none;
   }
 }
 
-/* Add a custom transition when opening/closing. */
-.wp-block-details {
+/* Add a custom transition when opening/closing. -It only "takes" on the padding- */
+.wp-block-details{
   transition: all 0.5s ease-in-out;
-  margin-bottom: 1rem;
-  border-radius: 0;
 }
 
 /* Add horizontal margin to nested blocks/elements. */
@@ -64,27 +63,33 @@ details.wp-block-details {
 
 /* If open, add some bottom padding to avoid content butting against the bottom. */
 .wp-block-details[open] {
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
-
 /* Change the background of the `summary` element based on state. */
 .wp-block-details[open] summary,
 .wp-block-details summary:hover,
 .wp-block-details summary:focus {
   background: var(--wp--preset--color--light);
-}
-
+  }
 
 .wp-block-details summary::after {
-  content: "\f078";
-  font-family: "Font Awesome 6 Sharp";
-  font-weight: 400;
-  float: right;
-  text-align: right;
+    content: "\0023F7";
+    position: absolute;
+    font-family: var(--jcore-heading-font-family);
+    top: 50%;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--wp--preset--color--light);
+    border-radius: 999px;
+    text-align: center;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--wp--preset--font-size--heading-3);
 }
 
 .wp-block-details[open] summary::after {
-  content: "\f077";
-  font-family: "Font Awesome 6 Sharp";
-  font-weight: 400;
+  content: "\0023F6";
 }
