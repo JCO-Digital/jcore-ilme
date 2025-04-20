@@ -9,14 +9,11 @@
 namespace Jcore\Ilme;
 
 use Jcore\Ydin\Blocks\Blocks;
-use Jcore\Ydin\Settings\Customizer;
 use Jcore\Ydin\WordPress\Assets;
-
 
 add_action( 'after_setup_theme', 'Jcore\Ilme\setup' );
 add_action( 'wp_enqueue_scripts', 'Jcore\Ilme\scripts' );
 add_action( 'enqueue_block_editor_assets', 'Jcore\Ilme\enqueue_block_restrictions' );
-
 
 /**
  * Do most of the things needed for the theme.
@@ -147,19 +144,7 @@ function scripts() {
 		array()
 	);
 
-	Assets::style_register(
-		'tailwind',
-		'/dist/css/tailwind.css',
-	);
-
-	Assets::style_register(
-		'fa6-free',
-		'/assets/vendor/FA6/css/all.min.css',
-	);
-
 	wp_enqueue_style( 'theme' );
-	wp_enqueue_style( 'tailwind' );
-	wp_enqueue_style( 'fa6-free' );
 
 	wp_enqueue_script( 'jcore' );
 	wp_enqueue_script( 'jUtils' );
@@ -174,8 +159,6 @@ function scripts() {
 	if ( apply_filters( 'jcore_load_alpine_script', false ) ) {
 		wp_enqueue_script( 'alpine' );
 	}
-
-	wp_add_inline_style( 'theme', Customizer::get_styles() );
 }
 
 /**

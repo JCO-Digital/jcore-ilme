@@ -100,9 +100,6 @@ function twig( $twig ) {
 
 	// Adding a function.
 	$twig->addFunction(
-		new TwigFunction( 'customizer', 'Jcore\Ydin\Settings\Customizer::get' )
-	);
-	$twig->addFunction(
 		new TwigFunction( 'settings', 'Jcore\Ilme\Settings::get' )
 	);
 

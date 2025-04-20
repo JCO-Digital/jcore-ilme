@@ -3,7 +3,6 @@
 namespace Jcore\Ilme;
 
 use Timber\Timber;
-use Jcore\Ydin\Settings\Customizer;
 
 /**
  * Checks if post type has dynamic archive, and returns settings if it has.
@@ -13,37 +12,31 @@ use Jcore\Ydin\Settings\Customizer;
  * @return array
  */
 function archive_settings( string $post_type ): array {
-	$fields = array();
-	if ( Customizer::get( 'article_highlight', 'date' ) ) {
+	$fields       = array();
 		$fields[] = 'date';
-	}
-	if ( Customizer::get( 'article_highlight', 'author' ) ) {
 		$fields[] = 'author';
-	}
-	if ( Customizer::get( 'article_highlight', 'cat' ) ) {
 		$fields[] = 'category';
-	}
-	$args = array(
-		'dynamic'     => true,
-		'show_search' => false,
-		'show_sort'   => false,
-		'sort_by'     => 'date',
-		'fields'      => $fields,
-		'radio'       => true,
-		'filtering'   => Customizer::get( 'filtering', 'taxonomy_filter' ),
-		'masonry'     => Customizer::get( 'filtering', 'masonry' ),
-		'columns'     => Customizer::get( 'article_highlight', 'columns' ),
-		'read_more'   => Customizer::get( 'article_highlight', 'readmore' ) ? __( 'Read more', 'jcore' ) : '',
-		'per_page'    => get_option( 'posts_per_page', 8 ),
-		'has_link'    => true,
-	);
 
-	$settings = apply_filters( 'jcore_archive_settings_' . $post_type, array() );
-	if ( ! empty( $settings ) ) {
-		$args = wp_parse_args( $settings, $args );
-	}
+		$args = array(
+			'dynamic'     => true,
+			'show_search' => false,
+			'show_sort'   => false,
+			'sort_by'     => 'date',
+			'fields'      => $fields,
+			'radio'       => true,
+			'masonry'     => false,
+			'columns'     => 3,
+			'read_more'   => __( 'Read more', 'jcore' ),
+			'per_page'    => get_option( 'posts_per_page', 8 ),
+			'has_link'    => true,
+		);
 
-	return $args;
+		$settings = apply_filters( 'jcore_archive_settings_' . $post_type, array() );
+		if ( ! empty( $settings ) ) {
+			$args = wp_parse_args( $settings, $args );
+		}
+
+		return $args;
 }
 
 /**

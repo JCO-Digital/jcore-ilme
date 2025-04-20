@@ -1,4 +1,0 @@
-<?php
-/*
- * Stub required file.
- */

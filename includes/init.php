@@ -2,22 +2,22 @@
 
 namespace Jcore\Ilme;
 
+use Twig\Error\LoaderError;
+
 const AUTOLOADER_PATH = ABSPATH . 'vendor/autoload.php';
 if ( file_exists( AUTOLOADER_PATH ) ) {
 	require_once AUTOLOADER_PATH;
 }
 
-if ( function_exists( '\Sentry\init' ) && defined( 'SENTRY_DSN' ) && ! defined( 'JCORE_IS_LOCAL' ) ) {
+if ( function_exists( '\Sentry\init' ) && defined( 'SENTRY_DSN' ) && wp_get_environment_type() !== 'local' ) {
 	\Sentry\init( array( 'dsn' => SENTRY_DSN ) );
 }
 
 require_once get_template_directory() . '/classes/Settings.php';
-Settings::init();
 
 add_action(
 	'after_setup_theme',
 	function () {
-		load_jcore_textdomain();
 	}
 );
 
@@ -32,7 +32,7 @@ add_action(
 	'phpmailer_init',
 	function ( $phpmailer ) {
 		// phpcs:disable
-        if ( defined( "JCORE_IS_LOCAL" ) && JCORE_IS_LOCAL ) {
+		if ( wp_get_environment_type() === 'local' ) {
 			$phpmailer->Host = 'mailhog';
 			$phpmailer->Port = 1025;
 			$phpmailer->IsSMTP();
@@ -50,8 +50,8 @@ add_action(
 	'admin_init',
 	function () {
 		// phpcs:disable
-        if ( defined("JCORE_IS_LOCAL") && JCORE_IS_LOCAL ) {
-			deactivate_plugins( array( 'mailgun/mailgun.php' ) );
+		if ( wp_get_environment_type() === 'local' ) {
+			deactivate_plugins( array( 'mailgun/mailgun.php', 'smtp2go/smtp2go-wordpress-plugin.php' ) );
 		}
         // phpcs:enable
 	}
@@ -66,6 +66,12 @@ add_action(
 add_action(
 	'init',
 	function () {
+		// Load Text Domain
+		load_jcore_textdomain();
+
+		// Init Settings
+		Settings::init();
+
 		// Load theme gutenberg blocks.
 		$dir_name = get_stylesheet_directory() . '/dist/blocks';
 		if ( is_dir( $dir_name ) ) {

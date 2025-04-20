@@ -13,29 +13,30 @@ use Jcore\Ydin;
 use Jcore\Ydin\BootstrapInterface;
 use Jcore\Security;
 
-/**
- * The modules to load.
- *
- * @var BootstrapInterface[] $modules
- */
-$modules = array(
-	Security\Bootstrap::class,
+add_filter(
+	'jcore_theme_load_modules',
+	function ( $modules ) {
+		$modules[] = Security\Bootstrap::class;
+		return $modules;
+	}
 );
 
+
 /**
- * Called immediately and loads all modules.
- *
- * @param BootstrapInterface[] $modules Array of modules to load.
+ * Loads all modules.
  *
  * @return void
  */
-function load_modules( array $modules ): void {
+function load_modules(): void {
 	// First we initialize Ydin.
 	Ydin\Bootstrap::init();
-	$modules = apply_filters( 'jcore_ilme_load_modules', $modules );
+	$modules = apply_filters( 'jcore_theme_load_modules', array() );
 	foreach ( $modules as $module ) {
 		$module::init();
 	}
+	do_action( 'jcore_modules_loaded', $modules );
 }
-
-load_modules( $modules );
+add_action(
+	'init',
+	'Jcore\Ilme\load_modules'
+);
