@@ -1,3 +1,5 @@
+@import "partials/navigation.css";
+
 /* Add styles for editor here */
 .editor-styles-wrapper {
   .hidden {
