@@ -4,16 +4,13 @@
   "scripts": {
     "esbuild": "esbuild --bundle src/js/*.?s --outdir=dist/js --minify --sourcemap",
     "postcss": "postcss --verbose src/css/*.css --dir dist/css",
-    "blocks": "wp-scripts build --webpack-src-dir=src/blocks --output-path=dist/blocks",
     "watch-esbuild": "pnpm run esbuild --watch",
     "watch-postcss": "pnpm run postcss --watch",
-    "watch-blocks": "wp-scripts start --webpack-src-dir=src/blocks --output-path=dist/blocks",
-    "watch": "concurrently --kill-others -c blue,yellow,green --names '󱁤esbuild,󱎵postcss,blocks' 'pnpm run watch-esbuild' 'pnpm run watch-postcss' 'pnpm run watch-blocks'",
-    "build": "pnpm run esbuild && pnpm run postcss && pnpm run blocks",
+    "watch": "concurrently --kill-others -c blue,yellow,green --names '󱁤esbuild,󱎵postcss' 'pnpm run watch-esbuild' 'pnpm run watch-postcss'",
+    "build": "pnpm run esbuild && pnpm run postcss",
     "prettier": "prettier --write src"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^30.6.0",
     "concurrently": "^8.2.2",
     "esbuild": "^0.19.12",
     "postcss": "^8.4.45",
