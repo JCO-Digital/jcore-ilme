@@ -1,4 +1,9 @@
 <?php
+/**
+ * Handlers for initialization of theme.
+ *
+ * @package Jcore\Ilme
+ */
 
 namespace Jcore\Ilme;
 
@@ -47,13 +52,11 @@ add_action(
  * @return void
  */
 add_action(
-	'admin_init',
-	function () {
-		// phpcs:disable
-		if ( wp_get_environment_type() === 'local' ) {
+	'environment_changed',
+	function ( $environment ) {
+		if ( 'local' === $environment ) {
 			deactivate_plugins( array( 'mailgun/mailgun.php', 'smtp2go/smtp2go-wordpress-plugin.php' ) );
 		}
-        // phpcs:enable
 	}
 );
 
@@ -66,10 +69,10 @@ add_action(
 add_action(
 	'init',
 	function () {
-		// Load Text Domain
+		// Load Text Domain.
 		load_jcore_textdomain();
 
-		// Init Settings
+		// Init Settings class.
 		Settings::init();
 
 		// Load theme gutenberg blocks.
@@ -96,15 +99,4 @@ add_action(
  */
 function load_jcore_textdomain(): void {
 	load_theme_textdomain( 'jcore', get_template_directory() . '/languages' );
-}
-
-/**
- * Add ACF fields.
- *
- * @param array $version List of templates.
- *
- * @return mixed
- */
-function add_acf_fields( $version = false ) {
-	new acf_field_color();
 }
