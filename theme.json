@@ -17,6 +17,11 @@
                 "slug": "brand"
               },
               {
+                "color": "#f27f3a",
+                "name": "Orange",
+                "slug": "orange"
+              },
+              {
                 "color": "#ffffff",
                 "name": "White",
                 "slug": "white"
@@ -254,6 +259,12 @@
             "enabled": true,
             "allowEditing": true
           }
+        },
+        "core/paragraph": {
+          "color": {
+            "palette": [],
+            "gradients": []
+          }
         }
       }
     },
@@ -264,13 +275,14 @@
         "lineHeight": "var:custom|line-height|sm"
       },
       "color": {
-        "text": "var:preset|color|dark",
+        "text": "var:preset|color|black",
         "background": "var:preset|color|white"
       },
       "elements": {
         "heading": {
           "typography": {
-            "fontFamily":"Proxima Nova"
+            "fontFamily":"Proxima Nova",
+            "fontWeight": "300"
           }
         },
         "h1": {
@@ -389,7 +401,8 @@
         "core/paragraph": {
           "spacing": {
             "margin": {
-              "bottom": "var:custom|spacing-sizes|medium"
+              "bottom": "var:custom|spacing-sizes|medium",
+              "top": "0"
             }
           }
         },
@@ -444,20 +457,19 @@
         },
         "core/button": {
           "color": {
-            "background": "var:preset|color|brand",
+            "background": "var:preset|color|orange",
             "text": "var:preset|color|black"
           },
           "border": {
             "radius": "0",
-            "color": "var:preset|color|brand",
+            "color": "var:preset|color|orange",
             "style": "solid",
             "width": "1px"
           },
           "typography": {
             "fontSize": "var:preset|font-size|mini",
-            "fontFamily": "InterTight",
-            "textTransform": "uppercase",
-            "fontWeight": "600"
+            "fontFamily": "Proxima Nova",
+            "fontWeight": "400"
           },
           "spacing": {
             "padding": {
@@ -488,9 +500,9 @@
               },
               "typography": {
                 "fontSize": "var:preset|font-size|mini",
-                "fontFamily": "InterTight",
+                "fontFamily": "Proxima Nova",
                 "textTransform": "none",
-                "fontWeight": "600"
+                "fontWeight": "400"
               },
               "spacing": {
                 "padding": {
