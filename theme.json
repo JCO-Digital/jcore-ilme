@@ -126,23 +126,23 @@
             {
               "fontFace": [
                 {
-                  "fontFamily": "Inter Tight",
+                  "fontFamily": "Proxima Nova",
                   "fontStretch": "normal",
                   "fontStyle": "normal",
-                  "fontWeight": "300 900",
-                  "src": ["file:./assets/fonts/InterTight.woff"]
+                  "fontWeight": "100 200 300 400 700 900",
+                  "src": ["file:./assets/fonts/Montserrat-VariableFont_wght.ttf"]
                 },
                 {
-                  "fontFamily": "Inter Tight",
+                  "fontFamily": "Proxima Nova",
                   "fontStretch": "normal",
                   "fontStyle": "italic",
-                  "fontWeight": "300 900",
-                  "src": ["file:./assets/fonts/InterTight-Italic.woff"]
+                  "fontWeight": "100 200 300 400 700 900",
+                  "src": ["file:./assets/fonts/Montserrat-Italic-VariableFont_wght.ttf"]
                 }
               ],
-              "fontFamily": "\"Inter Tight\", sans-serif",
-              "name": "Inter Tight",
-              "slug": "inter-tight"
+              "fontFamily": "\"Proxima Nova\", sans-serif",
+              "name": "Proxima Nova",
+              "slug": "proxima-nova"
             },
             {
               "fontFace": [
@@ -259,7 +259,7 @@
     },
     "styles": {
       "typography": {
-        "fontFamily": "Inter",
+        "fontFamily": "Proxima Nova",
         "fontSize": "var:preset|font-size|paragraph",
         "lineHeight": "var:custom|line-height|sm"
       },
@@ -270,7 +270,7 @@
       "elements": {
         "heading": {
           "typography": {
-            "fontFamily":"InterTight"
+            "fontFamily":"Proxima Nova"
           }
         },
         "h1": {
