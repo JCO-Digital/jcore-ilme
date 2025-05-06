@@ -50,6 +50,12 @@ ul.wp-block-list.arrow-list {
         left: 0;
         font-size: 16px;
         color: var(--wp--preset--color--orange);
+        &:hover {
+          text-decoration: none;
+          &:before {
+            transform: rotate(-45deg);
+          }
+        }
       }
       &::marker {
         display: none !important;

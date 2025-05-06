@@ -511,12 +511,12 @@
           "variations": {
             "outline": {
               "color": {
-                "background": "transparent",
+                "background": "var:preset|color|white",
                 "text": "var:preset|color|black"
               },
               "border": {
                 "radius": "50px",
-                "color": "var:preset|color|brand",
+                "color": "var:preset|color|white",
                 "style": "solid",
                 "width": "1px"
               },

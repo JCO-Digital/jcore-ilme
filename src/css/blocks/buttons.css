@@ -11,8 +11,8 @@
     &.is-style-outline:hover {
       .wp-element-button {
         color: var(--wp--preset--color--black);
-        background: transparent;
-        border-color: var(--wp--preset--color--orange);
+        background: var(--wp--preset--color--light);
+        border-color: var(--wp--preset--color--light);
       }
     }
   }
