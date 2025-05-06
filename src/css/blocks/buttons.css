@@ -1,18 +1,18 @@
-/* Buttons, all non-hover styling comes from theme.json */
+/* Buttons, all non-hover styling comes from theme.json (in theme.json they get overridden by Gberg own btn clases..*/
 .wp-block-buttons {
   .wp-block-button {
     &:hover {
       .wp-block-button__link {
         color: var(--wp--preset--color--black);
-        background: var(--wp--preset--color--light);
-        border-color: var(--wp--preset--color--light);
+        background: var(--wp--preset--color--orange);
+        border-color: var(--wp--preset--color--orange);
       }
     }
     &.is-style-outline:hover {
       .wp-element-button {
         color: var(--wp--preset--color--black);
-        background: var(--wp--preset--color--light);
-        border-color: var(--wp--preset--color--light);
+        background: transparent;
+        border-color: var(--wp--preset--color--orange);
       }
     }
   }
@@ -27,12 +27,13 @@
   --jcore-button-border-color:  var(--wp--preset--color--brand);
   --jcore-button-text-color: var(--wp--preset--color--black);
   --jcore-button-active-bg-color: var(--wp--preset--color--brand);
-  --jcore-button-active-txt-color: var(--wp--preset--color--dark);
-  --jcore-button-hover-bg-color: var(--wp--preset--color--light);
+  --jcore-button-active-txt-color: var(--wp--preset--color--black);
+  --jcore-button-hover-bg-color: var(--wp--preset--color--orange);
   --jcore-button-hover-text-color: var(--wp--preset--color--black);
-  --jcore-button-hover-border-color:  var(--wp--preset--color--light);
-  --jcore-button-font-size: var(--wp--preset--font-size--mini);
-  --jcore-button-padding: .45rem 2rem;
+  --jcore-button-hover-border-color:  var(--wp--preset--color--orange);
+  --jcore-button-font-size: var(--wp--preset--font-size--paragraph);
+  --jcore-button-padding: 1.25rem 2.5rem;
+  --jcore-button-radius: 50px;
 }
 
 .btn {
@@ -41,6 +42,7 @@
     border-color: var(--jcore-button-border-color);
     padding: var(--jcore-button-padding);
     font-size: var(--jcore-button-font-size);
+    border-radius: var(--jcore-button-radius);
 
   &:hover {
       background-color: var(--jcore-button-hover-bg-color);

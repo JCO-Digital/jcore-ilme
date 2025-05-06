@@ -12,12 +12,12 @@
         "defaultDuotone": false,
         "palette": [
             {
-                "color": "#41c4ff",
+                "color": "#F4952E",
                 "name": "Brand",
                 "slug": "brand"
               },
               {
-                "color": "#f27f3a",
+                "color": "#DA6223",
                 "name": "Orange",
                 "slug": "orange"
               },
@@ -27,12 +27,12 @@
                 "slug": "white"
               },
               {
-                "color": "#d2d2d2",
+                "color": "#F6F6F6",
                 "name": "Light",
                 "slug": "light"
               },
               {
-                "color": "#3b3b3b",
+                "color": "#2D2D2D",
                 "name": "Dark",
                 "slug": "dark"
               },
@@ -42,17 +42,27 @@
                 "slug": "black"
               },
               {
-                "color": "#4bf60a",
+                "color": "#707070",
+                "name": "Grey",
+                "slug": "grey"
+              },
+              {
+                "color": "#1F4922",
+                "name": "Green",
+                "slug": "green"
+              },
+              {
+                "color": "#52A728",
                 "name": "Success",
                 "slug": "success"
               },
               {
-                "color": "#f6ea0a",
+                "color": "#FFC107",
                 "name": "Warning",
                 "slug": "warning"
               },
               {
-                "color": "#f60a0a",
+                "color": "#DE1D1D",
                 "name": "Failure",
                 "slug": "failure"
               }
@@ -68,8 +78,8 @@
       "custom": {
         "lineHeight": {
           "xs": "1.1",
-          "sm": "1.3",
-          "md": "1.4",
+          "sm": "1.2",
+          "md": "1.3",
           "lg": "1.5"
         },
         "breakpoints": {
@@ -134,14 +144,14 @@
                   "fontFamily": "Proxima Nova",
                   "fontStretch": "normal",
                   "fontStyle": "normal",
-                  "fontWeight": "100 200 300 400 700 900",
+                  "fontWeight": "300 400 700",
                   "src": ["file:./assets/fonts/Montserrat-VariableFont_wght.ttf"]
                 },
                 {
                   "fontFamily": "Proxima Nova",
                   "fontStretch": "normal",
                   "fontStyle": "italic",
-                  "fontWeight": "100 200 300 400 700 900",
+                  "fontWeight": "300 400 700",
                   "src": ["file:./assets/fonts/Montserrat-Italic-VariableFont_wght.ttf"]
                 }
               ],
@@ -175,6 +185,15 @@
           {
             "name": "H1",
             "slug": "heading-1",
+            "size": "62px",
+            "fluid": {
+              "min": "44px",
+              "max": "62px"
+            }
+          },
+          {
+            "name": "H2",
+            "slug": "heading-2",
             "size": "44px",
             "fluid": {
               "min": "32px",
@@ -182,55 +201,40 @@
             }
           },
           {
-            "name": "H2",
-            "slug": "heading-2",
+            "name": "H3",
+            "slug": "heading-3",
             "size": "32px",
             "fluid": {
-              "min": "28px",
+              "min": "26px",
               "max": "32px"
             }
           },
           {
-            "name": "H3",
-            "slug": "heading-3",
-            "size": "26px",
-            "fluid": false
-          },
-          {
             "name": "H4",
             "slug": "heading-4",
-            "size": "24px",
+            "size": "26px",
             "fluid": false
           },
           {
             "name": "H5",
             "slug": "heading-5",
-            "size": "22px",
+            "size": "20px",
             "fluid": false
           },
           {
             "name": "Ingress",
             "slug": "ingress",
-            "size": "28px",
+            "size": "22px",
             "fluid": {
-              "min": "24px",
-              "max": "28px"
+              "min": "20px",
+              "max": "22px"
             }
           },
           {
             "fluid": false,
             "name": "Mini",
             "slug": "mini",
-            "size": "16px"
-          },
-          {
-            "name": "Maxi",
-            "slug": "maxi",
-            "size": "54px",
-            "fluid": {
-              "min": "32px",
-              "max": "54px"
-            }
+            "size": "14px"
           },
           {
             "name": "Giant",
@@ -272,7 +276,7 @@
       "typography": {
         "fontFamily": "Proxima Nova",
         "fontSize": "var:preset|font-size|paragraph",
-        "lineHeight": "var:custom|line-height|sm"
+        "lineHeight": "var:custom|line-height|md"
       },
       "color": {
         "text": "var:preset|color|black",
@@ -281,14 +285,14 @@
       "elements": {
         "heading": {
           "typography": {
-            "fontFamily":"Proxima Nova",
-            "fontWeight": "300"
+            "fontFamily":"Proxima Nova"
           }
         },
         "h1": {
           "typography": {
             "lineHeight": "var:custom|line-height|xs",
-            "fontSize": "var:preset|font-size|heading-1"
+            "fontSize": "var:preset|font-size|heading-1",
+            "fontWeight": "300"
           },
           "spacing": {
             "margin": {
@@ -299,8 +303,9 @@
         },
         "h2": {
           "typography": {
-            "lineHeight": "var:custom|line-height|sm",
-            "fontSize": "var:preset|font-size|heading-2"
+            "lineHeight": "var:custom|line-height|xs",
+            "fontSize": "var:preset|font-size|heading-2",
+            "fontWeight": "300"
           },
           "spacing": {
             "margin": {
@@ -312,7 +317,8 @@
         "h3": {
           "typography": {
             "lineHeight": "var:custom|line-height|sm",
-            "fontSize": "var:preset|font-size|heading-3"
+            "fontSize": "var:preset|font-size|heading-3",
+            "fontWeight": "300"
           },
           "spacing": {
             "margin": {
@@ -324,7 +330,8 @@
         "h4": {
           "typography": {
             "lineHeight": "var:custom|line-height|sm",
-            "fontSize": "var:preset|font-size|heading-4"
+            "fontSize": "var:preset|font-size|heading-4",
+            "fontWeight": "300"
           },
           "spacing": {
             "margin": {
@@ -335,7 +342,7 @@
         },
         "h5": {
           "typography": {
-            "lineHeight": "var:custom|line-height|sm",
+            "lineHeight": "var:custom|line-height|md",
             "fontSize": "var:preset|font-size|heading-5",
             "fontWeight": "400"
           },
@@ -351,9 +358,9 @@
         },
         "h6": {
           "typography": {
-            "lineHeight": "var:custom|line-height|sm",
+            "lineHeight": "var:custom|line-height|md",
             "fontSize": "var:preset|font-size|ingress",
-            "fontWeight": "500"
+            "fontWeight": "400"
           },
           "spacing": {
             "margin": {
@@ -381,18 +388,18 @@
         },
         "link": {
           "typography": {
-            "textDecoration": "none",
-            "fontWeight": "300"
+            "textDecoration": "underline",
+            "fontWeight": "400"
           },
           "color": {
-            "text": "var:preset|color|brand"
+            "text": "var:preset|color|black"
           },
           ":hover": {
             "color": {
-              "text": "var:preset|color|blue"
+              "text": "var:preset|color|black"
             },
             "typography": {
-              "textDecoration": "underline"
+              "textDecoration": "none"
             }
           }
         }
@@ -422,7 +429,7 @@
         },
         "core/cover": {
           "dimensions": {
-            "minHeight": "45vh"
+            "minHeight": "50vh"
           }
         },
         "core/gallery": {
@@ -442,7 +449,7 @@
         },
         "core/post-title": {
           "typography": {
-            "fontSize": "var:preset|font-size|maxi"
+            "fontSize": "var:preset|font-size|heading-1"
           }
         },
         "core/buttons": {
@@ -457,26 +464,26 @@
         },
         "core/button": {
           "color": {
-            "background": "var:preset|color|orange",
+            "background": "var:preset|color|brand",
             "text": "var:preset|color|black"
           },
           "border": {
-            "radius": "0",
-            "color": "var:preset|color|orange",
+            "radius": "50px",
+            "color": "var:preset|color|brand",
             "style": "solid",
             "width": "1px"
           },
           "typography": {
-            "fontSize": "var:preset|font-size|mini",
+            "fontSize": "var:preset|font-size|paragraph",
             "fontFamily": "Proxima Nova",
             "fontWeight": "400"
           },
           "spacing": {
             "padding": {
-              "top": ".45rem",
-              "bottom": ".45rem",
-              "left": "2rem",
-              "right": "2rem"
+              "top": "1.25rem",
+              "bottom": "1.25rem",
+              "left": "2.5rem",
+              "right": "2.5rem"
             },
             "margin": {
               "top": "0",
@@ -485,31 +492,46 @@
               "right": ".5rem"
             }
           },
+          ":hover": {
+            "color": {
+              "background": "var:preset|color|orange",
+              "text": "var:preset|color|black"
+            },
+            "typography": {
+              "textDecoration": "none"
+            },
+            "border": {
+              "radius": "50px",
+              "color": "var:preset|color|orange",
+              "style": "solid",
+              "width": "1px"
+            }
+          },
           "shadow": "0px 0px 0px 0px var(--wp--preset--color--dark)",
           "variations": {
             "outline": {
               "color": {
                 "background": "transparent",
-                "text": "var:preset|color|dark"
+                "text": "var:preset|color|black"
               },
               "border": {
-                "radius": "0",
-                "color": "var:preset|color|dark",
+                "radius": "50px",
+                "color": "var:preset|color|brand",
                 "style": "solid",
                 "width": "1px"
               },
               "typography": {
-                "fontSize": "var:preset|font-size|mini",
+                "fontSize": "var:preset|font-size|paragraph",
                 "fontFamily": "Proxima Nova",
                 "textTransform": "none",
                 "fontWeight": "400"
               },
               "spacing": {
                 "padding": {
-                  "top": ".45rem",
-              "bottom": ".45rem",
-              "left": "2rem",
-              "right": "2rem"
+                  "top": "1.25rem",
+                  "bottom": "1.25rem",
+                  "left": "2.5rem",
+                  "right": "2.5rem"
                 },
                 "margin": {
                   "top": "0",
@@ -523,7 +545,7 @@
           }
         },
         "core/table": {
-          "css": "color: var(--wp--preset--color--dark) & th{ background: var(--wp--preset--color--light)"
+          "css": "color: var(--wp--preset--color--brand) & th{ background: var(--wp--preset--color--light)"
         }
       }
     },
