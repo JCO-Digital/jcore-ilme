@@ -45,17 +45,16 @@ ul.wp-block-list.arrow-list {
         content: "\f178";
         font-family: "Font Awesome 6 Sharp";
         font-weight: 300;
-        -webkit-font-smoothing: antialiased;
         position: absolute;
         left: 0;
         font-size: 16px;
         color: var(--wp--preset--color--orange);
-        &:hover {
+      }
+      &:hover {
           text-decoration: none;
           &:before {
             transform: rotate(-45deg);
           }
-        }
       }
       &::marker {
         display: none !important;
