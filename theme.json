@@ -263,13 +263,7 @@
             "enabled": true,
             "allowEditing": true
           }
-        },
-        "core/paragraph": {
-          "color": {
-            "palette": [],
-            "gradients": []
-          }
-        }
+        }       
       }
     },
     "styles": {
