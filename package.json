@@ -3,16 +3,17 @@
   "version": "3.0.0",
   "scripts": {
     "esbuild": "esbuild --bundle src/js/*.?s --outdir=dist/js --minify --sourcemap",
-    "postcss": "postcss --verbose src/css/*.css --dir dist/css",
+    "sass": "sass src/scss:dist/css",
     "watch-esbuild": "pnpm run esbuild --watch",
-    "watch-postcss": "pnpm run postcss --watch",
-    "watch": "concurrently --kill-others -c blue,yellow,green --names '󱁤esbuild,󱎵postcss' 'pnpm run watch-esbuild' 'pnpm run watch-postcss'",
-    "build": "pnpm run esbuild && pnpm run postcss",
+    "watch-sass": "pnpm run sass --watch",
+    "watch": "concurrently --kill-others -c blue,yellow,green --names '󱁤esbuild,󱎵sass' 'pnpm run watch-esbuild' 'pnpm run watch-sass'",
+    "build": "pnpm run esbuild && pnpm run sass",
     "prettier": "prettier --write src"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
     "esbuild": "^0.19.12",
+    "sass": "^1.88.0",
     "postcss": "^8.4.45",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",
