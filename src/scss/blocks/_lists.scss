@@ -1,24 +1,25 @@
-ul.wp-block-list, ol.wp-block-list {
-    padding-left: 1.5rem;
-    margin-bottom: 2rem;
-    li {
-      padding-left: 0.25rem;
-      margin-bottom: .75rem;
-    }
-    li > ul,
-    li > ol {
-      margin-bottom: 0 !important;
-    }
-    li::marker {
-      color: var(--wp--preset--color--orange);
-    }
+ul.wp-block-list,
+ol.wp-block-list {
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+  li {
+    padding-left: 0.25rem;
+    margin-bottom: 0.75rem;
+  }
+  li > ul,
+  li > ol {
+    margin-bottom: 0 !important;
+  }
+  li::marker {
+    color: var(--wp--preset--color--orange);
+  }
 }
 
-ul.wp-block-list:not(.wp-block-rss, .arrow-list){
-    li {
-      padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
-      list-style-type: none;
-      position: relative;
+ul.wp-block-list:not(.wp-block-rss, .arrow-list) {
+  li {
+    padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+    list-style-type: none;
+    position: relative;
     &:before {
       content: "";
       position: absolute;
@@ -32,33 +33,33 @@ ul.wp-block-list:not(.wp-block-rss, .arrow-list){
     &::marker {
       display: none;
     }
-  }}
+  }
+}
 
 /* Arrow-list with orange arrows instead of bullets */
 ul.wp-block-list.arrow-list {
-    padding-left: 0;
-    li {
-      position: relative;
-      list-style-type: none;
-      padding-left: 2rem !important;
+  padding-left: 0;
+  li {
+    position: relative;
+    list-style-type: none;
+    padding-left: 2rem !important;
+    &:before {
+      content: "\f178";
+      font-family: "Font Awesome 6 Sharp";
+      font-weight: 300;
+      position: absolute;
+      left: 0;
+      font-size: 16px;
+      color: var(--wp--preset--color--orange);
+    }
+    &:hover {
+      text-decoration: none;
       &:before {
-        content: "\f178";
-        font-family: "Font Awesome 6 Sharp";
-        font-weight: 300;
-        -webkit-font-smoothing: antialiased;
-        position: absolute;
-        left: 0;
-        font-size: 16px;
-        color: var(--wp--preset--color--orange);
-        &:hover {
-          text-decoration: none;
-          &:before {
-            transform: rotate(-45deg);
-          }
-        }
-      }
-      &::marker {
-        display: none !important;
+        transform: rotate(-45deg);
       }
     }
+    &::marker {
+      display: none !important;
+    }
   }
+}
