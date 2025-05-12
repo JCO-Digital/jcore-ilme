@@ -1,0 +1,82 @@
+/* Yoast FAQ & Accordion Block Styling */
+.schema-faq,
+.block-accordion {
+ 
+}
+
+.schema-faq-section,
+.block-accordion .accordion-section {
+  
+}
+
+.schema-faq-section .schema-faq-question,
+.block-accordion .accordion-title {
+  font-family: var(--jcore-heading-font-family);
+  font-size: var(--wp--preset--font-size--heading-5);
+  color: var(--wp--preset--color--dark);
+  font-weight: 400;
+  margin: 8px 0;
+  padding: 1rem 2rem 1rem 1rem;
+  cursor: pointer;
+  position: relative;
+  text-align: left;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: flex;
+  width: 100%;
+  background-color: var(--wp--preset--color--light);
+  &:after {
+    content: "\0023F7";
+    position: absolute;
+    font-family: var(--jcore-heading-font-family);
+    top: 50%;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--wp--preset--color--light);
+    border-radius: 999px;
+    text-align: center;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--wp--preset--font-size--heading-3);
+  }
+
+  &.faq-q-open,
+  &.accordion-open {
+    &:after {
+      content: "\0023F6";
+    }
+  }
+}
+
+.schema-faq-section p.schema-faq-answer,
+.accordion-section .accordion-content {
+  margin: 0;
+  font-weight: 400;
+  font-size: var(--wp--preset--font-size--paragraph);
+  
+  @media (width >= var(--breakpoint-md)) {
+  max-width: 80%;
+}
+}
+
+.schema-faq-section p.schema-faq-answer {
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding-left: 1rem;
+  transition:
+          height 0.3s ease-in-out,
+          margin 0.3s ease-in-out;
+
+  &.faq-a-open {
+    margin-bottom: 1rem;
+    
+  }
+}

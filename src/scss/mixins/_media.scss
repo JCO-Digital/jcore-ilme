@@ -1,0 +1,26 @@
+/* Media queries */
+
+/*
+ * Breakpoints are defined in theme.json
+ * (By default they are sm, md, lg, xl, 2xl)
+ */
+
+@define-mixin breakpoint-up $breakpoint {
+  @media (min-width: $(jcore-breakpoint-$(breakpoint))) {
+    @mixin-content;
+  }
+}
+
+@define-mixin breakpoint-down $breakpoint {
+  @media (max-width: $(jcore-breakpoint-$(breakpoint))) {
+    @media not (width: $(jcore-breakpoint-$(breakpoint))) {
+      @mixin-content;
+    }
+  }
+}
+
+@define-mixin breakpoint-between $breakpoint-min, $breakpoint-max {
+  @media (min-width: $(jcore-breakpoint-$(breakpoint-min))) and (max-width: $(jcore-breakpoint-$(breakpoint-max))) {
+    @mixin-content;
+  }
+}

@@ -1,0 +1,17 @@
+.posts-highlight {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr;
+  }
+  
+  .posts-highlight.columns-2 {
+      grid-template-columns: 1fr 1fr;
+  }
+  
+  .posts-highlight.columns-3 {
+      grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  .posts-highlight.columns-4 {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  }

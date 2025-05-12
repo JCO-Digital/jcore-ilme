@@ -1,0 +1,7 @@
+/* Gutenberg media and text block */
+.wp-block-media-text {
+    .wp-block-media-text__content {
+      /* remove the default 7% horizontal padding */
+      padding: 0;
+    }
+  }

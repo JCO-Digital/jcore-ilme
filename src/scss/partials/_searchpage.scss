@@ -1,0 +1,44 @@
+.search-items {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+
+  article {
+    background-color: var(--wp--preset--color--light);
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+}
+.pagination-block {
+  --jcore-button-bg-color: transparent; /* because a-tag is styles here as btn, and .btn is one level up */
+  --jcore-button-hover-bg-color: transparent;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  > section {
+    display: flex;
+    align-items: center;
+  }
+  div {
+    padding: 0;
+    a {
+      color: var(--wp--preset--color--black);
+      background-color:var(--wp--preset--color--brand);
+      border-radius: .5rem;
+      padding: 0.75rem;
+      margin: 1rem;
+      &:hover {
+        text-decoration: none;
+        background-color: var(--wp--preset--color--light);
+      }
+    }
+    &.current {
+      a{
+        background-color: var(--wp--preset--color--light);
+        color: var(--jcore-button-active-txt-color);
+      }
+    }
+  }
+}
+

@@ -1,0 +1,33 @@
+/*FILE block*/
+.wp-block-file {
+    position: relative;
+  }
+  .wp-block-file a:hover {
+    -webkit-text-decoration: underline;
+    text-decoration: underline;
+  }
+  .wp-block-file a.wp-block-file__button {
+    border-radius: 0;
+    background-color: var(--wp--preset--color--brand);
+    font-size: var(--wp--preset--font-size--mini);
+    text-transform: uppercase;
+    position: relative;
+    padding: 0.45rem 2rem 0.45rem 2.5rem;
+    color: var(--wp--preset--color--white);
+    margin-left: 0;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .wp-block-file a.wp-block-file__button:hover {
+    opacity: 1;
+  }
+  .wp-block-file a.wp-block-file__button:before {
+    content: "\f019";
+    font-family: "Font Awesome 6 Sharp";
+    font-weight: 600;
+    position: absolute;
+    left: 8px;
+    font-size: 16px;
+    color: var(--wp--preset--color--white);
+    top: 5px;
+  }
