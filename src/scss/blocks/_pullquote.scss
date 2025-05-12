@@ -3,7 +3,6 @@ blockquote.wp-block-quote {
   margin-bottom: 2rem;
 }
 
-
 /* Pullquote */
 .wp-block-pullquote {
   margin-bottom: 2rem;
@@ -21,10 +20,10 @@ blockquote.wp-block-quote {
       line-height: 1.3;
       &:first-of-type:before {
         color: var(--wp--preset--color--brand);
-        content: url('../../assets/images/quote-icon.svg');
+        content: url("../../assets/images/quote-icon.svg");
         position: absolute;
         left: -4.5rem;
-        top: .25rem;
+        top: 0.25rem;
       }
       &:last-of-type:after {
         content: "";

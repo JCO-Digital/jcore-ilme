@@ -1,6 +1,6 @@
 /*
-* Gutenberg block Details styling as accordion 
-* 
+* Gutenberg block Details styling as accordion
+*
 *
 */
 
@@ -23,7 +23,6 @@ details.wp-block-details.cad {
   }
 }
 
-
 /*
 *
 * General Details styles Background-color, color, border-radius and shadow can be set in theme.jason, but chose to put it all here instead.
@@ -33,17 +32,18 @@ details.wp-block-details.cad {
 details.wp-block-details {
   margin-bottom: 1rem;
   border-radius: 0;
-   summary {
+  summary {
     box-sizing: border-box;
     padding: 1rem 2rem 1rem 1rem;
     font-family: var(--jcore-heading-font-family);
     font-size: var(--wp--preset--font-size--heading-5);
     background-color: var(--wp--preset--color--light);
     font-weight: 400;
+    position: relative;
+
     + * {
       margin-top: 1rem;
     }
-    position: relative;
   }
   summary::marker {
     content: none;
@@ -51,7 +51,7 @@ details.wp-block-details {
 }
 
 /* Add a custom transition when opening/closing. -It only "takes" on the padding- */
-.wp-block-details{
+.wp-block-details {
   transition: all 0.5s ease-in-out;
 }
 
@@ -70,24 +70,24 @@ details.wp-block-details {
 .wp-block-details summary:hover,
 .wp-block-details summary:focus {
   background: var(--wp--preset--color--light);
-  }
+}
 
 .wp-block-details summary::after {
-    content: "\0023F7";
-    position: absolute;
-    font-family: var(--jcore-heading-font-family);
-    top: 50%;
-    right: 0;
-    width: 44px;
-    height: 44px;
-    background: var(--wp--preset--color--light);
-    border-radius: 999px;
-    text-align: center;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--wp--preset--font-size--heading-3);
+  content: "\0023F7";
+  position: absolute;
+  font-family: var(--jcore-heading-font-family);
+  top: 50%;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  background: var(--wp--preset--color--light);
+  border-radius: 999px;
+  text-align: center;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--wp--preset--font-size--heading-3);
 }
 
 .wp-block-details[open] summary::after {
