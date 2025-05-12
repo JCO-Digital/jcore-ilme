@@ -8,10 +8,18 @@
  * Viewport Width: 640
  */
 ?>
-<!-- wp:group {"metadata":{"name":"Copyright"},"className":"copyright","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"right":"0","left":"0"}}},"backgroundColor":"black","layout":{"type":"constrained"}} -->
-<div class="wp-block-group copyright has-black-background-color has-background" style="margin-top:0;margin-bottom:0;padding-right:0;padding-left:0"><!-- wp:jcore/copyright-date {"showStartingYear":true,"startingYear":"2000","companyName":"Netprofile, all rights reserved.","style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","fontSize":"mini"} /-->
+<!-- wp:jcore/grid {"autoSize":false,"metadata":{"name":"Footer logo grid "},"className":"logorow"} -->
+<section class="wp-block-jcore-grid jgrid columns-xs-1 columns-md-2 logorow"><!-- wp:jcore/column -->
+<div class="wp-block-jcore-column"><!-- wp:site-logo {"width":215,"shouldSyncIcon":false} /--></div>
+<!-- /wp:jcore/column -->
 
-<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white","fontSize":"mini"} -->
-<p class="has-white-color has-text-color has-link-color has-mini-font-size"><a href="https://kehitys.localhost/another-grid-test/" data-type="page" data-id="3783">Tietosuojaseloste</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
+<!-- wp:jcore/column -->
+<div class="wp-block-jcore-column"><!-- wp:social-links {"iconColor":"white","iconColorValue":"#ffffff","className":"is-style-logos-only"} -->
+<ul class="wp-block-social-links has-icon-color is-style-logos-only"><!-- wp:social-link {"url":"/linkedin","service":"linkedin"} /-->
+
+<!-- wp:social-link {"url":"/facebook","service":"facebook"} /-->
+
+<!-- wp:social-link {"url":"/insta","service":"instagram"} /--></ul>
+<!-- /wp:social-links --></div>
+<!-- /wp:jcore/column --></section>
+<!-- /wp:jcore/grid -->
