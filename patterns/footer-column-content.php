@@ -1,14 +1,11 @@
 <?php
 /**
- * Title: Footer column content
+ * Title: Footer column content (2)
  * Slug: jcore/footer-column-content
- * Description: Footer column content.
+ * Description: Footer column content (second).
  * Categories: footer
  * Keywords: footer, columns, footer columns, reusable footer columns, reusable pattern
  * Viewport Width: 640
- * Block Types: 
- * Post Types: wp_template_part
- * Inserter: true
  */
 ?>
 <!-- wp:jcore/grid {"autoSize":false,"minSize":"360px","breakpoints":{"xs":1,"md":2,"lg":4,"sm":1},"metadata":{"name":"Column content"},"align":"full","className":"column-content","backgroundColor":"black"} -->
