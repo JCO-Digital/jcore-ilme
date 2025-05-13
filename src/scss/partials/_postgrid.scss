@@ -1,3 +1,5 @@
+@use "media";
+
 .block-post_grid {
   .posts-highlight {
     display: grid;
@@ -6,24 +8,24 @@
   }
   &.columns-2 {
     .posts-highlight {
-      @media (width >= var(--breakpoint-sm)) {
+      @include media.breakpoint("sm") {
         grid-template-columns: 1fr 1fr;
       }
     }
   }
   &.columns-3 {
     .posts-highlight {
-      @media (width >= var(--breakpoint-md)) {
+      @include media.breakpoint("md") {
         grid-template-columns: 1fr 1fr 1fr;
       }
     }
   }
   &.columns-4 {
     .posts-highlight {
-      @media (width >= var(--breakpoint-sm)) {
+      @include media.breakpoint("sm") {
         grid-template-columns: 1fr 1fr;
       }
-      @media (width >= var(--breakpoint-lg)) {
+      @include media.breakpoint("lg") {
         grid-template-columns: 1fr 1fr 1fr 1fr;
       }
     }

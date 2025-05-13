@@ -1,13 +1,15 @@
+@use "media";
+
 /**
 * Gravity Forms minimalistics if using default base theme in GF settings.
-* The theme framework uses root settings, if nothing else defined. 
+* The theme framework uses root settings, if nothing else defined.
 * Add more gernral settings to root by inspecting the element styling you want to change.
 * The button styling is set from Ilme root button styles found in blocks/buttons.css
 */
 
 /**
 * Gravity Forms minimalistics if using default base theme in GF settings.
-* The theme framework uses root settings, if nothing else defined. 
+* The theme framework uses root settings, if nothing else defined.
 * Add more gernral settings to root by inspecting the element styling you want to change.
 * The button styling is set from Ilme root button styles found in blocks/buttons.css.
 * For style changes to take effect: MAKE BUILD!!!
@@ -18,7 +20,7 @@
     --gf-color-primary: var(--wp--preset--color--brand);
     --gf-color-primary-darker: var(--wp--preset--color--orange);
     --gf-ctrl-bg-color: var(--wp--preset--color--white);
-    --gf-color-out-ctrl-light-darker:var(--wp--preset--color--lightgrey);
+    --gf-color-out-ctrl-light-darker: var(--wp--preset--color--lightgrey);
     --gf-ctrl-border-color: var(--wp--preset--color--lightgrey);
     --gf-ctrl-border-color-hover: var(--wp--preset--color--lightgrey);
     --gf-ctrl-radius: 12px;
@@ -64,9 +66,9 @@ body {
       gap: 1.5rem;
     }
     .gform-footer {
-      @media (width >= var(--breakpoint-sm)) {
-      display: flex;
-      justify-content: flex-end;
+      @include media.breakpoint("sm") {
+        display: flex;
+        justify-content: flex-end;
       }
     }
   }
@@ -74,39 +76,40 @@ body {
   .gform-theme--framework.prodlist_wrapper .prod {
     max-width: 500px;
   }
-   .gform-theme--framework .gfield--type-product .ginput_quantity {
+  .gform-theme--framework .gfield--type-product .ginput_quantity {
     margin-block-end: var(--gf-field-prod-quant-margin-y-end);
     order: 3;
-    flex-basis:10%;
+    flex-basis: 10%;
   }
-  .gform-theme--framework .gfield--type-product .ginput_container_singleproduct {
+  .gform-theme--framework
+    .gfield--type-product
+    .ginput_container_singleproduct {
     display: flex;
     flex-direction: row;
     align-content: center;
-    
   }
   .gform-theme--framework .ginput_quantity_label.gform-field-label {
     order: 4;
-    flex-basis:10%;
+    flex-basis: 10%;
     font-size: 18px;
     margin-left: 1rem;
     align-self: center;
   }
   .gform-theme--framework .ginput_quantity {
-    
-    
   }
-  .gform-theme--framework .gform-field-label.gform-field-label--type-sub-large.ginput_product_price_label {
+  .gform-theme--framework
+    .gform-field-label.gform-field-label--type-sub-large.ginput_product_price_label {
     display: none;
   }
 
-  .gform-theme--framework .gform-field-label.gform-field-label--type-sub-large.ginput_product_price {
+  .gform-theme--framework
+    .gform-field-label.gform-field-label--type-sub-large.ginput_product_price {
     font-size: 20px;
     font-weight: 500;
     color: var(--wp--preset--color--brand);
   }
-    
-  .gform-theme--framework  .ginput_product_price_wrapper{
-      flex-basis:70%;
+
+  .gform-theme--framework .ginput_product_price_wrapper {
+    flex-basis: 70%;
   }
 }
