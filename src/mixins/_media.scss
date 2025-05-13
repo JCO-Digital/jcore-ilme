@@ -10,7 +10,7 @@ $breakpoints: (
 ) !default;
 
 @mixin breakpoint($breakpoint) {
-  @media (width >= map-get($breakpoints, $breakpoint)) {
+  @media (width >= map.get($breakpoints, $breakpoint)) {
     @content;
   }
 }
