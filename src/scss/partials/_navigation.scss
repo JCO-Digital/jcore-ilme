@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "media";
+
 #jcore-nav {
   --jcore-menu-height: 80px;
   --jcore-menu-width: 200px;
@@ -30,7 +33,7 @@
 
   /* Level specific styles */
   .menu-0 {
-     flex-direction: row;
+    flex-direction: row;
     height: var(--jcore-menu-height);
   }
 
@@ -70,7 +73,7 @@
 }
 
 /* Desktop navigation styles. */
-@media (width >= var(--breakpoint-lg)) {
+@include media.breakpoint("lg") {
   #jcore-nav {
     .hamburger {
       display: none;
@@ -100,7 +103,7 @@
 }
 
 /* Mobile navigation styles. */
-@media (width < var(--breakpoint-lg)) {
+@media (width < map.get(media.$breakpoints,"lg")) {
   #jcore-nav {
     .menu-0 {
       position: absolute;

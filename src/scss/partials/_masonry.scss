@@ -1,3 +1,5 @@
+@use "media";
+
 .masonry-grid {
   display: grid;
   grid-row-gap: 2rem !important;
@@ -9,7 +11,7 @@
     grid-row-end: span 20; /* Somewhat sane default. */
   }
 
-  @media (width >= var(--breakpoint-md)) {
+  @include media.breakpoint("md") {
     grid-row-gap: 3rem !important;
     &.columns-2,
     &.columns-3,
@@ -25,7 +27,7 @@
     }
   }
 
-  @media (width >= var(--breakpoint-lg)) {
+  @include media.breakpoint("lg") {
     &.columns-3 {
       grid-template-columns: 1fr 1fr 1fr;
     }

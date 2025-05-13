@@ -1,3 +1,5 @@
+@use "media";
+
 .archive-posts,
 .wp-block-jcore-dynamic-archive-posts__inner {
   display: grid;
@@ -8,27 +10,27 @@
 
 .archive-posts.columns-2,
 .wp-block-jcore-dynamic-archive-posts__inner.columns-2 {
-  @media (width >= var(--breakpoint-sm)) {
+  @include media.breakpoint("sm") {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 .archive-posts.columns-3,
 .wp-block-jcore-dynamic-archive-posts__inner.columns-3 {
-  @media (width >= var(--breakpoint-md)) {
+  @include media.breakpoint("md") {
     grid-template-columns: 1fr 1fr;
   }
-  @media (width >= var(--breakpoint-lg)) {
+  @include media.breakpoint("lg") {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 .archive-posts.columns-4,
 .wp-block-jcore-dynamic-archive-posts__inner.columns-4 {
-  @media (width >= var(--breakpoint-sm)) {
+  @include media.breakpoint("sm") {
     grid-template-columns: 1fr 1fr;
   }
-  @media (width >= var(--breakpoint-lg)) {
+  @include media.breakpoint("lg") {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
@@ -73,7 +75,6 @@
     }
   }
 }
-
 
 /* JCORE Dynamic Archive Pagination */
 .wp-block-jcore-dynamic-archive-posts__pagination nav {

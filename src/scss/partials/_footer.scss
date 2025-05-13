@@ -1,3 +1,5 @@
+@use "media";
+
 footer {
   background-color: var(--wp--preset--color--light);
   padding-top: 3rem;
@@ -5,7 +7,7 @@ footer {
 
   .footer-main {
     padding-bottom: 4rem;
-    @media (width >= var(--breakpoint-md)) {
+    @include media.breakpoint("md") {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: auto;
@@ -15,7 +17,7 @@ footer {
         grid-column-start: span 3;
       }
     }
-    @media (width >= var(--breakpoint-lg)) {
+    @include media.breakpoint("lg") {
       grid-template-columns: 1fr 1fr 1fr 1fr;
       .logo {
         grid-column-start: span 1;
