@@ -15,6 +15,7 @@ require_once __DIR__ . '/includes/timber.php';
 require_once __DIR__ . '/includes/wplogin.php';
 require_once __DIR__ . '/includes/admin.php';
 require_once __DIR__ . '/includes/theme-support.php';
+require_once __DIR__ . '/includes/acf.php';
 // require_once __DIR__ . '/includes/archive.php';
 // require_once __DIR__ . '/includes/polylang.php';
 // require_once __DIR__ . '/includes/wp-comments.php';
