@@ -4,9 +4,9 @@
   "scripts": {
     "esbuild": "esbuild --bundle src/js/*.?s --outdir=dist/js --minify --sourcemap",
     "sass": "sass --load-path=src/mixins src/scss:dist/css",
-    "watch-esbuild": "pnpm run esbuild --watch",
-    "watch-sass": "pnpm run sass --watch",
-    "watch": "concurrently --kill-others -c blue,yellow,green --names '󱁤esbuild,󱎵sass' 'pnpm run watch-esbuild' 'pnpm run watch-sass'",
+    "watch:esbuild": "pnpm run esbuild --watch",
+    "watch:sass": "pnpm run sass --watch",
+    "watch": "concurrently --kill-others -c blue,yellow --names '󱁤 esbuild,󱎵 sass' 'pnpm run watch:esbuild' 'pnpm run watch:sass'",
     "build": "pnpm run esbuild && pnpm run sass",
     "prettier": "prettier --write src"
   },
