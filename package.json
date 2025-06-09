@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "scripts": {
     "esbuild": "esbuild --bundle src/js/*.?s --outdir=dist/js --minify --sourcemap",
-    "sass": "sass --load-path=src/mixins src/scss:dist/css",
+    "sass": "sass --load-path=node_modules/@jcodigital/jcore-media/src src/scss:dist/css",
     "watch:esbuild": "pnpm run esbuild --watch",
     "watch:sass": "pnpm run sass --watch",
     "watch": "concurrently --kill-others -c blue,yellow --names '󱌣 esbuild,️󰏘 sass' 'pnpm run watch:esbuild' 'pnpm run watch:sass'",
@@ -11,11 +11,11 @@
     "prettier": "prettier --write src"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "esbuild": "^0.19.12",
-    "sass": "^1.88.0",
-    "prettier": "^3.3.3",
-    "typescript": "^5.6.2"
+    "concurrently": "^9.1.2",
+    "esbuild": "^0.25.5",
+    "prettier": "^3.5.3",
+    "sass": "^1.89.1",
+    "typescript": "^5.8.3"
   },
   "browserslist": [
     "> 1%",
@@ -23,9 +23,10 @@
     "not dead"
   ],
   "dependencies": {
-    "@jcodigital/jutils": "0.5.0",
-    "@alpinejs/collapse": "^3.14.1",
-    "alpinejs": "^3.14.1"
+    "@alpinejs/collapse": "^3.14.9",
+    "@jcodigital/jcore-media": "^1.0.0",
+    "@jcodigital/jcore-utils": "1.0.0-dev.1",
+    "alpinejs": "^3.14.9"
   },
   "packageManager": "pnpm@9.1.1+sha512.14e915759c11f77eac07faba4d019c193ec8637229e62ec99eefb7cf3c3b75c64447882b7c485142451ee3a6b408059cdfb7b7fa0341b975f12d0f7629c71195"
 }

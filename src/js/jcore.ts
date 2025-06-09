@@ -1,5 +1,4 @@
-//import "../../../../../../../tools/jcore-utils/src/jUtils";
-import "@jcodigital/jutils";
+import "@jcodigital/jcore-utils";
 
 /*
  * Mobile vh fix.
