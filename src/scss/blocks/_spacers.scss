@@ -1,0 +1,18 @@
+@use "media";
+
+/* Spacer Block XL set to 16px or max mobile height in Gutenberg editor, has css style xl */
+.wp-block-spacer.xl {
+  padding-top: var(--wp--custom--spacing-sizes--xlarge);
+}
+/* Spacer Block LG -set to 16px or max mobile height in Gutenberg editor, has css style lg */
+.wp-block-spacer.lg {
+  padding-top: var(--wp--custom--spacing-sizes--large);
+}
+/* Spacer Block MD -set to 16px or max mobile height in Gutenberg editor, has css style md */
+.wp-block-spacer.md {
+  padding-top: var(--wp--custom--spacing-sizes--medium);
+}
+/* Spacer Block SM -set to 16px or max mobile height in Gutenberg editor, has css style sm */
+.wp-block-spacer.sm {
+  padding-top: var(--wp--custom--spacing-sizes--small);
+}
