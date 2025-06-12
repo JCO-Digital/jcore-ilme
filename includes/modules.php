@@ -17,6 +17,7 @@ add_filter(
 	'jcore_theme_load_modules',
 	function ( $modules ) {
 		$modules[] = Security\Bootstrap::class;
+		$modules[] = Oikeus\Bootstrap::class;
 		return $modules;
 	}
 );
