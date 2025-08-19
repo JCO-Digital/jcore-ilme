@@ -3,8 +3,7 @@
 .archive-posts,
 .wp-block-jcore-dynamic-archive-posts__inner {
   display: grid;
-  grid-row-gap: 0;
-  grid-column-gap: 2rem;
+  gap: 2rem;
   grid-template-columns: 1fr;
 }
 
