@@ -1,7 +1,7 @@
 {% if customizer('article_highlight', 'image') %}
   {% block image %}
     <div
-      class="image-container {% if customizer('article_highlight','postcard') %} postcard {% endif %}{{
+      class="image-container {{
       post.thumbnail
         ? 'has-image'
         : 'placeholder'

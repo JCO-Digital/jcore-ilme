@@ -1,1 +1,7 @@
-
+/* Remove php-error shift, since it's almost always on. */
+.php-error {
+	#adminmenuback,
+	#adminmenuwrap {
+		margin-top: 0;
+	}
+}
