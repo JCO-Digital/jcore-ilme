@@ -20,7 +20,6 @@ require_once __DIR__ . '/includes/acf.php';
 // require_once __DIR__ . '/includes/polylang.php';
 // require_once __DIR__ . '/includes/wp-comments.php';
 
-
 add_filter(
 	'jcore_menus',
 	function ( $menus ) {

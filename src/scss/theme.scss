@@ -1,7 +1,7 @@
 @use "partials/base";
+@use "partials/layout";
 @use "partials/typography";
 @use "partials/gutenberg";
-@use "partials/footer";
 @use "partials/navigation";
 @use "partials/archive";
 @use "partials/latest-posts";
@@ -20,6 +20,7 @@
 @use "blocks/details";
 @use "blocks/embeds";
 @use "blocks/file";
+@use "blocks/footer";
 @use "blocks/images-and-gallery";
 @use "blocks/media-and-text";
 @use "blocks/pullquote";
