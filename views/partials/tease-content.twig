@@ -1,5 +1,5 @@
-{% if customizer('article_highlight', 'image') %}
-  {% block image %}
+<a href="{{ post.link }}"></a>
+{% block image %}
     <div
       class="image-container {{
       post.thumbnail
@@ -11,39 +11,28 @@
         image: post.thumbnail
       } %}
     </div>
-  {% endblock %}
-{% endif %}
+{% endblock %}
 <div class="data">
   {% block data %}
-    {% if customizer('article_highlight', 'date') %}
       <div class="post-date">
         {{ post.date }}
       </div>
-    {% endif %}
-    {% if customizer('article_highlight', 'author') %}
       <div class="post-author">
         {{ post.author }}
       </div>
-    {% endif %}
-    {% if customizer('article_highlight', 'cat') %}
       <div class="post-term">
         {{ post.category }}
       </div>
-    {% endif %}
   {% endblock %}
 </div>
 <div class="tease-content">
   {% block content %}
     <h3 class="post-title">{{ post.title }}</h3>
-    {% if customizer('article_highlight', 'preview') %}
-      <p class="preview">
-        {{ post|preview(customizer('article_highlight', 'excerpt_length')) }}
-      </p>
-    {% endif %}
-    {% if customizer('article_highlight', 'readmore') %}
-      <a href="{{ post.link }}" class="tease-link">
-        {{ __('Read more', 'jcore') }}
-      </a>
-    {% endif %}
+    <p class="preview">
+      {{ post|preview() }}
+    </p>
+    <a href="{{ post.link }}" class="tease-link">
+      {{ __('Read more', 'jcore') }}
+    </a>
   {% endblock %}
 </div>
