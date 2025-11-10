@@ -233,3 +233,21 @@ function enqueue_block_restrictions() {
 		false
 	);
 }
+
+/**
+ * Change the core block Spacers default height to 1rem.
+ */
+
+function ilme_change_spacer_default( $args, $name ) {
+    // Target only the core/spacer block
+    if ( 'core/spacer' === $name ) {
+        // Check if the height attribute is set (it should be)
+        if ( isset( $args['attributes']['height']['default'] ) ) {
+            // Change the default value
+            $args['attributes']['height']['default'] = '1rem';
+        }
+    }
+    return $args;
+}
+
+add_filter( 'register_block_type_args', 'Jcore\Ilme\ilme_change_spacer_default', 10, 2 );
