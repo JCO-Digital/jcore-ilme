@@ -17,15 +17,16 @@ require_once __DIR__ . '/includes/admin.php';
 require_once __DIR__ . '/includes/theme-support.php';
 require_once __DIR__ . '/includes/acf.php';
 require_once __DIR__ . '/includes/gutenberg.php';
-// require_once __DIR__ . '/includes/archive.php';
-// require_once __DIR__ . '/includes/polylang.php';
-// require_once __DIR__ . '/includes/wp-comments.php';
 
 add_filter(
 	'jcore_menus',
 	function ( $menus ) {
-		$menus['primary'] = __( 'Primary Menu', 'jcore' );
-		$menus['top']     = __( 'Top Menu', 'jcore' );
+		$menus['primary']       = __( 'Primary Menu', 'jcore' );
+		$menus['top']           = __( 'Top Menu', 'jcore' );
+		$menus['footer_left']   = __( 'Footer Left', 'jcore' );
+		$menus['footer_middle'] = __( 'Footer Middle', 'jcore' );
+		$menus['footer_right']  = __( 'Footer Right', 'jcore' );
+		$menus['footer_bottom'] = __( 'Footer Bottom', 'jcore' );
 
 		return $menus;
 	}
