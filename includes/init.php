@@ -7,15 +7,9 @@
 
 namespace Jcore\Ilme;
 
-use Twig\Error\LoaderError;
-
 const AUTOLOADER_PATH = ABSPATH . 'vendor/autoload.php';
 if ( file_exists( AUTOLOADER_PATH ) ) {
 	require_once AUTOLOADER_PATH;
-}
-
-if ( function_exists( '\Sentry\init' ) && defined( 'SENTRY_DSN' ) && wp_get_environment_type() !== 'local' ) {
-	\Sentry\init( array( 'dsn' => SENTRY_DSN ) );
 }
 
 require_once get_template_directory() . '/classes/Settings.php';
@@ -59,7 +53,6 @@ add_action(
 		}
 	}
 );
-
 
 /**
  * Run on init hook.
