@@ -4,6 +4,10 @@ namespace Jcore\Ilme;
 
 use Timber\Timber;
 
+// Enable query aware filters and hide_empty for shared terms:
+add_filter( 'jcore_dynamic_archive_use_post_type_term_usage', '__return_true' );
+add_filter( 'jcore_dynamic_archive_taxonomies_filter_query_aware', '__return_true' );
+
 /**
  * Checks if post type has dynamic archive, and returns settings if it has.
  *
