@@ -1,9 +1,14 @@
 <?php
 
+defined( 'ABSPATH' ) || exit;
+
 namespace Jcore\Ilme;
 
 // Add mime types.
 add_filter( 'upload_mimes', 'Jcore\Ilme\cc_mime_types' );
+
+// Set JPEG quality.
+add_filter( 'jpeg_quality', 'Jcore\Ilme\jpeg_quality', 10, 2 );
 
 /**
  * Add SVG to allowed MIME types.

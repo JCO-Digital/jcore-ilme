@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) || exit;
+
 namespace Jcore\Ilme;
 
 use Timber\Timber;
@@ -12,24 +14,25 @@ use Timber\Timber;
  * @return array
  */
 function archive_settings( string $post_type ): array {
-	$fields       = array();
-		$fields[] = 'date';
-		$fields[] = 'author';
-		$fields[] = 'category';
+	$fields   = array();
+	$fields[] = 'date';
+	$fields[] = 'author';
+	$fields[] = 'category';
 
-		$args = array(
-			'dynamic'     => true,
-			'show_search' => false,
-			'show_sort'   => false,
-			'sort_by'     => 'date',
-			'fields'      => $fields,
-			'radio'       => true,
-			'masonry'     => false,
-			'columns'     => 3,
-			'read_more'   => __( 'Read more', 'jcore' ),
-			'per_page'    => get_option( 'posts_per_page', 8 ),
-			'has_link'    => true,
-		);
+	$args = array(
+		'dynamic'     => true,
+		'filtering'   => false,
+		'show_search' => false,
+		'show_sort'   => false,
+		'sort_by'     => 'date',
+		'fields'      => $fields,
+		'radio'       => true,
+		'masonry'     => false,
+		'columns'     => 3,
+		'read_more'   => __( 'Read more', 'jcore' ),
+		'per_page'    => get_option( 'posts_per_page', 8 ),
+		'has_link'    => true,
+	);
 
 		$settings = apply_filters( 'jcore_archive_settings_' . $post_type, array() );
 		if ( ! empty( $settings ) ) {
@@ -101,20 +104,20 @@ function get_items( $request ): \WP_REST_Response {
 	$response = new \WP_REST_Response();
 	$type     = $request->get_param( 'type' );
 
-	$settings = archive_settings( $type );
-	if ( false === $settings ) {
+	if ( ! post_type_exists( $type ) ) {
 		$response->set_status( 404 );
 
 		return $response;
 	}
+	$settings = archive_settings( $type );
 
-	$page     = $request->get_param( 'page' );
-	$lang     = strtolower( $request->get_param( 'lang' ) );
-	$search   = strtolower( $request->get_param( 'search' ) );
+	$page     = (int) $request->get_param( 'page' );
+	$lang     = strtolower( (string) $request->get_param( 'lang' ) );
+	$search   = strtolower( (string) $request->get_param( 'search' ) );
 	$year     = $request->get_param( 'year' );
 	$month    = $request->get_param( 'month' );
-	$order    = strtoupper( $request->get_param( 'order' ) );
-	$per_page = $request->get_param( 'posts' ) * 2;
+	$order    = strtoupper( (string) $request->get_param( 'order' ) );
+	$per_page = (int) ( $request->get_param( 'posts' ) ?: $settings['per_page'] );
 	$sort     = $request->get_param( 'sort' );
 
 	$args = array(
@@ -333,7 +336,7 @@ function get_archive_terms( string $taxonomy ) {
 function get_months( $request ): \WP_REST_Response {
 	global $wpdb;
 	$response = new \WP_REST_Response();
-	$lang     = strtolower( $request->get_param( 'lang' ) );
+	$lang     = strtolower( (string) $request->get_param( 'lang' ) );
 
 	$args = array(
 		'post_type' => $request->get_param( 'type' ),

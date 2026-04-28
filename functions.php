@@ -5,6 +5,8 @@
  * @package jcore
  */
 
+defined( 'ABSPATH' ) || exit;
+
 namespace Jcore\Ilme;
 
 require_once __DIR__ . '/includes/init.php';

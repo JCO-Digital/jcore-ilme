@@ -5,6 +5,8 @@
  * @package Jcore\Ilme
  */
 
+defined( 'ABSPATH' ) || exit;
+
 namespace Jcore\Ilme;
 
 const AUTOLOADER_PATH = ABSPATH . 'vendor/autoload.php';
@@ -17,6 +19,8 @@ require_once get_template_directory() . '/classes/Settings.php';
 add_action(
 	'after_setup_theme',
 	function () {
+		// Load Text Domain.
+		load_jcore_textdomain();
 	}
 );
 
@@ -62,9 +66,6 @@ add_action(
 add_action(
 	'init',
 	function () {
-		// Load Text Domain.
-		load_jcore_textdomain();
-
 		// Init Settings class.
 		Settings::init();
 

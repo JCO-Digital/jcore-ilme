@@ -5,7 +5,9 @@
  * @package Jcore\Ilme\Blocks
  */
 
- namespace Jcore\Ilme\Blocks;
+defined( 'ABSPATH' ) || exit;
+
+namespace Jcore\Ilme\Blocks;
 
  use Jcore\Ydin\Blocks\Block;
 
@@ -95,7 +97,7 @@ class PostGrid extends Block {
 				'conditional_logic' => array(
 					array(
 						array(
-							'field'    => 'field_5e15c26031877c_custom_columns',
+							'field'    => 'field_5e15c2603187a_custom_columns',
 							'operator' => '==',
 							'value'    => '1',
 						),
@@ -141,9 +143,7 @@ class PostGrid extends Block {
 			'post_status' => 'publish',
 		);
 
-        $wp_query = new \WP_Query( $args );
-
-        $context['query'] = new \Timber\PostQuery( $wp_query );
+		$context['query'] = \Timber\Timber::get_posts( $args );
 
 		return $context;
 	}

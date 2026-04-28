@@ -9,6 +9,8 @@
  * @package Jcore\Ilme
  */
 
+defined( 'ABSPATH' ) || exit;
+
 namespace Jcore\Ilme;
 
 use Jcore\Ydin\WordPress\Assets;

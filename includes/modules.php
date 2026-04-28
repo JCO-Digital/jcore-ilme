@@ -1,4 +1,7 @@
 <?php // phpcs:ignore Squiz.Commenting.FileComment.Missing
+
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Modules
  *
@@ -10,6 +13,7 @@
 namespace Jcore\Ilme;
 
 use Jcore\Ydin;
+use Timber\Timber;
 
 add_filter(
 	'jcore_theme_load_modules',
@@ -28,7 +32,10 @@ add_filter(
  */
 function load_modules(): void {
 	// First we initialize Ydin.
-	Ydin\Bootstrap::init();
+	Timber::init();
+	Ydin\Timber\ContextProvider::init();
+	Ydin\Environment\Environment::init();
+
 	$modules = apply_filters( 'jcore_theme_load_modules', array() );
 	foreach ( $modules as $module ) {
 		if ( class_exists( $module ) ) {

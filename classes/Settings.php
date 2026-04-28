@@ -5,6 +5,8 @@
  * @package jcore
  */
 
+defined( 'ABSPATH' ) || exit;
+
 namespace Jcore\Ilme;
 
 use Jcore\Ydin\Settings\Option;

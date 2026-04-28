@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) || exit;
+
 /**
  * JCore Theme  Functions
  *
@@ -176,13 +178,17 @@ function block_editor_scripts() {
  */
 function add_custom_css_classes( $button, $form ) {
 	$dom = new \DOMDocument();
-	$dom->loadHTML( '<?xml encoding="utf-8" ?>' . $button );
-	$input   = $dom->getElementsByTagName( 'input' )->item( 0 );
-	$classes = $input->getAttribute( 'class' );
-	$classes = 'btn';
-	$input->setAttribute( 'class', $classes );
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( '<?xml encoding="utf-8" ?>' . $button, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+	libxml_clear_errors();
+	$input = $dom->getElementsByTagName( 'input' )->item( 0 );
+	if ( $input instanceof \DOMElement ) {
+		$input->setAttribute( 'class', 'btn' );
 
-	return $dom->saveHtml( $input );
+		return $dom->saveHTML( $input );
+	}
+
+	return $button;
 }
 
 add_filter( 'gform_submit_button', 'Jcore\Ilme\add_custom_css_classes', 10, 2 );
