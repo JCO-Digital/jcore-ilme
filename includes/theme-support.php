@@ -1,14 +1,14 @@
 <?php
 
+namespace Jcore\Ilme;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
- * JCore Theme  Functions
+ * JCORE Theme  Functions
  *
  * @package Jcore\Ilme
  */
-
-namespace Jcore\Ilme;
 
 use Jcore\Ydin\Blocks\Blocks;
 use Jcore\Ydin\WordPress\Assets;

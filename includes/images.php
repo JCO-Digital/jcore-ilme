@@ -1,8 +1,8 @@
 <?php
 
-defined( 'ABSPATH' ) || exit;
-
 namespace Jcore\Ilme;
+
+defined( 'ABSPATH' ) || exit;
 
 // Add mime types.
 add_filter( 'upload_mimes', 'Jcore\Ilme\cc_mime_types' );

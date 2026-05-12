@@ -1,8 +1,8 @@
 <?php
 
-defined( 'ABSPATH' ) || exit;
-
 namespace Jcore\Ilme;
+
+defined( 'ABSPATH' ) || exit;
 
 use Timber\Timber;
 

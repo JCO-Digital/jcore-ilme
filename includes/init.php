@@ -5,9 +5,9 @@
  * @package Jcore\Ilme
  */
 
-defined( 'ABSPATH' ) || exit;
-
 namespace Jcore\Ilme;
+
+defined( 'ABSPATH' ) || exit;
 
 const AUTOLOADER_PATH = ABSPATH . 'vendor/autoload.php';
 if ( file_exists( AUTOLOADER_PATH ) ) {

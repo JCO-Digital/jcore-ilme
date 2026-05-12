@@ -1,4 +1,7 @@
 <?php
+
+namespace Jcore\Ilme;
+
 /**
  * JCore WP Login Functions
  *
@@ -6,8 +9,6 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-
-namespace Jcore\Ilme;
 
 use Jcore\Ydin\WordPress\Assets;
 

@@ -5,9 +5,9 @@
  * @package Jcore\Blocks\Blocks
  */
 
-defined( 'ABSPATH' ) || exit;
-
 namespace Jcore\Ilme\Blocks;
+
+defined( 'ABSPATH' ) || exit;
 
 use Jcore\Ydin\Blocks\Block;
 

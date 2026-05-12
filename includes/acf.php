@@ -1,5 +1,7 @@
 <?php
 
+namespace Jcore\Ilme;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -7,8 +9,6 @@ defined( 'ABSPATH' ) || exit;
  *
  * @package Jcore\Ilme
  */
-
-namespace Jcore\Ilme;
 
 /**
  * Handles setting the location for ACF field groups

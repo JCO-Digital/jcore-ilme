@@ -1,5 +1,7 @@
 <?php // phpcs:ignore Squiz.Commenting.FileComment.Missing
 
+namespace Jcore\Ilme;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -9,8 +11,6 @@ defined( 'ABSPATH' ) || exit;
  *
  * @package Jcore\Ilme
  */
-
-namespace Jcore\Ilme;
 
 use Jcore\Ydin;
 use Timber\Timber;
