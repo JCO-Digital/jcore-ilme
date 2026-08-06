@@ -177,18 +177,11 @@ function block_editor_scripts() {
  * Replace Gravity Forms submit button classes with btn class
  */
 function add_custom_css_classes( $button, $form ) {
-	$dom = new \DOMDocument();
-	libxml_use_internal_errors( true );
-	$dom->loadHTML( '<?xml encoding="utf-8" ?>' . $button, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
-	libxml_clear_errors();
-	$input = $dom->getElementsByTagName( 'input' )->item( 0 );
-	if ( $input instanceof \DOMElement ) {
-		$input->setAttribute( 'class', 'btn' );
+	$fragment = \WP_HTML_Processor::create_fragment( $button );
+	$fragment->next_token();
+	$fragment->add_class( 'btn' );
 
-		return $dom->saveHTML( $input );
-	}
-
-	return $button;
+	return $fragment->get_updated_html();
 }
 
 add_filter( 'gform_submit_button', 'Jcore\Ilme\add_custom_css_classes', 10, 2 );
@@ -243,17 +236,16 @@ function enqueue_block_restrictions() {
 /**
  * Change the core block Spacers default height to 1rem.
  */
-
 function ilme_change_spacer_default( $args, $name ) {
-    // Target only the core/spacer block
-    if ( 'core/spacer' === $name ) {
-        // Check if the height attribute is set (it should be)
-        if ( isset( $args['attributes']['height']['default'] ) ) {
-            // Change the default value
-            $args['attributes']['height']['default'] = '1rem';
-        }
-    }
-    return $args;
+	// Target only the core/spacer block
+	if ( 'core/spacer' === $name ) {
+		// Check if the height attribute is set (it should be)
+		if ( isset( $args['attributes']['height']['default'] ) ) {
+			// Change the default value
+			$args['attributes']['height']['default'] = '1rem';
+		}
+	}
+	return $args;
 }
 
 add_filter( 'register_block_type_args', 'Jcore\Ilme\ilme_change_spacer_default', 10, 2 );
