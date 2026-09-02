@@ -176,7 +176,7 @@ function block_editor_scripts() {
 /**
  * Replace Gravity Forms submit button classes with btn class
  */
-function add_custom_css_classes( $button, $form ) {
+function add_custom_class_to_gf_buttons( $button, $form ) {
 	$fragment = \WP_HTML_Processor::create_fragment( $button );
 	$fragment->next_token();
 	$fragment->add_class( 'btn' );
@@ -184,7 +184,7 @@ function add_custom_css_classes( $button, $form ) {
 	return $fragment->get_updated_html();
 }
 
-add_filter( 'gform_submit_button', 'Jcore\Ilme\add_custom_css_classes', 10, 2 );
+add_filter( 'gform_submit_button', 'Jcore\Ilme\add_custom_class_to_gf_buttons', 10, 2 );
 
 add_filter( 'jcore_blocks_get_blocks', 'Jcore\Ilme\register_block_folder', 10, 1 );
 /**
