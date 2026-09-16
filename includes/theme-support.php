@@ -180,14 +180,15 @@ function block_editor_scripts() {
  *
  * @return string The updated HTML markup for the button.
  */
-function add_custom_gf_css_classes( $button ) {
+function add_custom_class_to_gf_buttons( $button, $form ) {
 	$fragment = \WP_HTML_Processor::create_fragment( $button );
 	$fragment->next_token();
 	$fragment->add_class( 'btn' );
 
 	return $fragment->get_updated_html();
 }
-add_filter( 'gform_submit_button', 'Jcore\Ilme\add_custom_css_gf_classes', 10, 1 );
+
+add_filter( 'gform_submit_button', 'Jcore\Ilme\add_custom_class_to_gf_buttons', 10, 2 );
 
 add_filter( 'jcore_blocks_get_blocks', 'Jcore\Ilme\register_block_folder', 10, 1 );
 /**
