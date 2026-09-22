@@ -1,6 +1,6 @@
 {
   "name": "jcore-ilme",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "scripts": {
     "esbuild": "esbuild --bundle src/js/*.?s --outdir=dist/js --minify --sourcemap",
     "sass": "sass --load-path=node_modules/@jcodigital/jcore-media/src src/scss:dist/css",

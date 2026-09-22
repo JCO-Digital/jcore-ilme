@@ -134,14 +134,16 @@
         {
           "fontFace": [
             {
-              "fontFamily": "Proxima Nova",
+              "fontFamily": "Montserrat",
               "fontStretch": "normal",
               "fontStyle": "normal",
               "fontWeight": "300 400 700",
-              "src": ["file:./assets/fonts/Montserrat-VariableFont_wght.ttf"]
+              "src": [
+                "file:./assets/fonts/Montserrat-VariableFont_wght.ttf"
+              ]
             },
             {
-              "fontFamily": "Proxima Nova",
+              "fontFamily": "Montserrat",
               "fontStretch": "normal",
               "fontStyle": "italic",
               "fontWeight": "300 400 700",
@@ -150,9 +152,9 @@
               ]
             }
           ],
-          "fontFamily": "\"Proxima Nova\", sans-serif",
-          "name": "Proxima Nova",
-          "slug": "proxima-nova"
+          "fontFamily": "\"Montserrat\", sans-serif",
+          "name": "Montserrat",
+          "slug": "montserrat"
         },
         {
           "fontFace": [
@@ -161,7 +163,9 @@
               "fontStretch": "normal",
               "fontStyle": "normal",
               "fontWeight": "300 900",
-              "src": ["file:./assets/fonts/Inter.woff2"]
+              "src": [
+                "file:./assets/fonts/Inter.woff2"
+              ]
             }
           ],
           "fontFamily": "\"Inter\", sans-serif",
@@ -269,7 +273,7 @@
       }
     },
     "typography": {
-      "fontFamily": "Proxima Nova",
+      "fontFamily": "var:preset|font-family|montserrat",
       "fontSize": "var:preset|font-size|paragraph",
       "lineHeight": "var:custom|line-height|md"
     },
@@ -280,7 +284,7 @@
     "elements": {
       "heading": {
         "typography": {
-          "fontFamily": "Proxima Nova"
+          "fontFamily": "var:preset|font-family|montserrat"
         }
       },
       "h1": {
@@ -470,7 +474,7 @@
         },
         "typography": {
           "fontSize": "var:preset|font-size|paragraph",
-          "fontFamily": "Proxima Nova",
+          "fontFamily": "var:preset|font-family|montserrat",
           "fontWeight": "400"
         },
         "spacing": {
@@ -502,7 +506,7 @@
             },
             "typography": {
               "fontSize": "var:preset|font-size|paragraph",
-              "fontFamily": "Proxima Nova",
+              "fontFamily": "var:preset|font-family|montserrat",
               "textTransform": "none",
               "fontWeight": "400"
             },
@@ -529,7 +533,36 @@
       }
     }
   },
-  "customTemplates": [],
-  "templateParts": [],
+  "customTemplates": [
+    {
+      "name": "page-headless",
+      "title": "Page (no header or footer)",
+      "postTypes": [
+        "page"
+      ]
+    }
+  ],
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "Header",
+      "area": "header"
+    },
+    {
+      "name": "navigation",
+      "title": "Navigation",
+      "area": "header"
+    },
+    {
+      "name": "cover",
+      "title": "Cover",
+      "area": "uncategorized"
+    },
+    {
+      "name": "footer",
+      "title": "Footer",
+      "area": "footer"
+    }
+  ],
   "patterns": []
 }

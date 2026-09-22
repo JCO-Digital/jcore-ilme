@@ -3,14 +3,12 @@
 @use "partials/typography";
 @use "partials/gutenberg";
 @use "partials/navigation";
+@use "partials/footer";
 @use "partials/archive";
-@use "partials/latest-posts";
 @use "partials/single";
 @use "partials/tease";
-@use "partials/postgrid";
 @use "partials/masonry";
 @use "partials/error404";
-@use "partials/socialshare";
 @use "partials/accordion";
 @use "partials/forms";
 @use "partials/searchpage";
