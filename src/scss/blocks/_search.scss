@@ -1,48 +1,65 @@
-
 /**
-*
-*Search in nav that opens search-field 
-*AND 
-*styles the Gutenberg search-block like Ilme search field. 
-*
-*/
-.toggle-search .fa-search {
-    color: var(--wp--preset--color--white);
-    }
-    .searchbar-container {
-      display: none;
-    }
-    .searchbar-container.toggle {
-      display: block;
-      background-color: var(--wp--preset--color--dark);
-    } 
-    .searchform, .wp-block-search {
-      margin-bottom: 6px;
-      margin-top: 6px;
-      input {
-        appearance: none;
-        border: 1px solid var(--jcore-button-bg-color);
-        flex-grow: 1;
-        margin-left: 0;
-        margin-right: 0;
-        min-width: 3rem;
-        padding: .45rem 1rem;
-        text-decoration: unset !important;
-        font-size: var(--jcore-button-font-size);
-        margin-bottom: 8px;
-        margin-right: 6px;
-      }
-    
-      .wp-block-search__button, .btn[type="submit"] {
-        padding: calc(0.45rem + 1px) calc(1rem + 1px);
-        font-size: var(--jcore-button-font-size);
-        margin-left: 0;
-        margin-bottom: 8px;
-        background-color: var(--jcore-button-bg-color);
-        color: var(--jcore-button-text-color);
-      }
-      .wp-block-search__inside-wrapper {
-        margin-top: 6px;
-        display: flex;
-      }
-    }
+ * Search form and search block theme styling.
+ */
+.toggle-search {
+	svg,
+	.fa-search {
+		color: var(--wp--preset--color--white);
+	}
+}
+
+.searchbar-container.toggle {
+	background-color: var(--wp--preset--color--dark);
+}
+
+.search-form,
+.searchform,
+.wp-block-search {
+	display: flex;
+	align-items: center;
+	margin-bottom: 6px;
+	margin-top: 6px;
+	width: 100%;
+
+	label {
+		margin: 0;
+		flex-grow: 1;
+		display: flex;
+	}
+
+	input[type="search"],
+	input[type="text"],
+	.search-field {
+		appearance: none;
+		border: 1px solid var(--jcore-button-bg-color, var(--wp--preset--color--brand));
+		flex-grow: 1;
+		margin-left: 0;
+		margin-right: 6px;
+		min-width: 3rem;
+		padding: 0.45rem 1rem;
+		text-decoration: unset !important;
+		font-size: var(--jcore-button-font-size, 1rem);
+		background-color: var(--wp--preset--color--white);
+		color: var(--wp--preset--color--black);
+	}
+
+	.wp-block-search__button,
+	.search-submit,
+	.btn[type="submit"],
+	button[type="submit"],
+	input[type="submit"] {
+		padding: calc(0.45rem + 1px) calc(1rem + 1px);
+		font-size: var(--jcore-button-font-size, 1rem);
+		margin-left: 0;
+		background-color: var(--jcore-button-bg-color, var(--wp--preset--color--brand));
+		color: var(--jcore-button-text-color, var(--wp--preset--color--black));
+		border: 1px solid transparent;
+		cursor: pointer;
+	}
+
+	.wp-block-search__inside-wrapper {
+		margin-top: 6px;
+		display: flex;
+		width: 100%;
+	}
+}

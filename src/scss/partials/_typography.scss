@@ -1,21 +1,23 @@
 :root {
-  --jcore-font-family: var(--wp--preset--font-family--montserrat);
-  --jcore-heading-font-family: var(--wp--preset--font-family--montserrat);
+	--jcore-font-family: var(--wp--preset--font-family--montserrat);
+	--jcore-heading-font-family: var(--wp--preset--font-family--montserrat);
 }
-
 
 /* Any heading with pre-text in mini-font-size (use css: "mini" on the H-element for right margins)*/
-h1,h2, h3, h4 {
-  &.wp-block-heading.mini{
-  margin-top: .5rem;
-  }
+h1,
+h2,
+h3,
+h4 {
+	&.wp-block-heading.mini {
+		margin-top: 0.5rem;
+	}
 }
 /* Any paragraph with pre-text in mini-font-size (use css: "mini" on the p-element for right margins)*/
-  p.mini{
-  margin-top: .5rem;
-  }
+p.mini {
+	margin-top: 0.5rem;
+}
 
 a {
-  text-underline-offset: 3px;
-  text-decoration-thickness: from-font;
+	text-underline-offset: 3px;
+	text-decoration-thickness: from-font;
 }

@@ -21,12 +21,12 @@ views/               Twig templates for teases and images.
 
 ## What is not here
 
-| Concern | Lives in |
-| --- | --- |
-| Theme supports, menus, body classes, media handling, login and admin styling, comments, analytics, ACF JSON storage, options pages, block registration, editor restrictions | `jcore/ydin` |
-| Header, footer, navigation and accordion blocks | `lohko` plugin |
-| Grid and column blocks | `ruudukko` plugin |
-| Archive filtering and pagination | `dynamic-archive` plugin |
+| Concern                                                                                                                                                                     | Lives in                 |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| Theme supports, menus, body classes, media handling, login and admin styling, comments, analytics, ACF JSON storage, options pages, block registration, editor restrictions | `jcore/ydin`             |
+| Header, footer, navigation and accordion blocks                                                                                                                             | `lohko` plugin           |
+| Grid and column blocks                                                                                                                                                      | `ruudukko` plugin        |
+| Archive filtering and pagination                                                                                                                                            | `dynamic-archive` plugin |
 
 ## Adding a feature back, or taking one away
 

@@ -51,7 +51,7 @@ add_filter(
  */
 Ydin\Bootstrap::init();
 
-Ydin\Settings\AcfOptions::init();
+// Ydin\Settings\AcfOptions::init();
 Ydin\WordPress\Acf::init();
 Ydin\WordPress\Admin::init();
 Ydin\WordPress\Analytics::init();

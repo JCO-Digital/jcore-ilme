@@ -3,25 +3,24 @@
 *
 */
 .wave .yoast-breadcrumbs {
-    color: var(--wp--preset--color--white);
-    span {
-      font-size: 12px;
-      text-transform: uppercase;
-    }
-    a {
-      color: var(--wp--preset--color--white);
-    }
-  }
-.yoast-breadcrumbs {
-    span {
-      font-size: 12px;
-      text-transform: uppercase;
-    }
-    .breadcrumb_last {
-      color: var(--wp--preset--color--light);
-    }
-    a {
-      color: var(--wp--preset--color--black);
-    }
+	color: var(--wp--preset--color--white);
+	span {
+		font-size: 12px;
+		text-transform: uppercase;
+	}
+	a {
+		color: var(--wp--preset--color--white);
+	}
 }
-  
+.yoast-breadcrumbs {
+	span {
+		font-size: 12px;
+		text-transform: uppercase;
+	}
+	.breadcrumb_last {
+		color: var(--wp--preset--color--light);
+	}
+	a {
+		color: var(--wp--preset--color--black);
+	}
+}

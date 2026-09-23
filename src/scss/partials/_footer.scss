@@ -1,30 +1,30 @@
 @use "media";
 footer {
-  padding-top: 3rem;
-  padding-bottom: 0;
+	padding-top: 3rem;
+	padding-bottom: 0;
 
-  .logorow {
-    align-items: center;
-    /* Some */
-    .wp-block-social-links {
-      @include media.breakpoint("md") {
-        justify-content: end;
-      }
-    }
-  }
+	.logorow {
+		align-items: center;
+		/* Some */
+		.wp-block-social-links {
+			@include media.breakpoint("md") {
+				justify-content: end;
+			}
+		}
+	}
 
-  .column-content {
-  }
-  /*Copyright section */
-  .copyright {
-    @include media.breakpoint("md") {
-      display: flex;
-      flex-flow: row break;
-      justify-content: center;
-      align-items: center;
-    }
-    p {
-      margin-bottom: 1rem;
-    }
-  }
+	.column-content {
+	}
+	/*Copyright section */
+	.copyright {
+		@include media.breakpoint("md") {
+			display: flex;
+			flex-flow: row break;
+			justify-content: center;
+			align-items: center;
+		}
+		p {
+			margin-bottom: 1rem;
+		}
+	}
 }
