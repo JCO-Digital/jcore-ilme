@@ -23,7 +23,7 @@ views/               Twig templates for teases and images.
 
 | Concern                                                                                                                                                                     | Lives in                 |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| Theme supports, menus, body classes, media handling, login and admin styling, comments, analytics, ACF JSON storage, options pages, block registration, editor restrictions | `jcore/ydin`             |
+| Theme supports, menus, body classes, media handling, login and admin styling, comments, ACF JSON storage, block registration, editor restrictions | `jcore/ydin`             |
 | Header, footer, navigation and accordion blocks                                                                                                                             | `lohko` plugin           |
 | Grid and column blocks                                                                                                                                                      | `ruudukko` plugin        |
 | Archive filtering and pagination                                                                                                                                            | `dynamic-archive` plugin |
@@ -43,28 +43,6 @@ add_filter(
     }
 );
 ```
-
-## Settings
-
-Options pages are built from an array, so a project adds its own fields with a
-filter rather than a new class:
-
-```php
-add_filter(
-    'jcore_init_settings_fields',
-    function ( $fields ) {
-        $fields['keys']['fields']['hubspot_id'] = array(
-            'type'    => 'text',
-            'label'   => 'HubSpot ID',
-            'default' => '',
-        );
-
-        return $fields;
-    }
-);
-```
-
-Read them with `Jcore\Ydin\Settings\AcfOptions::get( 'keys', 'hubspot_id' )`.
 
 ## Development
 
