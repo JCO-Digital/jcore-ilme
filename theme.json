@@ -87,6 +87,9 @@
 				"medium": "clamp(1rem, 3.7vw + -0.05rem,  2rem )",
 				"large": "clamp(1.5rem, 3.7vw + -0.05rem,  3rem )",
 				"xlarge": "clamp(2.5rem, 3.7vw + -0.05rem,  4.5rem )"
+			},
+			"ruudukko": {
+				"gap": "var(--wp--preset--spacing--fluid-medium)"
 			}
 		},
 		"dimensions": {

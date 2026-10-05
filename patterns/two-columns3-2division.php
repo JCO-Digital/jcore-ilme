@@ -8,8 +8,8 @@
  */
 ?>
 <!-- wp:jcore/grid {"autoSize":false,"breakpoints":{"xs":1,"md":3},"metadata":{"name":"Columns 3/2"}} -->
-<section class="wp-block-jcore-grid jgrid columns-xs-1 columns-md-3"><!-- wp:jcore/column {"span":2,"style":{"spacing":{"padding":{"right":"var:preset|spacing|fluid-medium"}}}} -->
-<div class="wp-block-jcore-column span-2" style="padding-right:var(--wp--preset--spacing--fluid-medium)"><!-- wp:paragraph -->
+<section class="wp-block-jcore-grid jgrid columns-xs-1 columns-md-3"><!-- wp:jcore/column {"span":2} -->
+<div class="wp-block-jcore-column span-2"><!-- wp:paragraph -->
 <p>Column  I content</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:jcore/column -->
