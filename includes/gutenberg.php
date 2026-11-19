@@ -1,6 +1,7 @@
 <?php
 /**
- * Block styles the editor can pick. Their CSS is in src/scss/blocks/.
+ * Additions to the editor's blocks: block styles the editor can pick (their
+ * CSS is in src/scss/blocks/) and blocks hidden on top of Ydin's list.
  *
  * @package Jcore\Ilme
  */
@@ -10,6 +11,26 @@ namespace Jcore\Ilme;
 defined( 'ABSPATH' ) || exit;
 
 add_action( 'init', __NAMESPACE__ . '\\register_block_styles' );
+add_filter( 'jcore_restricted_blocks', __NAMESPACE__ . '\\restricted_blocks' );
+
+/**
+ * Changes to Ydin's list of hidden blocks.
+ *
+ * - Details is hidden: accordions are Lohko's accordion block
+ *   (lohko/accordions), one accordion everywhere.
+ * - Columns stay available. Layouts with columns are built with Ruudukko
+ *   (jcore/grid), which is what the style guide shows.
+ *
+ * @param array $blocks Block names Ydin hides.
+ *
+ * @return array
+ */
+function restricted_blocks( array $blocks ): array {
+	$blocks   = array_values( array_diff( $blocks, array( 'core/columns', 'core/column' ) ) );
+	$blocks[] = 'core/details';
+
+	return $blocks;
+}
 
 /**
  * Register the theme's block styles.
