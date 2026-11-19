@@ -1,17 +1,24 @@
+/*
+ * Lists: the items one line height
+ * apart with no extra space between them, the text indented 27px. The arrow
+ * list keeps some space between its items (links).
+ */
 ul.wp-block-list,
 ol.wp-block-list {
-	padding-left: 1.5rem;
+	padding-left: 27px;
+	// Spacing below, like the other base elements; no browser top margin.
+	margin-top: 0;
 	margin-bottom: 2rem;
 	li {
-		padding-left: 0.25rem;
-		margin-bottom: 0.75rem;
+		padding-left: 0;
+		margin-bottom: 0;
 	}
 	li > ul,
 	li > ol {
 		margin-bottom: 0 !important;
 	}
 	li::marker {
-		color: var(--wp--preset--color--orange);
+		color: var(--wp--preset--color--brand);
 	}
 }
 
@@ -25,7 +32,7 @@ ul.wp-block-list:not(.wp-block-rss, .arrow-list) {
 			position: absolute;
 			left: -20px;
 			top: 8px;
-			background-color: var(--wp--preset--color--orange);
+			background-color: var(--wp--preset--color--brand);
 			width: 8px;
 			height: 8px;
 			border-radius: 50%;
@@ -36,26 +43,33 @@ ul.wp-block-list:not(.wp-block-rss, .arrow-list) {
 	}
 }
 
-/* Arrow-list with orange arrows instead of bullets */
+/* Arrow-list with brand-coloured arrows instead of bullets */
 ul.wp-block-list.arrow-list {
 	padding-left: 0;
 	li {
+		margin-bottom: 0.75rem;
 		position: relative;
 		list-style-type: none;
 		padding-left: 2rem !important;
-		&:before {
-			content: "\f178";
-			font-family: "Font Awesome 6 Sharp";
-			font-weight: 300;
+		// An arrow (assets/images/arrow-long.svg), a mask in the brand colour, centred
+		// on the first line (paragraph line height 24px).
+		&::before {
+			content: "";
 			position: absolute;
+			top: 6px;
 			left: 0;
-			font-size: 16px;
-			color: var(--wp--preset--color--orange);
+			width: 20px;
+			height: 12px;
+			background-color: var(--wp--preset--color--brand);
+			mask: url("../../assets/images/arrow-long.svg") center / contain no-repeat;
+			transition: transform 0.2s ease;
 		}
+		// Hover: the arrow nudges right by 3px; the 12px gap to the text
+		// (20px arrow, 2rem padding) stays at least 9px.
 		&:hover {
 			text-decoration: none;
-			&:before {
-				transform: rotate(-45deg);
+			&::before {
+				transform: translateX(3px);
 			}
 		}
 		&::marker {

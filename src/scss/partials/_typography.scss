@@ -1,6 +1,6 @@
 :root {
-	--jcore-font-family: var(--wp--preset--font-family--montserrat);
-	--jcore-heading-font-family: var(--wp--preset--font-family--montserrat);
+	--jcore-font-family: var(--wp--preset--font-family--inter);
+	--jcore-heading-font-family: var(--wp--preset--font-family--heading);
 }
 
 /* Any heading with pre-text in mini-font-size (use css: "mini" on the H-element for right margins)*/
@@ -20,4 +20,34 @@ p.mini {
 a {
 	text-underline-offset: 3px;
 	text-decoration-thickness: from-font;
+}
+
+/*
+ * Anchors (a block's HTML anchor, e.g. the services page's sections
+ * #hemstadning…): a link to one stops a little above it, not flush with the
+ * top of the window.
+ */
+:where([id]) {
+	scroll-margin-top: 2rem;
+}
+
+/*
+ * Drop cap: core's is 8.4em in thin body font. Here it's about three lines
+ * tall in the heading font, and the paragraph clears it so a short one
+ * doesn't leave the next paragraph wrapping around the letter.
+ */
+.has-drop-cap:not(:focus) {
+	&::first-letter {
+		margin: 0.08em 0.12em 0 0;
+		font-family: var(--wp--preset--font-family--heading);
+		font-size: 3.6em;
+		font-weight: 600;
+		line-height: 0.8;
+	}
+
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
 }

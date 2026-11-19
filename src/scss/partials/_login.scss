@@ -1,42 +1,185 @@
+/*
+ * Login screen (wp-login.php) in the site's look: the site's dark colour
+ * behind the light one-colour logo (as in the footer), a white form box and
+ * the site's primary pill button. includes/login.php prints the site's
+ * presets and font faces on this page, so the colours and heading font follow
+ * each site through the same stylesheet; the fallbacks are theme.json's
+ * values.
+ */
+
+$dark: var(--wp--preset--color--dark, #081d25);
+$light: var(--wp--preset--color--light, #fafafa);
+$brand: var(--wp--preset--color--brand, #0e313f);
+$accent: var(--wp--preset--color--accent, #081d25);
+$accent-contrast: var(--wp--preset--color--accent-contrast, #fafafa);
+$text: var(--wp--preset--color--dark-lighter, #323b45);
+$line: color-mix(in srgb, #{$dark} 20%, transparent);
+$failure: var(--wp--preset--color--failure, #de1d1d);
+$body-font: var(--wp--preset--font-family--inter, "Inter", sans-serif);
+$heading-font: var(--wp--preset--font-family--heading, sans-serif);
+
 .login {
-	background-color: #d2d2d2;
-	color: #000000;
+	background-color: $dark;
+	color: $light;
+	font-family: $body-font;
+
 	#login {
-		padding: 0;
-	}
-	h1 {
-		a {
-			background-image: none;
-			text-indent: unset;
-			width: unset;
-			height: unset;
-			svg,
-			img {
-				max-width: 100%;
-				fill: #ffffff;
-			}
-		}
-	}
-	.button {
-		border-radius: 0;
-		text-transform: uppercase;
-		background-color: #000000;
-		color: #ffffff;
-		border: none;
-	}
-	form {
-		background-color: #ffffff;
-		border-radius: 10px;
-		border: 0;
-		box-shadow: unset;
+		padding: 8vh 0 0;
 	}
 
+	/* The site's light logo (includes/sites.php), in the light text colour. */
+	h1.wp-login-logo a {
+		display: flex;
+		justify-content: center;
+		width: auto;
+		height: auto;
+		margin-bottom: 32px;
+		background: none;
+		color: $light;
+		text-indent: 0;
+
+		.custom-logo,
+		svg,
+		img {
+			display: block;
+			max-width: 260px;
+			height: auto;
+		}
+	}
+
+	form {
+		padding: 32px;
+		border: 0;
+		border-radius: var(--wp--custom--radius--s, 16px);
+		background-color: #ffffff;
+		color: $text;
+		box-shadow: none;
+	}
+
+	label {
+		color: $dark;
+		font-weight: 500;
+	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"] {
+		border: 1px solid $line;
+		border-radius: 8px;
+		color: $dark;
+		font-family: inherit;
+		box-shadow: none;
+
+		&:focus {
+			border-color: $brand;
+			box-shadow: 0 0 0 1px $brand;
+		}
+	}
+
+	input[type="checkbox"] {
+		border-color: $line;
+
+		&:checked::before {
+			filter: brightness(0);
+		}
+	}
+
+	.button.wp-hide-pw,
+	.button.wp-hide-pw:hover,
+	.button.wp-hide-pw:focus {
+		color: $dark;
+		background: transparent;
+		border: 0;
+		box-shadow: none;
+	}
+
+	/* The site's primary button: accent pill, the design's hover colour. */
+	.button-primary {
+		min-height: 0;
+		padding: 10px 24px;
+		border: 1px solid $accent;
+		border-radius: var(--wp--custom--radius--button, 32px);
+		background-color: $accent;
+		color: $accent-contrast;
+		font-family: $heading-font;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 22px;
+		text-shadow: none;
+		box-shadow: none;
+		transition:
+			background-color 0.2s,
+			border-color 0.2s,
+			color 0.2s;
+
+		&:hover,
+		&:focus {
+			border-color: var(--wp--custom--button--hover--primary, #{$brand});
+			background-color: var(--wp--custom--button--hover--primary, #{$brand});
+			color: var(--wp--custom--button--hover--primary-text, #{$light});
+		}
+
+		&:focus-visible {
+			outline: 2px solid $brand;
+			outline-offset: 3px;
+			box-shadow: none;
+		}
+	}
+
+	.message,
+	.notice,
+	#login_error {
+		border-left-color: $brand;
+		color: $text;
+		box-shadow: none;
+	}
+
+	#login_error {
+		border-left-color: $failure;
+	}
+
+	/* Links under the form, on the dark background. */
 	#nav,
 	#backtoblog {
 		a {
-			color: #000000;
-			&:hover {
-				color: #41c4ff;
+			color: $light;
+			text-decoration: underline;
+			text-underline-offset: 3px;
+
+			&:hover,
+			&:focus {
+				color: $light;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.privacy-policy-link {
+		color: $light;
+	}
+
+	/* Language switcher at the bottom: light outline pill on the dark page. */
+	.language-switcher {
+		label .dashicons {
+			color: $light;
+		}
+
+		select {
+			border-color: $line;
+			color: $dark;
+		}
+
+		.button {
+			border: 1px solid $light;
+			border-radius: var(--wp--custom--radius--button, 32px);
+			background: transparent;
+			color: $light;
+
+			&:hover,
+			&:focus {
+				background: color-mix(in srgb, #{$light} 12%, transparent);
+				color: $light;
+				box-shadow: none;
 			}
 		}
 	}

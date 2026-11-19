@@ -14,3 +14,8 @@
 .wp-block-spacer.is-style-sm {
 	padding-top: var(--wp--custom--spacing-sizes--small);
 }
+
+/* Style guide (patterns/style-guide.php): show the spacers' heights. */
+.style-guide-spacers .wp-block-spacer {
+	background-color: var(--wp--preset--color--surface);
+}

@@ -1,0 +1,62 @@
+/*
+ * Groups. Block styles (includes/gutenberg.php):
+ * - cta: the design's call-to-action box on the front page (patterns/cta.php).
+ *   The site's `cta` gradient (theme.json, overridden in sites/<key>.json),
+ *   rounded corners, centred light text and a light button. Figma: 1324px
+ *   wide, about 64px of padding above and below, text at most 783px wide.
+ * - rounded-corners: only the corners, with the CTA box's radius (Figma
+ *   "Rounded corner M"). Background, padding and the rest come from the
+ *   group's own settings.
+ */
+.wp-block-group.is-style-rounded-corners {
+	border-radius: var(--wp--custom--radius--m, 24px);
+}
+
+/*
+ * A group with a background colour gets its space from its padding: its
+ * first block adds no top margin (a heading's) and its last block no bottom
+ * margin, so the padding is the same at the top and the bottom however the
+ * editor fills it.
+ */
+.wp-block-group.has-background {
+	> :first-child {
+		margin-top: 0;
+	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+
+.wp-block-group.is-style-cta {
+	// Editors space the box with spacers around it.
+	margin-block: 0;
+	padding: clamp(40px, 5vw, 64px) clamp(24px, 5vw, 64px);
+	border-radius: var(--wp--custom--radius--m, 24px);
+	background: var(--wp--preset--gradient--cta, var(--wp--preset--color--brand));
+	color: var(--wp--preset--color--light);
+	text-align: center;
+
+	// Spacing from the base elements' bottom margins.
+	> :first-child {
+		margin-top: 0;
+	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+
+	:is(h1, h2, h3, h4, h5, h6) {
+		color: inherit;
+	}
+
+	// Figma: the text is a light grey (#d1d5dc), between the heading and the
+	// background.
+	p {
+		color: color-mix(in srgb, var(--wp--preset--color--light) 85%, transparent);
+	}
+
+	> .wp-block-buttons {
+		justify-content: center;
+	}
+}

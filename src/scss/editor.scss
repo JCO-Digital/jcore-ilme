@@ -1,4 +1,14 @@
 @use "partials/navigation";
+@use "blocks/images-and-gallery";
+@use "blocks/grid";
+@use "blocks/grid-labels";
+@use "blocks/group";
+@use "blocks/spacers";
+@use "blocks/lohko-accordion";
+@use "blocks/table";
+@use "blocks/pullquote";
+@use "partials/style-guide";
+@use "partials/heroes";
 
 /* Add styles for editor here */
 .editor-styles-wrapper {

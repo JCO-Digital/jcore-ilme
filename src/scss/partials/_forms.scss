@@ -16,22 +16,67 @@
 */
 
 :root {
+	/*
+	 * The design's form fields (Figma "Kontakta oss", both sites): filled
+	 * light fields without a border, 50px high, radius S, the label in the
+	 * paragraph style 8px above, 32px checkboxes. The field colour is a 6%
+	 * tint of the site's dark text colour, which gives #eff3f5 on the
+	 * default colours and a matching tint on every site.
+	 *
+	 * Orbital prints each form's own settings (colours, sizes, label colours)
+	 * as `#gform_wrapper_<id>[data-form-index].gform-theme { … }`, which beats
+	 * any class selector, so the variables it sets are `!important` here.
+	 */
 	.gform-theme--framework {
-		--gf-color-primary: var(--wp--preset--color--brand);
-		--gf-color-primary-darker: var(--wp--preset--color--orange);
-		--gf-ctrl-bg-color: var(--wp--preset--color--white);
-		--gf-color-out-ctrl-light-darker: var(--wp--preset--color--lightgrey);
-		--gf-ctrl-border-color: var(--wp--preset--color--lightgrey);
-		--gf-ctrl-border-color-hover: var(--wp--preset--color--lightgrey);
-		--gf-ctrl-radius: 12px;
-		--gf-ctrl-textarea-radius: 12px;
+		--jcore-field-bg-color: color-mix(in srgb, var(--wp--preset--color--dark) 6%, var(--wp--preset--color--white));
+		--gf-color-primary: var(--wp--preset--color--brand) !important;
+		--gf-color-primary-darker: var(--wp--preset--color--brand-dark) !important;
+		--gf-ctrl-bg-color: var(--jcore-field-bg-color);
+		--gf-ctrl-bg-color-hover: var(--jcore-field-bg-color);
+		--gf-ctrl-bg-color-focus: var(--jcore-field-bg-color);
+		--gf-ctrl-bg-color-error: var(--jcore-field-bg-color);
+		--gf-color-out-ctrl-light-darker: var(--wp--preset--color--dark-lighter) !important;
+		--gf-ctrl-border-color: transparent !important;
+		--gf-ctrl-border-color-hover: color-mix(in srgb, var(--wp--preset--color--dark) 25%, transparent);
+		--gf-ctrl-radius: var(--wp--custom--radius--s, 16px);
+		--gf-ctrl-textarea-radius: var(--wp--custom--radius--s, 16px);
 		--gf-ctrl-border-width: 1px;
 		--gf-ctrl-border-style: solid;
-		--gf-ctrl-color: var(--wp--preset--color--black);
-		--gf-ctrl-outline-color: var(--wp--preset--color--lightblue);
-		--gf-ctrl-outline-color-focus: var(--wp--preset--color--lightblue);
+		--gf-ctrl-shadow: none;
+		--gf-ctrl-size: 50px !important;
+		--gf-ctrl-textarea-height: 191px;
+		--gf-ctrl-font-size: var(--wp--preset--font-size--paragraph, 18px);
+		--gf-ctrl-color: var(--wp--preset--color--dark);
+		--gf-ctrl-outline-color: var(--wp--preset--color--accent);
+		--gf-ctrl-outline-color-focus: color-mix(in srgb, var(--wp--preset--color--brand) 40%, transparent);
 		--gf-ctrl-border-color-focus: var(--wp--preset--color--brand);
 		--gf-ctrl-accent-color: var(--wp--preset--color--brand);
+
+		/* Labels: paragraph style, 8px above the field; the asterisk in the text colour. */
+		--gf-ctrl-label-font-family-primary: var(--wp--preset--font-family--inter);
+		--gf-ctrl-label-font-size-primary: var(--wp--preset--font-size--paragraph, 18px);
+		--gf-ctrl-label-font-weight-primary: 400;
+		--gf-ctrl-label-line-height-primary: 24px;
+		--gf-ctrl-label-color-primary: var(--wp--preset--color--dark) !important;
+		--gf-ctrl-label-color-req: var(--wp--preset--color--dark);
+		--gf-ctrl-label-font-size-req: var(--wp--preset--font-size--paragraph, 18px);
+		--gf-ctrl-label-font-weight-req: 400;
+		--gf-label-space-primary: 8px;
+
+		/* Checkboxes and radios: 32px boxes, the label 33px to the right, 22px apart. */
+		--gf-ctrl-choice-size: 32px !important;
+		--gf-ctrl-checkbox-check-size: 14px !important;
+		--gf-ctrl-checkbox-check-radius: 4px;
+		--gf-ctrl-choice-check-color: var(--wp--preset--color--brand);
+		--gf-ctrl-label-font-family-secondary: var(--wp--preset--font-family--inter);
+		--gf-ctrl-label-font-size-secondary: var(--wp--preset--font-size--paragraph, 18px);
+		--gf-ctrl-label-font-weight-secondary: 400;
+		--gf-ctrl-label-line-height-secondary: 24px;
+		--gf-ctrl-label-color-secondary: var(--wp--preset--color--dark) !important;
+		--gf-label-space-x-secondary: 33px;
+		--gf-field-choice-gap: 22px;
+
+		/* Submit: the site's primary button (blocks/_buttons.scss). */
 		--gf-ctrl-btn-bg-color-ctrl: var(--jcore-button-bg-color);
 		--gf-ctrl-btn-color-primary: var(--jcore-button-text-color);
 		--gf-ctrl-btn-color-hover-primary: var(--jcore-button-hover-text-color);
@@ -39,29 +84,47 @@
 		--gf-ctrl-btn-bg-color-primary: var(--jcore-button-bg-color);
 		--gf-ctrl-btn-bg-color-hover-primary: var(--jcore-button-hover-bg-color);
 		--gf-ctrl-btn-bg-color-hover-ctrl: var(--jcore-button-hover-bg-color);
+		--gf-ctrl-btn-border-color-primary: var(--jcore-button-border-color);
+		--gf-ctrl-btn-border-color-hover-primary: var(--jcore-button-hover-border-color);
 		--gf-ctrl-btn-radius: var(--jcore-button-radius);
 		--gf-ctrl-btn-font-weight: var(--jcore-button-font-weight);
 		--gf-ctrl-btn-text-transform: none;
-		--gf-ctrl-btn-font-size: var(--jcore-button-font-size);
+		--gf-ctrl-btn-font-size: var(--jcore-button-font-size) !important;
+		--gf-ctrl-btn-font-size-md: var(--jcore-button-font-size);
+		--gf-ctrl-btn-line-height: var(--jcore-button-line-height);
 		--gf-ctrl-btn-font-style: normal;
-		--gf-ctrl-btn-font-family: var(--jcore-heading-font-family);
-		--gf-ctrl-btn-font-size-md: var(--wp--preset--font-size--paragraph);
-		--gf-ctrl-btn-padding-y: 1rem;
-		--gf-ctrl-btn-padding-x-md: 2rem;
-		--gf-ctrl-choice-check-color: var(--wp--preset--color--brand);
+		--gf-ctrl-btn-font-family: var(--jcore-button-font-family);
+		--gf-ctrl-btn-padding-y: 17px;
+		--gf-ctrl-btn-padding-x: 29px !important;
+		--gf-ctrl-btn-padding-x-md: 29px;
+		--gf-ctrl-btn-shadow: none;
+		--gf-ctrl-btn-size: auto !important;
+
 		--gf-field-pg-prog-bar-bg-color-blue: var(--wp--preset--color--brand);
 		--gf-field-pg-prog-bar-bg-color-orange: var(--wp--preset--color--brand);
-		--gf-ctrl-label-font-size-primary: var(--wp--preset--font-size--paragraph);
 		--gf-ctrl-label-font-size-tertiary: var(--wp--preset--font-size--mini);
-		--gf-color-in-ctrl-primary: var(--wp--preset--color--brand);
-		--gf-color-in-ctrl-primary-darker: var(--wp--preset--color--brand);
+		--gf-color-in-ctrl-primary: var(--wp--preset--color--brand) !important;
+		--gf-color-in-ctrl-primary-darker: var(--wp--preset--color--brand) !important;
 		--gf-ctrl-file-zone-icon-color: var(--wp--preset--color--brand);
-		--gf-form-footer-margin-y-start: 2.5rem;
+		--gf-form-footer-margin-y-start: 28px;
 		--gf-field-prod-quant-width: 65px;
 	}
 }
 body {
 	.gform_wrapper {
+		// Figma has no "* indicates required fields" line; the asterisks stay.
+		.gform_required_legend {
+			display: none;
+		}
+		// The text area's height comes from the design (Foundation's large
+		// text area has an 18rem minimum).
+		.gfield textarea.large {
+			min-block-size: var(--gf-ctrl-textarea-height);
+		}
+		// "Förnamn*" as in Figma, no space before the asterisk.
+		.gfield_required {
+			margin-inline-start: 0;
+		}
 		.gform_fields {
 			gap: 1.5rem;
 		}

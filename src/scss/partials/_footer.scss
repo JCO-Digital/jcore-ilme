@@ -1,30 +1,135 @@
 @use "media";
-footer {
-	padding-top: 3rem;
-	padding-bottom: 0;
 
-	.logorow {
-		align-items: center;
-		/* Some */
-		.wp-block-social-links {
-			@include media.breakpoint("md") {
-				justify-content: end;
+/*
+ * Site footer: parts/footer.html (a `dark` group with light text) holding
+ * lohko/footer. Figma: four 307px columns 32px apart across the wide width,
+ * 61px above the content.
+ * - left:   the site's logo (`footerLogo` in sites/<key>.json, includes/sites.php)
+ * - middle: global content "footer-middle" (e.g. the address; may be empty,
+ *           which keeps the column free in case content is added later)
+ * - center: global content "footer-center" (contact details, social links)
+ * - right:  global content "footer-right" (e.g. a partner badge)
+ * Headings are H6, text the paragraph style. Copyright on its own row below.
+ * Mobile: Lohko's stacked areas, unchanged.
+ */
+.site-footer {
+	padding-top: 61px;
+	padding-bottom: 2rem;
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-top: 0;
+		margin-bottom: 20px;
+		font-size: var(--wp--preset--font-size--heading-6, 20px);
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: 0;
+	}
+
+	p {
+		margin-bottom: 0;
+		font-size: var(--wp--preset--font-size--paragraph, 18px);
+		line-height: 24px;
+	}
+
+	// Regular weight, not the content links' semibold.
+	a {
+		font-weight: 400;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	/* Social links (core/social-links, logos only): light icons. */
+	.wp-block-social-links {
+		gap: 12px;
+		margin-top: 24px;
+		margin-bottom: 0;
+
+		.wp-social-link {
+			background: none;
+			color: var(--wp--preset--color--light);
+		}
+
+		.wp-block-social-link-anchor {
+			padding: 0;
+		}
+
+		svg {
+			width: 22px;
+			height: 22px;
+		}
+	}
+}
+
+/*
+ * Footer columns (lohko/footer): start every column at the same height. The
+ * first item is often a heading from global content, and headings have a top
+ * margin; the menu column has none.
+ */
+.wp-block-lohko-footer .lohko-footer__section {
+	> :first-child {
+		margin-top: 0;
+	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+
+.wp-block-lohko-footer {
+	/*
+	 * Four equal columns, so an empty column keeps its
+	 * place; the bottom area and the copyright each get a full row.
+	 */
+	@media (min-width: 782px) {
+		grid-template-areas:
+			"left middle center right"
+			"bottom bottom bottom bottom"
+			"copyright copyright copyright copyright";
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		column-gap: 32px;
+		row-gap: 1rem;
+	}
+
+	/*
+	 * Mobile: some air under each stacked column. Empty columns are
+	 * hidden, so they don't add an extra grid gap.
+	 */
+	@media (width < 782px) {
+		.lohko-footer__section:not(.lohko-footer__copyright) {
+			padding-bottom: 1.5rem;
+
+			&:not(:has(*)) {
+				display: none;
 			}
 		}
 	}
 
-	.column-content {
-	}
-	/*Copyright section */
-	.copyright {
-		@include media.breakpoint("md") {
-			display: flex;
-			flex-flow: row break;
-			justify-content: center;
-			align-items: center;
-		}
-		p {
-			margin-bottom: 1rem;
+	.lohko-footer__logo {
+		display: inline-flex;
+		color: inherit;
+
+		svg {
+			display: block;
+			max-width: 100%;
+			height: auto;
 		}
 	}
+
+	.lohko-footer__copyright {
+		margin-top: 3rem;
+		text-align: center;
+		font-size: var(--wp--preset--font-size--small, 16px);
+	}
+}
+
+/* A per-site rule (body class site-<key>, includes/sites.php): beta's wide logo fills its column. */
+.site-beta .lohko-footer__logo svg {
+	width: 307px;
 }

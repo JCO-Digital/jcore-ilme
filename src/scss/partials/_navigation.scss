@@ -1,26 +1,192 @@
-@use "sass:map";
-@use "media";
+/*
+ * Main navigation (lohko/navigation in parts/header.html), after the Figma
+ * header: white bar, logo left, menu right in the heading font
+ * 16/22, items 32px apart, the current page marked by a 4px brand bar on the
+ * header's bottom edge. Polylang's language switcher is the menu's last item,
+ * with a globe before the language's name. A menu item with the CSS class
+ * `menu-button` is a pill button (e.g. "Book now").
+ *
+ * Lohko switches between mobile and desktop at 980px, so this file does too.
+ */
+$desktop: 980px;
 
 .wp-block-lohko-navigation,
 #jcore-nav {
-	margin: 0 calc((100vw - var(--wp--style--global--content-size)) / 2);
+	--jcore-menu-height: 83px;
+	--jcore-logo-max-height: 52px;
+	--jcore-logo-max-width: 270px;
 
-	/* Submenu theme styling */
+	// Full width with the content lined up to the wide width. Lohko sets
+	// width: 100%, so side margins would make it wider than the screen.
+	margin: 0;
+	padding-inline: max(
+		var(--wp--style--root--padding-left, 1rem),
+		calc((100% - var(--wp--style--global--wide-size)) / 2)
+	);
+	box-sizing: border-box;
+	// Logo on the left, everything else (menu, hamburger) on the right, also
+	// on a site without a logo.
+	justify-content: flex-end;
+
+	.brand {
+		margin-right: auto;
+	}
+
+	.menu-link {
+		font-family: var(--wp--preset--font-family--heading);
+		font-size: var(--wp--preset--font-size--button, 16px);
+		font-weight: 400;
+		line-height: 22px;
+		color: var(--wp--preset--color--dark);
+		text-decoration: none;
+	}
+
+	/* Language switcher: a globe before the language's name. */
+	.lang-item > .menu-link {
+		display: inline-flex;
+		gap: 12px;
+		align-items: center;
+
+		&::before {
+			content: "";
+			flex: none;
+			width: 20px;
+			height: 20px;
+			background-color: currentcolor;
+			mask: url("../../assets/images/globe.svg") center / contain no-repeat;
+		}
+	}
+
+	/* Menu item as a pill button (CSS class `menu-button` on the item). */
+	.menu-button > .menu-link {
+		display: inline-flex;
+		align-items: center;
+		padding: 14px 26px;
+		border-radius: var(--wp--custom--radius--button, 32px);
+		background-color: var(--jcore-button-bg-color);
+		color: var(--jcore-button-text-color);
+		transition:
+			background-color 0.2s ease,
+			color 0.2s ease;
+
+		&:hover,
+		&:focus-visible {
+			background-color: var(--jcore-button-hover-bg-color);
+			color: var(--jcore-button-hover-text-color);
+		}
+	}
+
+	/* Submenus */
 	.menu-level-1,
 	.menu-1 {
-		background-color: var(--wp--preset--color--dark);
-		border-radius: 1rem;
-		padding: 1rem;
+		background-color: var(--wp--preset--color--white);
+		border-radius: var(--wp--custom--radius--s, 16px);
+		box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+		padding: 1rem 1.5rem;
+		list-style: none;
 	}
 }
 
-/* Mobile navigation theme background */
-@media (width < map.get(media.$breakpoints, "lg")) {
+/* Desktop */
+@media (min-width: $desktop) {
 	.wp-block-lohko-navigation,
 	#jcore-nav {
+		.menu-level-0 {
+			gap: 32px;
+
+			// Items fill the bar's height, so the marker sits on its bottom edge.
+			> .menu-item-level-0 {
+				align-self: stretch;
+			}
+
+			// The language switcher gets the same marker as the other items, on
+			// hover only.
+			> .menu-item-level-0:not(.menu-button) > .menu-link {
+				position: relative;
+				display: flex;
+				align-items: center;
+				height: 100%;
+
+				&::after {
+					content: "";
+					position: absolute;
+					right: -6px;
+					bottom: 0;
+					left: -6px;
+					height: 4px;
+					background-color: var(--wp--preset--color--brand);
+					opacity: 0;
+					transition: opacity 0.2s ease;
+				}
+
+				&:hover::after {
+					opacity: 0.4;
+				}
+			}
+
+			// The current page's bar, but not on the language switcher: its
+			// link is always "current" and gets the bar on hover only.
+			> :is(.current-menu-item, .current-menu-ancestor, .current-menu-parent):not(.lang-item)
+				> .menu-link::after {
+				opacity: 1 !important;
+			}
+		}
+	}
+}
+
+/* Mobile: the menu opens as a white layer under the bar, items with lines. */
+@media (width < $desktop) {
+	.wp-block-lohko-navigation,
+	#jcore-nav {
+		--jcore-menu-height: 72px;
+		--jcore-logo-max-height: 44px;
+
+		.hamburger {
+			color: var(--wp--preset--color--dark);
+		}
+
 		.menu-level-0,
 		.menu-0 {
-			background-color: var(--wp--preset--color--dark);
+			background-color: var(--wp--preset--color--white);
+
+			> .menu-item-level-0 {
+				padding-inline: var(--wp--style--root--padding-left, 1rem);
+				border-bottom: 1px solid
+					color-mix(in srgb, var(--wp--preset--color--dark) 12%, transparent);
+			}
+
+			.menu-link {
+				display: flex;
+				padding-block: 1rem;
+				font-size: var(--wp--preset--font-size--ingress, 18px);
+			}
+
+			> .current-menu-item > .menu-link {
+				text-decoration: underline;
+				text-decoration-color: var(--wp--preset--color--brand);
+				text-decoration-thickness: 2px;
+				text-underline-offset: 6px;
+			}
+
+			.lang-item > .menu-link {
+				display: inline-flex;
+			}
+
+			.menu-button {
+				padding-block: 1.5rem;
+				border-bottom: 0;
+
+				> .menu-link {
+					display: inline-flex;
+					padding: 14px 26px;
+					font-size: var(--wp--preset--font-size--button, 16px);
+				}
+			}
+		}
+
+		.menu-level-1 {
+			box-shadow: none;
+			padding: 0 0 0.5rem 1rem;
 		}
 	}
 }

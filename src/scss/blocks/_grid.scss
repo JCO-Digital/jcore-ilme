@@ -1,0 +1,91 @@
+@use "media";
+
+/*
+ * Ruudukko grids (jcore/grid). The "Centred vertically" style
+ * (includes/gutenberg.php) centres the columns against each other, e.g. the
+ * text beside the image in an image and text section.
+ */
+/*
+ * A column's content starts at the column's top edge, so the columns line up
+ * whatever block comes first (headings have a top margin in running text).
+ */
+.wp-block-jcore-column > :first-child {
+	margin-top: 0;
+}
+
+.wp-block-jcore-grid.is-style-center-vertical {
+	align-items: center;
+}
+
+/*
+ * has-image-right: the first column (the image)
+ * moves to the right once the grid has two columns, from Ruudukko's md
+ * (768px). Narrower, it stays first: image, then text, as in every image and
+ * text pattern.
+ */
+.wp-block-jcore-grid.has-image-right {
+	@include media.breakpoint(md) {
+		> .wp-block-jcore-column:first-child {
+			order: 2;
+		}
+	}
+}
+
+/*
+ * Image and text sections (class is-image-text, in the style guide). Figma, both sites: the image 646 × 508 with radius S, the
+ * text column 559px wide on the image's far side, about 113px from the image
+ * (the grid's 32px gap plus padding on the text's side facing the image),
+ * H2 at most 452px wide, the text in dark-lighter.
+ *
+ * The spacing inside the text column comes from the base elements' bottom
+ * margins (theme.json: H2 16px, paragraphs and lists their own), so it stays
+ * right when editors add, remove or reorder blocks; between sections in a
+ * row, editors use a spacer (X-Large: 72px, as in Figma).
+ */
+.wp-block-jcore-grid.is-image-text {
+	.wp-block-image {
+		margin: 0;
+
+		img {
+			width: 100%;
+			aspect-ratio: 646 / 508;
+			object-fit: cover;
+		}
+	}
+
+	> .wp-block-jcore-column:last-child {
+		color: var(--wp--preset--color--dark-lighter);
+
+		> :first-child {
+			margin-top: 0;
+		}
+
+		> :is(h1, h2, h3, h4, h5, h6) {
+			max-width: 452px;
+			color: var(--wp--preset--color--dark);
+		}
+
+		// A bold lead-in line ("Det här ingår …:") in the dark text colour.
+		> p:has(> strong:only-child) {
+			color: var(--wp--preset--color--dark);
+		}
+	}
+
+	// Two columns: the text is centred beside the image, so its last block
+	// has no bottom margin. Stacked (phones), the margin stays and keeps the
+	// text off whatever comes next.
+	@include media.breakpoint(md) {
+		> .wp-block-jcore-column:last-child {
+			padding-inline-start: clamp(24px, 4.4vw, 84px);
+
+			> :last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&.has-image-right > .wp-block-jcore-column:last-child {
+			padding-inline-start: 0;
+			padding-inline-end: clamp(24px, 4.4vw, 84px);
+		}
+	}
+}

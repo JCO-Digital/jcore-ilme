@@ -1,0 +1,102 @@
+/*
+ * Heroes (templates.md).
+ * - .hero-plain (parts/hero-plain.html, templates/page.html): the subpages'
+ *   band in the site's surface colour with the page title (H1) and the
+ *   excerpt as the ingress. Figma: 105px above and below, the text 640px wide
+ *   at most, 24px between title and excerpt.
+ * - .hero-front (a cover with this class, in the front page's content): a
+ *   full-width photo, 695px high at 1920px, the text column (533px) on the
+ *   left of the wide width: H1, ingress 24px below, buttons below that.
+ *
+ * Ilme pads and spaces every group, so the hero groups are reset here.
+ */
+.hero-plain {
+	margin-block: 0;
+	padding-block: clamp(48px, 5.5vw, 105px);
+
+	.hero-plain__inner {
+		margin-block: 0;
+		padding: 0;
+	}
+
+	// 24px from the title to the excerpt: the H1's bottom margin.
+	.hero-plain__title {
+		margin-top: 0;
+	}
+
+	.hero-plain__title:last-child {
+		margin-bottom: 0;
+	}
+
+	.hero-plain__excerpt {
+		max-width: 640px;
+		margin-top: 0;
+		margin-bottom: 0;
+
+		p {
+			margin: 0;
+		}
+	}
+}
+
+// Pages with the plain hero: the content starts about 96px below it and ends
+// about 96px above the footer (Figma: 98px and 94px).
+main.wp-block-group {
+	margin-block: 0;
+	padding-block: clamp(48px, 5vw, 96px);
+
+	> .wp-block-post-content > :first-child {
+		margin-top: 0;
+	}
+
+	> .wp-block-post-content > :last-child {
+		margin-bottom: 0;
+	}
+}
+
+// The front page and "Page without hero": the content's own hero sits right
+// under the header.
+main.is-hero-in-content {
+	margin-top: 0;
+	padding-top: 0;
+
+	> .wp-block-post-content > :first-child {
+		margin-top: 0;
+	}
+}
+
+.wp-block-cover.hero-front {
+	// 695px at the design's 1920px, smaller on smaller screens.
+	min-height: clamp(520px, 36.2vw, 695px) !important;
+	margin-block: 0;
+	padding-block: 64px;
+
+	// Core gives a positioned cover's inner container `width: auto`.
+	.wp-block-cover__inner-container {
+		width: 100% !important;
+	}
+
+	.hero-front__content {
+		margin-block: 0;
+		padding: 0;
+
+		// Spacing from the base elements' bottom margins (H1 24px, the
+		// paragraph's), so it holds when editors change the blocks.
+		> :first-child {
+			margin-top: 0;
+		}
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+
+		> .wp-block-buttons {
+			gap: 18px;
+		}
+
+		// Stacked buttons keep their own width.
+		> .wp-block-buttons.is-vertical {
+			align-items: flex-start;
+		}
+	}
+}

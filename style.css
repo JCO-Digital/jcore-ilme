@@ -1,9 +1,9 @@
 /*
-Theme Name: JCORE3 Ilme
+Theme Name: JCORE3 Ilme Multisite
 Theme URI: https://github.com/JCO-Digital/jcore-ilme
 Author: JCO
 Author URI: https://jco.fi/
-Description: JCO Digital base theme. A blank block theme; the shared behaviour lives in the jcore/ydin package.
+Description: JCO Digital base theme for multisite networks: one theme, per-site colours, heading font, logo and favicon from sites/<key>.json. The shared behaviour lives in the jcore/ydin package.
 Version: 4.0.0
 Requires at least: 6.7
 Tested up to: 7.0

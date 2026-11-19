@@ -1,46 +1,62 @@
-/* Buttons, all non-hover styling comes from theme.json (in theme.json they get overridden by Gberg own btn clases..*/
+/*
+ * Buttons. Base look from theme.json (core/button and its outline variation);
+ * hover states here. Figma: pill, 16/22 heading font, 18px 30px padding.
+ * - Default: the design's primary button (accent background).
+ * - Outline: the design's light secondary button (surface background).
+ * Hover colours per site: theme.json custom.button.hover, overridden in
+ * sites/<key>.json (sites/beta.json has an example).
+ */
 .wp-block-buttons {
 	.wp-block-button {
-		&:hover {
-			.wp-block-button__link {
-				color: var(--wp--preset--color--black);
-				background: var(--wp--preset--color--orange);
-				border-color: var(--wp--preset--color--orange);
-			}
+		.wp-block-button__link {
+			transition:
+				background-color 0.2s ease,
+				border-color 0.2s ease,
+				color 0.2s ease;
 		}
-		&.is-style-outline:hover {
-			.wp-element-button {
-				color: var(--wp--preset--color--black);
-				background: var(--wp--preset--color--light);
-				border-color: var(--wp--preset--color--light);
-			}
+		&:not(.is-style-outline):hover .wp-block-button__link {
+			color: var(--jcore-button-hover-text-color);
+			background: var(--jcore-button-hover-bg-color);
+			border-color: var(--jcore-button-hover-border-color);
+		}
+		&.is-style-outline:hover .wp-element-button {
+			color: var(--wp--custom--button--hover--secondary-text);
+			background: var(--wp--custom--button--hover--secondary);
+			border-color: var(--wp--custom--button--hover--secondary);
 		}
 	}
 }
 
 /**
-* Set buttons colors and font variables for use elsewhere in theme where not G-berg,for example btn-class for form submit or tease-link or pagination?
-*/
+ * Button variables for non-Gutenberg buttons (.btn, form submits, teases,
+ * pagination). Keep in step with theme.json's core/button.
+ */
 :root {
-	--jcore-button-bg-color: var(--wp--preset--color--brand);
-	--jcore-button-border-color: var(--wp--preset--color--brand);
-	--jcore-button-text-color: var(--wp--preset--color--black);
-	--jcore-button-active-bg-color: var(--wp--preset--color--brand);
-	--jcore-button-active-txt-color: var(--wp--preset--color--black);
-	--jcore-button-hover-bg-color: var(--wp--preset--color--orange);
-	--jcore-button-hover-text-color: var(--wp--preset--color--black);
-	--jcore-button-hover-border-color: var(--wp--preset--color--orange);
-	--jcore-button-font-size: var(--wp--preset--font-size--paragraph);
-	--jcore-button-padding: 1.25rem 2.5rem;
-	--jcore-button-radius: 50px;
+	--jcore-button-bg-color: var(--wp--preset--color--accent);
+	--jcore-button-border-color: var(--wp--preset--color--accent);
+	--jcore-button-text-color: var(--wp--preset--color--accent-contrast);
+	--jcore-button-active-bg-color: var(--wp--custom--button--hover--primary);
+	--jcore-button-active-txt-color: var(--wp--custom--button--hover--primary-text);
+	--jcore-button-hover-bg-color: var(--wp--custom--button--hover--primary);
+	--jcore-button-hover-text-color: var(--wp--custom--button--hover--primary-text);
+	--jcore-button-hover-border-color: var(--wp--custom--button--hover--primary);
+	--jcore-button-font-family: var(--wp--preset--font-family--heading);
+	--jcore-button-font-size: var(--wp--preset--font-size--button);
+	--jcore-button-font-weight: 400;
+	--jcore-button-line-height: 1.375;
+	--jcore-button-padding: 17px 29px;
+	--jcore-button-radius: var(--wp--custom--radius--button, 32px);
 }
 
 .btn {
 	background-color: var(--jcore-button-bg-color);
 	color: var(--jcore-button-text-color);
-	border-color: var(--jcore-button-border-color);
 	padding: var(--jcore-button-padding);
+	font-family: var(--jcore-button-font-family);
 	font-size: var(--jcore-button-font-size);
+	font-weight: var(--jcore-button-font-weight);
+	line-height: var(--jcore-button-line-height);
+	border: 1px solid var(--jcore-button-border-color);
 	border-radius: var(--jcore-button-radius);
 
 	&:hover {

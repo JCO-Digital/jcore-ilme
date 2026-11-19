@@ -1,0 +1,30 @@
+/*
+ * Style guide page (patterns/style-guide.php): the section labels and the
+ * colour swatches, each a paragraph with the colour as its background and its
+ * name and slug. The colours are the current site's (sites/<key>.json).
+ */
+.style-guide-label {
+	margin-top: var(--wp--custom--spacing-sizes--large, 2rem);
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: var(--wp--preset--font-size--mini, 14px);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--dark-lighter);
+}
+
+.style-guide-colours {
+	display: grid;
+	padding: 0;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	gap: 16px;
+
+	> p {
+		margin: 0 !important;
+		padding: 64px 12px 12px;
+		border: 1px solid color-mix(in srgb, var(--wp--preset--color--dark) 10%, transparent);
+		border-radius: var(--wp--custom--radius--s, 16px);
+		font-size: var(--wp--preset--font-size--mini, 14px);
+		line-height: 20px;
+	}
+}

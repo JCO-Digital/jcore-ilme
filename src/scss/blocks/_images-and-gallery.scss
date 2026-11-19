@@ -1,3 +1,5 @@
+@use "media";
+
 /* Media and images */
 .wp-block-image {
 	&.alignleft {
@@ -16,6 +18,28 @@
 	}
 	img.no-radius {
 		border-radius: 0;
+	}
+
+	/* Rounded corners style (includes/gutenberg.php): Figma's photos, "Rounded corner S". */
+	&.is-style-rounded-corners img {
+		border-radius: var(--wp--custom--radius--s, 16px);
+	}
+
+	/*
+	 * Wide band style (includes/gutenberg.php): 872 × 366 (the content
+	 * width), radius S. Any photo is cropped to the band around its
+	 * centre. On phones the band would be under 150px high, so it's 16:9
+	 * there.
+	 */
+	&.is-style-band img {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		border-radius: var(--wp--custom--radius--s, 16px);
+
+		@include media.breakpoint(md) {
+			aspect-ratio: 872 / 366;
+		}
 	}
 }
 .wp-block-cover:not(.no-radius) {

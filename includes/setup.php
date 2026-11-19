@@ -24,11 +24,40 @@ add_filter(
 		$menus['top']           = __( 'Top Menu', 'jcore' );
 		$menus['footer_left']   = __( 'Footer Left', 'jcore' );
 		$menus['footer_middle'] = __( 'Footer Middle', 'jcore' );
+		$menus['footer_center'] = __( 'Footer Center', 'jcore' );
 		$menus['footer_right']  = __( 'Footer Right', 'jcore' );
 		$menus['footer_bottom'] = __( 'Footer Bottom', 'jcore' );
 
 		return $menus;
 	}
+);
+
+/**
+ * Allow the Social Icons block, which Ydin removes from the editor, for the
+ * sites' social links (e.g. in the footer).
+ */
+add_filter(
+	'jcore_restricted_blocks',
+	function ( $blocks ) {
+		return array_values( array_diff( $blocks, array( 'core/social-links', 'core/social-link' ) ) );
+	}
+);
+
+/**
+ * One <title> with Yoast. Yoast removes WordPress's title tag early, but for a
+ * block template WordPress adds it back when it loads the template (in
+ * locate_block_template()), so pages got two. Remove it again after that.
+ */
+add_filter(
+	'template_include',
+	function ( $template ) {
+		if ( defined( 'WPSEO_VERSION' ) ) {
+			remove_action( 'wp_head', '_block_template_render_title_tag', 1 );
+		}
+
+		return $template;
+	},
+	20
 );
 
 /**

@@ -1,0 +1,14 @@
+/*
+ * Lohko accordions: the block and its look come from hhpartners' Lohko
+ * (its Compact rows with a line between them and a thin chevron, the FAQ
+ * schema option). Its styles use hhpartners' palette slugs, which
+ * this theme doesn't have; here they're mapped onto this palette, so each
+ * site gets its own: the sand lines and editor labels (additional-1) in
+ * Surface, the editor outlines (additional-2) in Dark lighter, and the
+ * navy focus ring and editor labels (secondary) in Brand.
+ */
+.wp-block-lohko-accordions {
+	--wp--preset--color--additional-1: var(--wp--preset--color--surface);
+	--wp--preset--color--additional-2: var(--wp--preset--color--dark-lighter);
+	--wp--preset--color--secondary: var(--wp--preset--color--brand);
+}

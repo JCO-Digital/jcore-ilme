@@ -1,0 +1,45 @@
+/*
+ * Editor only (editor.scss): Ruudukko grids and their columns get the same
+ * corner labels as Lohko's accordion (Lohko's editor.scss),
+ * in Brand. Ruudukko already outlines each column with a dashed line and
+ * gives the grid a faint background; the labels sit in padding above the
+ * content so they never cover it.
+ */
+@mixin label($text) {
+	&::before {
+		content: $text;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		display: block;
+		padding: 2px 8px;
+		border-radius: 4px 0 4px 0;
+		background-color: color-mix(in srgb, var(--wp--preset--color--brand) 10%, transparent);
+		color: var(--wp--preset--color--brand);
+		font-family: var(--wp--preset--font-family--inter, sans-serif);
+		font-size: 12px;
+		font-weight: 600;
+		line-height: 18px;
+		letter-spacing: 0;
+		text-transform: none;
+	}
+}
+
+.editor-styles-wrapper {
+	.wp-block-jcore-grid {
+		position: relative;
+		padding-top: 2.25rem;
+		border: 1px dashed color-mix(in srgb, var(--wp--preset--color--brand) 35%, transparent);
+		border-radius: 4px;
+
+		@include label("Grid");
+	}
+
+	.wp-block-jcore-column {
+		position: relative;
+		padding-top: 2.25rem;
+
+		@include label("Column");
+	}
+}

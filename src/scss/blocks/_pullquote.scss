@@ -1,4 +1,7 @@
-/* Gutenberg pullquote and blockquote -nothing set int theme.json*/
+/*
+ * Gutenberg pullquote and blockquote, nothing set in theme.json. Loaded in
+ * the editor too (editor.scss), so it only uses variables the editor has.
+ */
 blockquote.wp-block-quote {
 	margin-bottom: 2rem;
 }
@@ -11,29 +14,38 @@ blockquote.wp-block-quote {
 		border: none;
 		margin-left: 5rem;
 		p {
-			font-family: var(--jcore-heading-font-family);
+			font-family: var(--wp--preset--font-family--heading);
 			font-size: var(--wp--preset--font-size--heading-3);
 			font-style: normal;
 			text-align: left;
 			font-weight: 300;
 			margin-bottom: 2rem;
 			line-height: 1.3;
-			&:first-of-type:before {
-				color: var(--wp--preset--color--brand);
-				content: url("../../assets/images/quote-icon.svg");
+			// Quotation mark in the site's heading font, in the brand colour.
+			// Its ink top is lined up with the text's capitals; the offset
+			// depends on the font, so each site sets its own: theme.json
+			// custom.pullquote.markOffset, overridden in sites/<key>.json
+			// (measured: Rethink Sans -0.05em, Figtree -0.077em at this size).
+			&:first-of-type::before {
+				content: "\201D";
 				position: absolute;
+				top: var(--wp--custom--pullquote--mark-offset, -0.05em);
 				left: -4.5rem;
-				top: 0.25rem;
+				font-family: var(--wp--preset--font-family--heading);
+				font-size: 6rem;
+				font-weight: 600;
+				line-height: 1;
+				color: var(--wp--preset--color--brand);
 			}
 			&:last-of-type:after {
 				content: "";
 			}
 		}
 		cite {
-			font-family: var(--jcore-heading-font-family);
+			font-family: var(--wp--preset--font-family--heading);
 			font-style: normal !important;
 			font-size: var(--wp--preset--font-size--mini);
-			color: var(--wp--preset--color--green);
+			color: var(--wp--preset--color--dark-lighter);
 			text-align: left;
 		}
 		> * {

@@ -1,10 +1,30 @@
-/*WP Block Table, style-variation: stripes */
+/*
+ * Table block. Header cells are left-aligned like the body cells (browsers
+ * centre them). Stripes style: the header row and every other body row in
+ * the site's Surface colour, starting with a white row under the header.
+ */
+.wp-block-table th {
+	text-align: left;
+}
+
+/* Cells the editor aligns themselves keep their alignment. */
+.wp-block-table th.has-text-align-center {
+	text-align: center;
+}
+
+.wp-block-table th.has-text-align-right {
+	text-align: right;
+}
+
 .wp-block-table.is-style-stripes tbody tr:nth-child(2n + 1) {
 	background-color: var(--wp--preset--color--white);
 }
-.wp-block-table.is-style-stripes tbody tr {
-	background-color: var(--wp--preset--color--light);
+
+.wp-block-table.is-style-stripes th,
+.wp-block-table.is-style-stripes tbody tr:nth-child(2n) {
+	background-color: var(--wp--preset--color--surface);
 }
+
 .wp-block-table thead {
 	border-bottom: none;
 }

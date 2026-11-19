@@ -1,0 +1,51 @@
+{
+	"palette": {
+		"brand": "#1d3f30",
+		"brand-dark": "#152e23",
+		"accent": "#6aa66b",
+		"accent-contrast": "#061a0b",
+		"surface": "#f9faf5",
+		"light": "#faf7ed",
+		"dark": "#061a0b"
+	},
+	"gradients": {
+		"cta": "linear-gradient(124deg, var(--wp--preset--color--brand) 17.8%, var(--wp--preset--color--brand-dark) 37.25%, var(--wp--preset--color--brand-dark) 68.1%, var(--wp--preset--color--dark) 87.56%)"
+	},
+	"custom": {
+		"pullquote": {
+			"markOffset": "-0.077em"
+		},
+		"button": {
+			"hover": {
+				"primary": "#466e47",
+				"primaryText": "var(--wp--preset--color--light)",
+				"secondary": "var(--wp--preset--color--brand)",
+				"secondaryText": "var(--wp--preset--color--light)"
+			}
+		}
+	},
+	"fontFamilies": {
+		"heading": {
+			"name": "Heading",
+			"fontFamily": "\"Figtree\", sans-serif",
+			"fontFace": [
+				{
+					"fontFamily": "Figtree",
+					"fontStretch": "normal",
+					"fontStyle": "normal",
+					"fontWeight": "300 900",
+					"src": ["file:./assets/fonts/Figtree-VariableFont_wght.ttf"]
+				},
+				{
+					"fontFamily": "Figtree",
+					"fontStretch": "normal",
+					"fontStyle": "italic",
+					"fontWeight": "300 900",
+					"src": ["file:./assets/fonts/Figtree-Italic-VariableFont_wght.ttf"]
+				}
+			]
+		}
+	},
+	"logo": "assets/images/logo-beta.svg",
+	"footerLogo": "assets/images/logo-beta.svg"
+}

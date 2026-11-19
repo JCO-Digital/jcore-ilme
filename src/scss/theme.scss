@@ -4,7 +4,6 @@
 @use "partials/gutenberg";
 @use "partials/navigation";
 @use "partials/footer";
-@use "partials/archive";
 @use "partials/single";
 @use "partials/tease";
 @use "partials/masonry";
@@ -12,10 +11,13 @@
 @use "partials/accordion";
 @use "partials/forms";
 @use "partials/searchpage";
+@use "partials/style-guide";
+@use "partials/heroes";
 
 @use "blocks/buttons";
 @use "blocks/search";
 @use "blocks/details";
+@use "blocks/lohko-accordion";
 @use "blocks/embeds";
 @use "blocks/file";
 @use "blocks/images-and-gallery";
@@ -26,3 +28,5 @@
 @use "blocks/yoast-breadcrumbs";
 @use "blocks/lists";
 @use "blocks/spacers";
+@use "blocks/grid";
+@use "blocks/group";
