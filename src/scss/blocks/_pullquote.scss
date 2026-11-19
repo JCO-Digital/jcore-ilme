@@ -1,4 +1,8 @@
-/* Gutenberg pullquote and blockquote -nothing set int theme.json*/
+/*
+ * Gutenberg pullquote and blockquote, nothing set in theme.json. Loaded in
+ * the editor too (editor.scss, with partials/typography for the font
+ * variables).
+ */
 blockquote.wp-block-quote {
 	margin-bottom: 2rem;
 }
@@ -15,15 +19,24 @@ blockquote.wp-block-quote {
 			font-size: var(--wp--preset--font-size--heading-3);
 			font-style: normal;
 			text-align: left;
-			font-weight: 300;
+			font-weight: 400;
 			margin-bottom: 2rem;
 			line-height: 1.3;
-			&:first-of-type:before {
-				color: var(--wp--preset--color--brand);
-				content: url("../../assets/images/quote-icon.svg");
+			// Quotation mark in the heading font, in the brand colour. Its ink
+			// top is lined up with the text's capitals; the offset depends on
+			// the font: theme.json custom.pullquote.markOffset (Playfair Display -0.081em, Montserrat 0em,
+			// Rethink Sans -0.05em, Figtree -0.077em; a multisite sets it per
+			// site in sites/<key>.json).
+			&:first-of-type::before {
+				content: "\201D";
 				position: absolute;
+				top: var(--wp--custom--pullquote--mark-offset, -0.05em);
 				left: -4.5rem;
-				top: 0.25rem;
+				font-family: var(--jcore-heading-font-family);
+				font-size: 6rem;
+				font-weight: 600;
+				line-height: 1;
+				color: var(--wp--preset--color--brand);
 			}
 			&:last-of-type:after {
 				content: "";
