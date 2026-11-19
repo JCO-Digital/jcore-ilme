@@ -1,10 +1,10 @@
 @use "sass:map";
 @use "media";
 
+// The navigation's width comes from the header part: the nav header is a
+// constrained layout and the navigation is aligned wide (parts/header.html).
 .wp-block-lohko-navigation,
 #jcore-nav {
-	margin: 0 calc((100vw - var(--wp--style--global--content-size)) / 2);
-
 	/* Submenu theme styling */
 	.menu-level-1,
 	.menu-1 {
