@@ -140,23 +140,21 @@
 				{
 					"fontFace": [
 						{
-							"fontFamily": "Montserrat",
-							"fontStretch": "normal",
+							"fontFamily": "Playfair Display",
 							"fontStyle": "normal",
-							"fontWeight": "300 400 700",
-							"src": ["file:./assets/fonts/Montserrat-VariableFont_wght.ttf"]
+							"fontWeight": "400 900",
+							"src": ["file:./assets/fonts/PlayfairDisplay-VariableFont_wght.ttf"]
 						},
 						{
-							"fontFamily": "Montserrat",
-							"fontStretch": "normal",
+							"fontFamily": "Playfair Display",
 							"fontStyle": "italic",
-							"fontWeight": "300 400 700",
-							"src": ["file:./assets/fonts/Montserrat-Italic-VariableFont_wght.ttf"]
+							"fontWeight": "400 900",
+							"src": ["file:./assets/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf"]
 						}
 					],
-					"fontFamily": "\"Montserrat\", sans-serif",
-					"name": "Montserrat",
-					"slug": "montserrat"
+					"fontFamily": "\"Playfair Display\", serif",
+					"name": "Playfair Display",
+					"slug": "playfair-display"
 				},
 				{
 					"fontFace": [
@@ -166,6 +164,13 @@
 							"fontStyle": "normal",
 							"fontWeight": "300 900",
 							"src": ["file:./assets/fonts/Inter.woff2"]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "300 900",
+							"src": ["file:./assets/fonts/Inter-Italic.woff2"]
 						}
 					],
 					"fontFamily": "\"Inter\", sans-serif",
@@ -273,7 +278,7 @@
 			}
 		},
 		"typography": {
-			"fontFamily": "var:preset|font-family|montserrat",
+			"fontFamily": "var:preset|font-family|inter",
 			"fontSize": "var:preset|font-size|paragraph",
 			"lineHeight": "var:custom|line-height|md"
 		},
@@ -284,14 +289,14 @@
 		"elements": {
 			"heading": {
 				"typography": {
-					"fontFamily": "var:preset|font-family|montserrat"
+					"fontFamily": "var:preset|font-family|playfair-display"
 				}
 			},
 			"h1": {
 				"typography": {
 					"lineHeight": "var:custom|line-height|xs",
 					"fontSize": "var:preset|font-size|heading-1",
-					"fontWeight": "300"
+					"fontWeight": "400"
 				},
 				"spacing": {
 					"margin": {
@@ -304,7 +309,7 @@
 				"typography": {
 					"lineHeight": "var:custom|line-height|xs",
 					"fontSize": "var:preset|font-size|heading-2",
-					"fontWeight": "300"
+					"fontWeight": "400"
 				},
 				"spacing": {
 					"margin": {
@@ -317,7 +322,7 @@
 				"typography": {
 					"lineHeight": "var:custom|line-height|sm",
 					"fontSize": "var:preset|font-size|heading-3",
-					"fontWeight": "300"
+					"fontWeight": "400"
 				},
 				"spacing": {
 					"margin": {
@@ -330,7 +335,7 @@
 				"typography": {
 					"lineHeight": "var:custom|line-height|sm",
 					"fontSize": "var:preset|font-size|heading-4",
-					"fontWeight": "300"
+					"fontWeight": "400"
 				},
 				"spacing": {
 					"margin": {
@@ -470,7 +475,7 @@
 				},
 				"typography": {
 					"fontSize": "var:preset|font-size|paragraph",
-					"fontFamily": "var:preset|font-family|montserrat",
+					"fontFamily": "var:preset|font-family|inter",
 					"fontWeight": "400"
 				},
 				"spacing": {
@@ -502,7 +507,7 @@
 						},
 						"typography": {
 							"fontSize": "var:preset|font-size|paragraph",
-							"fontFamily": "var:preset|font-family|montserrat",
+							"fontFamily": "var:preset|font-family|inter",
 							"textTransform": "none",
 							"fontWeight": "400"
 						},
