@@ -1,4 +1,46 @@
 @use "partials/navigation";
+@use "partials/typography";
+@use "partials/style-guide";
+// Every blocks/ file theme.scss uses (Ydin loads only this file in the
+// editor): keep the two lists in step.
+@use "blocks/paragraph";
+@use "blocks/buttons";
+@use "blocks/search";
+@use "blocks/embeds";
+@use "blocks/file";
+@use "blocks/images-and-gallery";
+@use "blocks/media-and-text";
+@use "blocks/pullquote";
+@use "blocks/rss-feed";
+@use "blocks/table";
+@use "blocks/yoast-breadcrumbs";
+@use "blocks/lists";
+@use "blocks/spacers";
+@use "blocks/separator";
+
+/*
+ * theme.json's heading and paragraph margins, restated for the editor.
+ * blockGap is null, so the front end has no block gap, but the editor still
+ * adds 24px above each block and none below, which beats theme.json's
+ * element margins.
+ */
+:is(.is-layout-constrained, .is-layout-flow) {
+	> p {
+		margin-block: 0 var(--wp--custom--spacing-sizes--medium);
+	}
+
+	> :is(h1, h2) {
+		margin-block: var(--wp--custom--spacing-sizes--medium);
+	}
+
+	> :is(h3, h4, h5, h6) {
+		margin-block: var(--wp--custom--spacing-sizes--medium) var(--wp--custom--spacing-sizes--small);
+	}
+
+	> .wp-block-separator {
+		margin-block: var(--wp--custom--spacing-sizes--large);
+	}
+}
 
 /* Add styles for editor here */
 .editor-styles-wrapper {
