@@ -491,12 +491,12 @@
 				"variations": {
 					"outline": {
 						"color": {
-							"background": "var:preset|color|white",
-							"text": "var:preset|color|black"
+							"background": "transparent",
+							"text": "inherit"
 						},
 						"border": {
 							"radius": "50px",
-							"color": "var:preset|color|white",
+							"color": "currentColor",
 							"style": "solid",
 							"width": "1px"
 						},

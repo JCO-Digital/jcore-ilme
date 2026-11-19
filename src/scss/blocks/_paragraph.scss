@@ -1,0 +1,8 @@
+/*
+ * Paragraph styles (includes/gutenberg.php). Ingress: the intro paragraph at
+ * the top of a page or article, in the ingress size.
+ */
+p.is-style-ingress {
+	font-size: var(--wp--preset--font-size--ingress);
+	line-height: var(--wp--custom--line-height--lg);
+}

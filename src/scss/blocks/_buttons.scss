@@ -8,12 +8,19 @@
 				border-color: var(--wp--preset--color--orange);
 			}
 		}
+		// Outline: transparent with a border in the text colour (theme.json);
+		// on hover a faint fill in the same colour, the border stays.
 		&.is-style-outline:hover {
 			.wp-element-button {
-				color: var(--wp--preset--color--black);
-				background: var(--wp--preset--color--light);
-				border-color: var(--wp--preset--color--light);
+				color: inherit;
+				background: color-mix(in srgb, currentcolor 8%, transparent);
+				border-color: currentcolor;
 			}
+		}
+
+		.wp-block-button__link:focus-visible {
+			outline: 2px solid var(--wp--preset--color--brand);
+			outline-offset: 3px;
 		}
 	}
 }

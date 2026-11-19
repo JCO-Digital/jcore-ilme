@@ -17,6 +17,15 @@ add_action( 'init', __NAMESPACE__ . '\\register_block_styles' );
  * @return void
  */
 function register_block_styles(): void {
+	// Paragraphs: the intro paragraph at the top of a page or article.
+	register_block_style(
+		'core/paragraph',
+		array(
+			'name'  => 'ingress',
+			'label' => __( 'Ingress', 'jcore' ),
+		)
+	);
+
 	// Rounded corners (core's own "Rounded" image style is a full circle).
 	// Radius: --jcore-image-radius in _images-and-gallery.scss.
 	foreach ( array( 'core/image', 'core/gallery', 'core/embed' ) as $block ) {
