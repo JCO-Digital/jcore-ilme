@@ -414,10 +414,6 @@
 			},
 			"core/group": {
 				"spacing": {
-					"margin": {
-						"top": "var:custom|spacing-sizes|medium",
-						"bottom": "var:custom|spacing-sizes|medium"
-					},
 					"padding": {
 						"top": "var:custom|spacing-sizes|medium",
 						"bottom": "var:custom|spacing-sizes|medium",
