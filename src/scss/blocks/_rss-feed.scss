@@ -13,10 +13,15 @@ ul.wp-block-rss {
 	font-size: var(--wp--preset--font-size--heading-4);
 	margin-bottom: 0.75rem;
 	text-decoration: none;
+	// RSS icon after the title (assets/images/rss.svg as a mask).
 	&::after {
-		content: "\ \ \f09e";
-		font-family: "Font Awesome 6 Sharp";
-		font-weight: 400;
+		content: "";
+		display: inline-block;
+		width: 0.6em;
+		height: 0.6em;
+		margin-left: 0.5em;
+		background-color: currentcolor;
+		mask: url("../../assets/images/rss.svg") center / contain no-repeat;
 	}
 	&:hover {
 		text-decoration: underline;

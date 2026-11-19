@@ -43,14 +43,18 @@ ul.wp-block-list.arrow-list {
 		position: relative;
 		list-style-type: none;
 		padding-left: 2rem !important;
-		&:before {
-			content: "\f178";
-			font-family: "Font Awesome 6 Sharp";
-			font-weight: 300;
+		// The arrow: assets/images/arrow-long.svg as a mask, so its colour
+		// comes from background-color.
+		&::before {
+			content: "";
 			position: absolute;
+			top: 0.3em;
 			left: 0;
-			font-size: 16px;
-			color: var(--wp--preset--color--orange);
+			width: 1.25rem;
+			height: 0.85rem;
+			background-color: var(--wp--preset--color--orange);
+			mask: url("../../assets/images/arrow-long.svg") center / contain no-repeat;
+			transition: transform 0.2s;
 		}
 		&:hover {
 			text-decoration: none;

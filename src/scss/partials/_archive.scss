@@ -102,11 +102,13 @@
 	.wp-block-jcore-dynamic-archive__pagination__link-first {
 		background: var(--wp--preset--color--brand);
 		.wp-block-jcore-dynamic-archive__pagination__link__icon::after {
-			content: "\f323";
-			font-family: "Font Awesome 6 Sharp";
-			font-weight: 400;
+			content: "";
 			display: inline-block;
-			font-size: 12px;
+			width: 12px;
+			height: 12px;
+			background-color: currentcolor;
+			mask: url("../../assets/images/chevrons.svg") center / contain no-repeat;
+			transform: rotate(180deg);
 		}
 		.wp-block-jcore-dynamic-archive__pagination__link__text {
 			display: none;
@@ -117,11 +119,13 @@
 	.wp-block-jcore-dynamic-archive__pagination__link-previous {
 		background: var(--wp--preset--color--brand);
 		.wp-block-jcore-dynamic-archive__pagination__link__icon::after {
-			content: "\f053";
-			font-family: "Font Awesome 6 Sharp";
-			font-weight: 400;
+			content: "";
 			display: inline-block;
-			font-size: 12px;
+			width: 12px;
+			height: 12px;
+			background-color: currentcolor;
+			mask: url("../../assets/images/chevron.svg") center / contain no-repeat;
+			transform: rotate(180deg);
 		}
 		.wp-block-jcore-dynamic-archive__pagination__link__text {
 			display: none;
@@ -131,11 +135,12 @@
 	.wp-block-jcore-dynamic-archive__pagination__link-next {
 		background: var(--wp--preset--color--brand);
 		.wp-block-jcore-dynamic-archive__pagination__link__icon::after {
-			content: "\f054";
-			font-family: "Font Awesome 6 Sharp";
-			font-weight: 400;
+			content: "";
 			display: inline-block;
-			font-size: 12px;
+			width: 12px;
+			height: 12px;
+			background-color: currentcolor;
+			mask: url("../../assets/images/chevron.svg") center / contain no-repeat;
 		}
 		.wp-block-jcore-dynamic-archive__pagination__link__text {
 			display: none;
@@ -145,11 +150,12 @@
 	.wp-block-jcore-dynamic-archive__pagination__link-last {
 		background: var(--wp--preset--color--brand);
 		.wp-block-jcore-dynamic-archive__pagination__link__icon::after {
-			content: "\f324";
-			font-family: "Font Awesome 6 Sharp";
-			font-weight: 400;
+			content: "";
 			display: inline-block;
-			font-size: 12px;
+			width: 12px;
+			height: 12px;
+			background-color: currentcolor;
+			mask: url("../../assets/images/chevrons.svg") center / contain no-repeat;
 		}
 		.wp-block-jcore-dynamic-archive__pagination__link__text {
 			display: none;
