@@ -1,10 +1,64 @@
-/*WP Block Table, style-variation: stripes */
-.wp-block-table.is-style-stripes tbody tr:nth-child(2n + 1) {
-	background-color: var(--wp--preset--color--white);
-}
-.wp-block-table.is-style-stripes tbody tr {
-	background-color: var(--wp--preset--color--light);
-}
-.wp-block-table thead {
-	border-bottom: none;
+/*
+ * Table: a faint line between the rows, the header row on the light colour
+ * in small capitals. Stripes: white and light rows, starting with white
+ * under the header.
+ */
+.wp-block-table {
+	margin: 0 0 2rem;
+
+	table {
+		border-collapse: collapse;
+	}
+
+	thead,
+	tfoot {
+		border: 0;
+	}
+
+	th,
+	td {
+		padding: 0.75rem 1rem;
+		border: 0;
+		border-bottom: 1px solid color-mix(in srgb, currentcolor 20%, transparent);
+		text-align: left;
+		vertical-align: top;
+	}
+
+	thead th {
+		background-color: var(--wp--preset--color--light);
+		color: var(--wp--preset--color--dark);
+		font-size: var(--wp--preset--font-size--mini);
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+
+	tfoot td {
+		font-weight: 600;
+	}
+
+	figcaption {
+		margin-top: 0.75rem;
+		color: var(--wp--preset--color--grey);
+		font-size: var(--wp--preset--font-size--mini);
+	}
+
+	&.is-style-stripes {
+		border-bottom: 0;
+
+		// White rows; :nth-child(odd) as well, over core's grey odd rows.
+		tbody tr,
+		tbody tr:nth-child(odd) {
+			background-color: var(--wp--preset--color--white);
+		}
+
+		// Light from the second row, so the first row differs from the header.
+		tbody tr:nth-child(even) {
+			background-color: var(--wp--preset--color--light);
+		}
+
+		td {
+			border-bottom: 0;
+		}
+	}
 }

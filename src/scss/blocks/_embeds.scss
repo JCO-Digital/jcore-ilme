@@ -1,11 +1,32 @@
-/* Wrapper to show videos embedded with Gutenberg responsively Works out of the box for YouTube videos. Add videowrapper class to work with any embedded iframe */
-.wp-block-embed-youtube,
+/*
+ * Embeds: videos (YouTube, Vimeo…) in a responsive 16/9 frame. Add the
+ * videowrapper class to any other iframe that should behave the same.
+ */
+.wp-block-embed.is-type-video,
 .videowrapper {
 	.wp-block-embed__wrapper {
-		aspect-ratio: 16/9;
+		overflow: hidden;
+		aspect-ratio: 16 / 9;
+
+		&::before {
+			display: none;
+		}
+
 		iframe {
+			position: static;
 			width: 100%;
 			height: 100%;
 		}
 	}
+
+	// With the image's "Rounded corners" radius.
+	&.is-style-rounded-corners .wp-block-embed__wrapper {
+		border-radius: var(--jcore-image-radius);
+	}
+}
+
+.wp-block-embed figcaption {
+	margin-top: 0.75rem;
+	color: var(--wp--preset--color--grey);
+	font-size: var(--wp--preset--font-size--mini);
 }

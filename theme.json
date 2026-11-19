@@ -523,9 +523,6 @@
 						"shadow": "0px 0px 0px 0px var(--wp--preset--color--dark)"
 					}
 				}
-			},
-			"core/table": {
-				"css": "color: var(--wp--preset--color--brand) & th{ background: var(--wp--preset--color--light)"
 			}
 		}
 	},

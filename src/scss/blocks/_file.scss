@@ -1,33 +1,61 @@
-/*FILE block*/
+/*
+ * File: the file name as a text link, the download button as an outline
+ * button (the theme's button radius and size) with a download icon.
+ */
 .wp-block-file {
-	position: relative;
-}
-.wp-block-file a:hover {
-	-webkit-text-decoration: underline;
-	text-decoration: underline;
-}
-.wp-block-file a.wp-block-file__button {
-	border-radius: 0;
-	background-color: var(--wp--preset--color--brand);
-	font-size: var(--wp--preset--font-size--mini);
-	text-transform: uppercase;
-	position: relative;
-	padding: 0.45rem 2rem 0.45rem 2.5rem;
-	color: var(--wp--preset--color--white);
-	margin-left: 0;
-	width: -moz-max-content;
-	width: max-content;
-}
-.wp-block-file a.wp-block-file__button:hover {
-	opacity: 1;
-}
-.wp-block-file a.wp-block-file__button:before {
-	content: "\f019";
-	font-family: "Font Awesome 6 Sharp";
-	font-weight: 600;
-	position: absolute;
-	left: 8px;
-	font-size: 16px;
-	color: var(--wp--preset--color--white);
-	top: 5px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem 1.5rem;
+	align-items: center;
+	margin: 0 0 2rem;
+
+	> a:not(.wp-block-file__button) {
+		color: inherit;
+		text-decoration: underline;
+		text-underline-offset: 4px;
+
+		&:hover {
+			color: var(--wp--preset--color--brand);
+		}
+	}
+
+	.wp-block-file__button {
+		display: inline-flex;
+		gap: 0.75rem;
+		align-items: center;
+		margin: 0;
+		padding: 0.75rem 1.5rem;
+		border: 1px solid currentcolor;
+		border-radius: var(--jcore-button-radius);
+		background-color: transparent;
+		color: inherit;
+		font-size: var(--jcore-button-font-size);
+		line-height: 1.4;
+		text-decoration: none;
+		transition: background-color 0.2s;
+
+		&::before {
+			content: "";
+			flex: none;
+			width: 1em;
+			height: 1em;
+			background-color: currentcolor;
+			mask: url("../../assets/images/download.svg") center / contain no-repeat;
+			transition: transform 0.2s;
+		}
+
+		&:hover {
+			background-color: color-mix(in srgb, currentcolor 8%, transparent);
+			opacity: 1;
+
+			&::before {
+				transform: translateY(2px);
+			}
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--wp--preset--color--brand);
+			outline-offset: 3px;
+		}
+	}
 }

@@ -21,3 +21,4 @@ if ( file_exists( AUTOLOADER_PATH ) ) {
 
 require_once __DIR__ . '/includes/setup.php';
 require_once __DIR__ . '/includes/assets.php';
+require_once __DIR__ . '/includes/gutenberg.php';

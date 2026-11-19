@@ -1,4 +1,10 @@
 /* Media and images */
+:root {
+	// "Rounded corners" (includes/gutenberg.php), also on gallery images and
+	// video embeds with that style.
+	--jcore-image-radius: 1rem;
+}
+
 .wp-block-image {
 	&.alignleft {
 		float: left;
@@ -16,6 +22,22 @@
 	}
 	img.no-radius {
 		border-radius: 0;
+	}
+
+	// Core's own "Rounded" style: a circle (over the reset above).
+	&.is-style-rounded img {
+		border-radius: 9999px;
+	}
+
+	// Rounded corners (includes/gutenberg.php).
+	&.is-style-rounded-corners img {
+		border-radius: var(--jcore-image-radius);
+	}
+
+	figcaption {
+		margin-top: 0.75rem;
+		color: var(--wp--preset--color--grey);
+		font-size: var(--wp--preset--font-size--mini);
 	}
 }
 .wp-block-cover:not(.no-radius) {
@@ -62,12 +84,39 @@ figure {
 	filter: brightness(85%);
 }
 
-/* Gallery */
-.blocks-gallery-grid,
-.wp-block-gallery {
-	figure.wp-block-image figcaption {
-		padding: 1em 0.7em 0.77em;
-		font-weight: 300;
-		font-size: 16px !important;
+/*
+ * Gallery: the captions below the images instead of over them, in the same
+ * small grey text as image captions. The gallery's "Rounded corners" style
+ * rounds every image in it.
+ */
+.wp-block-gallery.has-nested-images {
+	figure.wp-block-image {
+		flex-direction: column;
+
+		figcaption {
+			position: static;
+			max-height: none;
+			margin: 0.75rem 0 0;
+			padding: 0;
+			background: none;
+			color: var(--wp--preset--color--grey);
+			font-size: var(--wp--preset--font-size--mini) !important;
+			text-align: left;
+			text-shadow: none;
+		}
+
+		&:has(figcaption)::before {
+			display: none;
+		}
+	}
+
+	&.is-style-rounded-corners figure.wp-block-image img {
+		border-radius: var(--jcore-image-radius);
+	}
+
+	> figcaption {
+		margin-top: 0.75rem;
+		color: var(--wp--preset--color--grey);
+		font-size: var(--wp--preset--font-size--mini);
 	}
 }

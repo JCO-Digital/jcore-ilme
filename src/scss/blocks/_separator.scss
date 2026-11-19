@@ -1,0 +1,22 @@
+/* Separator: a thin line in the text colour, faded. */
+.wp-block-separator {
+	margin-block: var(--wp--custom--spacing-sizes--large);
+	border: 0;
+	border-top: 1px solid color-mix(in srgb, currentcolor 25%, transparent);
+	opacity: 1;
+
+	&:not(.is-style-dots) {
+		height: 0;
+	}
+
+	// Default: a short line; "Wide" spans the content width.
+	&:not(.is-style-wide, .is-style-dots) {
+		width: 6rem;
+	}
+
+	// A colour chosen for the separator is used as it is.
+	&.has-text-color,
+	&.has-background {
+		border-top-color: currentcolor;
+	}
+}
